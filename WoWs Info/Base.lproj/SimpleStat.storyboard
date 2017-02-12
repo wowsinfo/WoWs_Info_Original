@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5Ks-tw-4cp">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Player account ID-->
+        <scene sceneID="sck-k0-50y">
+            <objects>
+                <viewController storyboardIdentifier="PlayerInfoController" id="byq-T9-CXr" customClass="PlayerInfoController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xj9-0E-CLF"/>
+                        <viewControllerLayoutGuide type="bottom" id="O9w-LU-vGk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UJA-zk-Ykt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="liK-r2-szT">
+                                <rect key="frame" x="16" y="72" width="343" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="uUD-jA-qFa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQS-NO-dE8">
+                                <rect key="frame" x="16" y="119" width="343" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="17" id="en0-xK-Sap"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TSs-1m-QQ7" userLabel="ads" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="fJM-zf-QJI"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qb4-CN-sTT">
+                                <rect key="frame" x="65.5" y="168" width="244" height="333.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Battles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="FPE-Iw-KgT">
+                                        <rect key="frame" x="56.5" y="0.0" width="131.5" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="ddB-lB-cxW">
+                                        <rect key="frame" x="107.5" y="29" width="29.5" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Win Rate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="hdD-oc-kfb">
+                                        <rect key="frame" x="74" y="55.5" width="96" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Ulr-BM-O3a">
+                                        <rect key="frame" x="107.5" y="84.5" width="29.5" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                        <color key="textColor" red="0.0" green="0.47934520244598389" blue="0.99908632040023804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average EXP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="kng-UH-9eL">
+                                        <rect key="frame" x="53.5" y="111" width="137" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="26K-8n-anr">
+                                        <rect key="frame" x="107.5" y="140" width="29.5" height="27"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average Damage" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Gfv-1h-1hg">
+                                        <rect key="frame" x="30.5" y="167" width="183" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="HbP-8P-cqN">
+                                        <rect key="frame" x="107.5" y="196" width="29.5" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                        <color key="textColor" red="0.0" green="0.47934520244598389" blue="0.99908632040023804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kill / Death Ratio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="aS1-Ah-low">
+                                        <rect key="frame" x="34.5" y="222.5" width="175.5" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="oUr-cH-qla">
+                                        <rect key="frame" x="107.5" y="251.5" width="29.5" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main battery hit ratio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="yej-4A-Set">
+                                        <rect key="frame" x="12" y="278" width="220" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Vht-Jr-vqu">
+                                        <rect key="frame" x="107.5" y="307" width="29.5" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qb4-CN-sTT" firstAttribute="top" secondItem="IQS-NO-dE8" secondAttribute="bottom" constant="32" id="9mv-h0-dQq"/>
+                            <constraint firstItem="liK-r2-szT" firstAttribute="leading" secondItem="UJA-zk-Ykt" secondAttribute="leadingMargin" id="Bq6-X0-BKw"/>
+                            <constraint firstItem="IQS-NO-dE8" firstAttribute="leading" secondItem="UJA-zk-Ykt" secondAttribute="leadingMargin" id="C2o-Lv-E7N"/>
+                            <constraint firstItem="qb4-CN-sTT" firstAttribute="height" secondItem="UJA-zk-Ykt" secondAttribute="height" multiplier="0.5" id="N1i-0R-fWU"/>
+                            <constraint firstItem="qb4-CN-sTT" firstAttribute="width" secondItem="UJA-zk-Ykt" secondAttribute="width" multiplier="0.65" id="RPT-XM-ISI"/>
+                            <constraint firstItem="liK-r2-szT" firstAttribute="trailing" secondItem="UJA-zk-Ykt" secondAttribute="trailingMargin" id="eeT-KV-e4b"/>
+                            <constraint firstItem="IQS-NO-dE8" firstAttribute="top" secondItem="liK-r2-szT" secondAttribute="bottom" constant="8" id="gzf-5m-YAJ"/>
+                            <constraint firstItem="IQS-NO-dE8" firstAttribute="trailing" secondItem="UJA-zk-Ykt" secondAttribute="trailingMargin" id="haQ-by-Akb"/>
+                            <constraint firstItem="qb4-CN-sTT" firstAttribute="centerX" secondItem="UJA-zk-Ykt" secondAttribute="centerX" id="hg8-Ih-BB7"/>
+                            <constraint firstItem="TSs-1m-QQ7" firstAttribute="leading" secondItem="UJA-zk-Ykt" secondAttribute="leading" id="kz3-5c-6U7"/>
+                            <constraint firstItem="liK-r2-szT" firstAttribute="top" secondItem="xj9-0E-CLF" secondAttribute="bottom" constant="8" id="t8R-sV-WOn"/>
+                            <constraint firstAttribute="trailing" secondItem="TSs-1m-QQ7" secondAttribute="trailing" id="usB-5X-8GS"/>
+                            <constraint firstItem="O9w-LU-vGk" firstAttribute="top" secondItem="TSs-1m-QQ7" secondAttribute="bottom" id="yB8-eJ-UjY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Player account ID" id="9Ba-lA-CFJ">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="Lng-qN-vf6"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="averageDamageLabel" destination="HbP-8P-cqN" id="DTi-mz-t2C"/>
+                        <outlet property="averageExpLabel" destination="26K-8n-anr" id="rMG-GH-EgG"/>
+                        <outlet property="bannerView" destination="TSs-1m-QQ7" id="7co-9d-fjk"/>
+                        <outlet property="centerDataConstraint" destination="9mv-h0-dQq" id="lKK-wY-oNp"/>
+                        <outlet property="dataStack" destination="qb4-CN-sTT" id="ElC-4k-LGT"/>
+                        <outlet property="killDeathRatioLabel" destination="oUr-cH-qla" id="tFj-ZV-2ZF"/>
+                        <outlet property="levelAndPlaytimeLabel" destination="IQS-NO-dE8" id="Gh8-qg-p7e"/>
+                        <outlet property="mainBatteryHitRatioLabel" destination="Vht-Jr-vqu" id="9Nr-k0-Kg6"/>
+                        <outlet property="playerNameLabel" destination="liK-r2-szT" id="3nt-BZ-FjI"/>
+                        <outlet property="totalBattlesLabel" destination="ddB-lB-cxW" id="mgx-ge-wq4"/>
+                        <outlet property="winRateLabel" destination="Ulr-BM-O3a" id="JvN-K0-fMp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WfL-mc-ycZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="pw2-AK-dLJ" userLabel="Today">
+                    <connections>
+                        <action selector="visitToday:" destination="byq-T9-CXr" id="ggU-BB-MJn"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="TyU-VT-0vz" userLabel="Number">
+                    <connections>
+                        <action selector="visitNumber:" destination="byq-T9-CXr" id="eIf-9j-l4P"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="g5V-vA-lgd" userLabel="ScreenShot">
+                    <connections>
+                        <action selector="takeScreenShot:" destination="byq-T9-CXr" id="Gcs-5J-SSd"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="599" y="338"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="CYm-NR-hXu">
+            <objects>
+                <navigationController storyboardIdentifier="PlayerInfoNavigation" automaticallyAdjustsScrollViewInsets="NO" id="5Ks-tw-4cp" customClass="NavigationController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="da1-25-5xc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="byq-T9-CXr" kind="relationship" relationship="rootViewController" id="7TI-38-m4L"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hhx-2X-Xuh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-98" y="339"/>
+        </scene>
+    </scenes>
+</document>

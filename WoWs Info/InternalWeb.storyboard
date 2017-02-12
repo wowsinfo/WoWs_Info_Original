@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1Pp-hd-r6v">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Web View Controller-->
+        <scene sceneID="eKR-5f-6KE">
+            <objects>
+                <viewController storyboardIdentifier="WebViewController" id="Tj3-9a-arO" customClass="WebViewController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kjf-yU-XwN"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZT2-ZD-3um"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1Ep-f9-GAK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Dwr-bW-88B">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="27E-mQ-m5m">
+                            <connections>
+                                <action selector="openInSafari:" destination="Tj3-9a-arO" id="Mq3-DQ-h85"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hcm-iP-02F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2408.8000000000002" y="337.78110944527737"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QZU-2q-sJP">
+            <objects>
+                <navigationController storyboardIdentifier="WebViewNavigation" automaticallyAdjustsScrollViewInsets="NO" id="1Pp-hd-r6v" customClass="NavigationController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pyv-NX-WhH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Tj3-9a-arO" kind="relationship" relationship="rootViewController" id="FDK-FS-vzi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tq2-Uu-H2r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1469.5999999999999" y="337.78110944527737"/>
+        </scene>
+    </scenes>
+</document>
