@@ -41,11 +41,11 @@
                                 <sections/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Szl-9h-kdo">
-                                <rect key="frame" x="312" y="28" width="47" height="34"/>
+                                <rect key="frame" x="312" y="28" width="47" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="47" id="pZN-kU-bjK"/>
                                 </constraints>
-                                <state key="normal" image="Search.png"/>
+                                <state key="normal" image="Search"/>
                                 <connections>
                                     <action selector="searchBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pmh-95-f3N"/>
                                 </connections>
@@ -56,7 +56,7 @@
                             <constraint firstItem="Afq-X2-mcI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Hvh-hC-tm6"/>
                             <constraint firstItem="Afq-X2-mcI" firstAttribute="top" secondItem="Szl-9h-kdo" secondAttribute="top" id="P7D-wR-gvH"/>
                             <constraint firstItem="Szl-9h-kdo" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="PHe-4Q-1yB"/>
-                            <constraint firstItem="8Jb-gz-SaF" firstAttribute="top" secondItem="Szl-9h-kdo" secondAttribute="bottom" constant="8" symbolic="YES" id="XD5-MJ-bRt"/>
+                            <constraint firstItem="8Jb-gz-SaF" firstAttribute="top" secondItem="Szl-9h-kdo" secondAttribute="bottom" constant="12" id="XD5-MJ-bRt"/>
                             <constraint firstItem="Szl-9h-kdo" firstAttribute="leading" secondItem="Afq-X2-mcI" secondAttribute="trailing" constant="10" id="Zjt-22-FcC"/>
                             <constraint firstItem="Afq-X2-mcI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="d5X-FH-MkS"/>
                             <constraint firstItem="8Jb-gz-SaF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gQA-2x-Wjh"/>
@@ -76,7 +76,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="57" y="-473"/>
+            <point key="canvasLocation" x="56.799999999999997" y="-473.6131934032984"/>
         </scene>
         <!--WoWs Info-->
         <scene sceneID="DOM-vM-tf1">
@@ -91,7 +91,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SearchIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="jsm-j2-cyY">
-                                <rect key="frame" x="124" y="270" width="127.5" height="127.5"/>
+                                <rect key="frame" x="124" y="270" width="128" height="128"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="jsm-j2-cyY" secondAttribute="height" multiplier="1:1" id="FFr-m0-cMD"/>
@@ -108,11 +108,11 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pk4-lT-BcX">
-                                <rect key="frame" x="0.0" y="72" width="375" height="21"/>
+                                <rect key="frame" x="22" y="68" width="347" height="16"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="hoe-vh-oo7"/>
+                                    <constraint firstAttribute="height" constant="16" id="Pu9-A5-woQ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -126,20 +126,29 @@
                                     <outletCollection property="gestureRecognizers" destination="lVF-ak-Iya" appends="YES" id="cUk-Ni-qTs"/>
                                 </connections>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlayerOnline" translatesAutoresizingMaskIntoConstraints="NO" id="9ex-8a-OyU">
+                                <rect key="frame" x="4" y="68" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="D1f-dq-twi"/>
+                                    <constraint firstAttribute="width" constant="16" id="geL-bb-bjG"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="pk4-lT-BcX" secondAttribute="trailing" id="6ZT-lo-sH9"/>
+                            <constraint firstItem="pk4-lT-BcX" firstAttribute="top" secondItem="ViO-11-NX3" secondAttribute="bottom" constant="4" id="4Xg-mB-m93"/>
                             <constraint firstItem="DfF-cb-uuY" firstAttribute="width" secondItem="Y6n-Ia-o00" secondAttribute="width" multiplier="0.128" id="6af-lr-Pzh"/>
                             <constraint firstAttribute="trailing" secondItem="3s9-ZJ-axo" secondAttribute="trailing" id="Cg6-Up-nCt"/>
                             <constraint firstItem="jsm-j2-cyY" firstAttribute="centerY" secondItem="Y6n-Ia-o00" secondAttribute="centerY" id="EJl-uo-MN0"/>
+                            <constraint firstItem="9ex-8a-OyU" firstAttribute="leading" secondItem="Y6n-Ia-o00" secondAttribute="leading" constant="4" id="HWX-0Q-5il"/>
                             <constraint firstItem="3s9-ZJ-axo" firstAttribute="top" secondItem="DfF-cb-uuY" secondAttribute="bottom" constant="8" id="HsO-FK-1Gp"/>
                             <constraint firstItem="3s9-ZJ-axo" firstAttribute="leading" secondItem="Y6n-Ia-o00" secondAttribute="leading" id="LyO-zy-4lY"/>
                             <constraint firstItem="8k4-zb-fQc" firstAttribute="top" secondItem="3s9-ZJ-axo" secondAttribute="bottom" id="Rmz-z1-qLG"/>
+                            <constraint firstAttribute="trailing" secondItem="pk4-lT-BcX" secondAttribute="trailing" constant="6" id="YT0-rQ-H8v"/>
                             <constraint firstItem="jsm-j2-cyY" firstAttribute="centerX" secondItem="Y6n-Ia-o00" secondAttribute="centerX" id="czr-er-KPV"/>
                             <constraint firstItem="DfF-cb-uuY" firstAttribute="leading" secondItem="Y6n-Ia-o00" secondAttribute="leading" constant="8" id="dfw-jY-KnQ"/>
-                            <constraint firstItem="pk4-lT-BcX" firstAttribute="top" secondItem="ViO-11-NX3" secondAttribute="bottom" constant="8" id="m9k-nj-sCE"/>
-                            <constraint firstItem="pk4-lT-BcX" firstAttribute="leading" secondItem="Y6n-Ia-o00" secondAttribute="leading" id="pBb-sm-rJS"/>
+                            <constraint firstItem="pk4-lT-BcX" firstAttribute="leading" secondItem="9ex-8a-OyU" secondAttribute="trailing" constant="2" id="hEl-Km-IUq"/>
+                            <constraint firstItem="9ex-8a-OyU" firstAttribute="top" secondItem="ViO-11-NX3" secondAttribute="bottom" constant="4" id="yyQ-Tj-meD"/>
                             <constraint firstItem="jsm-j2-cyY" firstAttribute="width" secondItem="Y6n-Ia-o00" secondAttribute="width" multiplier="0.34" id="zsq-RJ-LmG"/>
                         </constraints>
                     </view>
@@ -150,6 +159,7 @@
                         <outlet property="bannerView" destination="3s9-ZJ-axo" id="TcK-Y8-weu"/>
                         <outlet property="gotoSearchController" destination="p2X-CF-Ugz" id="kkr-Y8-bdW"/>
                         <outlet property="gotoSettingsController" destination="lVF-ak-Iya" id="ZI1-AQ-XYv"/>
+                        <outlet property="onlinePlayerIcon" destination="9ex-8a-OyU" id="dX5-1l-Xas"/>
                         <outlet property="onlinePlayerLabel" destination="pk4-lT-BcX" id="BPF-I4-5TO"/>
                         <outlet property="searchButton" destination="jsm-j2-cyY" id="HsJ-CU-sSF"/>
                         <outlet property="settingsBtn" destination="DfF-cb-uuY" id="LHC-4T-TvR"/>
@@ -213,7 +223,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Search.png" width="421" height="301"/>
+        <image name="PlayerOnline" width="128" height="128"/>
+        <image name="Search" width="400" height="250"/>
         <image name="SearchIcon.png" width="514" height="514"/>
         <image name="Settings.png" width="148" height="148"/>
     </resources>
