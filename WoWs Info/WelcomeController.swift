@@ -17,6 +17,8 @@ class WelcomeController : UIViewController {
     @IBOutlet weak var settingsBtn: UIImageView!
     @IBOutlet weak var onlinePlayerLabel: UILabel!
     @IBOutlet weak var onlinePlayerIcon: UIImageView!
+    @IBOutlet weak var settingsBtnConstraint: NSLayoutConstraint!
+    let isProVersion = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
     
     @IBOutlet weak var bannerView: GADBannerView!
     
@@ -37,14 +39,22 @@ class WelcomeController : UIViewController {
             UserDefaults.standard.set(false, forKey: DataManagement.DataName.FirstLaunch)
         }
         
-        // Load ads
-        let request = GADRequest()
-        request.testDevices = [kGADSimulatorID]
-        bannerView.adSize = kGADAdSizeSmartBannerLandscape
-        bannerView.adUnitID = "ca-app-pub-5048098651344514/4703363983"
-        bannerView.rootViewController = self
-        bannerView.load(request)
-        
+        // If it is pro version
+        if isProVersion {
+            // Hide bannerView
+            bannerView.isHidden = true
+            
+            // Move settings button down
+            settingsBtnConstraint.constant -= 50
+        } else {
+            // Load ads
+            let request = GADRequest()
+            request.testDevices = [kGADSimulatorID]
+            bannerView.adSize = kGADAdSizeSmartBannerLandscape
+            bannerView.adUnitID = "ca-app-pub-5048098651344514/4703363983"
+            bannerView.rootViewController = self
+            bannerView.load(request)
+        }
         
     }
     
@@ -62,7 +72,9 @@ class WelcomeController : UIViewController {
             // Show online player
             UIView.animate(withDuration: 0.75, delay: 1.0, options: .curveEaseIn, animations: {
                 self.onlinePlayerLabel.alpha = 1.0
+                self.onlinePlayerLabel.frame.origin.y += 25
                 self.onlinePlayerIcon.alpha = 1.0
+                self.onlinePlayerIcon.frame.origin.y += 25
             }, completion: nil)
             
             // Show Search Button
@@ -74,13 +86,15 @@ class WelcomeController : UIViewController {
             // Show Settings Button
             UIView.animate(withDuration: 0.75, delay: 2.5, options: .curveEaseIn, animations: {
                 self.settingsBtn.alpha = 1.0
+                self.settingsBtn.frame.origin.x += 25
             }, completion: nil)
+            
         }
         
         // Update online player number
         PlayerOnline().getOnlinePlayerNumber { (player) in
             DispatchQueue.main.async {
-                self.onlinePlayerLabel.text = "\(player)"
+                self.onlinePlayerLabel.text = "\(player) online"
                 print("Updated")
             }
         }

@@ -82,6 +82,9 @@ class SettingsController : UITableViewController, MFMailComposeViewControllerDel
             } else {
                 showAlert(title: "Error", message: "Cannot send an Email right now", button: "OK")
             }
+        } else if tag == 21 {
+            // Write a review
+            UIApplication.shared.openURL(URL(string: "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1202750166&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8")!)
         }
         
     }
