@@ -22,7 +22,6 @@ class PlayerInfoController : UIViewController {
     @IBOutlet weak var centerDataConstraint: NSLayoutConstraint!
     @IBOutlet weak var dataStack: UIStackView!
     @IBOutlet weak var bannerView: GADBannerView!
-    var serverIndex = 0
     
     override func viewDidLoad() {
         
@@ -35,8 +34,6 @@ class PlayerInfoController : UIViewController {
         // Change Constraint constant to let stack view in the centre of the screen
         centerDataConstraint.constant = UIScreen.main.bounds.height/2 - 32 - playerNameLabel.bounds.size.height - totalBattlesLabel.bounds.size.height - dataStack.bounds.size.height/2
         print("\(centerDataConstraint.constant)")
-        
-        self.serverIndex = UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)
         
         loadPlayerData()
         
@@ -93,37 +90,6 @@ class PlayerInfoController : UIViewController {
                 
             }
         };
-        
-    }
-
-    @IBAction func visitNumber(_ sender: UITapGestureRecognizer) {
-        
-        print("Number")
-        // Open World of Warships Number
-        let number = ServerUrl(serverIndex: serverIndex).getUrlForNumber(account: self.title!, name: playerNameLabel.text!)
-        performSegue(withIdentifier: "gotoWebView", sender: number)
-        
-    }
-    
-    @IBAction func visitToday(_ sender: UITapGestureRecognizer) {
-        
-        print("Today")
-        // Open World of Warships Today
-        let today = ServerUrl(serverIndex: serverIndex).getUrlForToday(account: self.title!, name: playerNameLabel.text!)
-        performSegue(withIdentifier: "gotoWebView", sender: today)
-    
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        // Change text to "Back"
-        let backItem = UIBarButtonItem()
-        backItem.title = "Back"
-        navigationItem.backBarButtonItem = backItem
-        
-        // Go to PlayerInfoController
-        let destination = segue.destination as! WebViewController
-        destination.url = sender as! String
         
     }
     

@@ -21,7 +21,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="KGk-aC-JRq"/>
+                    <navigationItem key="navigationItem" id="KGk-aC-JRq">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="I4n-7f-jfd"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7qf-Hl-OWH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

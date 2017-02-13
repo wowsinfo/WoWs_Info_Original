@@ -136,7 +136,12 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         selectedInfo = accountInfo.components(separatedBy: "|")
         
         // Go to player info controller
-        performSegue(withIdentifier: "gotoDetails", sender: [String]())
+        let isProVersion = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
+        if isProVersion {
+            performSegue(withIdentifier: "gotoAdvancedDetails", sender: [String]())
+        } else {
+            performSegue(withIdentifier: "gotoDetails", sender: [String]())
+        }
         
     }
     
@@ -147,9 +152,16 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         backItem.title = "Back"
         navigationItem.backBarButtonItem = backItem
         
-        // Go to PlayerInfoController
-        let destination = segue.destination as! PlayerInfoController
-        destination.playerInfo = selectedInfo
+        let isProVersion = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
+        if isProVersion {
+            // Go to AdvancedInfoController
+            let destination = segue.destination as! AdvancedInfoController
+            destination.playerInfo = selectedInfo
+        } else {
+            // Go to PlayerInfoController
+            let destination = segue.destination as! PlayerInfoController
+            destination.playerInfo = selectedInfo
+        }
         
     }
 

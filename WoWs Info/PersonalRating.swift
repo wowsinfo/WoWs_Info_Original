@@ -38,25 +38,4 @@ class PersonalRating {
         
     }
     
-    // Used to take a screenshot
-    @IBAction func takeScreenShot(_ sender: UITapGestureRecognizer) {
-        
-        /*// Hide number and today and screenshot
-        number.isHidden = true
-        today.isHidden = true
-        self.screenshot.isHidden = true
-        
-        UIGraphicsBeginImageContextWithOptions(view.frame.size, true, 0.0)
-        view.layer.render(in: UIGraphicsGetCurrentContext()!)
-        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        UIImageWriteToSavedPhotosAlbum(screenshot!, nil, nil, nil)
-        
-        // show number and today
-        number.isHidden = false
-        today.isHidden = false*/
-        
-    }
-    
 }
