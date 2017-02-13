@@ -16,6 +16,7 @@ class WelcomeController : UIViewController {
     @IBOutlet weak var searchButton: UIImageView!
     @IBOutlet weak var settingsBtn: UIImageView!
     @IBOutlet weak var onlinePlayerLabel: UILabel!
+    @IBOutlet weak var onlinePlayerIcon: UIImageView!
     
     @IBOutlet weak var bannerView: GADBannerView!
     
@@ -50,7 +51,7 @@ class WelcomeController : UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(true)
-        onlinePlayerLabel.text = "  Updating..."
+        onlinePlayerLabel.text = " --- "
         
         if searchButton.alpha == 0.0 {
             // Show Ads first
@@ -61,11 +62,13 @@ class WelcomeController : UIViewController {
             // Show online player
             UIView.animate(withDuration: 0.75, delay: 1.0, options: .curveEaseIn, animations: {
                 self.onlinePlayerLabel.alpha = 1.0
+                self.onlinePlayerIcon.alpha = 1.0
             }, completion: nil)
             
             // Show Search Button
             UIView.animate(withDuration: 0.75, delay: 2.0, options: .curveEaseIn, animations: {
                 self.searchButton.alpha = 1.0
+                self.searchButton.frame.origin.y -= 25
             }, completion: nil)
             
             // Show Settings Button
@@ -77,7 +80,7 @@ class WelcomeController : UIViewController {
         // Update online player number
         PlayerOnline().getOnlinePlayerNumber { (player) in
             DispatchQueue.main.async {
-                self.onlinePlayerLabel.text = "  \(player) players online"
+                self.onlinePlayerLabel.text = "\(player)"
                 print("Updated")
             }
         }
