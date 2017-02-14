@@ -39,9 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // Copy username into clipboard
-        let username = UserDefaults.standard.string(forKey: DataManagement.DataName.UserName)
-        if username != "" {
-            UIPasteboard.general.string = username!
+        if !UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked) {
+            UserDefaults.standard.set(">_<", forKey: DataManagement.DataName.UserName)
         }
         
         return true

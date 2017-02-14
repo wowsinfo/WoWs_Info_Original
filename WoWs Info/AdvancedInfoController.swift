@@ -12,13 +12,25 @@ class AdvancedInfoController: UIViewController {
 
     var playerInfo = [String]()
     var serverIndex = 0
+    @IBOutlet weak var number: UIImageView!
+    @IBOutlet weak var today: UIImageView!
+    @IBOutlet weak var screenshot: UIImageView!
+    @IBOutlet weak var playerNameLabel: UILabel!
+    let username = UserDefaults.standard.string(forKey: DataManagement.DataName.UserName)!
+    
+    @IBOutlet weak var setPlayerIDBtn: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Load player id into title
         self.title  = playerInfo[1]
-        // playerNameLabel.text = playerInfo[0]
+        playerNameLabel.text = playerInfo[0]
+        
+        // Just to prevent user playing with that button...
+        if username.range(of: playerInfo[1]) != nil {
+            setPlayerIDBtn.isEnabled = false
+        }
         
         // Get server index
         self.serverIndex = UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)
@@ -29,7 +41,22 @@ class AdvancedInfoController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    /*@IBAction func visitNumber(_ sender: UITapGestureRecognizer) {
+    @IBAction func setPlayerID(_ sender: UIBarButtonItem) {
+        
+        let playerID = self.title!
+        let playerIDAndName = "\(playerNameLabel.text!)|\(playerID)"
+        UserDefaults.standard.setValue(playerIDAndName, forKey: DataManagement.DataName.UserName)
+        
+        // Alert
+        let alert = UIAlertController(title: "^_^", message: "Your name and ID are saved!\nYou could now use Dashboard", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+        setPlayerIDBtn.isEnabled = false
+        
+    }
+    
+    @IBAction func visitNumber(_ sender: UITapGestureRecognizer) {
         
         print("Number")
         // Open World of Warships Number
@@ -79,6 +106,6 @@ class AdvancedInfoController: UIViewController {
         number.isHidden = false
         today.isHidden = false
  
-    }*/
+    }
  
 }
