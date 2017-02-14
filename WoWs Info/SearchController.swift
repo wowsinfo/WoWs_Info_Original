@@ -137,7 +137,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         // Go to player info controller
         let isProVersion = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
-        if isProVersion {
+        if !isProVersion {
             performSegue(withIdentifier: "gotoAdvancedDetails", sender: [String]())
         } else {
             performSegue(withIdentifier: "gotoDetails", sender: [String]())
@@ -153,7 +153,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         navigationItem.backBarButtonItem = backItem
         
         let isProVersion = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
-        if isProVersion {
+        if !isProVersion {
             // Go to AdvancedInfoController
             let destination = segue.destination as! AdvancedInfoController
             destination.playerInfo = selectedInfo

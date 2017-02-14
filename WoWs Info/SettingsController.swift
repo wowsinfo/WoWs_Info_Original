@@ -16,6 +16,7 @@ class SettingsController : UITableViewController, MFMailComposeViewControllerDel
     @IBOutlet weak var limitSlider: UISlider!
     
     let website = ["https://worldofwarships.com/", "http://wiki.wargaming.net/en/World_of_Warships", "https://warships.today/", "http://wows-numbers.com/", "http://maplesyrup.sweet.coocan.jp/wows/ranking/"]
+    let isProVersion = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
     
     override func viewDidLoad() {
         

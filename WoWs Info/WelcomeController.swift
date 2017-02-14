@@ -17,6 +17,7 @@ class WelcomeController : UIViewController {
     @IBOutlet weak var settingsBtn: UIImageView!
     @IBOutlet weak var onlinePlayerLabel: UILabel!
     @IBOutlet weak var onlinePlayerIcon: UIImageView!
+    @IBOutlet weak var dashboardBtn: UIImageView!
     @IBOutlet weak var settingsBtnConstraint: NSLayoutConstraint!
     let isProVersion = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
     
@@ -47,6 +48,9 @@ class WelcomeController : UIViewController {
             // Move settings button down
             settingsBtnConstraint.constant -= 50
         } else {
+            // Hide dashboard
+            dashboardBtn.isHidden = true
+            
             // Load ads
             let request = GADRequest()
             request.testDevices = [kGADSimulatorID]
@@ -102,9 +106,14 @@ class WelcomeController : UIViewController {
     }
     
     override func didReceiveMemoryWarning() {
-        
         super.didReceiveMemoryWarning()
-        
     }
+    
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let destination = segue.destination as! AdvancedInfoController
+        
+        
+    }*/
 
 }
