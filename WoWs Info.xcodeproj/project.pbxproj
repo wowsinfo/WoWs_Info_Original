@@ -13,15 +13,20 @@
 		921EA6991E35F2FB0007C7FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921EA6981E35F2FB0007C7FC /* AppDelegate.swift */; };
 		921EA69E1E35F2FB0007C7FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 921EA69C1E35F2FB0007C7FC /* Main.storyboard */; };
 		921EA6A31E35F2FB0007C7FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 921EA6A11E35F2FB0007C7FC /* LaunchScreen.storyboard */; };
-		92288ABC1E519931001582B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92288ABB1E519931001582B7 /* Assets.xcassets */; };
 		924BAAE21E4EAF720000B246 /* PlayerOnline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924BAAE11E4EAF720000B246 /* PlayerOnline.swift */; };
 		924BD2651E457EB300E15D04 /* ServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924BD2641E457EB300E15D04 /* ServerController.swift */; };
 		924BD2671E457F6B00E15D04 /* DataManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924BD2661E457F6B00E15D04 /* DataManagement.swift */; };
+		925636591E53F1CA0002E08A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925636581E53F1CA0002E08A /* Assets.xcassets */; };
 		925BE5A81E502B9000DA6A1A /* SimpleStat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925BE5A61E502B9000DA6A1A /* SimpleStat.storyboard */; };
 		925BE5AA1E502C1900DA6A1A /* InternalWeb.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925BE5A91E502C1900DA6A1A /* InternalWeb.storyboard */; };
 		925BE5AD1E502D0000DA6A1A /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925BE5AB1E502D0000DA6A1A /* Settings.storyboard */; };
 		925BE5B01E50325200DA6A1A /* AdvancedStat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925BE5AF1E50325200DA6A1A /* AdvancedStat.storyboard */; };
 		925BE5B21E5032AB00DA6A1A /* AdvancedInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BE5B11E5032AB00DA6A1A /* AdvancedInfoController.swift */; };
+		92634D091E540C77000CDCB4 /* MoreInformation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92634D081E540C77000CDCB4 /* MoreInformation.storyboard */; };
+		92634D0B1E540E2C000CDCB4 /* RankInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92634D0A1E540E2C000CDCB4 /* RankInformation.swift */; };
+		92634D0D1E540E77000CDCB4 /* PlayerStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92634D0C1E540E77000CDCB4 /* PlayerStat.swift */; };
+		92634D0F1E540EBE000CDCB4 /* ServerUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92634D0E1E540EBE000CDCB4 /* ServerUrl.swift */; };
+		92634D111E540F10000CDCB4 /* ShipInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92634D101E540F10000CDCB4 /* ShipInformation.swift */; };
 		926528BE1E41BD5600D1A685 /* PlayerInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528B81E41BD5600D1A685 /* PlayerInfoController.swift */; };
 		926528BF1E41BD5600D1A685 /* PlayerInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528B91E41BD5600D1A685 /* PlayerInformation.swift */; };
 		926528C01E41BD5600D1A685 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528BA1E41BD5600D1A685 /* SearchController.swift */; };
@@ -44,15 +49,20 @@
 		921EA69D1E35F2FB0007C7FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		921EA6A21E35F2FB0007C7FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		921EA6A41E35F2FB0007C7FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		92288ABB1E519931001582B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		924BAAE11E4EAF720000B246 /* PlayerOnline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerOnline.swift; sourceTree = "<group>"; };
 		924BD2641E457EB300E15D04 /* ServerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerController.swift; sourceTree = "<group>"; };
 		924BD2661E457F6B00E15D04 /* DataManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManagement.swift; sourceTree = "<group>"; };
+		925636581E53F1CA0002E08A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		925BE5A71E502B9000DA6A1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SimpleStat.storyboard; sourceTree = "<group>"; };
 		925BE5A91E502C1900DA6A1A /* InternalWeb.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InternalWeb.storyboard; sourceTree = "<group>"; };
 		925BE5AC1E502D0000DA6A1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		925BE5AF1E50325200DA6A1A /* AdvancedStat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdvancedStat.storyboard; sourceTree = "<group>"; };
 		925BE5B11E5032AB00DA6A1A /* AdvancedInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedInfoController.swift; sourceTree = "<group>"; };
+		92634D081E540C77000CDCB4 /* MoreInformation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MoreInformation.storyboard; sourceTree = "<group>"; };
+		92634D0A1E540E2C000CDCB4 /* RankInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankInformation.swift; sourceTree = "<group>"; };
+		92634D0C1E540E77000CDCB4 /* PlayerStat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerStat.swift; sourceTree = "<group>"; };
+		92634D0E1E540EBE000CDCB4 /* ServerUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerUrl.swift; sourceTree = "<group>"; };
+		92634D101E540F10000CDCB4 /* ShipInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipInformation.swift; sourceTree = "<group>"; };
 		926528B81E41BD5600D1A685 /* PlayerInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerInfoController.swift; sourceTree = "<group>"; };
 		926528B91E41BD5600D1A685 /* PlayerInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerInformation.swift; sourceTree = "<group>"; };
 		926528BA1E41BD5600D1A685 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
@@ -102,9 +112,13 @@
 			isa = PBXGroup;
 			children = (
 				926528B91E41BD5600D1A685 /* PlayerInformation.swift */,
+				92634D0E1E540EBE000CDCB4 /* ServerUrl.swift */,
+				92634D0C1E540E77000CDCB4 /* PlayerStat.swift */,
 				924BD2661E457F6B00E15D04 /* DataManagement.swift */,
 				924BAAE11E4EAF720000B246 /* PlayerOnline.swift */,
 				9210C07D1E4609BA00270002 /* PersonalRating.swift */,
+				92634D0A1E540E2C000CDCB4 /* RankInformation.swift */,
+				92634D101E540F10000CDCB4 /* ShipInformation.swift */,
 			);
 			name = Functions;
 			sourceTree = "<group>";
@@ -130,7 +144,7 @@
 		921EA6971E35F2FB0007C7FC /* WoWs Info */ = {
 			isa = PBXGroup;
 			children = (
-				92288ABB1E519931001582B7 /* Assets.xcassets */,
+				925636581E53F1CA0002E08A /* Assets.xcassets */,
 				9210C0811E460A0900270002 /* Functions */,
 				925BE5AE1E502E2700DA6A1A /* Storyboard */,
 				9210C0801E4609EF00270002 /* ViewControllers */,
@@ -151,6 +165,7 @@
 				925BE5A61E502B9000DA6A1A /* SimpleStat.storyboard */,
 				921EA6A11E35F2FB0007C7FC /* LaunchScreen.storyboard */,
 				925BE5AF1E50325200DA6A1A /* AdvancedStat.storyboard */,
+				92634D081E540C77000CDCB4 /* MoreInformation.storyboard */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -234,11 +249,12 @@
 			files = (
 				925BE5B01E50325200DA6A1A /* AdvancedStat.storyboard in Resources */,
 				925BE5A81E502B9000DA6A1A /* SimpleStat.storyboard in Resources */,
+				92634D091E540C77000CDCB4 /* MoreInformation.storyboard in Resources */,
 				921EA6A31E35F2FB0007C7FC /* LaunchScreen.storyboard in Resources */,
 				921EA69E1E35F2FB0007C7FC /* Main.storyboard in Resources */,
 				925BE5AA1E502C1900DA6A1A /* InternalWeb.storyboard in Resources */,
 				928314B21E4A5B4E00ED4A1B /* GoogleService-Info.plist in Resources */,
-				92288ABC1E519931001582B7 /* Assets.xcassets in Resources */,
+				925636591E53F1CA0002E08A /* Assets.xcassets in Resources */,
 				925BE5AD1E502D0000DA6A1A /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,15 +316,19 @@
 			files = (
 				9210C06E1E45E30E00270002 /* NavigationController.swift in Sources */,
 				926528BE1E41BD5600D1A685 /* PlayerInfoController.swift in Sources */,
+				92634D0B1E540E2C000CDCB4 /* RankInformation.swift in Sources */,
 				926528C31E41BD5600D1A685 /* WelcomeController.swift in Sources */,
+				92634D0F1E540EBE000CDCB4 /* ServerUrl.swift in Sources */,
 				924BAAE21E4EAF720000B246 /* PlayerOnline.swift in Sources */,
 				924BD2671E457F6B00E15D04 /* DataManagement.swift in Sources */,
 				9210C06A1E45B3D500270002 /* WebViewController.swift in Sources */,
 				9210C07E1E4609BA00270002 /* PersonalRating.swift in Sources */,
+				92634D0D1E540E77000CDCB4 /* PlayerStat.swift in Sources */,
 				926528C11E41BD5600D1A685 /* SettingsController.swift in Sources */,
 				924BD2651E457EB300E15D04 /* ServerController.swift in Sources */,
 				921EA6991E35F2FB0007C7FC /* AppDelegate.swift in Sources */,
 				925BE5B21E5032AB00DA6A1A /* AdvancedInfoController.swift in Sources */,
+				92634D111E540F10000CDCB4 /* ShipInformation.swift in Sources */,
 				926528BF1E41BD5600D1A685 /* PlayerInformation.swift in Sources */,
 				926528C01E41BD5600D1A685 /* SearchController.swift in Sources */,
 			);

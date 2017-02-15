@@ -13,9 +13,18 @@ class AdvancedInfoController: UIViewController {
     var playerInfo = [String]()
     var serverIndex = 0
     @IBOutlet weak var number: UIImageView!
-    @IBOutlet weak var today: UIImageView!
+    @IBOutlet weak var moreInfo: UIImageView!
     @IBOutlet weak var screenshot: UIImageView!
     @IBOutlet weak var playerNameLabel: UILabel!
+    @IBOutlet weak var levelAndPlaytimeLabel: UILabel!
+    @IBOutlet weak var totalBattlesLabel: UILabel!
+    @IBOutlet weak var winRateLabel: UILabel!
+    @IBOutlet weak var averageExpLabel: UILabel!
+    @IBOutlet weak var averageDamageLabel: UILabel!
+    @IBOutlet weak var killDeathRatioLabel: UILabel!
+    @IBOutlet weak var mainBatteryHitRatioLabel: UILabel!
+    @IBOutlet weak var centerConstraint: NSLayoutConstraint!
+    
     let username = UserDefaults.standard.string(forKey: DataManagement.DataName.UserName)!
     
     @IBOutlet weak var setPlayerIDBtn: UIBarButtonItem!
@@ -27,10 +36,15 @@ class AdvancedInfoController: UIViewController {
         self.title  = playerInfo[1]
         playerNameLabel.text = playerInfo[0]
         
+        loadPlayerData()
+        
         // Just to prevent user playing with that button...
         if username.range(of: playerInfo[1]) != nil {
             setPlayerIDBtn.isEnabled = false
         }
+        
+        // Move stat to center... To look better
+        centerConstraint.constant = (view.bounds.size.height - 406) / 4
         
         // Get server index
         self.serverIndex = UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)
@@ -41,6 +55,51 @@ class AdvancedInfoController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    func loadPlayerData() {
+        PlayerStat().getDataFromAPI(account: playerInfo[1], success: {playerData in
+            self.setLabelText(data: playerData)
+        })
+    }
+    
+    @IBAction func gotoMoreInfo(_ sender: UITapGestureRecognizer) {
+    }
+    
+    func setLabelText(data: [String]) {
+        
+        print(data)
+        DispatchQueue.main.async {
+            // There is about 9 items in this struct, siseof int is 4 so divide by 4
+            if data.count < MemoryLayout<PlayerStat.dataIndex>.size/4 {
+                return
+            } else if data[0] == "HIDDEN" {
+                self.levelAndPlaytimeLabel.text = "HIDDEN"
+            } else {
+                self.averageDamageLabel.text = data[PlayerStat.dataIndex.averageDamage]
+                self.averageExpLabel.text = data[PlayerStat.dataIndex.averageExp]
+                self.killDeathRatioLabel.text = data[PlayerStat.dataIndex.killDeathRatio]
+                self.mainBatteryHitRatioLabel.text = data[PlayerStat.dataIndex.hitRatio]
+                self.winRateLabel.text = data[PlayerStat.dataIndex.winRate]
+                
+                let level = data[PlayerStat.dataIndex.servicelevel]
+                let playtime = data[PlayerStat.dataIndex.playTime]
+                let levelAndPlayTime = "Level: \(level)|\(playtime) DAYS"
+                self.levelAndPlaytimeLabel.text = levelAndPlayTime
+                
+                let totalBattles = Double(data[PlayerStat.dataIndex.totalBattles])
+                let timePlayed = Double(playtime)
+                
+                if Int(totalBattles!) > 0 {
+                    let battlePerDay = Double(round(100 * (totalBattles! / timePlayed!)) / 100)
+                    self.totalBattlesLabel.text = "\(data[PlayerStat.dataIndex.totalBattles]) (\(battlePerDay))"
+                } else {
+                    self.totalBattlesLabel.text = String(format: "%.0f", totalBattles!)
+                }
+                
+            }
+        };
+        
+    }
+
     @IBAction func setPlayerID(_ sender: UIBarButtonItem) {
         
         let playerID = self.title!
@@ -65,15 +124,6 @@ class AdvancedInfoController: UIViewController {
         
     }
     
-    @IBAction func visitToday(_ sender: UITapGestureRecognizer) {
-        
-        print("Today")
-        // Open World of Warships Today
-        let today = ServerUrl(serverIndex: serverIndex).getUrlForToday(account: self.title!, name: playerNameLabel.text!)
-        performSegue(withIdentifier: "gotoWebView", sender: today)
-        
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // Change text to "Back"
@@ -81,10 +131,11 @@ class AdvancedInfoController: UIViewController {
         backItem.title = "Back"
         navigationItem.backBarButtonItem = backItem
         
-        // Go to PlayerInfoController
-        let destination = segue.destination as! WebViewController
-        destination.url = sender as! String
-        
+        // Go to WebView
+        if segue.identifier == "gotoWebView" {
+            let destination = segue.destination as! WebViewController
+            destination.url = sender as! String
+        }
     }
  
     // Used to take a screenshot
@@ -92,7 +143,7 @@ class AdvancedInfoController: UIViewController {
      
         // Hide number and today and screenshot
         number.isHidden = true
-        today.isHidden = true
+        moreInfo.isHidden = true
         self.screenshot.isHidden = true
      
         UIGraphicsBeginImageContextWithOptions(view.frame.size, true, 0.0)
@@ -104,7 +155,7 @@ class AdvancedInfoController: UIViewController {
      
         // show number and today
         number.isHidden = false
-        today.isHidden = false
+        moreInfo.isHidden = false
  
     }
  
