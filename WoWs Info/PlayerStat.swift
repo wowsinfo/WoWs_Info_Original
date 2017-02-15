@@ -25,6 +25,7 @@ class PlayerStat{
         static let servicelevel = 5
         static let playTime = 6
         static let hitRatio = 7
+        static let averageFrags = 8
     }
     
     init() {
@@ -96,7 +97,7 @@ class PlayerStat{
         
         // Make room for everyone
         var information = [String]()
-        for _ in 0...7 {
+        for _ in 0...8 {
             information.append("")
         }
         
@@ -107,6 +108,7 @@ class PlayerStat{
         var averageExp = "0"
         var killDeathRatio = "0"
         var hitRatio = "0"
+        var averageFrags = "0"
         
         
         // Calculate stat
@@ -118,6 +120,7 @@ class PlayerStat{
             if (shots > 0) {
                 hitRatio = "\(Double(round(100 * (hits / shots * 100)) / 100))%"
             }
+            averageFrags = "\(frags/battles)"
         }
         
         information[dataIndex.averageDamage] = averageDamage
@@ -126,6 +129,7 @@ class PlayerStat{
         information[dataIndex.averageExp] = averageExp
         information[dataIndex.killDeathRatio] = killDeathRatio
         information[dataIndex.hitRatio] = hitRatio
+        information[dataIndex.averageFrags] = averageFrags
         
         return information
         
