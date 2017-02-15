@@ -24,6 +24,8 @@ class AdvancedInfoController: UIViewController {
     @IBOutlet weak var killDeathRatioLabel: UILabel!
     @IBOutlet weak var mainBatteryHitRatioLabel: UILabel!
     @IBOutlet weak var centerConstraint: NSLayoutConstraint!
+    @IBOutlet weak var personalRatingLabel: UILabel!
+    
     
     let username = UserDefaults.standard.string(forKey: DataManagement.DataName.UserName)!
     
@@ -82,7 +84,7 @@ class AdvancedInfoController: UIViewController {
                 
                 let level = data[PlayerStat.dataIndex.servicelevel]
                 let playtime = data[PlayerStat.dataIndex.playTime]
-                let levelAndPlayTime = "Level: \(level)|\(playtime) DAYS"
+                let levelAndPlayTime = "Level: \(level) | \(playtime) DAYS"
                 self.levelAndPlaytimeLabel.text = levelAndPlayTime
                 
                 let totalBattles = Double(data[PlayerStat.dataIndex.totalBattles])
@@ -95,11 +97,22 @@ class AdvancedInfoController: UIViewController {
                     self.totalBattlesLabel.text = String(format: "%.0f", totalBattles!)
                 }
                 
+                // Get personal rating
+                let PR = PersonalRating(Damage: data[PlayerStat.dataIndex.averageDamage], WinRate: data[PlayerStat.dataIndex.winRate], Frags: data[PlayerStat.dataIndex.averageFrags])
+                let Index = PR.getPersonalRatingIndex()
+                self.personalRatingLabel.textColor = PersonalRating.ColorGroup[Index]
+                self.personalRatingLabel.text = PersonalRating.Comment[Index]
             }
         };
         
     }
 
+    @IBAction func personalRatingPressed(_ sender: UIButton) {
+        
+        // Show all stat and hide all stat
+        
+    }
+    
     @IBAction func setPlayerID(_ sender: UIBarButtonItem) {
         
         let playerID = self.title!
