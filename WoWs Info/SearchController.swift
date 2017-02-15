@@ -25,6 +25,8 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         usernameTableView.delegate = self
         usernameTableView.dataSource = self
         
+        self.title = ""
+        
         searchLimit = UserDefaults.standard.integer(forKey: DataManagement.DataName.SearchLimit)
         
         let server = UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)

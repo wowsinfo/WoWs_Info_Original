@@ -78,10 +78,10 @@ class WebViewController : UIViewController, WKUIDelegate {
         webView.evaluateJavaScript("localStorage.clear();", completionHandler: nil)
         
     }
-
-    @IBAction func openInSafari(_ sender: UIBarButtonItem) {
-        // Open in safari
-        UIApplication.shared.openURL(URL(string: url)!)
-    }
     
+    @IBAction func openInSafari(_ sender: Any) {
+        print(url)
+        UIApplication.shared.openURL(URL(string: url)!)
+        _ = self.navigationController?.popViewController(animated: true)
+    }
 }
