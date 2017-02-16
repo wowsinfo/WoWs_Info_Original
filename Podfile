@@ -8,5 +8,7 @@ target 'WoWs Info' do
   # Pods for WoWs Info
 	pod ‘Firebase/Core’
 	pod ‘Firebase/AdMob’
+	pod 'SwiftyJSON'
+	pod 'Charts'
 
 end

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class PlayerStat{
         
@@ -47,44 +48,33 @@ class PlayerStat{
             if (error != nil) {
                 print("Error: \(error)")
             } else {
-                if let data = data {
-                    do {
-                        // Make sure json is valid
-                        let json = try JSONSerialization.jsonObject(with: data, options: []) as AnyObject
+                let dataJson = JSON(data!)
+                if dataJson["status"].stringValue == "ok" {
+                    let isHidden = dataJson[account]["hidden_profile"].boolValue
+                    if (isHidden) {
+                        success(["HIDDEN"])
+                    } else {
+                        let playerJson = dataJson["data"][account]
+                        let serviceLevel = playerJson["leveling_tier"].doubleValue
+                        let time = playerJson["created_at"].doubleValue
                         
-                        let dataJson = json["data"] as AnyObject
-                        let playerJson = dataJson[account] as AnyObject
-                        let isHidden = playerJson["hidden_profile"] as? Bool
+                        let pvpJson = playerJson["statistics"]["pvp"]
                         
-                        // There is no data if account is hidden
-                        if (isHidden)! {
-                            success(["HIDDEN"])
-                        } else {
-                            let serviceLevel = playerJson["leveling_tier"] as! Double
-                            let time = playerJson["created_at"] as! Double
-                            
-                            let statisticsJson = playerJson["statistics"] as AnyObject
-                            let pvpJson = statisticsJson["pvp"] as AnyObject
-                            
-                            let battles = pvpJson["battles"] as! Double
-                            let wins = pvpJson["wins"] as! Double
-                            let xp = pvpJson["xp"] as! Double
-                            let frags = pvpJson["frags"] as! Double
-                            let survived_battles = pvpJson["survived_battles"] as! Double
-                            let damage = pvpJson["damage_dealt"] as! Double
-                            
-                            let mainBatteryJson = pvpJson["main_battery"] as AnyObject
-                            let hits = mainBatteryJson["hits"] as! Double
-                            let shots = mainBatteryJson["shots"] as! Double
-                            
-                            var information = self.calculateStatisticsWithData(battles: battles, xp: xp, wins: wins, frags: frags, damage: damage, survived: survived_battles, hits: hits, shots: shots)
-                            information[dataIndex.servicelevel] = String(format: "%.0f", serviceLevel)
-                            information[dataIndex.playTime] = "\(self.getDateFromUnixTime(time: time))"
-                            
-                            success(information)
-                        }
-                    } catch let error as NSError {
-                        print("Error: \(error)")
+                        let battles = pvpJson["battles"].doubleValue
+                        let wins = pvpJson["wins"].doubleValue
+                        let xp = pvpJson["xp"].doubleValue
+                        let frags = pvpJson["frags"].doubleValue
+                        let survived_battles = pvpJson["survived_battles"].doubleValue
+                        let damage = pvpJson["damage_dealt"].doubleValue
+                        
+                        let hits = pvpJson["main_battery"]["hits"].doubleValue
+                        let shots = pvpJson["main_battery"]["shots"].doubleValue
+                        
+                        var information = self.calculateStatisticsWithData(battles: battles, xp: xp, wins: wins, frags: frags, damage: damage, survived: survived_battles, hits: hits, shots: shots)
+                        information[dataIndex.servicelevel] = String(format: "%.0f", serviceLevel)
+                        information[dataIndex.playTime] = "\(self.getDateFromUnixTime(time: time))"
+                        
+                        success(information)
                     }
                 }
             }

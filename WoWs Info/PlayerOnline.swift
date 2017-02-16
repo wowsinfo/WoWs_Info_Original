@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class PlayerOnline {
     
@@ -26,18 +27,11 @@ class PlayerOnline {
             if (error != nil) {
                 print("Error : \(error)")
             } else {
-                if let data = data {
-                    do {
-                        let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as AnyObject
-                        let dataJson = json["data"] as AnyObject
-                        let wowsJson = dataJson["wows"] as! NSArray
-                        
-                        let online = wowsJson[0] as AnyObject
-                        let playerOnline = online["players_online"] as! Int
-                        success("\(playerOnline)")
-                    } catch let error as NSError {
-                        print("Error: \(error)")
-                    }
+                let dataJson = JSON(data!)
+                if dataJson["status"].stringValue == "ok" {
+                    // Get online player number
+                    let playerOnline = dataJson["data"]["wows"][0]["players_online"].intValue
+                    success("\(playerOnline)")
                 }
             }
         }

@@ -113,12 +113,16 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell()
+        // Change to a better font
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 20.0, weight: UIFontWeightLight)
+        
         if (!playerInfo.indices.contains(indexPath.row)) {
             cell.textLabel?.text = "Unknown Error"
         }
         else {
             cell.textLabel?.text = "\(playerInfo[indexPath.row][0])|\(playerInfo[indexPath.row][1])"
         }
+        
         return cell
         
     }
@@ -131,6 +135,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         // Get Account details
         let selectedCell = tableView.cellForRow(at: indexPath)
         let accountInfo: String = (selectedCell?.textLabel?.text)!
+        
         if accountInfo == "Unknown Error" {
             return
         }
