@@ -118,7 +118,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Settings.png" translatesAutoresizingMaskIntoConstraints="NO" id="DfF-cb-uuY">
-                                <rect key="frame" x="8" y="561" width="48" height="48"/>
+                                <rect key="frame" x="4" y="561" width="48" height="48"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="DfF-cb-uuY" secondAttribute="height" multiplier="1:1" id="T8h-Sg-HCQ"/>
@@ -156,7 +156,7 @@
                             <constraint firstItem="8k4-zb-fQc" firstAttribute="top" secondItem="3s9-ZJ-axo" secondAttribute="bottom" id="Rmz-z1-qLG"/>
                             <constraint firstAttribute="trailing" secondItem="pk4-lT-BcX" secondAttribute="trailing" constant="6" id="YT0-rQ-H8v"/>
                             <constraint firstItem="jsm-j2-cyY" firstAttribute="centerX" secondItem="Y6n-Ia-o00" secondAttribute="centerX" id="czr-er-KPV"/>
-                            <constraint firstItem="DfF-cb-uuY" firstAttribute="leading" secondItem="Y6n-Ia-o00" secondAttribute="leading" constant="8" id="dfw-jY-KnQ"/>
+                            <constraint firstItem="DfF-cb-uuY" firstAttribute="leading" secondItem="Y6n-Ia-o00" secondAttribute="leading" constant="4" id="dfw-jY-KnQ"/>
                             <constraint firstItem="pk4-lT-BcX" firstAttribute="leading" secondItem="9ex-8a-OyU" secondAttribute="trailing" constant="2" id="hEl-Km-IUq"/>
                             <constraint firstItem="9ex-8a-OyU" firstAttribute="top" secondItem="ViO-11-NX3" secondAttribute="bottom" constant="4" id="yyQ-Tj-meD"/>
                             <constraint firstItem="jsm-j2-cyY" firstAttribute="width" secondItem="Y6n-Ia-o00" secondAttribute="width" multiplier="0.34" id="zsq-RJ-LmG"/>

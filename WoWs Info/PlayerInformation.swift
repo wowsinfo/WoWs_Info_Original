@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class PlayerInfomation {
     
@@ -57,43 +58,21 @@ class PlayerInfomation {
                 if (error != nil) {
                     print("Error: \(error)")
                 } else {
-                    if let data = data {
-                        do {
-                            // To make sure json is valid
-                            let json = try JSONSerialization.jsonObject(with: data, options: []) as AnyObject
-                            if let dataJson = json["data"] as? NSArray {
-                                let meta = json["meta"] as AnyObject
-                                if let count = meta["count"] as? Int {
-                                    print(count)
-                                    
-                                    var player = [[String]]()
-                                    if (count > 0) {
-                                        // Append data to [[String]]
-                                        var nickname = ""
-                                        var account = ""
-                                        
-                                        for i in 0...(count - 1) {
-                                            if let elementJson = dataJson[i] as? [String:Any] {
-                                                print(elementJson)
-                                                
-                                                nickname = elementJson["nickname"] as! String
-                                                account = String(describing: elementJson["account_id"] as! CFNumber)
-                                                
-                                                // If it passes, add it to array
-                                                print("\(nickname), \(account)")
-                                                player.append([nickname, account])
-                                            }
-                                        }
-                                        success(player)
-                                    } else {
-                                        success([[String]]())
-                                    }
-                                }
-                                
+                    let dataJson = JSON(data!)
+                    if dataJson["status"].stringValue == "ok" {
+                        let count = dataJson["meta"]["count"].intValue
+                        var player = [[String]]()
+                        
+                        if count > 0 {
+                            for i in 0...(count - 1) {
+                                // Add name and ID into array
+                                let nickname = dataJson["data"][i]["nickname"].stringValue
+                                let account = dataJson["data"][i]["account_id"].stringValue
+                                print(nickname, account)
+                                player.append([nickname, account])
                             }
-                        } catch let error as NSError{
-                            print("Error: \(error)")
                         }
+                        success(player)
                     }
                 }
             }

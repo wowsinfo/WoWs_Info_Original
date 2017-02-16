@@ -15,3 +15,11 @@ class Shipinformation {
     }
     
 }
+
+class ShipRating {
+    
+    init() {
+        
+    }
+    
+}

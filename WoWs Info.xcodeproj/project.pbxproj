@@ -13,6 +13,10 @@
 		921EA6991E35F2FB0007C7FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921EA6981E35F2FB0007C7FC /* AppDelegate.swift */; };
 		921EA69E1E35F2FB0007C7FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 921EA69C1E35F2FB0007C7FC /* Main.storyboard */; };
 		921EA6A31E35F2FB0007C7FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 921EA6A11E35F2FB0007C7FC /* LaunchScreen.storyboard */; };
+		9221BD1A1E5571DC0057C3C1 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92EB05F91E55411F00754907 /* SwiftyJSON.framework */; };
+		9221BD1B1E5571DC0057C3C1 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 92EB05F91E55411F00754907 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		92359C4B1E5544F800721278 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92359C491E5544EC00721278 /* Charts.framework */; };
+		92359C4C1E5544F800721278 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 92359C491E5544EC00721278 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		924BAAE21E4EAF720000B246 /* PlayerOnline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924BAAE11E4EAF720000B246 /* PlayerOnline.swift */; };
 		924BD2651E457EB300E15D04 /* ServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924BD2641E457EB300E15D04 /* ServerController.swift */; };
 		924BD2671E457F6B00E15D04 /* DataManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924BD2661E457F6B00E15D04 /* DataManagement.swift */; };
@@ -34,8 +38,22 @@
 		926528C31E41BD5600D1A685 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528BD1E41BD5600D1A685 /* WelcomeController.swift */; };
 		92813BB71E47447C009AA9E8 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92813BB61E47447C009AA9E8 /* GoogleMobileAds.framework */; };
 		928314B21E4A5B4E00ED4A1B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 928314B11E4A5B4E00ED4A1B /* GoogleService-Info.plist */; };
-		B1B742750C6E6FEA91BD2631 /* Pods_WoWs_Info.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FDBD724E145685D55F06ADA /* Pods_WoWs_Info.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		92359C481E5544A300721278 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9221BD1B1E5571DC0057C3C1 /* SwiftyJSON.framework in Embed Frameworks */,
+				92359C4C1E5544F800721278 /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		06D13CAC2212DD18FD32AB49 /* Pods-WoWs Info.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoWs Info.release.xcconfig"; path = "Pods/Target Support Files/Pods-WoWs Info/Pods-WoWs Info.release.xcconfig"; sourceTree = "<group>"; };
@@ -49,6 +67,7 @@
 		921EA69D1E35F2FB0007C7FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		921EA6A21E35F2FB0007C7FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		921EA6A41E35F2FB0007C7FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92359C491E5544EC00721278 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Charts.framework; sourceTree = "<group>"; };
 		924BAAE11E4EAF720000B246 /* PlayerOnline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerOnline.swift; sourceTree = "<group>"; };
 		924BD2641E457EB300E15D04 /* ServerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerController.swift; sourceTree = "<group>"; };
 		924BD2661E457F6B00E15D04 /* DataManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManagement.swift; sourceTree = "<group>"; };
@@ -70,6 +89,7 @@
 		926528BD1E41BD5600D1A685 /* WelcomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
 		92813BB61E47447C009AA9E8 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		928314B11E4A5B4E00ED4A1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		92EB05F91E55411F00754907 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +98,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				92813BB71E47447C009AA9E8 /* GoogleMobileAds.framework in Frameworks */,
-				B1B742750C6E6FEA91BD2631 /* Pods_WoWs_Info.framework in Frameworks */,
+				92359C4B1E5544F800721278 /* Charts.framework in Frameworks */,
+				9221BD1A1E5571DC0057C3C1 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +109,8 @@
 		2359F6695FFC24A39880BFF8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				92359C491E5544EC00721278 /* Charts.framework */,
+				92EB05F91E55411F00754907 /* SwiftyJSON.framework */,
 				7FDBD724E145685D55F06ADA /* Pods_WoWs_Info.framework */,
 			);
 			name = Frameworks;
@@ -192,6 +215,7 @@
 				921EA6931E35F2FB0007C7FC /* Resources */,
 				1D43CF5038BCFF09E6560688 /* [CP] Embed Pods Frameworks */,
 				55D9E7F8FF28629333027711 /* [CP] Copy Pods Resources */,
+				92359C481E5544A300721278 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -469,9 +493,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4YSG3SYMLE;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/WoWs\\ Info",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "WoWs Info/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -489,9 +514,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4YSG3SYMLE;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/WoWs\\ Info",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "WoWs Info/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
