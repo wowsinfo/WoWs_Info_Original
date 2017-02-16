@@ -256,7 +256,7 @@
                         <outlet property="killDeathRatioLabel" destination="nEc-xz-1nq" id="ZcH-W7-HzJ"/>
                         <outlet property="levelAndPlaytimeLabel" destination="IgV-eM-WGn" id="CNZ-Dg-zgq"/>
                         <outlet property="mainBatteryHitRatioLabel" destination="nPT-Hs-pPq" id="KWL-Sk-NxJ"/>
-                        <outlet property="moreInfo" destination="CIE-5o-LVp" id="shc-SY-TQG"/>
+                        <outlet property="moreInfo" destination="CIE-5o-LVp" id="H03-lS-PRO"/>
                         <outlet property="number" destination="laU-u0-P9v" id="VP8-Wb-TNo"/>
                         <outlet property="personalRatingLabel" destination="mYM-Xn-15Q" id="i8L-Bi-hbp"/>
                         <outlet property="playerNameLabel" destination="uru-CD-MbX" id="UAT-YY-eZO"/>
@@ -265,6 +265,7 @@
                         <outlet property="totalBattlesLabel" destination="6HC-jz-Z84" id="Sik-r8-HeU"/>
                         <outlet property="winRateLabel" destination="We0-Rg-UiM" id="Q5c-nI-Cqb"/>
                         <segue destination="HgG-yT-BXm" kind="show" identifier="gotoWebView" id="NOg-JV-VPU"/>
+                        <segue destination="zpO-nA-s0k" kind="show" identifier="gotoMoreInfo" id="9KE-VR-RN9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7qf-Hl-OWH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -281,7 +282,6 @@
                 <tapGestureRecognizer id="hsJ-oC-EOP" userLabel="MoreInfoTap">
                     <connections>
                         <action selector="gotoMoreInfo:" destination="aqY-f9-abh" id="39E-b4-wNl"/>
-                        <segue destination="zpO-nA-s0k" kind="show" id="V6e-2U-M8D"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

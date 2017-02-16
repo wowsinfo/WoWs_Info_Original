@@ -12,6 +12,8 @@ class AdvancedInfoController: UIViewController {
 
     var playerInfo = [String]()
     var serverIndex = 0
+    var hasGotoMoreInfo = false
+    var hasVisitNumber = false
     @IBOutlet weak var number: UIImageView!
     @IBOutlet weak var moreInfo: UIImageView!
     @IBOutlet weak var screenshot: UIImageView!
@@ -25,7 +27,6 @@ class AdvancedInfoController: UIViewController {
     @IBOutlet weak var mainBatteryHitRatioLabel: UILabel!
     @IBOutlet weak var centerConstraint: NSLayoutConstraint!
     @IBOutlet weak var personalRatingLabel: UILabel!
-    
     
     let username = UserDefaults.standard.string(forKey: DataManagement.DataName.UserName)!
     
@@ -64,6 +65,14 @@ class AdvancedInfoController: UIViewController {
     }
     
     @IBAction func gotoMoreInfo(_ sender: UITapGestureRecognizer) {
+        
+        moreInfo.isHidden = true
+        
+        // Pass account id
+        _ = PlayerAccountID.init(ID: self.title!)
+        performSegue(withIdentifier: "gotoMoreInfo", sender: nil)
+        hasGotoMoreInfo = true
+        
     }
     
     func setLabelText(data: [String]) {
@@ -106,12 +115,6 @@ class AdvancedInfoController: UIViewController {
         };
         
     }
-
-    @IBAction func personalRatingPressed(_ sender: UIButton) {
-        
-        // Show all stat and hide all stat
-        
-    }
     
     @IBAction func setPlayerID(_ sender: UIBarButtonItem) {
         
@@ -130,10 +133,11 @@ class AdvancedInfoController: UIViewController {
     
     @IBAction func visitNumber(_ sender: UITapGestureRecognizer) {
         
-        print("Number")
-        // Open World of Warships Number
+        self.number.isHidden = true
+        // Open World of Warships number
         let number = ServerUrl(serverIndex: serverIndex).getUrlForNumber(account: self.title!, name: playerNameLabel.text!)
         performSegue(withIdentifier: "gotoWebView", sender: number)
+        hasVisitNumber = true
         
     }
     
@@ -166,10 +170,15 @@ class AdvancedInfoController: UIViewController {
      
         UIImageWriteToSavedPhotosAlbum(screenshot!, nil, nil, nil)
      
-        // show number and today
-        number.isHidden = false
-        moreInfo.isHidden = false
- 
+        // show number and moreInfo if have not been pressed
+        if !hasVisitNumber {
+            number.isHidden = false
+        }
+        
+        if !hasGotoMoreInfo {
+            moreInfo.isHidden = false
+        }
+        
     }
  
 }
