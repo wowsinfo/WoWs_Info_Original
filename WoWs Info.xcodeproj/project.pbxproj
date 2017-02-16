@@ -38,6 +38,9 @@
 		926528C31E41BD5600D1A685 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528BD1E41BD5600D1A685 /* WelcomeController.swift */; };
 		92813BB71E47447C009AA9E8 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92813BB61E47447C009AA9E8 /* GoogleMobileAds.framework */; };
 		928314B21E4A5B4E00ED4A1B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 928314B11E4A5B4E00ED4A1B /* GoogleService-Info.plist */; };
+		92D9B4D21E55AE3200CFD46D /* PlayerAccountID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4D11E55AE3200CFD46D /* PlayerAccountID.swift */; };
+		92D9B4D41E55AF2400CFD46D /* RankController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4D31E55AF2400CFD46D /* RankController.swift */; };
+		92D9B4D61E55C6D600CFD46D /* RankTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4D51E55C6D600CFD46D /* RankTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -89,6 +92,9 @@
 		926528BD1E41BD5600D1A685 /* WelcomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
 		92813BB61E47447C009AA9E8 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		928314B11E4A5B4E00ED4A1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		92D9B4D11E55AE3200CFD46D /* PlayerAccountID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerAccountID.swift; sourceTree = "<group>"; };
+		92D9B4D31E55AF2400CFD46D /* RankController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankController.swift; sourceTree = "<group>"; };
+		92D9B4D51E55C6D600CFD46D /* RankTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankTableCell.swift; sourceTree = "<group>"; };
 		92EB05F91E55411F00754907 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,8 +125,9 @@
 		9210C0801E4609EF00270002 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				926528B81E41BD5600D1A685 /* PlayerInfoController.swift */,
 				9210C06D1E45E30E00270002 /* NavigationController.swift */,
+				926528B81E41BD5600D1A685 /* PlayerInfoController.swift */,
+				92D9B4D31E55AF2400CFD46D /* RankController.swift */,
 				925BE5B11E5032AB00DA6A1A /* AdvancedInfoController.swift */,
 				926528BA1E41BD5600D1A685 /* SearchController.swift */,
 				9210C0691E45B3D500270002 /* WebViewController.swift */,
@@ -142,6 +149,7 @@
 				9210C07D1E4609BA00270002 /* PersonalRating.swift */,
 				92634D0A1E540E2C000CDCB4 /* RankInformation.swift */,
 				92634D101E540F10000CDCB4 /* ShipInformation.swift */,
+				92D9B4D11E55AE3200CFD46D /* PlayerAccountID.swift */,
 			);
 			name = Functions;
 			sourceTree = "<group>";
@@ -170,6 +178,7 @@
 				925636581E53F1CA0002E08A /* Assets.xcassets */,
 				9210C0811E460A0900270002 /* Functions */,
 				925BE5AE1E502E2700DA6A1A /* Storyboard */,
+				92D9B4D71E55C87700CFD46D /* TableViewCell */,
 				9210C0801E4609EF00270002 /* ViewControllers */,
 				921EA6981E35F2FB0007C7FC /* AppDelegate.swift */,
 				921EA6A41E35F2FB0007C7FC /* Info.plist */,
@@ -191,6 +200,14 @@
 				92634D081E540C77000CDCB4 /* MoreInformation.storyboard */,
 			);
 			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		92D9B4D71E55C87700CFD46D /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				92D9B4D51E55C6D600CFD46D /* RankTableCell.swift */,
+			);
+			name = TableViewCell;
 			sourceTree = "<group>";
 		};
 		AE0579B474F19BE0B7C58BB6 /* Pods */ = {
@@ -351,10 +368,13 @@
 				926528C11E41BD5600D1A685 /* SettingsController.swift in Sources */,
 				924BD2651E457EB300E15D04 /* ServerController.swift in Sources */,
 				921EA6991E35F2FB0007C7FC /* AppDelegate.swift in Sources */,
+				92D9B4D41E55AF2400CFD46D /* RankController.swift in Sources */,
 				925BE5B21E5032AB00DA6A1A /* AdvancedInfoController.swift in Sources */,
 				92634D111E540F10000CDCB4 /* ShipInformation.swift in Sources */,
 				926528BF1E41BD5600D1A685 /* PlayerInformation.swift in Sources */,
 				926528C01E41BD5600D1A685 /* SearchController.swift in Sources */,
+				92D9B4D61E55C6D600CFD46D /* RankTableCell.swift in Sources */,
+				92D9B4D21E55AE3200CFD46D /* PlayerAccountID.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
