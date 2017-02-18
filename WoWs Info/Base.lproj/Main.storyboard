@@ -134,11 +134,13 @@
                                     <constraint firstAttribute="width" constant="16" id="geL-bb-bjG"/>
                                 </constraints>
                             </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qBg-At-rhd">
-                                <rect key="frame" x="311" y="561" width="48" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <imageView alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dashboard" translatesAutoresizingMaskIntoConstraints="NO" id="qBg-At-rhd">
+                                <rect key="frame" x="323" y="561" width="48" height="48"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="Ugt-Jl-UZj"/>
+                                    <constraint firstAttribute="width" constant="48" id="ykc-fg-4lf"/>
+                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="tZn-T9-bfE" appends="YES" id="zv9-Sa-EqH"/>
                                 </connections>
@@ -149,12 +151,14 @@
                             <constraint firstItem="pk4-lT-BcX" firstAttribute="top" secondItem="ViO-11-NX3" secondAttribute="bottom" constant="4" id="4Xg-mB-m93"/>
                             <constraint firstItem="DfF-cb-uuY" firstAttribute="width" secondItem="Y6n-Ia-o00" secondAttribute="width" multiplier="0.128" id="6af-lr-Pzh"/>
                             <constraint firstAttribute="trailing" secondItem="3s9-ZJ-axo" secondAttribute="trailing" id="Cg6-Up-nCt"/>
+                            <constraint firstItem="3s9-ZJ-axo" firstAttribute="top" secondItem="qBg-At-rhd" secondAttribute="bottom" constant="8" id="CrK-3f-LGc"/>
                             <constraint firstItem="jsm-j2-cyY" firstAttribute="centerY" secondItem="Y6n-Ia-o00" secondAttribute="centerY" id="EJl-uo-MN0"/>
                             <constraint firstItem="9ex-8a-OyU" firstAttribute="leading" secondItem="Y6n-Ia-o00" secondAttribute="leading" constant="4" id="HWX-0Q-5il"/>
                             <constraint firstItem="3s9-ZJ-axo" firstAttribute="top" secondItem="DfF-cb-uuY" secondAttribute="baseline" constant="8" id="HsO-FK-1Gp"/>
                             <constraint firstItem="3s9-ZJ-axo" firstAttribute="leading" secondItem="Y6n-Ia-o00" secondAttribute="leading" id="LyO-zy-4lY"/>
                             <constraint firstItem="8k4-zb-fQc" firstAttribute="top" secondItem="3s9-ZJ-axo" secondAttribute="bottom" id="Rmz-z1-qLG"/>
                             <constraint firstAttribute="trailing" secondItem="pk4-lT-BcX" secondAttribute="trailing" constant="6" id="YT0-rQ-H8v"/>
+                            <constraint firstAttribute="trailing" secondItem="qBg-At-rhd" secondAttribute="trailing" constant="4" id="Zsc-A9-cgQ"/>
                             <constraint firstItem="jsm-j2-cyY" firstAttribute="centerX" secondItem="Y6n-Ia-o00" secondAttribute="centerX" id="czr-er-KPV"/>
                             <constraint firstItem="DfF-cb-uuY" firstAttribute="leading" secondItem="Y6n-Ia-o00" secondAttribute="leading" constant="4" id="dfw-jY-KnQ"/>
                             <constraint firstItem="pk4-lT-BcX" firstAttribute="leading" secondItem="9ex-8a-OyU" secondAttribute="trailing" constant="2" id="hEl-Km-IUq"/>
@@ -168,6 +172,7 @@
                     <connections>
                         <outlet property="bannerView" destination="3s9-ZJ-axo" id="TcK-Y8-weu"/>
                         <outlet property="dashboardBtn" destination="qBg-At-rhd" id="dq8-A7-4UW"/>
+                        <outlet property="dashboardBtnConstant" destination="CrK-3f-LGc" id="oeo-nZ-IKR"/>
                         <outlet property="gotoSearchController" destination="p2X-CF-Ugz" id="kkr-Y8-bdW"/>
                         <outlet property="gotoSettingsController" destination="lVF-ak-Iya" id="ZI1-AQ-XYv"/>
                         <outlet property="onlinePlayerIcon" destination="9ex-8a-OyU" id="dX5-1l-Xas"/>
@@ -248,6 +253,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Dashboard" width="128" height="128"/>
         <image name="PlayerOnline" width="128" height="128"/>
         <image name="Search" width="400" height="250"/>
         <image name="SearchIcon.png" width="514" height="514"/>

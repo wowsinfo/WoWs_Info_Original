@@ -6,9 +6,9 @@ target 'WoWs Info' do
   use_frameworks!
 
   # Pods for WoWs Info
-	pod ‘Firebase/Core’
-	pod ‘Firebase/AdMob’
-	pod 'SwiftyJSON'
-	pod 'Charts'
+pod ‘Firebase/Core’
+pod ‘Firebase/AdMob’
+pod 'SwiftyJSON'
+pod 'Charts'
 
 end
