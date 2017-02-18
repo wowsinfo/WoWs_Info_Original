@@ -76,3 +76,15 @@ class PersonalRating {
     }
     
 }
+
+
+/* Calculate Playing ship rating
+ class ShipRating {
+ 
+ init() {
+ 
+ }
+ 
+ }
+ */
+

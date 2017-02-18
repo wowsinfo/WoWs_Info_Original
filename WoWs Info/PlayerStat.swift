@@ -50,7 +50,8 @@ class PlayerStat{
             } else {
                 let dataJson = JSON(data!)
                 if dataJson["status"].stringValue == "ok" {
-                    let isHidden = dataJson[account]["hidden_profile"].boolValue
+                    let isHidden = dataJson["data"][account]["hidden_profile"].boolValue
+                    print(isHidden)
                     if (isHidden) {
                         success(["HIDDEN"])
                     } else {
@@ -70,7 +71,7 @@ class PlayerStat{
                         let hits = pvpJson["main_battery"]["hits"].doubleValue
                         let shots = pvpJson["main_battery"]["shots"].doubleValue
                         
-                        var information = self.calculateStatisticsWithData(battles: battles, xp: xp, wins: wins, frags: frags, damage: damage, survived: survived_battles, hits: hits, shots: shots)
+                        var information = PlayerStat.calculateStatisticsWithData(battles: battles, xp: xp, wins: wins, frags: frags, damage: damage, survived: survived_battles, hits: hits, shots: shots)
                         information[dataIndex.servicelevel] = String(format: "%.0f", serviceLevel)
                         information[dataIndex.playTime] = "\(self.getDateFromUnixTime(time: time))"
                         
@@ -83,7 +84,7 @@ class PlayerStat{
         
     }
     
-    func calculateStatisticsWithData(battles: Double, xp: Double, wins: Double, frags: Double, damage: Double, survived: Double, hits: Double, shots: Double) -> [String] {
+    static func calculateStatisticsWithData(battles: Double, xp: Double, wins: Double, frags: Double, damage: Double, survived: Double, hits: Double, shots: Double) -> [String] {
         
         // Make room for everyone
         var information = [String]()

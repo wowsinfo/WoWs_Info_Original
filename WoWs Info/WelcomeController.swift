@@ -18,6 +18,7 @@ class WelcomeController : UIViewController {
     @IBOutlet weak var onlinePlayerLabel: UILabel!
     @IBOutlet weak var onlinePlayerIcon: UIImageView!
     @IBOutlet weak var dashboardBtn: UIImageView!
+    @IBOutlet weak var dashboardBtnConstant: NSLayoutConstraint!
     @IBOutlet weak var settingsBtnConstraint: NSLayoutConstraint!
     let isProVersion = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
     
@@ -47,6 +48,7 @@ class WelcomeController : UIViewController {
             
             // Move settings button down
             settingsBtnConstraint.constant -= 50
+            dashboardBtnConstant.constant -= 50
         } else {
             // Hide dashboard
             dashboardBtn.isHidden = true
@@ -59,6 +61,9 @@ class WelcomeController : UIViewController {
             bannerView.rootViewController = self
             bannerView.load(request)
         }
+        
+        // Get ship information
+        Shipinformation().getShipInformation()
         
     }
     
@@ -87,10 +92,12 @@ class WelcomeController : UIViewController {
                 self.searchButton.frame.origin.y -= 25
             }, completion: nil)
             
-            // Show Settings Button
+            // Show Settings and Dashboard Button
             UIView.animate(withDuration: 0.75, delay: 2.5, options: .curveEaseIn, animations: {
                 self.settingsBtn.alpha = 1.0
                 self.settingsBtn.frame.origin.x += 25
+                self.dashboardBtn.alpha = 1.0
+                self.dashboardBtn.frame.origin.x -= 25
             }, completion: nil)
             
         }
@@ -103,17 +110,28 @@ class WelcomeController : UIViewController {
             }
         }
         
+        // If there is user information
+        if UserDefaults.standard.string(forKey: DataManagement.DataName.UserName) == ">_<" {
+            dashboardBtn.isHidden = true
+        } else {
+            dashboardBtn.isHidden = false
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let destination = segue.destination as! AdvancedInfoController
+        if segue.identifier == "gotoDashboard" {
+            let destination = segue.destination as! AdvancedInfoController
+            let playerAccount = UserDefaults.standard.string(forKey: DataManagement.DataName.UserName)!
+            destination.playerInfo = playerAccount.components(separatedBy: "|")
+        }
         
-        
-    }*/
+    }
 
 }

@@ -39,6 +39,9 @@ class AdvancedInfoController: UIViewController {
         self.title  = playerInfo[1]
         playerNameLabel.text = playerInfo[0]
         
+        // Pass account id
+        _ = PlayerAccountID.init(ID: self.title!)
+        
         loadPlayerData()
         
         // Just to prevent user playing with that button...
@@ -68,8 +71,6 @@ class AdvancedInfoController: UIViewController {
         
         moreInfo.isHidden = true
         
-        // Pass account id
-        _ = PlayerAccountID.init(ID: self.title!)
         performSegue(withIdentifier: "gotoMoreInfo", sender: nil)
         hasGotoMoreInfo = true
         
@@ -178,6 +179,19 @@ class AdvancedInfoController: UIViewController {
         if !hasGotoMoreInfo {
             moreInfo.isHidden = false
         }
+        
+        // Popup share button
+        let shareSheet  = UIAlertController.init(title: "You just took a screenshot!", message: nil, preferredStyle: .actionSheet)
+        let share = UIAlertAction.init(title: "Share with friends", style: .default) { (UIAlertAction) in
+            // Share with friends
+            let activityViewController = UIActivityViewController(activityItems: [(screenshot!)], applicationActivities: nil)
+            self.present(activityViewController, animated: true, completion: nil)
+        }
+        let cancel = UIAlertAction.init(title: "Cancel", style: .default, handler: nil)
+        shareSheet.addAction(share)
+        shareSheet.addAction(cancel)
+        
+        self.present(shareSheet, animated: true, completion: nil)
         
     }
  

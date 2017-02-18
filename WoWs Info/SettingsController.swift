@@ -86,6 +86,10 @@ class SettingsController : UITableViewController, MFMailComposeViewControllerDel
         } else if tag == 21 {
             // Write a review
             UIApplication.shared.openURL(URL(string: "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1202750166&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8")!)
+        } else if tag == 22 {
+            // Share with friends
+            let share = UIActivityViewController.init(activityItems: ["\n\nPlayer Information for World of Warships (https://itunes.apple.com/us/app/wows-info/id1202750166?ls=1&mt=8)", #imageLiteral(resourceName: "Icon")], applicationActivities: nil)
+            self.present(share, animated: true, completion: nil)
         }
         
     }
