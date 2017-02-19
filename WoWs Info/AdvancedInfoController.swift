@@ -108,10 +108,9 @@ class AdvancedInfoController: UIViewController {
                 }
                 
                 // Get personal rating
-                let PR = PersonalRating(Damage: data[PlayerStat.dataIndex.averageDamage], WinRate: data[PlayerStat.dataIndex.winRate], Frags: data[PlayerStat.dataIndex.averageFrags])
-                let Index = PR.getPersonalRatingIndex()
-                self.personalRatingLabel.textColor = PersonalRating.ColorGroup[Index]
-                self.personalRatingLabel.text = PersonalRating.Comment[Index]
+                _ = PersonalRating(Damage: data[PlayerStat.dataIndex.averageDamage], WinRate: data[PlayerStat.dataIndex.winRate], Frags: data[PlayerStat.dataIndex.averageFrags])
+                self.personalRatingLabel.textColor = PersonalRating.ColorGroup[PersonalRating.index]
+                self.personalRatingLabel.text = PersonalRating.Comment[PersonalRating.index]
             }
         };
         
@@ -120,7 +119,7 @@ class AdvancedInfoController: UIViewController {
     @IBAction func setPlayerID(_ sender: UIBarButtonItem) {
         
         let playerID = self.title!
-        let playerIDAndName = "\(playerNameLabel.text!)|\(playerID)"
+        let playerIDAndName = "\(playerNameLabel.text!)|\(playerID)|\(serverIndex)"
         UserDefaults.standard.setValue(playerIDAndName, forKey: DataManagement.DataName.UserName)
         
         // Alert

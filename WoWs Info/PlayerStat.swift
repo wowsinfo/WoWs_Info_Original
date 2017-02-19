@@ -107,7 +107,9 @@ class PlayerStat{
             winRate = "\(Double(round(100 * (wins / battles * 100)) / 100))%"
             averageDamage = String(format: "%.0f", Double(round(damage / battles)))
             averageExp = String(format: "%.0f", Double(round(xp / battles)))
-            killDeathRatio = String(format: "%.2f", 100 * (frags / (battles - survived)) / 100)
+            var death = battles - survived
+            if death <= 0 { death = 1 }
+            killDeathRatio = String(format: "%.2f", 100 * (frags / death) / 100)
             if (shots > 0) {
                 hitRatio = "\(Double(round(100 * (hits / shots * 100)) / 100))%"
             }

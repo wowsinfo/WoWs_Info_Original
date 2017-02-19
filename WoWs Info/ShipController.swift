@@ -11,7 +11,7 @@ import UIKit
 class ShipController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var ShipTableView: UITableView!
-    var allShips = [[String]]()
+    @IBOutlet weak var filterTextField: UITextField!
     var targetShips = [[String]]()
     
     override func viewDidLoad() {
@@ -31,6 +31,75 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func searchBtnPressed(_ sender: Any) {
+        
+        filterTextField.resignFirstResponder()
+        
+        let filterText = filterTextField.text!
+        
+        if filterText == "" {
+            // Empty
+            targetShips = PlayerShip.playerShipInfo
+            DispatchQueue.main.async {
+                self.ShipTableView.reloadData()
+            }
+            return
+        }
+        
+        // Clean it
+        targetShips = [[String]]()
+        
+        if let tier = Int(filterText) {
+            // Tier
+            if tier > 0 && tier <= 10 {
+                for ship in PlayerShip.playerShipInfo {
+                    if Int(ship[PlayerShip.PlayerShipDataIndex.tier]) == tier {
+                        targetShips.append(ship)
+                    }
+                }
+            } else if tier > 10 {
+                // Filter with battles
+                for ship in PlayerShip.playerShipInfo {
+                    if Int(ship[PlayerShip.PlayerShipDataIndex.battles])! >= tier {
+                        targetShips.append(ship)
+                    }
+                }
+            }
+        } else {
+            for ship in PlayerShip.playerShipInfo {
+                switch filterText {
+                case "dd":
+                    if ship[PlayerShip.PlayerShipDataIndex.type] == "Destroyer" {
+                        targetShips.append(ship)
+                    }
+                case "bb":
+                    if ship[PlayerShip.PlayerShipDataIndex.type] == "Battleship" {
+                        targetShips.append(ship)
+                    }
+                case "ca":
+                    if ship[PlayerShip.PlayerShipDataIndex.type] == "Cruiser" {
+                        targetShips.append(ship)
+                    }
+                case "cv":
+                    if ship[PlayerShip.PlayerShipDataIndex.type] == "AirCarrier" {
+                        targetShips.append(ship)
+                    }
+                default:
+                    // Find ship with name
+                    if ship[PlayerShip.PlayerShipDataIndex.name].lowercased().contains(filterText.lowercased()) {
+                        targetShips.append(ship)
+                    }
+                }
+            }
+        }
+        
+        // Update table now
+        DispatchQueue.main.async {
+            self.ShipTableView.reloadData()
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,6 +122,10 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         var tierName = "Tier \(tier) " + name
         if tier == "" { tierName = name }
         cell.TierNameLabel.text = tierName
+        
+        let index = Int(targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.rating])!
+        cell.shipRating.text = PersonalRating.Comment[index]
+        cell.shipRating.textColor = PersonalRating.ColorGroup[index]
         
         return cell
         

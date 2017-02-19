@@ -49,6 +49,11 @@ class WelcomeController : UIViewController {
             // Move settings button down
             settingsBtnConstraint.constant -= 50
             dashboardBtnConstant.constant -= 50
+            
+            // Get ship information
+            Shipinformation().getShipInformation()
+            // Load rating
+            ShipRating().loadExpctedJson()
         } else {
             // Hide dashboard
             dashboardBtn.isHidden = true
@@ -61,9 +66,6 @@ class WelcomeController : UIViewController {
             bannerView.rootViewController = self
             bannerView.load(request)
         }
-        
-        // Get ship information
-        Shipinformation().getShipInformation()
         
     }
     
@@ -111,10 +113,17 @@ class WelcomeController : UIViewController {
         }
         
         // If there is user information
-        if UserDefaults.standard.string(forKey: DataManagement.DataName.UserName) == ">_<" {
+        let user = UserDefaults.standard.string(forKey: DataManagement.DataName.UserName)!
+        if user == ">_<" {
             dashboardBtn.isHidden = true
         } else {
-            dashboardBtn.isHidden = false
+            let serverIndex = UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)
+            // That should be the server index
+            if Int(user.components(separatedBy: "|")[2]) != serverIndex{
+                dashboardBtn.isHidden = true
+            } else {
+                dashboardBtn.isHidden = false
+            }
         }
         
     }
@@ -122,7 +131,6 @@ class WelcomeController : UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class PersonalRating {
     
@@ -30,7 +31,8 @@ class PersonalRating {
     var damage = 0.0
     var winrate = 0.0
     var frags = 0.0
-    var PR = 0.0
+    // Index
+    static var index = 0
     
     init(Damage: String, WinRate: String, Frags: String) {
         
@@ -46,45 +48,71 @@ class PersonalRating {
         let nFrags = max(0, (rFrags - 0.1) / (1 - 0.1))
         let nWins = max(0, (rWins - 0.7) / (1 - 0.7))
         
-        PR = 700 * nDmg + 300 * nFrags + 150 * nWins - 25
+        let PR = 700 * nDmg + 300 * nFrags + 150 * nWins - 25
+        PersonalRating.index = PersonalRating.getPersonalRatingIndex(PR: PR)
         
     }
     
-    func getPersonalRatingIndex() -> Int {
+    static func getPersonalRatingIndex(PR: Double) -> Int {
         
         switch PR {
-        case let pr where pr < 750:
-            return 0
-        case let pr where pr < 1100:
-            return 1
-        case let pr where pr < 1350:
-            return 2
-        case let pr where pr < 1550:
-            return 3
-        case let pr where pr < 1750:
-            return 4
-        case let pr where pr < 2100:
-            return 5
-        case let pr where pr < 2450:
-            return 6
-        case let pr where pr >= 2450:
-            return 7
-        default:
-            return 0
+            case let pr where pr < 750:
+                return 0
+            case let pr where pr < 1100:
+                return 1
+            case let pr where pr < 1350:
+                return 2
+            case let pr where pr < 1550:
+                return 3
+            case let pr where pr < 1750:
+                return 4
+            case let pr where pr < 2100:
+                return 5
+            case let pr where pr < 2450:
+                return 6
+            case let pr where pr >= 2450:
+                return 7
+            default:
+                return 0
         }
         
     }
     
 }
 
+class ShipRating {
+    
+    var damage = 0.0
+    var winrate = 0.0
+    var frags = 0.0
+    
+    // Information data
+    static var shipExpected: JSON!
+    
+    init() {
+    }
+    
+    func loadExpctedJson() {
+        let path = Bundle.main.path(forResource: "ExpectedValue", ofType: "json")
+        let jsonData = NSData(contentsOfFile:path!)
+        ShipRating.shipExpected = JSON(data: jsonData! as Data)
+    }
+    
+    func getRatingForShips(Damage: Double, WinRate: Double, Frags: Double, ID: String) -> Int{
+        
+        let rDmg = Damage/(ShipRating.shipExpected["data"][ID]["average_damage_dealt"].doubleValue)
+        let rWins = winrate/(ShipRating.shipExpected["data"][ID]["win_rate"].doubleValue)
+        let rFrags = Frags/(ShipRating.shipExpected["data"][ID]["average_frags"].doubleValue)
+        
+        let nDmg = max(0, (rDmg - 0.4) / (1 - 0.4))
+        let nFrags = max(0, (rFrags - 0.1) / (1 - 0.1))
+        let nWins = max(0, (rWins - 0.7) / (1 - 0.7))
+        
+        let shipPR = 700 * nDmg + 300 * nFrags + 150 * nWins
+        print(shipPR)
+        return PersonalRating.getPersonalRatingIndex(PR: shipPR)
+        
+    }
 
-/* Calculate Playing ship rating
- class ShipRating {
- 
- init() {
- 
- }
- 
- }
- */
-
+    
+}
