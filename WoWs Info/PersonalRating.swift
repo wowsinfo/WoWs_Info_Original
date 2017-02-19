@@ -26,7 +26,7 @@ class PersonalRating {
     static let Comment = ["*>_<*", "Below Average", "Average", "Good", "Very Good", "Great", "Unicum", "SUPER Unicum"]
     
     // Colour Group
-    static let ColorGroup = [UIColor.red, UIColor.orange, UIColor.yellow, UIColor.green, UIColor.init(red: 0, green: 158/255, blue: 57/255, alpha: 1.0), UIColor.cyan, UIColor.magenta, UIColor.purple]
+    static let ColorGroup = [UIColor.red, UIColor.orange, UIColor.init(red: 1, green: 199/255, blue: 31/255, alpha: 1.0), UIColor.green, UIColor.init(red: 0, green: 158/255, blue: 57/255, alpha: 1.0), UIColor.cyan, UIColor.magenta, UIColor.purple]
     
     var damage = 0.0
     var winrate = 0.0

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShipController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ShipController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var ShipTableView: UITableView!
     @IBOutlet weak var filterTextField: UITextField!
@@ -19,6 +19,10 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         ShipTableView.delegate = self
         ShipTableView.dataSource = self
+        
+        filterTextField.delegate = self
+        // Popup keyboar for user to search
+        filterTextField.becomeFirstResponder()
         
         PlayerShip(account: PlayerAccountID.AccountID).getPlayerShipInfo(success: { data in
             DispatchQueue.main.async {
@@ -33,9 +37,26 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func searchBtnPressed(_ sender: Any) {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        filterTextField.resignFirstResponder()
+        // Remove keyboard
+        print("Return")
+        self.view.endEditing(true)
+        // Filter ship
+        filterShip()
+        // If ther are 4 rows, we have to scroll it to top
+        if targetShips.count > 3 {
+            DispatchQueue.main.async {
+                self.ShipTableView.setContentOffset(CGPoint.zero, animated: true)
+            }
+        }
+        
+        return true
+        
+    }
+    
+    // In order to make it clean and tidy
+    func filterShip() {
         
         let filterText = filterTextField.text!
         
@@ -119,7 +140,7 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         let type = targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.type]
         
         cell.shipTypeImage.image = Shipinformation.getImageWithType(type: type)
-        var tierName = "Tier \(tier) " + name
+        var tierName = "Tier \(tier)  " + name
         if tier == "" { tierName = name }
         cell.TierNameLabel.text = tierName
         
