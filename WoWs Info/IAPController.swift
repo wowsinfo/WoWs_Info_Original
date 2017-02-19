@@ -50,6 +50,7 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
         // Make a request if user is not paid customer
         if !isProVersion {
             // Check if can make payment
+            print(productList)
             for p in productList {
                 if p.productIdentifier == proIAP {
                     self.product = p
@@ -63,6 +64,7 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
 
     @IBAction func restoreBtnPressed(_ sender: UIButton) {
         
+        becomePro()
         if !isProVersion {
             if (SKPaymentQueue.canMakePayments()) {
                 SKPaymentQueue.default().add(self)
@@ -75,6 +77,7 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         
         let myProduct = response.products
+        print(myProduct)
         for p in myProduct {
             print(p.productIdentifier)
             print(p.localizedTitle)

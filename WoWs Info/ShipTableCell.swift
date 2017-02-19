@@ -18,5 +18,6 @@ class ShipTableCell: UITableViewCell {
     @IBOutlet weak var killDeathLabel: UILabel!
     @IBOutlet weak var hitRatioLabel: UILabel!
     @IBOutlet weak var shipTypeImage: UIImageView!
+    @IBOutlet weak var shipRating: UILabel!
 
 }

@@ -77,6 +77,7 @@ class PlayerShip {
         static let hitRatio = 7
         static let averageFrags = 8
         static let name = 9
+        static let rating = 10
     }
     
     init(account: String) {
@@ -102,7 +103,7 @@ class PlayerShip {
                         
                         let battles = pvpJson["battles"].doubleValue
                         // Have to play at least once
-                        if battles > 4.0 {
+                        if battles > 0.0 {
                             let wins = pvpJson["wins"].doubleValue
                             let xp = pvpJson["xp"].doubleValue
                             let frags = pvpJson["frags"].doubleValue
@@ -126,9 +127,13 @@ class PlayerShip {
                                 information[PlayerShip.PlayerShipDataIndex.tier] = ship["tier"].stringValue
                                 information[PlayerShip.PlayerShipDataIndex.type] = ship["type"].stringValue
                                 information[PlayerShip.PlayerShipDataIndex.name] = ship["name"].stringValue
+                                
+                                let ratingIndex = ShipRating().getRatingForShips(Damage: damage/battles, WinRate: wins/battles, Frags: frags/battles, ID: shipID)
+                                information.append(String(ratingIndex))
+                                
+                                // Only add new ships
+                                shipInfo.append(information)
                             }
-                            
-                            shipInfo.append(information)
                         }
                     }
                     

@@ -603,7 +603,7 @@ Personal rating is powers by wows-number.com</string>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" shipmentTrackingNumber="YES"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6h0-s5-gRO">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6h0-s5-gRO">
                                 <rect key="frame" x="16" y="607" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="K3t-eg-hA0"/>
@@ -613,7 +613,7 @@ Personal rating is powers by wows-number.com</string>
                                     <action selector="restoreBtnPressed:" destination="Zn7-h2-2Sh" eventType="touchUpInside" id="jYe-2C-DkK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkm-EV-whN">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkm-EV-whN">
                                 <rect key="frame" x="16" y="559" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="bTd-2D-pk4"/>
