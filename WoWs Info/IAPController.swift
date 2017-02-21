@@ -12,7 +12,7 @@ import StoreKit
 class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTransactionObserver {
 
     let isProVersion = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
-    let proIAP = "com.yihengquan.WoWs_Info.ProVersion"
+    let proIAP = "com.yihengquan.WoWs_Info.Pro"
     var productList = [SKProduct]()
     var product = SKProduct()
     
@@ -57,14 +57,12 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
                     buyProduct()
                 }
             }
-            
         }
         
     }
 
     @IBAction func restoreBtnPressed(_ sender: UIButton) {
         
-        becomePro()
         if !isProVersion {
             if (SKPaymentQueue.canMakePayments()) {
                 SKPaymentQueue.default().add(self)

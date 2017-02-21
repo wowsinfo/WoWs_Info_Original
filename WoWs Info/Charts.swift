@@ -29,11 +29,9 @@ class Charts {
         var tier = [0,0,0,0,0,0,0,0,0,0]
         for ship in shipData {
             // Get ship tier and add one to tier
-            let shipTier = ship[PlayerShip.PlayerShipDataIndex.tier]
-            // There are some ships that do not have tier information
-            if shipTier != "" {
-                tier[Int(shipTier)!] += 1
-            }
+            let shipTier = Int(ship[PlayerShip.PlayerShipDataIndex.tier])! - 1
+            let battles = Int(ship[PlayerShip.PlayerShipDataIndex.battles])!
+            tier[shipTier] += battles
         }
         return tier
     }
@@ -43,16 +41,17 @@ class Charts {
         var type = [0,0,0,0]
         for ship in shipData {
             let shipType = ship[PlayerShip.PlayerShipDataIndex.type]
+            let battles = Int(ship[PlayerShip.PlayerShipDataIndex.battles])!
             // For those ship that does not have a type, just break
             switch shipType {
                 case "Destroyer":
-                    type[0] += 1
+                    type[0] += battles
                 case "Cruiser":
-                    type[1] += 1
+                    type[1] += battles
                 case "Battleship":
-                    type[2] += 1
+                    type[2] += battles
                 case "AirCarrier":
-                    type[3] += 1
+                    type[3] += battles
                 default:
                 break
             }
@@ -77,6 +76,12 @@ class Charts {
                             if battles < battlesCount[i - 1] {
                                 battlesCount[i] = battles
                                 shipName[i] = name
+                            } else if battles == battlesCount[i - 1] {
+                                // Sometimes, Two ships have some battles
+                                if name != shipName[i - 1] {
+                                    battlesCount[i] = battles
+                                    shipName[i] = name
+                                }
                             }
                         } else {
                             // First one is always the biggest

@@ -121,18 +121,20 @@ class PlayerShip {
                             information.append(shipID)
                             
                             // Get ship information
-                            let ship = Shipinformation.ShipJson[shipID]
-                            if ship != JSON.null {
-                                // If there is such ID
-                                information[PlayerShip.PlayerShipDataIndex.tier] = ship["tier"].stringValue
-                                information[PlayerShip.PlayerShipDataIndex.type] = ship["type"].stringValue
-                                information[PlayerShip.PlayerShipDataIndex.name] = ship["name"].stringValue
-                                
-                                let ratingIndex = ShipRating().getRatingForShips(Damage: damage/battles, WinRate: wins/battles, Frags: frags/battles, ID: shipID)
-                                information.append(String(ratingIndex))
-                                
-                                // Only add new ships
-                                shipInfo.append(information)
+                            if Shipinformation.ShipJson != nil {
+                                let ship = Shipinformation.ShipJson[shipID]
+                                if ship != JSON.null {
+                                    // If there is such ID
+                                    information[PlayerShip.PlayerShipDataIndex.tier] = ship["tier"].stringValue
+                                    information[PlayerShip.PlayerShipDataIndex.type] = ship["type"].stringValue
+                                    information[PlayerShip.PlayerShipDataIndex.name] = ship["name"].stringValue
+                                    
+                                    let ratingIndex = ShipRating().getRatingForShips(Damage: damage/battles, WinRate: wins/battles, Frags: frags/battles, ID: shipID)
+                                    information.append(String(ratingIndex))
+                                    
+                                    // Only add new ships
+                                    shipInfo.append(information)
+                                }
                             }
                         }
                     }
