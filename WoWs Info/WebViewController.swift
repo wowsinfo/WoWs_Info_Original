@@ -17,7 +17,7 @@ class WebViewController : UIViewController, WKUIDelegate {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        self.title = "Loading..."
+        self.title = NSLocalizedString("WEB_LOADING", comment: "Loading label")
         
     }
     

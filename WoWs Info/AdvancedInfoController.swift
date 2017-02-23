@@ -84,7 +84,7 @@ class AdvancedInfoController: UIViewController {
             if data.count < MemoryLayout<PlayerStat.dataIndex>.size/4 {
                 return
             } else if data[0] == "HIDDEN" {
-                self.levelAndPlaytimeLabel.text = "HIDDEN"
+                self.levelAndPlaytimeLabel.text = NSLocalizedString("HIDDEN", comment: "Hidden Label")
             } else {
                 self.averageDamageLabel.text = data[PlayerStat.dataIndex.averageDamage]
                 self.averageExpLabel.text = data[PlayerStat.dataIndex.averageExp]
@@ -94,7 +94,7 @@ class AdvancedInfoController: UIViewController {
                 
                 let level = data[PlayerStat.dataIndex.servicelevel]
                 let playtime = data[PlayerStat.dataIndex.playTime]
-                let levelAndPlayTime = "Level: \(level) | \(playtime) DAYS"
+                let levelAndPlayTime = NSLocalizedString("LEVEL", comment: "Level label") + ": \(level) | \(playtime) " + NSLocalizedString("DAYS", comment: "Days label")
                 self.levelAndPlaytimeLabel.text = levelAndPlayTime
                 
                 let totalBattles = Double(data[PlayerStat.dataIndex.totalBattles])
@@ -123,7 +123,7 @@ class AdvancedInfoController: UIViewController {
         UserDefaults.standard.setValue(playerIDAndName, forKey: DataManagement.DataName.UserName)
         
         // Alert
-        let alert = UIAlertController(title: "^_^", message: "Your name and ID are saved!\nYou could now use Dashboard", preferredStyle: .alert)
+        let alert = UIAlertController(title: "^_^", message: NSLocalizedString("DASHBOARD_MESSAGE", comment: "Dashboard Message"), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         
@@ -145,7 +145,7 @@ class AdvancedInfoController: UIViewController {
         
         // Change text to "Back"
         let backItem = UIBarButtonItem()
-        backItem.title = "Back"
+        backItem.title = NSLocalizedString("BACK", comment: "Back button")
         navigationItem.backBarButtonItem = backItem
         
         // Go to WebView
@@ -180,13 +180,13 @@ class AdvancedInfoController: UIViewController {
         }
         
         // Popup share button
-        let shareSheet  = UIAlertController.init(title: "You just took a screenshot!", message: nil, preferredStyle: .actionSheet)
-        let share = UIAlertAction.init(title: "Share with friends", style: .default) { (UIAlertAction) in
+        let shareSheet  = UIAlertController.init(title: NSLocalizedString("SHARE_TITLE", comment: "Share title"), message: nil, preferredStyle: .actionSheet)
+        let share = UIAlertAction.init(title: NSLocalizedString("SHARE_MESSAGE", comment: "Share message"), style: .default) { (UIAlertAction) in
             // Share with friends
             let activityViewController = UIActivityViewController(activityItems: [(screenshot!)], applicationActivities: nil)
             self.present(activityViewController, animated: true, completion: nil)
         }
-        let cancel = UIAlertAction.init(title: "Cancel", style: .default, handler: nil)
+        let cancel = UIAlertAction.init(title: NSLocalizedString("SHARE_CANCEL", comment: "Share cancel"), style: .default, handler: nil)
         shareSheet.addAction(share)
         shareSheet.addAction(cancel)
         

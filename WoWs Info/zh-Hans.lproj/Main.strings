@@ -1,0 +1,12 @@
+
+/* Class = "UITextField"; placeholder = "Server: "; ObjectID = "Afq-X2-mcI"; */
+"Afq-X2-mcI.placeholder" = "服务器: ";
+
+/* Class = "UINavigationItem"; title = "WoWs Info"; ObjectID = "MPU-Xo-NZ2"; */
+"MPU-Xo-NZ2.title" = "WoWs Info";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "jWR-dD-855"; */
+"jWR-dD-855.title" = "返回";
+
+/* Class = "UINavigationItem"; title = "Quick Search Mode"; ObjectID = "v8u-OF-dZ1"; */
+"v8u-OF-dZ1.title" = "快速搜索模式";

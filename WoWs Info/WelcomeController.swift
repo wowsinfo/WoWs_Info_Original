@@ -13,6 +13,8 @@ class WelcomeController : UIViewController {
     
     @IBOutlet var gotoSearchController: UITapGestureRecognizer!
     @IBOutlet var gotoSettingsController: UITapGestureRecognizer!
+    @IBOutlet weak var proImage: UIImageView!
+    @IBOutlet weak var webImage: UIImageView!
     @IBOutlet weak var searchButton: UIImageView!
     @IBOutlet weak var settingsBtn: UIImageView!
     @IBOutlet weak var onlinePlayerLabel: UILabel!
@@ -31,7 +33,7 @@ class WelcomeController : UIViewController {
         // If it is first launch
         if UserDefaults.standard.bool(forKey: DataManagement.DataName.FirstLaunch) {
             // Show an alertview
-            let welcome = UIAlertController(title: "Welcome", message: "This application is designed to get a quick overview of other players before battle begins. Please first customise some settings.", preferredStyle: .alert)
+            let welcome = UIAlertController(title: NSLocalizedString("WELCOME_TITLE", comment: "Welcome label"), message: NSLocalizedString("WELCOME_MESSAGE", comment: "Welcome message label"), preferredStyle: .alert)
             welcome.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) -> () in
                 self.performSegue(withIdentifier: "gotoSettings", sender: nil)
             }))
@@ -98,8 +100,12 @@ class WelcomeController : UIViewController {
             UIView.animate(withDuration: 0.75, delay: 2.5, options: .curveEaseIn, animations: {
                 self.settingsBtn.alpha = 1.0
                 self.settingsBtn.frame.origin.x += 25
+                self.proImage.alpha = 1.0
+                self.proImage.frame.origin.x += 25
                 self.dashboardBtn.alpha = 1.0
                 self.dashboardBtn.frame.origin.x -= 25
+                self.webImage.alpha = 1.0
+                self.webImage.frame.origin.x -= 25
             }, completion: nil)
             
         }
@@ -107,7 +113,7 @@ class WelcomeController : UIViewController {
         // Update online player number
         PlayerOnline().getOnlinePlayerNumber { (player) in
             DispatchQueue.main.async {
-                self.onlinePlayerLabel.text = "\(player) online"
+                self.onlinePlayerLabel.text = "\(player) " + NSLocalizedString("ONLINE", comment: "Online player label")
                 print("Updated")
             }
         }
@@ -124,6 +130,13 @@ class WelcomeController : UIViewController {
             } else {
                 dashboardBtn.isHidden = false
             }
+        }
+        
+        // If user is pro version
+        if UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked) {
+            proImage.isHidden = true
+        } else {
+            proImage.isHidden = false
         }
         
     }

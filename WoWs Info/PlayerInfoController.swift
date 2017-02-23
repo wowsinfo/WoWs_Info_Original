@@ -65,7 +65,7 @@ class PlayerInfoController : UIViewController {
             if data.count < MemoryLayout<PlayerStat.dataIndex>.size/4 {
                 return
             } else if data[0] == "HIDDEN" {
-                self.levelAndPlaytimeLabel.text = "Account is Hidden!"
+                self.levelAndPlaytimeLabel.text = NSLocalizedString("HIDDEN", comment: "Hidden Label")
             } else {
                 self.averageDamageLabel.text = data[PlayerStat.dataIndex.averageDamage]
                 self.averageExpLabel.text = data[PlayerStat.dataIndex.averageExp]
@@ -75,7 +75,7 @@ class PlayerInfoController : UIViewController {
                 
                 let level = data[PlayerStat.dataIndex.servicelevel]
                 let playtime = data[PlayerStat.dataIndex.playTime]
-                let levelAndPlayTime = "Level: \(level)   (\(playtime) DAYS)"
+                let levelAndPlayTime = NSLocalizedString("LEVEL", comment: "Level label") + ": \(level) | \(playtime) " + NSLocalizedString("DAYS", comment: "Days label")
                 self.levelAndPlaytimeLabel.text = levelAndPlayTime
                 
                 let totalBattles = Double(data[PlayerStat.dataIndex.totalBattles])
@@ -83,7 +83,7 @@ class PlayerInfoController : UIViewController {
                 
                 if Int(totalBattles!) > 0 {
                     let battlePerDay = Double(round(100 * (totalBattles! / timePlayed!)) / 100)
-                    self.totalBattlesLabel.text = "\(data[PlayerStat.dataIndex.totalBattles]) (\(battlePerDay)/day)"
+                    self.totalBattlesLabel.text = "\(data[PlayerStat.dataIndex.totalBattles]) (\(battlePerDay))"
                 } else {
                     self.totalBattlesLabel.text = String(format: "%.0f", totalBattles!)
                 }

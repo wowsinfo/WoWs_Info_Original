@@ -19,6 +19,9 @@ class RankController: UITableViewController {
         RankTableView.delegate = self
         RankTableView.dataSource = self
         
+        // Hide separator line
+        RankTableView.separatorColor = UIColor.clear
+        
         let rank = RankInformation(ID: PlayerAccountID.AccountID)
         rank.getRankInformation { rank in
             DispatchQueue.main.async {
@@ -49,7 +52,14 @@ class RankController: UITableViewController {
         let maxRank = rankInfo[indexPath.row][RankInformation.RankDataIndex.maxRank]
         cell.rankLabel.text = currentRank + " (\(maxRank))"
         
-        cell.seasonLabel.text = "Season \(rankInfo[indexPath.row][RankInformation.RankDataIndex.season])"
+        cell.seasonLabel.text = NSLocalizedString("SEASON", comment: "Season label") + " \(rankInfo[indexPath.row][RankInformation.RankDataIndex.season])"
+        
+        // Set up a border colour
+        cell.contentView.layer.borderWidth = 1
+        cell.contentView.layer.cornerRadius = 10
+        cell.contentView.layer.masksToBounds = true
+        cell.contentView.layer.borderColor = UIColor(red: CGFloat(85)/255, green: CGFloat(163)/255, blue: CGFloat(255)/255, alpha: 1.0).cgColor
+        cell.layoutMargins = UIEdgeInsetsMake(10, 10, 10, 10)
         
         return cell
         

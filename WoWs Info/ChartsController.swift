@@ -78,7 +78,7 @@ class ChartsController: UIViewController, ChartViewDelegate {
                 dataEntries.append(dataEntry)
             }
             
-            let chartDataSet = BarChartDataSet(values: dataEntries, label: "Battles")
+            let chartDataSet = BarChartDataSet(values: dataEntries, label: NSLocalizedString("CHART_BATTLE", comment: "Chart battle label"))
             chartDataSet.colors = ChartColorTemplates.vordiplom()
             let chartData = BarChartData.init(dataSets: [chartDataSet])
             mostPlayedBarChart.data = chartData
@@ -117,7 +117,7 @@ class ChartsController: UIViewController, ChartViewDelegate {
         let tierInformation = data.getTierInformation()
         
         // Set up average tier label
-        averageTierLabel.text = "Average Tier: " + String.init(format: "%.2f", getAverageTier(data: tierInformation))
+        averageTierLabel.text = NSLocalizedString("AVERAGE_TIER", comment: "Avergae tier label") + String.init(format: "%.2f", getAverageTier(data: tierInformation))
         
         var dataEntries: [BarChartDataEntry] = []
         for i in 0...9 {
@@ -125,7 +125,7 @@ class ChartsController: UIViewController, ChartViewDelegate {
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Battles")
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: NSLocalizedString("CHART_BATTLE", comment: "Chart battle label"))
         chartDataSet.colors = ChartColorTemplates.joyful()
         chartDataSet.valueFont = UIFont.systemFont(ofSize: 12)
         let chartData = BarChartData.init(dataSets: [chartDataSet])

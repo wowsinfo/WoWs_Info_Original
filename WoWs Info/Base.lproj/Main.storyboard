@@ -117,7 +117,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Settings.png" translatesAutoresizingMaskIntoConstraints="NO" id="DfF-cb-uuY">
+                            <imageView alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Settings" translatesAutoresizingMaskIntoConstraints="NO" id="DfF-cb-uuY">
                                 <rect key="frame" x="4" y="561" width="48" height="48"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -134,12 +134,37 @@
                                     <constraint firstAttribute="width" constant="16" id="geL-bb-bjG"/>
                                 </constraints>
                             </imageView>
-                            <imageView alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dashboard" translatesAutoresizingMaskIntoConstraints="NO" id="qBg-At-rhd">
-                                <rect key="frame" x="323" y="561" width="48" height="48"/>
+                            <imageView alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pro" translatesAutoresizingMaskIntoConstraints="NO" id="qw8-bs-EHE">
+                                <rect key="frame" x="6" y="505" width="48" height="48"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="Ugt-Jl-UZj"/>
-                                    <constraint firstAttribute="width" constant="48" id="ykc-fg-4lf"/>
+                                    <constraint firstAttribute="width" secondItem="qw8-bs-EHE" secondAttribute="height" multiplier="1:1" id="eCN-Vk-H4w"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ybM-4L-NJD" appends="YES" id="5jw-Bx-Lq6"/>
+                                </connections>
+                            </imageView>
+                            <imageView alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Web" translatesAutoresizingMaskIntoConstraints="NO" id="mCF-HW-z5E">
+                                <rect key="frame" x="319" y="505" width="48" height="48"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mCF-HW-z5E" secondAttribute="height" multiplier="1:1" id="L5N-63-dCP"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="aVO-zJ-DBu" appends="YES" id="b3e-QV-a0Q"/>
+                                </connections>
+                            </imageView>
+                            <imageView alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dashboard" translatesAutoresizingMaskIntoConstraints="NO" id="qBg-At-rhd">
+                                <rect key="frame" x="323" y="565" width="42" height="42"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="Ugt-Jl-UZj"/>
+                                    <constraint firstAttribute="width" constant="42" id="ykc-fg-4lf"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="tZn-T9-bfE" appends="YES" id="zv9-Sa-EqH"/>
@@ -148,21 +173,27 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="qBg-At-rhd" firstAttribute="top" secondItem="mCF-HW-z5E" secondAttribute="bottom" constant="12" id="1Q4-dY-sxV"/>
                             <constraint firstItem="pk4-lT-BcX" firstAttribute="top" secondItem="ViO-11-NX3" secondAttribute="bottom" constant="4" id="4Xg-mB-m93"/>
                             <constraint firstItem="DfF-cb-uuY" firstAttribute="width" secondItem="Y6n-Ia-o00" secondAttribute="width" multiplier="0.128" id="6af-lr-Pzh"/>
                             <constraint firstAttribute="trailing" secondItem="3s9-ZJ-axo" secondAttribute="trailing" id="Cg6-Up-nCt"/>
-                            <constraint firstItem="3s9-ZJ-axo" firstAttribute="top" secondItem="qBg-At-rhd" secondAttribute="bottom" constant="8" id="CrK-3f-LGc"/>
+                            <constraint firstItem="3s9-ZJ-axo" firstAttribute="top" secondItem="qBg-At-rhd" secondAttribute="bottom" constant="10" id="CrK-3f-LGc"/>
                             <constraint firstItem="jsm-j2-cyY" firstAttribute="centerY" secondItem="Y6n-Ia-o00" secondAttribute="centerY" id="EJl-uo-MN0"/>
                             <constraint firstItem="9ex-8a-OyU" firstAttribute="leading" secondItem="Y6n-Ia-o00" secondAttribute="leading" constant="4" id="HWX-0Q-5il"/>
                             <constraint firstItem="3s9-ZJ-axo" firstAttribute="top" secondItem="DfF-cb-uuY" secondAttribute="baseline" constant="8" id="HsO-FK-1Gp"/>
                             <constraint firstItem="3s9-ZJ-axo" firstAttribute="leading" secondItem="Y6n-Ia-o00" secondAttribute="leading" id="LyO-zy-4lY"/>
                             <constraint firstItem="8k4-zb-fQc" firstAttribute="top" secondItem="3s9-ZJ-axo" secondAttribute="bottom" id="Rmz-z1-qLG"/>
                             <constraint firstAttribute="trailing" secondItem="pk4-lT-BcX" secondAttribute="trailing" constant="6" id="YT0-rQ-H8v"/>
-                            <constraint firstAttribute="trailing" secondItem="qBg-At-rhd" secondAttribute="trailing" constant="4" id="Zsc-A9-cgQ"/>
+                            <constraint firstAttribute="trailing" secondItem="qBg-At-rhd" secondAttribute="trailing" constant="10" id="Zsc-A9-cgQ"/>
+                            <constraint firstAttribute="trailing" secondItem="mCF-HW-z5E" secondAttribute="trailing" constant="8" id="c4g-HL-cCv"/>
                             <constraint firstItem="jsm-j2-cyY" firstAttribute="centerX" secondItem="Y6n-Ia-o00" secondAttribute="centerX" id="czr-er-KPV"/>
                             <constraint firstItem="DfF-cb-uuY" firstAttribute="leading" secondItem="Y6n-Ia-o00" secondAttribute="leading" constant="4" id="dfw-jY-KnQ"/>
+                            <constraint firstItem="DfF-cb-uuY" firstAttribute="top" secondItem="qw8-bs-EHE" secondAttribute="bottom" constant="8" id="fHg-QR-aiK"/>
+                            <constraint firstItem="qw8-bs-EHE" firstAttribute="leading" secondItem="Y6n-Ia-o00" secondAttribute="leading" constant="6" id="ffa-D3-bOS"/>
                             <constraint firstItem="pk4-lT-BcX" firstAttribute="leading" secondItem="9ex-8a-OyU" secondAttribute="trailing" constant="2" id="hEl-Km-IUq"/>
+                            <constraint firstItem="mCF-HW-z5E" firstAttribute="width" secondItem="Y6n-Ia-o00" secondAttribute="width" multiplier="0.128" id="pvb-S9-zzS"/>
                             <constraint firstItem="9ex-8a-OyU" firstAttribute="top" secondItem="ViO-11-NX3" secondAttribute="bottom" constant="4" id="yyQ-Tj-meD"/>
+                            <constraint firstItem="qw8-bs-EHE" firstAttribute="width" secondItem="Y6n-Ia-o00" secondAttribute="width" multiplier="0.128" id="z1T-33-gMe"/>
                             <constraint firstItem="jsm-j2-cyY" firstAttribute="width" secondItem="Y6n-Ia-o00" secondAttribute="width" multiplier="0.34" id="zsq-RJ-LmG"/>
                         </constraints>
                     </view>
@@ -177,9 +208,11 @@
                         <outlet property="gotoSettingsController" destination="lVF-ak-Iya" id="ZI1-AQ-XYv"/>
                         <outlet property="onlinePlayerIcon" destination="9ex-8a-OyU" id="dX5-1l-Xas"/>
                         <outlet property="onlinePlayerLabel" destination="pk4-lT-BcX" id="BPF-I4-5TO"/>
+                        <outlet property="proImage" destination="qw8-bs-EHE" id="fcT-2i-5Pr"/>
                         <outlet property="searchButton" destination="jsm-j2-cyY" id="HsJ-CU-sSF"/>
                         <outlet property="settingsBtn" destination="DfF-cb-uuY" id="LHC-4T-TvR"/>
                         <outlet property="settingsBtnConstraint" destination="HsO-FK-1Gp" id="wcr-Yd-X2X"/>
+                        <outlet property="webImage" destination="mCF-HW-z5E" id="4SI-RI-7eR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kym-MY-sce" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -196,6 +229,16 @@
                 <tapGestureRecognizer id="tZn-T9-bfE" userLabel="Goto Dashboard">
                     <connections>
                         <segue destination="nij-Qh-fQW" kind="show" identifier="gotoDashboard" id="7Bj-rB-0CW"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="ybM-4L-NJD" userLabel="GotoPro">
+                    <connections>
+                        <segue destination="MN2-QR-DYf" kind="show" id="GX9-kh-3Ib"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="aVO-zJ-DBu" userLabel="Goto UsefulWeb">
+                    <connections>
+                        <segue destination="3AN-7w-9CF" kind="show" id="wD9-sd-ndh"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -219,6 +262,22 @@
             </objects>
             <point key="canvasLocation" x="-716" y="-1189"/>
         </scene>
+        <!--ProViewController-->
+        <scene sceneID="dl0-Z4-yFg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ProVersion" referencedIdentifier="ProViewController" id="MN2-QR-DYf" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T7s-Ls-U47" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="785" y="-1200"/>
+        </scene>
+        <!--WebsiteViewController-->
+        <scene sceneID="jPg-rH-OEr">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UsefulWebsite" referencedIdentifier="WebsiteViewController" id="3AN-7w-9CF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2WC-3l-UMn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="825" y="-1050"/>
+        </scene>
         <!--AdvancedInfoController-->
         <scene sceneID="4BM-H3-gFk">
             <objects>
@@ -241,7 +300,7 @@
                 <viewControllerPlaceholder storyboardName="Settings" referencedIdentifier="SettingsController" id="GXh-E5-Oxt" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FZS-dA-7UD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="856" y="-1331"/>
+            <point key="canvasLocation" x="803" y="-1452"/>
         </scene>
         <!--AdvancedInfoController-->
         <scene sceneID="p81-HS-pjG">
@@ -249,14 +308,16 @@
                 <viewControllerPlaceholder storyboardName="AdvancedStat" referencedIdentifier="AdvancedInfoController" id="nij-Qh-fQW" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QX2-pD-bTp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="857" y="-1023"/>
+            <point key="canvasLocation" x="812" y="-1342"/>
         </scene>
     </scenes>
     <resources>
         <image name="Dashboard" width="128" height="128"/>
         <image name="PlayerOnline" width="128" height="128"/>
+        <image name="Pro" width="279" height="154"/>
         <image name="Search" width="400" height="250"/>
         <image name="SearchIcon.png" width="514" height="514"/>
-        <image name="Settings.png" width="148" height="148"/>
+        <image name="Settings" width="128" height="128"/>
+        <image name="Web" width="128" height="128"/>
     </resources>
 </document>

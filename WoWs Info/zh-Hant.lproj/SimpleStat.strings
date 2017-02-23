@@ -1,0 +1,45 @@
+
+/* Class = "UILabel"; text = "---"; ObjectID = "26K-8n-anr"; */
+"26K-8n-anr.text" = "---";
+
+/* Class = "UINavigationItem"; title = "Player account ID"; ObjectID = "9Ba-lA-CFJ"; */
+"9Ba-lA-CFJ.title" = "玩家ID";
+
+/* Class = "UILabel"; text = "Total Battles"; ObjectID = "FPE-Iw-KgT"; */
+"FPE-Iw-KgT.text" = "總戰鬥數";
+
+/* Class = "UILabel"; text = "Average Damage"; ObjectID = "Gfv-1h-1hg"; */
+"Gfv-1h-1hg.text" = "平均傷害";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "HbP-8P-cqN"; */
+"HbP-8P-cqN.text" = "---";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "Lng-qN-vf6"; */
+"Lng-qN-vf6.title" = "返回";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "Ulr-BM-O3a"; */
+"Ulr-BM-O3a.text" = "---";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "Vht-Jr-vqu"; */
+"Vht-Jr-vqu.text" = "---";
+
+/* Class = "UILabel"; text = "Kill / Death Ratio"; ObjectID = "aS1-Ah-low"; */
+"aS1-Ah-low.text" = "殺死比";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "ddB-lB-cxW"; */
+"ddB-lB-cxW.text" = "---";
+
+/* Class = "UILabel"; text = "Win Rate"; ObjectID = "hdD-oc-kfb"; */
+"hdD-oc-kfb.text" = "勝率";
+
+/* Class = "UILabel"; text = "Average EXP"; ObjectID = "kng-UH-9eL"; */
+"kng-UH-9eL.text" = "平均經驗";
+
+/* Class = "UILabel"; text = "Player name"; ObjectID = "liK-r2-szT"; */
+"liK-r2-szT.text" = "玩家名";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "oUr-cH-qla"; */
+"oUr-cH-qla.text" = "---";
+
+/* Class = "UILabel"; text = "Main battery hit ratio"; ObjectID = "yej-4A-Set"; */
+"yej-4A-Set.text" = "主砲命中率";

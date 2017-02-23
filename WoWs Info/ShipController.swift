@@ -13,16 +13,16 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var ShipTableView: UITableView!
     @IBOutlet weak var filterTextField: UITextField!
     var targetShips = [[String]]()
+    let tierSymbol = ["I","II","III","IV","V","VI","VII","VIII","IX","X"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ShipTableView.delegate = self
         ShipTableView.dataSource = self
+        ShipTableView.separatorColor = UIColor.clear
         
         filterTextField.delegate = self
-        // Popup keyboar for user to search
-        filterTextField.becomeFirstResponder()
         
         PlayerShip(account: PlayerAccountID.AccountID).getPlayerShipInfo(success: { data in
             DispatchQueue.main.async {
@@ -140,13 +140,19 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         let type = targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.type]
         
         cell.shipTypeImage.image = Shipinformation.getImageWithType(type: type)
-        var tierName = "Tier \(tier)  " + name
-        if tier == "" { tierName = name }
+        let tierName = NSLocalizedString("TIER", comment: "Tier label") + " \(tierSymbol[Int(tier)! - 1])  " + name
         cell.TierNameLabel.text = tierName
         
         let index = Int(targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.rating])!
         cell.shipRating.text = PersonalRating.Comment[index]
         cell.shipRating.textColor = PersonalRating.ColorGroup[index]
+        
+        // Set up a border colour
+        cell.contentView.layer.borderWidth = 1
+        cell.contentView.layer.cornerRadius = 10
+        cell.contentView.layer.masksToBounds = true
+        cell.layoutMargins = UIEdgeInsetsMake(10, 10, 10, 10)
+        cell.contentView.layer.borderColor = UIColor(red: CGFloat(85)/255, green: CGFloat(163)/255, blue: CGFloat(255)/255, alpha: 1.0).cgColor
         
         return cell
         

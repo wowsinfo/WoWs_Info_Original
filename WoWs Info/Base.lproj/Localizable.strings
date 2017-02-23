@@ -1,0 +1,55 @@
+/* 
+  Localizable.strings
+  WoWs Info
+
+  Created by Henry Quan on 23/2/17.
+  Copyright © 2017 Henry Quan. All rights reserved.
+*/
+
+"BACK" = "Back";
+
+"DAYS" = "DAYS";
+
+"SERVER" = "Server";
+
+"HIDDEN" = "Account is Hidden!";
+
+"LEVEL" = "Level";
+
+"UNKNOWN_ERROR" = "Unknown Error";
+
+"WEB_LOADING" = "Loading...";
+
+"THX_SUPPORT" = "Thank you for your support";
+
+"ONLINE" = "online";
+
+"WELCOME_TITLE" = "Welcome";
+
+"WELCOME_MESSAGE" = "This application is designed to get a quick overview of other players before battle begins. Please first customise some settings.";
+
+"PURCHASE_TITLE" = "All set";
+
+"PURCHASE_MESSAGE" = "You have unlocked Pro features\nPlease restart this application";
+
+"PURCHASE_OK" = "Thank you";
+
+"TIER" = "Tier";
+
+"AVERAGE_TIER" = "Average Tier: ";
+
+"CHART_BATTLE" = "Battles";
+
+"SEASON" = "Season";
+
+"DASHBOARD_MESSAGE" = "Your name and ID are saved!\nYou could now use Dashboard";
+
+"SHARE_TITLE" = "You just took a screenshot!";
+
+"SHARE_MESSAGE" = "Share with friends";
+
+"SHARE_CANCEL" = "Cancel";
+
+"EMAIL_TITLE" = "Error";
+
+"EMAIL_MESSAGE" = "Cannot send an Email right now";
