@@ -19,6 +19,8 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        SKPaymentQueue.default().add(self)
+        
         if SKPaymentQueue.canMakePayments() {
             let productID = NSSet(object: proIAP)
             let request = SKProductsRequest(productIdentifiers: productID as! Set<String>)
@@ -36,6 +38,12 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
     func becomePro() {
         UserDefaults.standard.set(true, forKey: DataManagement.DataName.IsAdvancedUnlocked)
         UserDefaults.standard.set(true, forKey: DataManagement.DataName.IsThereAds)
+        // Thank you
+        let alert = UIAlertController(title: NSLocalizedString("PURCHASE_TITLE", comment: "Title"), message: NSLocalizedString("PURCHASE_MESSAGE", comment: "Message"), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("PURCHASE_OK", comment: "OK"), style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+        _ = self.navigationController?.popToRootViewController(animated: true)
     }
     
     func buyProduct() {
@@ -75,7 +83,7 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         
         let myProduct = response.products
-        print(myProduct)
+        print(myProduct.count)
         for p in myProduct {
             print(p.productIdentifier)
             print(p.localizedTitle)

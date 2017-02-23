@@ -1,0 +1,87 @@
+
+/* Class = "UILabel"; text = "North America"; ObjectID = "11f-9G-ChM"; */
+"11f-9G-ChM.text" = "北美服務器";
+
+/* Class = "UILabel"; text = "Asia"; ObjectID = "5zn-0l-VsQ"; */
+"5zn-0l-VsQ.text" = "亞洲服務器";
+
+/* Class = "UITableViewSection"; footerTitle = "Please send me an Email if there is something wrong with this application (I do not have enough test devices *>_<*)"; ObjectID = "6Py-Ct-uTZ"; */
+"6Py-Ct-uTZ.footerTitle" = "如果您對這個App有任何建議，請給我發一封電子郵件 >_<";
+
+/* Class = "UILabel"; text = "Version 1.1"; ObjectID = "6j1-au-PL7"; */
+"6j1-au-PL7.text" = "版本 1.1";
+
+/* Class = "UILabel"; text = "What's new?"; ObjectID = "8Zf-qR-p13"; */
+"8Zf-qR-p13.text" = "歷史版本";
+
+/* Class = "UILabel"; text = "15"; ObjectID = "8zT-Wo-wFI"; */
+"8zT-Wo-wFI.text" = "15";
+
+/* Class = "UILabel"; text = "Send Feedback"; ObjectID = "ADv-qj-M7c"; */
+"ADv-qj-M7c.text" = "用戶反饋";
+
+/* Class = "UITextView"; text = "SwiftyJson\n——————————————\nhttps://github.com/SwiftyJSON/SwiftyJSON\n\nCharts\n——————————————\nhttps://github.com/danielgindi/Charts\n\nCopyright 2016 Daniel Cohen Gindi & Philipp Jahoda\n\nLicensed under the Apache License"; ObjectID = "AXS-ei-X7H"; */
+"AXS-ei-X7H.text" = "SwiftyJson\n——————————————\nhttps://github.com/SwiftyJSON/SwiftyJSON\n\nCharts\n——————————————\nhttps://github.com/danielgindi/Charts\n\nCopyright 2016 Daniel Cohen Gindi & Philipp Jahoda\n\nLicensed under the Apache License";
+
+/* Class = "UILabel"; text = "Open source license"; ObjectID = "EAj-AG-vfz"; */
+"EAj-AG-vfz.text" = "開源組件許可";
+
+/* Class = "UILabel"; text = "About"; ObjectID = "Ee9-my-k8f"; */
+"Ee9-my-k8f.text" = "關於";
+
+/* Class = "UITableViewSection"; footerTitle = "Clicking on Ads does support me as well"; ObjectID = "Gpx-dF-TwV"; */
+"Gpx-dF-TwV.footerTitle" = "看廣告也是一種幫助";
+
+/* Class = "UITableViewSection"; headerTitle = "Donation"; ObjectID = "Gpx-dF-TwV"; */
+"Gpx-dF-TwV.headerTitle" = "捐助";
+
+/* Class = "UITableViewSection"; footerTitle = "Please press the + button after searching yourself. This is for pro version only."; ObjectID = "H2H-zT-vAK"; */
+"H2H-zT-vAK.footerTitle" = "在搜索自己之後，按右上角的+按鈕 （只適用於專業版）";
+
+/* Class = "UITableViewSection"; headerTitle = "Player"; ObjectID = "H2H-zT-vAK"; */
+"H2H-zT-vAK.headerTitle" = "玩家";
+
+/* Class = "UITableViewSection"; footerTitle = "Larger number gives more player search results but it decreases the performance by a little bit"; ObjectID = "HjN-Zx-QE4"; */
+"HjN-Zx-QE4.footerTitle" = "數字越大，可以搜索到的玩家越多，但是會增加搜索時間";
+
+/* Class = "UITableViewSection"; headerTitle = "Search limit"; ObjectID = "HjN-Zx-QE4"; */
+"HjN-Zx-QE4.headerTitle" = "搜索數量";
+
+/* Class = "UILabel"; text = "Write a review"; ObjectID = "M6R-Eu-aLQ"; */
+"M6R-Eu-aLQ.text" = "給App評分";
+
+/* Class = "UINavigationItem"; title = "About"; ObjectID = "MAO-TF-fAJ"; */
+"MAO-TF-fAJ.title" = "關於";
+
+/* Class = "UITableViewSection"; footerTitle = "World of Warships is trademark of Wargaming.net"; ObjectID = "Pfo-Qj-sK2"; */
+"Pfo-Qj-sK2.footerTitle" = "World of Warships is trademark of Wargaming.net";
+
+/* Class = "UILabel"; text = "Share with friends"; ObjectID = "Udo-Kp-JhD"; */
+"Udo-Kp-JhD.text" = "跟朋友分享這款軟件";
+
+/* Class = "UILabel"; text = "Choose your server"; ObjectID = "Uoz-PZ-Uht"; */
+"Uoz-PZ-Uht.text" = "選擇你的服務器";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "W5u-Kc-59f"; */
+"W5u-Kc-59f.title" = "設置";
+
+/* Class = "UITableViewSection"; headerTitle = "server selection"; ObjectID = "W7P-uJ-Bu6"; */
+"W7P-uJ-Bu6.headerTitle" = "服務器";
+
+/* Class = "UITextField"; placeholder = "Player ID"; ObjectID = "XKc-2W-qHR"; */
+"XKc-2W-qHR.placeholder" = "玩家ID";
+
+/* Class = "UILabel"; text = "HenryQuan 2017"; ObjectID = "cW3-Vy-RgV"; */
+"cW3-Vy-RgV.text" = "HenryQuan 2017";
+
+/* Class = "UILabel"; text = "Russia"; ObjectID = "eSM-Oi-RRc"; */
+"eSM-Oi-RRc.text" = "俄羅斯服務器";
+
+/* Class = "UILabel"; text = "Paypal"; ObjectID = "k8d-dD-a9u"; */
+"k8d-dD-a9u.text" = "Paypal";
+
+/* Class = "UILabel"; text = "Europe"; ObjectID = "rCs-5r-92P"; */
+"rCs-5r-92P.text" = "歐洲服務器";
+
+/* Class = "UITextView"; text = "1.0.3\nAnimation changed\nText font and size are adjusted.\n\nPreparing for Pro version\nPlease share with your friends if you like this application >_<\n\n1.0.2\nBug fixed - Unable to display long player names.\nBug fixed - Weird display issue.\nAnimation added.\nAdded new about page.\nMove Settings to the left.\nDisplay online players according to your server.\n\n1.0.1\nBug fixed - Unable to find players with underscore(_) in their name.\nYou could now donate through PayPal.\nRemove old about page\n\n1.0\nBasic functionality"; ObjectID = "u0J-mH-UB1"; */
+"u0J-mH-UB1.text" = "1.0.3\nAnimation changed\nText font and size are adjusted.\n\nPreparing for Pro version\nPlease share with your friends if you like this application >_<\n\n1.0.2\nBug fixed - Unable to display long player names.\nBug fixed - Weird display issue.\nAnimation added.\nAdded new about page.\nMove Settings to the left.\nDisplay online players according to your server.\n\n1.0.1\nBug fixed - Unable to find players with underscore(_) in their name.\nYou could now donate through PayPal.\nRemove old about page\n\n1.0\nBasic functionality";

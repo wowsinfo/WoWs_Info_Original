@@ -14,8 +14,7 @@ class SettingsController : UITableViewController, MFMailComposeViewControllerDel
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var silderCountLabel: UILabel!
     @IBOutlet weak var limitSlider: UISlider!
-    
-    let website = ["https://worldofwarships.com/", "http://wiki.wargaming.net/en/World_of_Warships", "https://warships.today/", "http://wows-numbers.com/", "http://maplesyrup.sweet.coocan.jp/wows/ranking/"]
+ 
     let isProVersion = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
     
     override func viewDidLoad() {
@@ -68,20 +67,18 @@ class SettingsController : UITableViewController, MFMailComposeViewControllerDel
         let selectedCell = tableView.cellForRow(at: indexPath)
         let tag = (selectedCell?.tag)!
         
-        if tag > 0 && tag <= 5 {
-            UIApplication.shared.openURL(URL(string: website[tag - 1])!)
-        } else if tag == 10 {
+        if tag == 10 {
             // Donate through Paypal
             UIApplication.shared.openURL(URL(string: "https://www.paypal.me/YihengQuan/")!)
             
             // Thank user for supporting me
-            showAlert(title: ">_<", message: "Thank you for your support", button: "OK")
+            showAlert(title: ">_<", message: NSLocalizedString("THX_SUPPORT", comment: "Thank you label"), button: "OK")
         } else if tag == 20 {
             // Send email to me
             if MFMailComposeViewController.canSendMail() {
                 sendEmail()
             } else {
-                showAlert(title: "Error", message: "Cannot send an Email right now", button: "OK")
+                showAlert(title: NSLocalizedString("EMAIL_TITLE", comment: "Error label"), message: NSLocalizedString("EMAIL_MESSAGE", comment: "Email label"), button: "OK")
             }
         } else if tag == 21 {
             // Write a review

@@ -16,4 +16,19 @@ class RankTableCell: UITableViewCell {
     @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var damageLabel: UILabel!
     
+    // Change the frame
+    override var frame: CGRect {
+        get {
+            return super.frame
+        }
+        set (Optimised) {
+            var frame =  Optimised
+            frame.origin.x += 10
+            frame.origin.y += 5
+            frame.size.width -= 2 * 10
+            frame.size.height -= 2 * 5
+            super.frame = frame
+        }
+    }
+    
 }
