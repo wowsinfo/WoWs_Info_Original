@@ -13,7 +13,7 @@ class ServerUrl {
     static let Server = ["ru", "eu", "com", "asia"]
     static let TodayDomain = ["ru", "eu", "na", "asia"]
     static let NumberDomain = ["ru.", "", "na.", "asia."]
-    static let ServerName = ["Russia", "Europe", "North America", "Asia"]
+    static let ServerName = [NSLocalizedString("RU", comment: "Russia"), NSLocalizedString("EU", comment: "Europe"), NSLocalizedString("NA", comment: "North Amercia"), NSLocalizedString("ASIA", comment: "Asia")]
     
     var index: Int
     var server = ""

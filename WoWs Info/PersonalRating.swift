@@ -23,7 +23,7 @@ class PersonalRating {
         static let SuperUnicum = 7
     }
     
-    static let Comment = ["*>_<*", "Below Average", "Average", "Good", "Very Good", "Great", "Unicum", "SUPER Unicum"]
+    static let Comment = [NSLocalizedString("RATING0", comment: "Bad"), NSLocalizedString("RATING1", comment: "Below Average"), NSLocalizedString("RATING2", comment: "Average"), NSLocalizedString("RATING3", comment: "Good"), NSLocalizedString("RATING4", comment: "Very Good"), NSLocalizedString("RATING5", comment: "Great"), NSLocalizedString("RATING6", comment: "Unicum"), NSLocalizedString("RATING7", comment: "Super Unicum"),]
     
     // Colour Group
     static let ColorGroup = [UIColor.red, UIColor.orange, UIColor.init(red: 1, green: 199/255, blue: 31/255, alpha: 1.0), UIColor.green, UIColor.init(red: 0, green: 158/255, blue: 57/255, alpha: 1.0), UIColor.cyan, UIColor.magenta, UIColor.purple]

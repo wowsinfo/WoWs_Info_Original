@@ -23,7 +23,7 @@
                             <tableViewSection headerTitle="Player" footerTitle="Please press the + button after searching yourself. This is for pro version only." id="H2H-zT-vAK">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="mD4-t5-8fp">
-                                        <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mD4-t5-8fp" id="g94-OU-nvI">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -49,7 +49,7 @@
                             <tableViewSection headerTitle="Search limit" footerTitle="Larger number gives more player search results but it decreases the performance by a little bit" id="HjN-Zx-QE4">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Iv7-u7-iM4">
-                                        <rect key="frame" x="0.0" y="192" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="191" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Iv7-u7-iM4" id="Cua-Xy-pSl">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -85,7 +85,7 @@
                             <tableViewSection headerTitle="server selection" id="W7P-uJ-Bu6">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Uoz-PZ-Uht" style="IBUITableViewCellStyleDefault" id="IvV-Uo-AJo">
-                                        <rect key="frame" x="0.0" y="321" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="319" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IvV-Uo-AJo" id="mOS-PB-pav">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
@@ -109,7 +109,7 @@
                             <tableViewSection headerTitle="Donation" footerTitle="Clicking on Ads does support me as well" id="Gpx-dF-TwV">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" tag="10" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="k8d-dD-a9u" style="IBUITableViewCellStyleDefault" id="SbF-iU-XkU">
-                                        <rect key="frame" x="0.0" y="429" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="426.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SbF-iU-XkU" id="H7b-u6-gFb">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
@@ -125,12 +125,46 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" tag="11" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Jvm-GO-ReQ" style="IBUITableViewCellStyleDefault" id="uEZ-Xe-DcV">
+                                        <rect key="frame" x="0.0" y="470.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uEZ-Xe-DcV" id="Udw-HI-Kr6">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Alipay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jvm-GO-ReQ">
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" tag="12" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="caH-gV-rqL" style="IBUITableViewCellStyleDefault" id="L8L-H1-ZH5">
+                                        <rect key="frame" x="0.0" y="514.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L8L-H1-ZH5" id="DCm-9e-ypj">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Wechat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="caH-gV-rqL">
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection footerTitle="Please send me an Email if there is something wrong with this application (I do not have enough test devices *&gt;_&lt;*)" id="6Py-Ct-uTZ">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" tag="20" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="ADv-qj-M7c" style="IBUITableViewCellStyleDefault" id="BAi-aZ-fmi">
-                                        <rect key="frame" x="0.0" y="521" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="606.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BAi-aZ-fmi" id="tsP-Ce-DCB">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
@@ -147,7 +181,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" tag="21" contentMode="scaleAspectFit" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="M6R-Eu-aLQ" imageView="hEx-rM-3Ph" style="IBUITableViewCellStyleDefault" id="YtQ-aa-kWB">
-                                        <rect key="frame" x="0.0" y="565" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="650.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YtQ-aa-kWB" id="xqf-nT-gZ6">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
@@ -168,7 +202,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" tag="22" contentMode="scaleAspectFit" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Udo-Kp-JhD" imageView="qvh-T0-y5A" style="IBUITableViewCellStyleDefault" id="p0u-BI-3pr">
-                                        <rect key="frame" x="0.0" y="609" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="694.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p0u-BI-3pr" id="eQP-mz-b1O">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
@@ -193,7 +227,7 @@
                             <tableViewSection footerTitle="World of Warships is trademark of Wargaming.net" id="Pfo-Qj-sK2">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" showsReorderControl="YES" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="EAj-AG-vfz" style="IBUITableViewCellStyleDefault" id="Haw-bA-uIF">
-                                        <rect key="frame" x="0.0" y="733" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="818.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Haw-bA-uIF" id="wN4-Pw-frp">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
@@ -213,7 +247,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Ee9-my-k8f" imageView="fHS-Yq-gGz" style="IBUITableViewCellStyleDefault" id="xCw-SO-8u2">
-                                        <rect key="frame" x="0.0" y="777" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="862.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xCw-SO-8u2" id="Dml-cu-GGI">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
@@ -250,6 +284,7 @@
                         <outlet property="limitSlider" destination="qEe-KB-iw5" id="YcW-dt-byW"/>
                         <outlet property="silderCountLabel" destination="8zT-Wo-wFI" id="d9X-cb-msm"/>
                         <outlet property="username" destination="XKc-2W-qHR" id="KUC-w0-tfd"/>
+                        <segue destination="qqE-E9-l8W" kind="show" identifier="gotoDonation" id="lVR-xc-Jyz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aYP-jO-Rhh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -277,7 +312,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6j1-au-PL7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.0.3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6j1-au-PL7">
                                 <rect key="frame" x="16" y="164" width="343" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="1Jt-Vg-XvZ"/>
@@ -303,7 +338,7 @@ Animation changed
 Text font and size are adjusted.
 
 Preparing for Pro version
-Please share with your friends if you like this application &gt;_&lt;
+Follow @Yiheng_Quan on Twitter for more information
 
 1.0.2
 Bug fixed - Unable to display long player names.
@@ -490,6 +525,54 @@ Licensed under the Apache License</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4S5-Np-xjW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1079" y="358"/>
+        </scene>
+        <!--Donation Controller-->
+        <scene sceneID="yhV-ee-hP0">
+            <objects>
+                <viewController id="qqE-E9-l8W" customClass="DonationController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="a7Z-Ae-xQq"/>
+                        <viewControllerLayoutGuide type="bottom" id="FP1-rV-qn5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GO7-S7-Hcg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8H-1c-AGP">
+                                <rect key="frame" x="0.0" y="541" width="375" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="uTz-Cc-kch"/>
+                                </constraints>
+                                <state key="normal" title="Save QR code to album"/>
+                                <connections>
+                                    <action selector="saveToAlbum:" destination="qqE-E9-l8W" eventType="touchUpInside" id="t5x-zO-iu3"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2mi-Cq-Oin" userLabel="QR Image">
+                                <rect key="frame" x="37" y="133" width="300" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="2mi-Cq-Oin" secondAttribute="height" multiplier="3:4" id="s7t-dc-gk8"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2mi-Cq-Oin" firstAttribute="width" secondItem="GO7-S7-Hcg" secondAttribute="width" multiplier="0.8" id="6W3-CB-Y3i"/>
+                            <constraint firstItem="2mi-Cq-Oin" firstAttribute="centerY" secondItem="GO7-S7-Hcg" secondAttribute="centerY" id="O4o-CD-klv"/>
+                            <constraint firstItem="Q8H-1c-AGP" firstAttribute="top" secondItem="2mi-Cq-Oin" secondAttribute="bottom" constant="8" id="QlQ-Gh-cpV"/>
+                            <constraint firstItem="Q8H-1c-AGP" firstAttribute="leading" secondItem="GO7-S7-Hcg" secondAttribute="leading" id="el0-nd-9wW"/>
+                            <constraint firstItem="2mi-Cq-Oin" firstAttribute="centerX" secondItem="GO7-S7-Hcg" secondAttribute="centerX" id="oMI-f4-PD5"/>
+                            <constraint firstAttribute="trailing" secondItem="Q8H-1c-AGP" secondAttribute="trailing" id="wze-17-b3v"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="QRImage" destination="2mi-Cq-Oin" id="0N4-ZH-uCv"/>
+                        <outlet property="saveImageBtn" destination="Q8H-1c-AGP" id="Oo6-NX-cm1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DgY-dq-39M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-274.39999999999998" y="357.57121439280365"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PzC-2g-yI3">
