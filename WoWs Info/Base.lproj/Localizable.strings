@@ -53,3 +53,35 @@
 "EMAIL_TITLE" = "Error";
 
 "EMAIL_MESSAGE" = "Cannot send an Email right now";
+
+"DD" = "Destoryer";
+
+"BB" = "Battleship";
+
+"CA" = "Cruiser";
+
+"CV" = "Aircraft Carrier";
+
+"ASIA" = "Asia";
+
+"EU" = "Europe";
+
+"NA" = "North America";
+
+"RU" = "Russia";
+
+"RATING0" = "*>_<*";
+
+"RATING1" = "Below Average";
+
+"RATING2" = "Average";
+
+"RATING3" = "Good";
+
+"RATING4" = "Very Good";
+
+"RATING5" = "Great";
+
+"RATING6" = "Unicum";
+
+"RATING7" = "SUPER Unicum";

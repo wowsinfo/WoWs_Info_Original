@@ -140,7 +140,7 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         let type = targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.type]
         
         cell.shipTypeImage.image = Shipinformation.getImageWithType(type: type)
-        let tierName = NSLocalizedString("TIER", comment: "Tier label") + " \(tierSymbol[Int(tier)! - 1])  " + name
+        let tierName = NSLocalizedString("TIER", comment: "Tier label") + " \(tierSymbol[Int(tier)! - 1]) " + name
         cell.TierNameLabel.text = tierName
         
         let index = Int(targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.rating])!

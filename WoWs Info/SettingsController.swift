@@ -73,6 +73,9 @@ class SettingsController : UITableViewController, MFMailComposeViewControllerDel
             
             // Thank user for supporting me
             showAlert(title: ">_<", message: NSLocalizedString("THX_SUPPORT", comment: "Thank you label"), button: "OK")
+        } else if tag == 11 || tag == 12 {
+            // Go to donation
+            performSegue(withIdentifier: "gotoDonation", sender: tag)
         } else if tag == 20 {
             // Send email to me
             if MFMailComposeViewController.canSendMail() {
@@ -119,6 +122,20 @@ class SettingsController : UITableViewController, MFMailComposeViewControllerDel
     // To dismiss the controller
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // Change text to "Back"
+        let backItem = UIBarButtonItem()
+        backItem.title = NSLocalizedString("BACK", comment: "Back label")
+        navigationItem.backBarButtonItem = backItem
+
+        if segue.identifier == "gotoDonation" {
+            let destination = segue.destination as! DonationController
+            destination.tag = sender as! Int!
+        }
+        
     }
     
 }

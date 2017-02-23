@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		920E1C411E5EB76300B43472 /* DonationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920E1C401E5EB76300B43472 /* DonationController.swift */; };
 		9210C06A1E45B3D500270002 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210C0691E45B3D500270002 /* WebViewController.swift */; };
 		9210C06E1E45E30E00270002 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210C06D1E45E30E00270002 /* NavigationController.swift */; };
 		9210C07E1E4609BA00270002 /* PersonalRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210C07D1E4609BA00270002 /* PersonalRating.swift */; };
@@ -55,6 +56,10 @@
 /* Begin PBXFileReference section */
 		06D13CAC2212DD18FD32AB49 /* Pods-WoWs Info.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoWs Info.release.xcconfig"; path = "Pods/Target Support Files/Pods-WoWs Info/Pods-WoWs Info.release.xcconfig"; sourceTree = "<group>"; };
 		3B0C461C5DD33F3D39731E2D /* Pods-WoWs Info.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoWs Info.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WoWs Info/Pods-WoWs Info.debug.xcconfig"; sourceTree = "<group>"; };
+		920E1C3D1E5EA30A00B43472 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		920E1C3F1E5EAC8B00B43472 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		920E1C401E5EB76300B43472 /* DonationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonationController.swift; sourceTree = "<group>"; };
+		920E1C481E5EC32A00B43472 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Settings.strings"; sourceTree = "<group>"; };
 		9210C0691E45B3D500270002 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		9210C06D1E45E30E00270002 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		9210C07D1E4609BA00270002 /* PersonalRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalRating.swift; sourceTree = "<group>"; };
@@ -91,7 +96,6 @@
 		92813BB61E47447C009AA9E8 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		928314B11E4A5B4E00ED4A1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		92B768601E5E5A57009803C3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
-		92B768611E5E5A57009803C3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Settings.strings"; sourceTree = "<group>"; };
 		92B768621E5E5A57009803C3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SimpleStat.strings"; sourceTree = "<group>"; };
 		92B768631E5E5A58009803C3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		92B768651E5E5D02009803C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MoreInformation.storyboard; sourceTree = "<group>"; };
@@ -108,8 +112,6 @@
 		92B768811E5E6144009803C3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/UsefulWebsite.strings"; sourceTree = "<group>"; };
 		92B768821E5E6144009803C3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		92B768861E5E6E34009803C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		92B768881E5E6E3B009803C3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		92B768891E5E6E3C009803C3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		92D9B4D11E55AE3200CFD46D /* PlayerAccountID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerAccountID.swift; sourceTree = "<group>"; };
 		92D9B4D31E55AF2400CFD46D /* RankController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankController.swift; sourceTree = "<group>"; };
 		92D9B4D51E55C6D600CFD46D /* RankTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankTableCell.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				9215CA461E5C0C7C00A7F465 /* Pro */,
 				9210C06D1E45E30E00270002 /* NavigationController.swift */,
 				9259C1CB1E57BC4400F34CDC /* IAPController.swift */,
+				920E1C401E5EB76300B43472 /* DonationController.swift */,
 				926528B81E41BD5600D1A685 /* PlayerInfoController.swift */,
 				9215CA481E5C119100A7F465 /* WebTableController.swift */,
 				926528BA1E41BD5600D1A685 /* SearchController.swift */,
@@ -438,6 +441,7 @@
 				9259C1CC1E57BC4400F34CDC /* IAPController.swift in Sources */,
 				92D9B4DB1E565C8A00CFD46D /* ShipTableCell.swift in Sources */,
 				926528C01E41BD5600D1A685 /* SearchController.swift in Sources */,
+				920E1C411E5EB76300B43472 /* DonationController.swift in Sources */,
 				92D9B4D61E55C6D600CFD46D /* RankTableCell.swift in Sources */,
 				92D9B4D21E55AE3200CFD46D /* PlayerAccountID.swift in Sources */,
 			);
@@ -480,8 +484,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				925BE5AC1E502D0000DA6A1A /* Base */,
-				92B768611E5E5A57009803C3 /* zh-Hans */,
 				92B7687E1E5E6143009803C3 /* zh-Hant */,
+				920E1C481E5EC32A00B43472 /* zh-Hans */,
 			);
 			name = Settings.storyboard;
 			sourceTree = "<group>";
@@ -520,8 +524,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				92B768861E5E6E34009803C3 /* Base */,
-				92B768881E5E6E3B009803C3 /* zh-Hans */,
-				92B768891E5E6E3C009803C3 /* zh-Hant */,
+				920E1C3D1E5EA30A00B43472 /* zh-Hans */,
+				920E1C3F1E5EAC8B00B43472 /* zh-Hant */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

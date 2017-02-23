@@ -85,6 +85,8 @@ class AdvancedInfoController: UIViewController {
                 return
             } else if data[0] == "HIDDEN" {
                 self.levelAndPlaytimeLabel.text = NSLocalizedString("HIDDEN", comment: "Hidden Label")
+                self.moreInfo.isHidden = true
+                self.number.isHidden = true
             } else {
                 self.averageDamageLabel.text = data[PlayerStat.dataIndex.averageDamage]
                 self.averageExpLabel.text = data[PlayerStat.dataIndex.averageExp]
@@ -105,6 +107,7 @@ class AdvancedInfoController: UIViewController {
                     self.totalBattlesLabel.text = "\(data[PlayerStat.dataIndex.totalBattles]) (\(battlePerDay))"
                 } else {
                     self.totalBattlesLabel.text = String(format: "%.0f", totalBattles!)
+                    self.moreInfo.isHidden = true
                 }
                 
                 // Get personal rating

@@ -6,50 +6,82 @@
   Copyright © 2017 Henry Quan. All rights reserved.
 */
 
-"BACK" = "Back";
+"BACK" = "返回";
 
-"DAYS" = "DAYS";
+"DAYS" = "天";
 
-"SERVER" = "Server";
+"SERVER" = "服務器";
 
-"HIDDEN" = "Account is Hidden!";
+"HIDDEN" = "數據被隱藏";
 
-"LEVEL" = "Level";
+"LEVEL" = "等級";
 
-"UNKNOWN_ERROR" = "Unknown Error";
+"UNKNOWN_ERROR" = "未知錯誤";
 
-"WEB_LOADING" = "Loading...";
+"WEB_LOADING" = "加載中...";
 
-"THX_SUPPORT" = "Thank you for your support";
+"THX_SUPPORT" = "感謝您的支持";
 
-"ONLINE" = "online";
+"ONLINE" = "在線";
 
-"WELCOME_TITLE" = "Welcome";
+"WELCOME_TITLE" = "歡迎";
 
-"WELCOME_MESSAGE" = "This application is designed to get a quick overview of other players before battle begins. Please first customise some settings.";
+"WELCOME_MESSAGE" = "这个软件是为在战斗开始之前就了解对手的水平而设计的，请先修改一些设置。";
 
-"PURCHASE_TITLE" = "All set";
+"PURCHASE_TITLE" = "購買成功";
 
-"PURCHASE_MESSAGE" = "You have unlocked Pro features\nPlease restart this application";
+"PURCHASE_MESSAGE" = "您已解鎖專業版\n請重啓這個程序";
 
-"PURCHASE_OK" = "Thank you";
+"PURCHASE_OK" = "謝謝";
 
-"TIER" = "Tier";
+"TIER" = "階級";
 
-"AVERAGE_TIER" = "Average Tier: ";
+"AVERAGE_TIER" = "平均階級：";
 
-"CHART_BATTLE" = "Battles";
+"CHART_BATTLE" = "戰鬥數";
 
-"SEASON" = "Season";
+"SEASON" = "賽季";
 
-"DASHBOARD_MESSAGE" = "Your name and ID are saved!\nYou could now use Dashboard";
+"DASHBOARD_MESSAGE" = "已保存您的用戶名和ID\n現在可以快速查看自己的數據了";
 
-"SHARE_TITLE" = "You just took a screenshot!";
+"SHARE_TITLE" = "快分享給朋友吧";
 
-"SHARE_MESSAGE" = "Share with friends";
+"SHARE_MESSAGE" = "分享";
 
-"SHARE_CANCEL" = "Cancel";
+"SHARE_CANCEL" = "取消";
 
-"EMAIL_TITLE" = "Error";
+"EMAIL_TITLE" = "錯誤";
 
-"EMAIL_MESSAGE" = "Cannot send an Email right now";
+"EMAIL_MESSAGE" = "無法發送電子郵件";
+
+"DD" = "驅逐艦";
+
+"BB" = "主力艦";
+
+"CA" = "巡洋艦";
+
+"CV" = "航空母艦";
+
+"ASIA" = "亞服";
+
+"EU" = "歐服";
+
+"NA" = "美服";
+
+"RU" = "俄服";
+
+"RATING0" = "還需努力";
+
+"RATING1" = "低於平均值";
+
+"RATING2" = "平均水平";
+
+"RATING3" = "不錯";
+
+"RATING4" = "非常好";
+
+"RATING5" = "很棒";
+
+"RATING6" = "Unicum";
+
+"RATING7" = "SUPER Unicum";

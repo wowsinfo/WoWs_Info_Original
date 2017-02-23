@@ -6,50 +6,82 @@
   Copyright © 2017 Henry Quan. All rights reserved.
 */
 
-"BACK" = "Back";
+"BACK" = "返回";
 
-"DAYS" = "DAYS";
+"DAYS" = "天";
 
-"SERVER" = "Server";
+"SERVER" = "服务器";
 
-"HIDDEN" = "Account is Hidden!";
+"HIDDEN" = "数据被隐藏";
 
-"LEVEL" = "Level";
+"LEVEL" = "等级";
 
-"UNKNOWN_ERROR" = "Unknown Error";
+"UNKNOWN_ERROR" = "未知错误";
 
-"WEB_LOADING" = "Loading...";
+"WEB_LOADING" = "加载中...";
 
-"THX_SUPPORT" = "Thank you for your support";
+"THX_SUPPORT" = "感谢您的支持";
 
-"ONLINE" = "online";
+"ONLINE" = "在线";
 
-"WELCOME_TITLE" = "Welcome";
+"WELCOME_TITLE" = "欢迎";
 
-"WELCOME_MESSAGE" = "This application is designed to get a quick overview of other players before battle begins. Please first customise some settings.";
+"WELCOME_MESSAGE" = "这个软件是为在战斗开始之前就了解对手的水平而设计的，请先修改一些设置。";
 
-"PURCHASE_TITLE" = "All set";
+"PURCHASE_TITLE" = "购买成功";
 
-"PURCHASE_MESSAGE" = "You have unlocked Pro features\nPlease restart this application";
+"PURCHASE_MESSAGE" = "您已解锁专业版\n请重启这个程序";
 
-"PURCHASE_OK" = "Thank you";
+"PURCHASE_OK" = "谢谢";
 
-"TIER" = "Tier";
+"TIER" = "等级";
 
-"AVERAGE_TIER" = "Average Tier: ";
+"AVERAGE_TIER" = "平均等级：";
 
-"CHART_BATTLE" = "Battles";
+"CHART_BATTLE" = "战斗数";
 
-"SEASON" = "Season";
+"SEASON" = "赛季";
 
-"DASHBOARD_MESSAGE" = "Your name and ID are saved!\nYou could now use Dashboard";
+"DASHBOARD_MESSAGE" = "已保存您的用户名和ID\n现在可以快速的查看自己的数据了";
 
-"SHARE_TITLE" = "You just took a screenshot!";
+"SHARE_TITLE" = "快快分享给小伙伴们吧";
 
-"SHARE_MESSAGE" = "Share with friends";
+"SHARE_MESSAGE" = "分享";
 
-"SHARE_CANCEL" = "Cancel";
+"SHARE_CANCEL" = "取消";
 
-"EMAIL_TITLE" = "Error";
+"EMAIL_TITLE" = "错误";
 
-"EMAIL_MESSAGE" = "Cannot send an Email right now";
+"EMAIL_MESSAGE" = "无法发送电子邮件";
+
+"DD" = "驱逐舰";
+
+"BB" = "战列舰";
+
+"CA" = "巡洋舰";
+
+"CV" = "航空母舰";
+
+"ASIA" = "亚服";
+
+"EU" = "欧服";
+
+"NA" = "美服";
+
+"RU" = "俄服";
+
+"RATING0" = "还需努力";
+
+"RATING1" = "低于平均值";
+
+"RATING2" = "平均水平";
+
+"RATING3" = "不错";
+
+"RATING4" = "非常好";
+
+"RATING5" = "很棒";
+
+"RATING6" = "Unicum";
+
+"RATING7" = "SUPER Unicum";

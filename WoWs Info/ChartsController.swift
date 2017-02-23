@@ -88,7 +88,7 @@ class ChartsController: UIViewController, ChartViewDelegate {
     
     func setupTypePieChart() {
         
-        let typeAxis = ["Destoryer", "Cruiser", "Battleship", "Aircraft Carrier"]
+        let typeAxis = [NSLocalizedString("DD", comment: "Destoryer"), NSLocalizedString("CA", comment: "Cruiser"), NSLocalizedString("BB", comment: "Battleship"), NSLocalizedString("CV", comment: "Aircraft Carrier")]
         typeBattlePieChart.chartDescription?.text = ""
         typeBattlePieChart.drawEntryLabelsEnabled = false
         let typeInformation = data.getShipTypeInformation()
