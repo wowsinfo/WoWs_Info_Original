@@ -8,30 +8,40 @@
 
 import UIKit
 
-class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+// Lol, that's lots of delegates and data sources
+class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var usernameTableView: UITableView!
     @IBOutlet weak var searchBtn: UIButton!
+    @IBOutlet weak var pickerView: UIView!
+    @IBOutlet weak var serverPicker: UIPickerView!
     
     var playerInfo = [[String]]()
     var selectedInfo = [String]()
     var searchLimit = 0
-        
+    var server = UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)
+    
+    let serverName = [NSLocalizedString("RU", comment: "Russia"), NSLocalizedString("EU", comment: "Europe"), NSLocalizedString("NA", comment: "North Amercia"), NSLocalizedString("ASIA", comment: "Asia")]
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
    
+        // Tableview setup
         usernameTableView.delegate = self
         usernameTableView.dataSource = self
         usernameTableView.separatorColor = UIColor.clear
         
         self.title = ""
         
+        // Pickerview setup
+        serverPicker.delegate = self
+        serverPicker.delegate = self
+
         searchLimit = UserDefaults.standard.integer(forKey: DataManagement.DataName.SearchLimit)
         
-        let server = UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)
-        username.placeholder = NSLocalizedString("SERVER", comment: "Server label") + " : \(ServerUrl.ServerName[server])"
+        getServerName()
         
     }
     
@@ -55,6 +65,14 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
     }
     
+    func getServerName() {
+        
+        server = UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)
+        username.placeholder = NSLocalizedString("SERVER", comment: "Server label") + " : \(ServerUrl.ServerName[server])"
+        
+    }
+    
+    // MARK: Load data into tableview
     func refreshTabelView() {
         DispatchQueue.main.async {
             self.usernameTableView.reloadData()
@@ -81,6 +99,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
     }
     
+    // MARK: UITextfield
     @IBAction func usernameChanged(_ sender: UITextField) {
         
         // Cancel last request if user types really quick
@@ -91,6 +110,30 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
     }
     
+    // MARK: Button pressed
+    @IBAction func serverBtnPressed(_ sender: UIButton) {
+        
+        // Show our view
+        pickerView.isHidden = false
+        serverPicker.selectRow(server, inComponent: 0, animated: true)
+        
+    }
+    
+    @IBAction func doneBtnPressed(_ sender: UIButton) {
+        
+        // Save new server index
+        let index = serverPicker.selectedRow(inComponent: 0)
+        if index >= 0 && index < 4 {
+            UserDefaults.standard.set(index, forKey: DataManagement.DataName.Server)
+        }
+        
+        // Hide view and show keyboard
+        self.pickerView.isHidden = true
+        self.username.becomeFirstResponder()
+        // Change textholder
+        self.getServerName()
+        
+    }
     
     @IBAction func searchBtnPressed(_ sender: UIButton) {
         
@@ -107,6 +150,20 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
     }
     
+    // MARK: PickerView
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return serverName.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return serverName[row]
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // MARK: TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return playerInfo.count
     }
@@ -153,6 +210,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
     }
     
+    // MARK: Prepare segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // Change text to "Back"
