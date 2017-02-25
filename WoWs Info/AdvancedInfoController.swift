@@ -27,6 +27,7 @@ class AdvancedInfoController: UIViewController {
     @IBOutlet weak var mainBatteryHitRatioLabel: UILabel!
     @IBOutlet weak var centerConstraint: NSLayoutConstraint!
     @IBOutlet weak var personalRatingLabel: UILabel!
+    @IBOutlet var statView: UIView!
     
     let username = UserDefaults.standard.string(forKey: DataManagement.DataName.UserName)!
     
@@ -41,6 +42,7 @@ class AdvancedInfoController: UIViewController {
         
         // Pass account id
         _ = PlayerAccountID.init(ID: self.title!)
+        
         
         loadPlayerData()
         
@@ -62,9 +64,13 @@ class AdvancedInfoController: UIViewController {
     }
     
     func loadPlayerData() {
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         PlayerStat().getDataFromAPI(account: playerInfo[1], success: {playerData in
             self.setLabelText(data: playerData)
         })
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        
     }
     
     @IBAction func gotoMoreInfo(_ sender: UITapGestureRecognizer) {

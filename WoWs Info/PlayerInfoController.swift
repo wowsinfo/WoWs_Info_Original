@@ -52,9 +52,13 @@ class PlayerInfoController : UIViewController {
     }
     
     func loadPlayerData() {
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         PlayerStat().getDataFromAPI(account: playerInfo[1], success: {playerData in
             self.setLabelText(data: playerData)
         })
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        
     }
     
     func setLabelText(data: [String]) {

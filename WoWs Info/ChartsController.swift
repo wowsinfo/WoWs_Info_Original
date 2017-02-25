@@ -80,6 +80,7 @@ class ChartsController: UIViewController, ChartViewDelegate {
             
             let chartDataSet = BarChartDataSet(values: dataEntries, label: NSLocalizedString("CHART_BATTLE", comment: "Chart battle label"))
             chartDataSet.colors = ChartColorTemplates.vordiplom()
+            chartDataSet.valueFont = UIFont.systemFont(ofSize: 10)
             let chartData = BarChartData.init(dataSets: [chartDataSet])
             mostPlayedBarChart.data = chartData
         }

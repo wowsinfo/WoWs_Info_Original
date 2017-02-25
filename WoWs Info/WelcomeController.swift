@@ -69,6 +69,9 @@ class WelcomeController : UIViewController {
             bannerView.load(request)
         }
         
+        // Get Achievement information
+        Achievements().getAchievementJson()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -65,32 +65,14 @@ class Charts {
             var battlesCount = [0,0,0,0,0]
             var shipName = ["","","","",""]
             
+            let sortByBattle = shipData.sorted(by: {Int($1[0])! < Int($0[0])!})
             for i in 0...4 {
-                for ship in shipData {
-                    let name = ship[PlayerShip.PlayerShipDataIndex.name]
-                    let battles = Int(ship[PlayerShip.PlayerShipDataIndex.battles])!
-                    
-                    if battles > battlesCount[i] {
-                        if i > 0 {
-                            // Check with previous
-                            if battles < battlesCount[i - 1] {
-                                battlesCount[i] = battles
-                                shipName[i] = name
-                            } else if battles == battlesCount[i - 1] {
-                                // Sometimes, Two ships have some battles
-                                if name != shipName[i - 1] {
-                                    battlesCount[i] = battles
-                                    shipName[i] = name
-                                }
-                            }
-                        } else {
-                            // First one is always the biggest
-                            battlesCount[i] = battles
-                            shipName[i] = name
-                        }
-                    }
-                }
+                battlesCount[i] = Int(sortByBattle[i][0])!
+                shipName[i] = sortByBattle[i][9]
             }
+            
+            print(shipName)
+            
             return (battlesCount, shipName)
         } else {
             // return nothing

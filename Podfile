@@ -10,5 +10,6 @@ pod ‘Firebase/Core’
 pod ‘Firebase/AdMob’
 pod 'SwiftyJSON'
 pod 'Charts'
+pod 'SDWebImage'
 
 end
