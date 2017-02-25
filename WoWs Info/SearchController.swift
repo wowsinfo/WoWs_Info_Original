@@ -81,6 +81,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     func loadDataIntoTableview() {
         
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         playerInfo.removeAll()
         self.refreshTabelView()
         
@@ -96,6 +97,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
                 }
             })
         }
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
         
     }
     
@@ -113,8 +115,10 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     // MARK: Button pressed
     @IBAction func serverBtnPressed(_ sender: UIButton) {
         
+        username.resignFirstResponder()
         // Show our view
-        pickerView.isHidden = false
+            self.pickerView.isHidden = false
+        
         serverPicker.selectRow(server, inComponent: 0, animated: true)
         
     }
@@ -129,6 +133,16 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         // Hide view and show keyboard
         self.pickerView.isHidden = true
+        
+        playerInfo.removeAll()
+        
+        // Remove old search
+        self.username.text = ""
+        
+        DispatchQueue.main.async {
+            self.usernameTableView.reloadData()
+        };
+
         self.username.becomeFirstResponder()
         // Change textholder
         self.getServerName()
@@ -157,6 +171,10 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return serverName[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 40
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

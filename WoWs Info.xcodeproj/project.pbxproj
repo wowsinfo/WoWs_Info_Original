@@ -39,6 +39,12 @@
 		926528C11E41BD5600D1A685 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528BB1E41BD5600D1A685 /* SettingsController.swift */; };
 		926528C31E41BD5600D1A685 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528BD1E41BD5600D1A685 /* WelcomeController.swift */; };
 		928314B21E4A5B4E00ED4A1B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 928314B11E4A5B4E00ED4A1B /* GoogleService-Info.plist */; };
+		929489091E61AB8800B471F2 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929489081E61AB8800B471F2 /* SDWebImage.framework */; };
+		929B0B471E618B45007E54EA /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B461E618B45007E54EA /* Language.swift */; };
+		929B0B491E619B5B007E54EA /* Achievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B481E619B5B007E54EA /* Achievements.swift */; };
+		929B0B4B1E619EE3007E54EA /* Wiki.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 929B0B4A1E619EE3007E54EA /* Wiki.storyboard */; };
+		929B0B4E1E61A022007E54EA /* AchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B4D1E61A022007E54EA /* AchievementCell.swift */; };
+		929B0B501E61A1E1007E54EA /* AchievementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B4F1E61A1E1007E54EA /* AchievementController.swift */; };
 		92B768641E5E5D02009803C3 /* MoreInformation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B768661E5E5D02009803C3 /* MoreInformation.storyboard */; };
 		92B7686B1E5E5DD6009803C3 /* ProVersion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B7686D1E5E5DD6009803C3 /* ProVersion.storyboard */; };
 		92B768701E5E5DE1009803C3 /* UsefulWebsite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B768721E5E5DE1009803C3 /* UsefulWebsite.storyboard */; };
@@ -56,6 +62,7 @@
 /* Begin PBXFileReference section */
 		06D13CAC2212DD18FD32AB49 /* Pods-WoWs Info.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoWs Info.release.xcconfig"; path = "Pods/Target Support Files/Pods-WoWs Info/Pods-WoWs Info.release.xcconfig"; sourceTree = "<group>"; };
 		3B0C461C5DD33F3D39731E2D /* Pods-WoWs Info.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoWs Info.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WoWs Info/Pods-WoWs Info.debug.xcconfig"; sourceTree = "<group>"; };
+		6759118B58D4B67B8E919C40 /* Pods_WoWs_Info.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WoWs_Info.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		920E1C3D1E5EA30A00B43472 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		920E1C3F1E5EAC8B00B43472 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		920E1C401E5EB76300B43472 /* DonationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonationController.swift; sourceTree = "<group>"; };
@@ -95,6 +102,12 @@
 		926528BD1E41BD5600D1A685 /* WelcomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
 		92813BB61E47447C009AA9E8 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		928314B11E4A5B4E00ED4A1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		929489081E61AB8800B471F2 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework"; sourceTree = "<group>"; };
+		929B0B461E618B45007E54EA /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		929B0B481E619B5B007E54EA /* Achievements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Achievements.swift; sourceTree = "<group>"; };
+		929B0B4A1E619EE3007E54EA /* Wiki.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Wiki.storyboard; sourceTree = "<group>"; };
+		929B0B4D1E61A022007E54EA /* AchievementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementCell.swift; sourceTree = "<group>"; };
+		929B0B4F1E61A1E1007E54EA /* AchievementController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementController.swift; sourceTree = "<group>"; };
 		92B768601E5E5A57009803C3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		92B768621E5E5A57009803C3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SimpleStat.strings"; sourceTree = "<group>"; };
 		92B768631E5E5A58009803C3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -127,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				929489091E61AB8800B471F2 /* SDWebImage.framework in Frameworks */,
 				9215CA411E5BF34800A7F465 /* Pods_WoWs_Info.framework in Frameworks */,
 				9215CA3F1E5BF33D00A7F465 /* SwiftyJSON.framework in Frameworks */,
 				9226E33A1E5BF19F00593026 /* Charts.framework in Frameworks */,
@@ -140,11 +154,13 @@
 		2359F6695FFC24A39880BFF8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				929489081E61AB8800B471F2 /* SDWebImage.framework */,
 				9215CA401E5BF34800A7F465 /* Pods_WoWs_Info.framework */,
 				9215CA3A1E5BF28100A7F465 /* GoogleToolboxForMac.framework */,
 				9226E3391E5BF19F00593026 /* Charts.framework */,
 				923FFB3D1E5950340034686C /* SwiftyJSON.framework */,
 				9259C1CD1E57F88700F34CDC /* StoreKit.framework */,
+				6759118B58D4B67B8E919C40 /* Pods_WoWs_Info.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -157,6 +173,7 @@
 				9259C1CB1E57BC4400F34CDC /* IAPController.swift */,
 				920E1C401E5EB76300B43472 /* DonationController.swift */,
 				926528B81E41BD5600D1A685 /* PlayerInfoController.swift */,
+				929B0B4F1E61A1E1007E54EA /* AchievementController.swift */,
 				9215CA481E5C119100A7F465 /* WebTableController.swift */,
 				926528BA1E41BD5600D1A685 /* SearchController.swift */,
 				9210C0691E45B3D500270002 /* WebViewController.swift */,
@@ -178,7 +195,9 @@
 				924BAAE11E4EAF720000B246 /* PlayerOnline.swift */,
 				9210C07D1E4609BA00270002 /* PersonalRating.swift */,
 				92634D0A1E540E2C000CDCB4 /* RankInformation.swift */,
+				929B0B461E618B45007E54EA /* Language.swift */,
 				92634D101E540F10000CDCB4 /* ShipInformation.swift */,
+				929B0B481E619B5B007E54EA /* Achievements.swift */,
 				92D9B4D11E55AE3200CFD46D /* PlayerAccountID.swift */,
 			);
 			name = Functions;
@@ -230,6 +249,7 @@
 				92FF85911E594157001BBCA1 /* ExpectedValue.json */,
 				9210C0811E460A0900270002 /* Functions */,
 				925BE5AE1E502E2700DA6A1A /* Storyboard */,
+				929B0B4C1E619FF3007E54EA /* CollectionCell */,
 				92D9B4D71E55C87700CFD46D /* TableViewCell */,
 				9210C0801E4609EF00270002 /* ViewControllers */,
 				921EA6981E35F2FB0007C7FC /* AppDelegate.swift */,
@@ -249,10 +269,19 @@
 				925BE5AB1E502D0000DA6A1A /* Settings.storyboard */,
 				92B7686D1E5E5DD6009803C3 /* ProVersion.storyboard */,
 				925BE5A61E502B9000DA6A1A /* SimpleStat.storyboard */,
+				929B0B4A1E619EE3007E54EA /* Wiki.storyboard */,
 				92B768721E5E5DE1009803C3 /* UsefulWebsite.storyboard */,
 				921EA6A11E35F2FB0007C7FC /* LaunchScreen.storyboard */,
 			);
 			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		929B0B4C1E619FF3007E54EA /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				929B0B4D1E61A022007E54EA /* AchievementCell.swift */,
+			);
+			name = CollectionCell;
 			sourceTree = "<group>";
 		};
 		92D9B4D71E55C87700CFD46D /* TableViewCell */ = {
@@ -358,6 +387,7 @@
 				92B768851E5E6E34009803C3 /* Localizable.strings in Resources */,
 				925636591E53F1CA0002E08A /* Assets.xcassets in Resources */,
 				925BE5AD1E502D0000DA6A1A /* Settings.storyboard in Resources */,
+				929B0B4B1E619EE3007E54EA /* Wiki.storyboard in Resources */,
 				92B7686B1E5E5DD6009803C3 /* ProVersion.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,6 +453,7 @@
 				926528C31E41BD5600D1A685 /* WelcomeController.swift in Sources */,
 				92634D0F1E540EBE000CDCB4 /* ServerUrl.swift in Sources */,
 				924BAAE21E4EAF720000B246 /* PlayerOnline.swift in Sources */,
+				929B0B501E61A1E1007E54EA /* AchievementController.swift in Sources */,
 				924BD2671E457F6B00E15D04 /* DataManagement.swift in Sources */,
 				9215CA491E5C119100A7F465 /* WebTableController.swift in Sources */,
 				9210C06A1E45B3D500270002 /* WebViewController.swift in Sources */,
@@ -430,12 +461,15 @@
 				92D9B4D91E565C6E00CFD46D /* ShipController.swift in Sources */,
 				92634D0D1E540E77000CDCB4 /* PlayerStat.swift in Sources */,
 				926528C11E41BD5600D1A685 /* SettingsController.swift in Sources */,
+				929B0B4E1E61A022007E54EA /* AchievementCell.swift in Sources */,
 				92FF85901E592ED9001BBCA1 /* Charts.swift in Sources */,
 				924BD2651E457EB300E15D04 /* ServerController.swift in Sources */,
 				921EA6991E35F2FB0007C7FC /* AppDelegate.swift in Sources */,
 				92D9B4D41E55AF2400CFD46D /* RankController.swift in Sources */,
+				929B0B471E618B45007E54EA /* Language.swift in Sources */,
 				925BE5B21E5032AB00DA6A1A /* AdvancedInfoController.swift in Sources */,
 				92FD8D701E59B22300E7FADF /* ChartsController.swift in Sources */,
+				929B0B491E619B5B007E54EA /* Achievements.swift in Sources */,
 				92634D111E540F10000CDCB4 /* ShipInformation.swift in Sources */,
 				926528BF1E41BD5600D1A685 /* PlayerInformation.swift in Sources */,
 				9259C1CC1E57BC4400F34CDC /* IAPController.swift in Sources */,

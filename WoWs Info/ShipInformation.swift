@@ -16,7 +16,7 @@ class Shipinformation {
     static var ShipJson: (JSON!)
 
     init() {
-        shipInfoAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/ships/?application_id=4e54ba74077a8230e457bf3e7e9ae858&fields=name%2Ctype%2Ctier%2Cnation"
+        shipInfoAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/ships/?application_id=4e54ba74077a8230e457bf3e7e9ae858&fields=name%2Ctype%2Ctier%2Cnation" + Language.getLanguageString()
     }
     
     func getShipInformation() {
@@ -138,6 +138,9 @@ class PlayerShip {
                             }
                         }
                     }
+
+                    // Sort by ratingIndex
+                    shipInfo = shipInfo.sorted(by: {$1[10] < $0[10]})
                     
                     // Update and long term use of this data
                     success(shipInfo)

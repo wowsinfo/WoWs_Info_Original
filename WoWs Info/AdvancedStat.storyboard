@@ -262,6 +262,7 @@
                         <outlet property="playerNameLabel" destination="uru-CD-MbX" id="UAT-YY-eZO"/>
                         <outlet property="screenshot" destination="CrF-r3-6ab" id="oAs-Pu-byb"/>
                         <outlet property="setPlayerIDBtn" destination="I4n-7f-jfd" id="TO2-er-Nc3"/>
+                        <outlet property="statView" destination="BIc-p7-n4Z" id="Pro-Z1-ZNP"/>
                         <outlet property="totalBattlesLabel" destination="6HC-jz-Z84" id="Sik-r8-HeU"/>
                         <outlet property="winRateLabel" destination="We0-Rg-UiM" id="Q5c-nI-Cqb"/>
                         <segue destination="HgG-yT-BXm" kind="show" identifier="gotoWebView" id="NOg-JV-VPU"/>

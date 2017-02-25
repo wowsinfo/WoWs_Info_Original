@@ -12,7 +12,7 @@
 
 "SERVER" = "Server";
 
-"HIDDEN" = "Account is Hidden!";
+"HIDDEN" = "HIDDEN";
 
 "LEVEL" = "Level";
 
@@ -70,7 +70,7 @@
 
 "RU" = "Russia";
 
-"RATING0" = "*>_<*";
+"RATING0" = "Improvement needed";
 
 "RATING1" = "Below Average";
 
