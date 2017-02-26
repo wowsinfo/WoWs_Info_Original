@@ -18,6 +18,8 @@
 		921EA69E1E35F2FB0007C7FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 921EA69C1E35F2FB0007C7FC /* Main.storyboard */; };
 		921EA6A31E35F2FB0007C7FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 921EA6A11E35F2FB0007C7FC /* LaunchScreen.storyboard */; };
 		9226E33A1E5BF19F00593026 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9226E3391E5BF19F00593026 /* Charts.framework */; };
+		922D0E551E6295A20056EDE6 /* ShipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D0E541E6295A20056EDE6 /* ShipCell.swift */; };
+		922D0E571E6295DE0056EDE6 /* ShipInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D0E561E6295DE0056EDE6 /* ShipInfoController.swift */; };
 		924BAAE21E4EAF720000B246 /* PlayerOnline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924BAAE11E4EAF720000B246 /* PlayerOnline.swift */; };
 		924BD2651E457EB300E15D04 /* ServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924BD2641E457EB300E15D04 /* ServerController.swift */; };
 		924BD2671E457F6B00E15D04 /* DataManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924BD2661E457F6B00E15D04 /* DataManagement.swift */; };
@@ -41,7 +43,7 @@
 		928314B21E4A5B4E00ED4A1B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 928314B11E4A5B4E00ED4A1B /* GoogleService-Info.plist */; };
 		929489091E61AB8800B471F2 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929489081E61AB8800B471F2 /* SDWebImage.framework */; };
 		929B0B471E618B45007E54EA /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B461E618B45007E54EA /* Language.swift */; };
-		929B0B491E619B5B007E54EA /* Achievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B481E619B5B007E54EA /* Achievements.swift */; };
+		929B0B491E619B5B007E54EA /* Encyclopedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B481E619B5B007E54EA /* Encyclopedia.swift */; };
 		929B0B4B1E619EE3007E54EA /* Wiki.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 929B0B4A1E619EE3007E54EA /* Wiki.storyboard */; };
 		929B0B4E1E61A022007E54EA /* AchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B4D1E61A022007E54EA /* AchievementCell.swift */; };
 		929B0B501E61A1E1007E54EA /* AchievementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B4F1E61A1E1007E54EA /* AchievementController.swift */; };
@@ -79,6 +81,8 @@
 		921EA6A21E35F2FB0007C7FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		921EA6A41E35F2FB0007C7FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9226E3391E5BF19F00593026 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/Charts/Charts.framework"; sourceTree = "<group>"; };
+		922D0E541E6295A20056EDE6 /* ShipCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipCell.swift; sourceTree = "<group>"; };
+		922D0E561E6295DE0056EDE6 /* ShipInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipInfoController.swift; sourceTree = "<group>"; };
 		923FFB3D1E5950340034686C /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		924BAAE11E4EAF720000B246 /* PlayerOnline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerOnline.swift; sourceTree = "<group>"; };
 		924BD2641E457EB300E15D04 /* ServerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerController.swift; sourceTree = "<group>"; };
@@ -104,7 +108,7 @@
 		928314B11E4A5B4E00ED4A1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		929489081E61AB8800B471F2 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework"; sourceTree = "<group>"; };
 		929B0B461E618B45007E54EA /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
-		929B0B481E619B5B007E54EA /* Achievements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Achievements.swift; sourceTree = "<group>"; };
+		929B0B481E619B5B007E54EA /* Encyclopedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encyclopedia.swift; sourceTree = "<group>"; };
 		929B0B4A1E619EE3007E54EA /* Wiki.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Wiki.storyboard; sourceTree = "<group>"; };
 		929B0B4D1E61A022007E54EA /* AchievementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementCell.swift; sourceTree = "<group>"; };
 		929B0B4F1E61A1E1007E54EA /* AchievementController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementController.swift; sourceTree = "<group>"; };
@@ -174,6 +178,7 @@
 				920E1C401E5EB76300B43472 /* DonationController.swift */,
 				926528B81E41BD5600D1A685 /* PlayerInfoController.swift */,
 				929B0B4F1E61A1E1007E54EA /* AchievementController.swift */,
+				922D0E561E6295DE0056EDE6 /* ShipInfoController.swift */,
 				9215CA481E5C119100A7F465 /* WebTableController.swift */,
 				926528BA1E41BD5600D1A685 /* SearchController.swift */,
 				9210C0691E45B3D500270002 /* WebViewController.swift */,
@@ -197,7 +202,7 @@
 				92634D0A1E540E2C000CDCB4 /* RankInformation.swift */,
 				929B0B461E618B45007E54EA /* Language.swift */,
 				92634D101E540F10000CDCB4 /* ShipInformation.swift */,
-				929B0B481E619B5B007E54EA /* Achievements.swift */,
+				929B0B481E619B5B007E54EA /* Encyclopedia.swift */,
 				92D9B4D11E55AE3200CFD46D /* PlayerAccountID.swift */,
 			);
 			name = Functions;
@@ -280,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				929B0B4D1E61A022007E54EA /* AchievementCell.swift */,
+				922D0E541E6295A20056EDE6 /* ShipCell.swift */,
 			);
 			name = CollectionCell;
 			sourceTree = "<group>";
@@ -469,15 +475,17 @@
 				929B0B471E618B45007E54EA /* Language.swift in Sources */,
 				925BE5B21E5032AB00DA6A1A /* AdvancedInfoController.swift in Sources */,
 				92FD8D701E59B22300E7FADF /* ChartsController.swift in Sources */,
-				929B0B491E619B5B007E54EA /* Achievements.swift in Sources */,
+				929B0B491E619B5B007E54EA /* Encyclopedia.swift in Sources */,
 				92634D111E540F10000CDCB4 /* ShipInformation.swift in Sources */,
 				926528BF1E41BD5600D1A685 /* PlayerInformation.swift in Sources */,
 				9259C1CC1E57BC4400F34CDC /* IAPController.swift in Sources */,
 				92D9B4DB1E565C8A00CFD46D /* ShipTableCell.swift in Sources */,
 				926528C01E41BD5600D1A685 /* SearchController.swift in Sources */,
 				920E1C411E5EB76300B43472 /* DonationController.swift in Sources */,
+				922D0E551E6295A20056EDE6 /* ShipCell.swift in Sources */,
 				92D9B4D61E55C6D600CFD46D /* RankTableCell.swift in Sources */,
 				92D9B4D21E55AE3200CFD46D /* PlayerAccountID.swift in Sources */,
+				922D0E571E6295DE0056EDE6 /* ShipInfoController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

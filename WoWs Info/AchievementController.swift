@@ -22,6 +22,14 @@ class AchievementController: UICollectionViewController {
         achievementCollection.delegate = self
         achievementCollection.dataSource = self
         
+        // Make it fit on all devices
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+        layout.itemSize = CGSize(width: view.frame.size.width/3, height: view.frame.size.width/3)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        collectionView!.collectionViewLayout = layout
+        
         // Get all achievement
         achievement = Achievements.getAchievementInformation()
     }
@@ -63,6 +71,5 @@ class AchievementController: UICollectionViewController {
         self.present(alert, animated: true, completion: nil)
         
     }
-    
     
 }

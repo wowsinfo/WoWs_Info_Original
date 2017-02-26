@@ -16,7 +16,7 @@ class PlayerOnline {
     init() {
         let server = UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)
         
-        playerOnlineAPI = "https://api.worldoftanks.\(ServerUrl.Server[server])/wgn/servers/info/?application_id=demo"
+        playerOnlineAPI = "https://api.worldoftanks.\(ServerUrl.Server[server])/wgn/servers/info/?application_id=4e54ba74077a8230e457bf3e7e9ae858"
     }
     
     func getOnlinePlayerNumber(success: @escaping (String) -> ()){
