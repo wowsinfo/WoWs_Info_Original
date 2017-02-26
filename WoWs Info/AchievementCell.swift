@@ -11,5 +11,5 @@ import UIKit
 class AchievementCell: UICollectionViewCell {
     
     @IBOutlet weak var achievementImage: UIImageView!
-    
+
 }

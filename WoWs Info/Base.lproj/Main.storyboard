@@ -218,9 +218,12 @@
                                     <outletCollection property="gestureRecognizers" destination="tZn-T9-bfE" appends="YES" id="zv9-Sa-EqH"/>
                                 </connections>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nJ8-lZ-fbT">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nJ8-lZ-fbT">
                                 <rect key="frame" x="329" y="64" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="sd9-BV-Fgs"/>
+                                    <constraint firstAttribute="height" constant="30" id="xFt-B3-APC"/>
+                                </constraints>
                                 <state key="normal" title="wiki"/>
                                 <connections>
                                     <segue destination="J53-5b-biH" kind="show" id="pod-Vx-Nmz"/>
@@ -239,6 +242,7 @@
                             <constraint firstItem="3s9-ZJ-axo" firstAttribute="top" secondItem="DfF-cb-uuY" secondAttribute="baseline" constant="8" id="HsO-FK-1Gp"/>
                             <constraint firstItem="3s9-ZJ-axo" firstAttribute="leading" secondItem="Y6n-Ia-o00" secondAttribute="leading" id="LyO-zy-4lY"/>
                             <constraint firstItem="8k4-zb-fQc" firstAttribute="top" secondItem="3s9-ZJ-axo" secondAttribute="bottom" id="Rmz-z1-qLG"/>
+                            <constraint firstItem="nJ8-lZ-fbT" firstAttribute="top" secondItem="ViO-11-NX3" secondAttribute="bottom" id="WYc-g6-lVj"/>
                             <constraint firstAttribute="trailing" secondItem="pk4-lT-BcX" secondAttribute="trailing" constant="6" id="YT0-rQ-H8v"/>
                             <constraint firstAttribute="trailing" secondItem="qBg-At-rhd" secondAttribute="trailing" constant="10" id="Zsc-A9-cgQ"/>
                             <constraint firstAttribute="trailing" secondItem="mCF-HW-z5E" secondAttribute="trailing" constant="8" id="c4g-HL-cCv"/>
@@ -250,6 +254,7 @@
                             <constraint firstItem="mCF-HW-z5E" firstAttribute="width" secondItem="Y6n-Ia-o00" secondAttribute="width" multiplier="0.128" id="pvb-S9-zzS"/>
                             <constraint firstItem="9ex-8a-OyU" firstAttribute="top" secondItem="ViO-11-NX3" secondAttribute="bottom" constant="4" id="yyQ-Tj-meD"/>
                             <constraint firstItem="qw8-bs-EHE" firstAttribute="width" secondItem="Y6n-Ia-o00" secondAttribute="width" multiplier="0.128" id="z1T-33-gMe"/>
+                            <constraint firstAttribute="trailing" secondItem="nJ8-lZ-fbT" secondAttribute="trailing" id="zN7-Qv-9Vg"/>
                             <constraint firstItem="jsm-j2-cyY" firstAttribute="width" secondItem="Y6n-Ia-o00" secondAttribute="width" multiplier="0.34" id="zsq-RJ-LmG"/>
                         </constraints>
                     </view>

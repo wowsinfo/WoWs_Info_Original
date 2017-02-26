@@ -71,6 +71,8 @@ class WelcomeController : UIViewController {
         
         // Get Achievement information
         Achievements().getAchievementJson()
+        // Get Ship Information
+        Ships().getShipJson()
         
     }
     
