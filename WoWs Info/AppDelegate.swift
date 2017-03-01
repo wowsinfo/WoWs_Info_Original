@@ -67,6 +67,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        // Go to search
+        if shortcutItem.type == "com.yihengquan.WoWs-Info.Search" {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let welcome = storyboard.instantiateViewController(withIdentifier: "WelcomeNavigation")
+            self.window?.rootViewController = welcome
+            self.window?.rootViewController?.performSegue(withIdentifier: "gotoSearch", sender: nil)
+        }
+    }
 
 
 }

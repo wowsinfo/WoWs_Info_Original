@@ -35,7 +35,11 @@ class PlayerInfoController : UIViewController {
         centerDataConstraint.constant = UIScreen.main.bounds.height/2 - 32 - playerNameLabel.bounds.size.height - totalBattlesLabel.bounds.size.height - dataStack.bounds.size.height/2
         print("\(centerDataConstraint.constant)")
         
-        loadPlayerData()
+        self.loadPlayerData()
+        UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveLinear, animations: {
+            self.levelAndPlaytimeLabel.alpha = 1.0
+            self.dataStack.alpha = 1.0
+        }, completion: nil)
         
         // Load ads
         let request = GADRequest()
@@ -53,12 +57,9 @@ class PlayerInfoController : UIViewController {
     
     func loadPlayerData() {
         
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         PlayerStat().getDataFromAPI(account: playerInfo[1], success: {playerData in
             self.setLabelText(data: playerData)
         })
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        
     }
     
     func setLabelText(data: [String]) {

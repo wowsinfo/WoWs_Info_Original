@@ -16,6 +16,7 @@ class WelcomeController : UIViewController {
     @IBOutlet weak var proImage: UIImageView!
     @IBOutlet weak var webImage: UIImageView!
     @IBOutlet weak var searchButton: UIImageView!
+    @IBOutlet weak var wikiBtn: UIButton!
     @IBOutlet weak var settingsBtn: UIImageView!
     @IBOutlet weak var onlinePlayerLabel: UILabel!
     @IBOutlet weak var onlinePlayerIcon: UIImageView!
@@ -52,8 +53,6 @@ class WelcomeController : UIViewController {
             settingsBtnConstraint.constant -= 50
             dashboardBtnConstant.constant -= 50
             
-            // Get ship information
-            Shipinformation().getShipInformation()
             // Load rating
             ShipRating().loadExpctedJson()
         } else {
@@ -69,10 +68,11 @@ class WelcomeController : UIViewController {
             bannerView.load(request)
         }
         
+        // Get ship information
+        Shipinformation().getShipInformation()
+        
         // Get Achievement information
         Achievements().getAchievementJson()
-        // Get Ship Information
-        Ships().getShipJson()
         
     }
     
@@ -111,6 +111,12 @@ class WelcomeController : UIViewController {
                 self.dashboardBtn.frame.origin.x -= 25
                 self.webImage.alpha = 1.0
                 self.webImage.frame.origin.x -= 25
+            }, completion: nil)
+            
+            // Show wiki button
+            UIView.animate(withDuration: 0.75, delay: 3.0, options: .curveEaseIn, animations: { 
+                self.wikiBtn.alpha = 1.0
+                self.wikiBtn.frame.origin.y -= 25
             }, completion: nil)
             
         }

@@ -34,6 +34,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         usernameTableView.separatorColor = UIColor.clear
         
         self.title = ""
+        username.contentVerticalAlignment = UIControlContentVerticalAlignment.center
         
         // Pickerview setup
         serverPicker.delegate = self
@@ -117,7 +118,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         username.resignFirstResponder()
         // Show our view
-            self.pickerView.isHidden = false
+        self.pickerView.isHidden = false
         
         serverPicker.selectRow(server, inComponent: 0, animated: true)
         

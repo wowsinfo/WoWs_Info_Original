@@ -78,7 +78,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="alW-3g-l7k">
                                 <rect key="frame" x="0.0" y="110" width="375" height="557"/>
@@ -145,11 +145,95 @@
                     <connections>
                         <outlet property="searchTextField" destination="6V9-Pk-7Bx" id="L97-pf-Me3"/>
                         <outlet property="shipCollection" destination="alW-3g-l7k" id="7Jd-p9-Yy6"/>
+                        <segue destination="bqy-rI-GmY" kind="show" identifier="gotoShipDetail" id="jNu-Oi-iUg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o72-8S-UN0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1933.5999999999999" y="447.52623688155927"/>
+        </scene>
+        <!--Ship Detail Controller-->
+        <scene sceneID="12q-Hd-SiY">
+            <objects>
+                <viewController id="bqy-rI-GmY" customClass="ShipDetailController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="q3g-9h-dfo"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ikr-Rz-DmX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Veh-Wh-d03">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tUL-vL-ZBW">
+                                <rect key="frame" x="16" y="80" width="28" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="28" id="pLQ-4V-MvY"/>
+                                    <constraint firstAttribute="height" constant="28" id="yQP-zQ-f5O"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="49F-Ws-iQK">
+                                <rect key="frame" x="8" y="72" width="170" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="H22-dv-eS1"/>
+                                    <constraint firstAttribute="height" constant="100" id="daT-h2-aHv"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3j-Ib-bI1">
+                                <rect key="frame" x="186" y="96" width="181" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Ae0-RW-p2v"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Gem-4l-nQ2">
+                                <rect key="frame" x="186" y="121" width="181" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Mu5-i3-OA9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vv0-EW-zWi">
+                                <rect key="frame" x="8" y="180" width="359" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="oow-GL-bed"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="49F-Ws-iQK" firstAttribute="leading" secondItem="Veh-Wh-d03" secondAttribute="leading" constant="8" id="23F-Pl-MdR"/>
+                            <constraint firstItem="49F-Ws-iQK" firstAttribute="top" secondItem="q3g-9h-dfo" secondAttribute="bottom" constant="8" id="8CB-AE-WdV"/>
+                            <constraint firstItem="tUL-vL-ZBW" firstAttribute="leading" secondItem="Veh-Wh-d03" secondAttribute="leading" constant="16" id="8CH-DT-6Id"/>
+                            <constraint firstAttribute="trailing" secondItem="s3j-Ib-bI1" secondAttribute="trailing" constant="8" id="PqR-BF-mqx"/>
+                            <constraint firstAttribute="trailing" secondItem="Vv0-EW-zWi" secondAttribute="trailing" constant="8" id="Roa-Di-b9f"/>
+                            <constraint firstItem="s3j-Ib-bI1" firstAttribute="top" secondItem="q3g-9h-dfo" secondAttribute="bottom" constant="32" id="TNn-hU-epW"/>
+                            <constraint firstItem="s3j-Ib-bI1" firstAttribute="leading" secondItem="49F-Ws-iQK" secondAttribute="trailing" constant="8" id="jKL-1y-OSl"/>
+                            <constraint firstItem="Vv0-EW-zWi" firstAttribute="top" secondItem="49F-Ws-iQK" secondAttribute="bottom" constant="8" id="lzP-yn-4aA"/>
+                            <constraint firstItem="Gem-4l-nQ2" firstAttribute="leading" secondItem="49F-Ws-iQK" secondAttribute="trailing" constant="8" id="se3-0U-iV8"/>
+                            <constraint firstItem="Gem-4l-nQ2" firstAttribute="top" secondItem="s3j-Ib-bI1" secondAttribute="bottom" constant="4" id="tdA-2I-oOf"/>
+                            <constraint firstItem="tUL-vL-ZBW" firstAttribute="top" secondItem="q3g-9h-dfo" secondAttribute="bottom" constant="16" id="wZW-Zq-5iH"/>
+                            <constraint firstItem="Vv0-EW-zWi" firstAttribute="leading" secondItem="Veh-Wh-d03" secondAttribute="leading" constant="8" id="yWW-YD-B6t"/>
+                            <constraint firstAttribute="trailing" secondItem="Gem-4l-nQ2" secondAttribute="trailing" constant="8" id="zg7-7f-6SH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="shipDescription" destination="Vv0-EW-zWi" id="EZo-gW-rzh"/>
+                        <outlet property="shipImage" destination="49F-Ws-iQK" id="Jfy-6b-vwi"/>
+                        <outlet property="shipNameLabel" destination="Gem-4l-nQ2" id="nfD-w8-CsS"/>
+                        <outlet property="shipTierLabel" destination="s3j-Ib-bI1" id="9GQ-8q-pth"/>
+                        <outlet property="shipTypeImage" destination="tUL-vL-ZBW" id="Sai-ag-SIU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cMt-EL-Pri" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2613.5999999999999" y="447.52623688155927"/>
         </scene>
         <!--Achievement Controller-->
         <scene sceneID="UC3-Si-48N">

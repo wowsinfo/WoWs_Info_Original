@@ -333,12 +333,13 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0J-mH-UB1">
                                 <rect key="frame" x="16" y="222" width="343" height="416"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">1.0.3
+                                <mutableString key="text">1.0.3
 Animation changed
 Text font and size are adjusted.
+Achievements and Ships galleries are added.
 
 Preparing for Pro version
-Follow @Yiheng_Quan on Twitter for more information
+Follow @Yiheng_Quan on Twitter for more information.
 
 1.0.2
 Bug fixed - Unable to display long player names.
@@ -354,7 +355,7 @@ You could now donate through PayPal.
 Remove old about page
 
 1.0
-Basic functionality</string>
+Basic functionality</mutableString>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

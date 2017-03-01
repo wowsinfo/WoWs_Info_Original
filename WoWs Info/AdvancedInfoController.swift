@@ -43,8 +43,17 @@ class AdvancedInfoController: UIViewController {
         // Pass account id
         _ = PlayerAccountID.init(ID: self.title!)
         
-        
-        loadPlayerData()
+        self.loadPlayerData()
+        UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveEaseIn, animations: {
+            self.levelAndPlaytimeLabel.alpha = 1.0
+            self.personalRatingLabel.alpha = 1.0
+            self.winRateLabel.alpha = 1.0
+            self.averageDamageLabel.alpha = 1.0
+            self.killDeathRatioLabel.alpha = 1.0
+            self.totalBattlesLabel.alpha = 1.0
+            self.averageExpLabel.alpha = 1.0
+            self.mainBatteryHitRatioLabel.alpha = 1.0
+        }, completion: nil)
         
         // Just to prevent user playing with that button...
         if username.range(of: playerInfo[1]) != nil {
@@ -64,12 +73,10 @@ class AdvancedInfoController: UIViewController {
     }
     
     func loadPlayerData() {
-        
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
         PlayerStat().getDataFromAPI(account: playerInfo[1], success: {playerData in
             self.setLabelText(data: playerData)
         })
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
         
     }
     

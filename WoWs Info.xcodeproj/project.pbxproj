@@ -26,6 +26,7 @@
 		925636591E53F1CA0002E08A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925636581E53F1CA0002E08A /* Assets.xcassets */; };
 		9259C1CC1E57BC4400F34CDC /* IAPController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259C1CB1E57BC4400F34CDC /* IAPController.swift */; };
 		9259C1CE1E57F88700F34CDC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9259C1CD1E57F88700F34CDC /* StoreKit.framework */; };
+		925B627D1E62D7680073FF56 /* ShipDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925B627C1E62D7680073FF56 /* ShipDetailController.swift */; };
 		925BE5A81E502B9000DA6A1A /* SimpleStat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925BE5A61E502B9000DA6A1A /* SimpleStat.storyboard */; };
 		925BE5AA1E502C1900DA6A1A /* InternalWeb.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925BE5A91E502C1900DA6A1A /* InternalWeb.storyboard */; };
 		925BE5AD1E502D0000DA6A1A /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925BE5AB1E502D0000DA6A1A /* Settings.storyboard */; };
@@ -90,6 +91,7 @@
 		925636581E53F1CA0002E08A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9259C1CB1E57BC4400F34CDC /* IAPController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPController.swift; sourceTree = "<group>"; };
 		9259C1CD1E57F88700F34CDC /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		925B627C1E62D7680073FF56 /* ShipDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipDetailController.swift; sourceTree = "<group>"; };
 		925BE5A71E502B9000DA6A1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SimpleStat.storyboard; sourceTree = "<group>"; };
 		925BE5A91E502C1900DA6A1A /* InternalWeb.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InternalWeb.storyboard; sourceTree = "<group>"; };
 		925BE5AC1E502D0000DA6A1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				926528B81E41BD5600D1A685 /* PlayerInfoController.swift */,
 				929B0B4F1E61A1E1007E54EA /* AchievementController.swift */,
 				922D0E561E6295DE0056EDE6 /* ShipInfoController.swift */,
+				925B627C1E62D7680073FF56 /* ShipDetailController.swift */,
 				9215CA481E5C119100A7F465 /* WebTableController.swift */,
 				926528BA1E41BD5600D1A685 /* SearchController.swift */,
 				9210C0691E45B3D500270002 /* WebViewController.swift */,
@@ -459,6 +462,7 @@
 				926528C31E41BD5600D1A685 /* WelcomeController.swift in Sources */,
 				92634D0F1E540EBE000CDCB4 /* ServerUrl.swift in Sources */,
 				924BAAE21E4EAF720000B246 /* PlayerOnline.swift in Sources */,
+				925B627D1E62D7680073FF56 /* ShipDetailController.swift in Sources */,
 				929B0B501E61A1E1007E54EA /* AchievementController.swift in Sources */,
 				924BD2671E457F6B00E15D04 /* DataManagement.swift in Sources */,
 				9215CA491E5C119100A7F465 /* WebTableController.swift in Sources */,
