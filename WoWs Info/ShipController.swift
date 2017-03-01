@@ -10,6 +10,8 @@ import UIKit
 
 class ShipController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
 
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var ShipTableView: UITableView!
     @IBOutlet weak var filterTextField: UITextField!
     var targetShips = [[String]]()
@@ -28,6 +30,9 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
             DispatchQueue.main.async {
                 self.targetShips = data
                 self.ShipTableView.reloadData()
+                
+                self.loadingIndicator.isHidden = true
+                self.loadingView.isHidden = true
             }
         })
     }

@@ -32,7 +32,7 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
         layout.minimumLineSpacing = 0
         shipCollection.collectionViewLayout = layout
         
-        allInfo = Ships.getShipInformation()
+        allInfo = Ships.getShipInformation(shipJson: Shipinformation.ShipJson)
         ships = allInfo
     }
 
@@ -74,6 +74,11 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
         cell.shipNameLabel.text = ships[indexPath.row][Ships.dataIndex.name]
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // Request data here
+        performSegue(withIdentifier: "gotoShipDetail", sender: indexPath.row)
     }
     
     
@@ -134,6 +139,24 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
         // Update table now
         DispatchQueue.main.async {
             self.shipCollection.reloadData()
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // Change text to "Back"
+        let backItem = UIBarButtonItem()
+        backItem.title = NSLocalizedString("BACK", comment: "Back label")
+        navigationItem.backBarButtonItem = backItem
+        
+        if segue.identifier == "gotoShipDetail" {
+            let destination = segue.destination as! ShipDetailController
+            destination.shipID = ships[sender as! Int][Ships.dataIndex.shipID]
+            destination.imageURL = ships[sender as! Int][Ships.dataIndex.image]
+            destination.shipName = ships[sender as! Int][Ships.dataIndex.name]
+            destination.shipType = ships[sender as! Int][Ships.dataIndex.type]
+            destination.shipTier = ships[sender as! Int][Ships.dataIndex.tier]
         }
         
     }

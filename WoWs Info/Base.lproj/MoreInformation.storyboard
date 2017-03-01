@@ -161,7 +161,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="267"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="P8f-Wb-edW" id="QVi-Aj-x8B">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="266.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Season" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVb-1X-zme">
@@ -329,7 +329,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="273"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8gO-pk-b5k" id="M8q-7C-zVo">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="273"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="272"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Og-8A-8vF">
@@ -522,6 +522,25 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="irG-pA-dHv">
+                                <rect key="frame" x="0.0" y="269" width="375" height="128"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="dqO-9d-WdN">
+                                        <rect key="frame" x="169" y="46" width="37" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="YOp-B0-DhL"/>
+                                            <constraint firstAttribute="width" constant="37" id="smr-yv-Iex"/>
+                                        </constraints>
+                                        <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="gzW-JB-qaz"/>
+                                    <constraint firstItem="dqO-9d-WdN" firstAttribute="centerX" secondItem="irG-pA-dHv" secondAttribute="centerX" id="npp-QE-uU9"/>
+                                    <constraint firstItem="dqO-9d-WdN" firstAttribute="centerY" secondItem="irG-pA-dHv" secondAttribute="centerY" id="ym1-D9-XGy"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered by wows-number.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rwz-Q3-xex">
                                 <rect key="frame" x="0.0" y="597" width="240" height="21"/>
                                 <constraints>
@@ -540,10 +559,14 @@
                             <constraint firstItem="S5N-C0-1dZ" firstAttribute="top" secondItem="87D-GU-cFY" secondAttribute="bottom" constant="22" id="HJc-cT-ELQ"/>
                             <constraint firstItem="oFj-de-ubT" firstAttribute="trailing" secondItem="K4M-G1-GG8" secondAttribute="trailingMargin" id="PW5-xF-PSu"/>
                             <constraint firstAttribute="trailing" secondItem="87D-GU-cFY" secondAttribute="trailing" id="URF-QS-wGi"/>
+                            <constraint firstItem="irG-pA-dHv" firstAttribute="centerY" secondItem="K4M-G1-GG8" secondAttribute="centerY" id="Vzd-Ng-ANb"/>
                             <constraint firstItem="87D-GU-cFY" firstAttribute="top" secondItem="oFj-de-ubT" secondAttribute="bottom" constant="8" symbolic="YES" id="dab-yY-ey6"/>
+                            <constraint firstItem="irG-pA-dHv" firstAttribute="centerX" secondItem="K4M-G1-GG8" secondAttribute="centerX" id="h1I-R8-oMx"/>
                             <constraint firstItem="Rwz-Q3-xex" firstAttribute="leading" secondItem="K4M-G1-GG8" secondAttribute="leading" id="lnF-4N-K72"/>
                             <constraint firstItem="oFj-de-ubT" firstAttribute="leading" secondItem="K4M-G1-GG8" secondAttribute="leadingMargin" id="nDa-dz-GlW"/>
+                            <constraint firstItem="irG-pA-dHv" firstAttribute="leading" secondItem="K4M-G1-GG8" secondAttribute="leading" id="o1f-yd-Uht"/>
                             <constraint firstItem="87D-GU-cFY" firstAttribute="leading" secondItem="K4M-G1-GG8" secondAttribute="leading" id="oTN-fM-HhU"/>
+                            <constraint firstAttribute="trailing" secondItem="irG-pA-dHv" secondAttribute="trailing" id="utz-iA-J6W"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="Ships" id="QgO-sS-Seg">
@@ -552,6 +575,8 @@
                     <connections>
                         <outlet property="ShipTableView" destination="87D-GU-cFY" id="zM3-qo-WVV"/>
                         <outlet property="filterTextField" destination="oFj-de-ubT" id="6YS-c8-3m3"/>
+                        <outlet property="loadingIndicator" destination="dqO-9d-WdN" id="C9S-Yb-KmQ"/>
+                        <outlet property="loadingView" destination="irG-pA-dHv" id="1EQ-AM-VtV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q65-NC-iPb" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -14,7 +14,7 @@
         <!--Quick Search Mode-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SearchController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchController" id="BYZ-38-t0r" customClass="SearchController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -23,8 +23,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Server: " minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Afq-X2-mcI">
-                                <rect key="frame" x="42" y="28" width="278" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Server: " minimumFontSize="9" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Afq-X2-mcI">
+                                <rect key="frame" x="42" y="72" width="278" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="31A-0e-cKI"/>
                                 </constraints>
@@ -36,12 +36,12 @@
                                 </connections>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8Jb-gz-SaF">
-                                <rect key="frame" x="0.0" y="70" width="375" height="597"/>
+                                <rect key="frame" x="0.0" y="114" width="375" height="553"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <sections/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GwC-Ez-4AF">
-                                <rect key="frame" x="4" y="30" width="30" height="30"/>
+                                <rect key="frame" x="4" y="73" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="RLm-bG-pMs"/>
                                     <constraint firstAttribute="width" constant="30" id="w2S-Ym-tPX"/>
@@ -83,7 +83,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Szl-9h-kdo">
-                                <rect key="frame" x="324" y="28" width="47" height="30"/>
+                                <rect key="frame" x="324" y="72" width="47" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="47" id="ZaH-P7-WdP"/>
                                     <constraint firstAttribute="height" constant="30" id="rw6-hj-Hxf"/>
@@ -98,7 +98,7 @@
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4ok-0m-aBb" secondAttribute="bottom" id="1Kd-VH-uba"/>
                             <constraint firstAttribute="trailing" secondItem="Szl-9h-kdo" secondAttribute="trailing" constant="4" id="753-Uq-TxA"/>
-                            <constraint firstItem="GwC-Ez-4AF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="H2k-r8-ogi"/>
+                            <constraint firstItem="GwC-Ez-4AF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="9" id="H2k-r8-ogi"/>
                             <constraint firstItem="GwC-Ez-4AF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="4" id="JVc-x3-Zry"/>
                             <constraint firstItem="4ok-0m-aBb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZZ9-U7-6eh"/>
                             <constraint firstItem="Afq-X2-mcI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="d5X-FH-MkS"/>
@@ -125,12 +125,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="56.799999999999997" y="-473.6131934032984"/>
+            <point key="canvasLocation" x="57" y="-437"/>
         </scene>
         <!--WoWs Info-->
         <scene sceneID="DOM-vM-tf1">
             <objects>
-                <viewController id="TO9-W7-tFs" customClass="WelcomeController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeController" id="TO9-W7-tFs" customClass="WelcomeController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ViO-11-NX3"/>
                         <viewControllerLayoutGuide type="bottom" id="8k4-zb-fQc"/>
@@ -218,7 +218,7 @@
                                     <outletCollection property="gestureRecognizers" destination="tZn-T9-bfE" appends="YES" id="zv9-Sa-EqH"/>
                                 </connections>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nJ8-lZ-fbT">
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nJ8-lZ-fbT">
                                 <rect key="frame" x="329" y="64" width="46" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="sd9-BV-Fgs"/>
@@ -274,12 +274,13 @@
                         <outlet property="settingsBtn" destination="DfF-cb-uuY" id="LHC-4T-TvR"/>
                         <outlet property="settingsBtnConstraint" destination="HsO-FK-1Gp" id="wcr-Yd-X2X"/>
                         <outlet property="webImage" destination="mCF-HW-z5E" id="4SI-RI-7eR"/>
+                        <outlet property="wikiBtn" destination="nJ8-lZ-fbT" id="PbQ-FS-J2X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kym-MY-sce" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="p2X-CF-Ugz">
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" id="Iwn-zo-jXQ"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="" id="LtZ-KO-ucJ"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="lVF-ak-Iya">
@@ -317,6 +318,7 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="TO9-W7-tFs" kind="relationship" relationship="rootViewController" id="yK8-5n-I0y"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="gotoSearch" id="ZSo-4K-ZUn"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fY0-ci-TPh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -345,7 +347,7 @@
                 <viewControllerPlaceholder storyboardName="AdvancedStat" referencedIdentifier="AdvancedInfoController" id="605-ip-25B" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2kv-lz-aXe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="830" y="-539"/>
+            <point key="canvasLocation" x="829" y="-503"/>
         </scene>
         <!--PlayerInfoController-->
         <scene sceneID="U2a-Fn-ohp">
@@ -353,7 +355,7 @@
                 <viewControllerPlaceholder storyboardName="SimpleStat" referencedIdentifier="PlayerInfoController" id="bzO-Rx-z3X" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gDp-BG-C8d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="812" y="-423"/>
+            <point key="canvasLocation" x="811" y="-387"/>
         </scene>
         <!--wikiView-->
         <scene sceneID="FGQ-er-XHj">
@@ -390,4 +392,7 @@
         <image name="Settings" width="128" height="128"/>
         <image name="Web" width="128" height="128"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZSo-4K-ZUn"/>
+    </inferredMetricsTieBreakers>
 </document>
