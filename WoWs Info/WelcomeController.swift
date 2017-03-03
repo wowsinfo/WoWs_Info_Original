@@ -31,6 +31,8 @@ class WelcomeController : UIViewController {
         
         super.viewDidLoad()
         
+        UserDefaults.standard.set(true, forKey: DataManagement.DataName.IsAdvancedUnlocked)
+        
         // If it is first launch
         if UserDefaults.standard.bool(forKey: DataManagement.DataName.FirstLaunch) {
             // Show an alertview
@@ -52,9 +54,6 @@ class WelcomeController : UIViewController {
             // Move settings button down
             settingsBtnConstraint.constant -= 50
             dashboardBtnConstant.constant -= 50
-            
-            // Load rating
-            ShipRating().loadExpctedJson()
         } else {
             // Hide dashboard
             dashboardBtn.isHidden = true
@@ -67,6 +66,9 @@ class WelcomeController : UIViewController {
             bannerView.rootViewController = self
             bannerView.load(request)
         }
+        
+        // Load rating
+        ShipRating().loadExpctedJson()
         
         // Get ship information
         Shipinformation().getShipInformation()
@@ -116,7 +118,7 @@ class WelcomeController : UIViewController {
             // Show wiki button
             UIView.animate(withDuration: 0.75, delay: 3.0, options: .curveEaseIn, animations: { 
                 self.wikiBtn.alpha = 1.0
-                self.wikiBtn.frame.origin.y -= 25
+                self.wikiBtn.frame.origin.y -= 10
             }, completion: nil)
             
         }

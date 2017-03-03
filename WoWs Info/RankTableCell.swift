@@ -14,7 +14,6 @@ class RankTableCell: UITableViewCell {
     @IBOutlet weak var battlesLabel: UILabel!
     @IBOutlet weak var winRateLabel: UILabel!
     @IBOutlet weak var rankLabel: UILabel!
-    @IBOutlet weak var damageLabel: UILabel!
     
     // Change the frame
     override var frame: CGRect {
