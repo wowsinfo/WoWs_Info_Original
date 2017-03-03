@@ -35,9 +35,6 @@ class ShipDetailController: UIViewController {
 
         // Show all data
         self.loadData()
-        UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveEaseIn, animations: { 
-            self.shipDescription.alpha = 1.0
-        }, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,6 +49,10 @@ class ShipDetailController: UIViewController {
                 self.shipDescription.text = ship["description"].stringValue
                 self.shipDescription.isScrollEnabled = false
                 self.shipDescription.sizeToFit()
+                
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.shipDescription.alpha = 1.0
+                })
             }
         }
         

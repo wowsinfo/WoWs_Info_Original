@@ -139,8 +139,14 @@ class PlayerShip {
                         }
                     }
 
-                    // Sort by ratingIndex
-                    shipInfo = shipInfo.sorted(by: {$1[10] < $0[10]})
+                    // Sort array
+                    shipInfo.sort(by: {
+                        // If they have same rating
+                        if $0[10] == $1[10] {
+                            return Int($0[5])! > Int($1[5])!
+                        }
+                        return $0[10] > $1[10]
+                    })
                     
                     // Update and long term use of this data
                     success(shipInfo)

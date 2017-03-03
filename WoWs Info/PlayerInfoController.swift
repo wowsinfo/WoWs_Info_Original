@@ -36,11 +36,7 @@ class PlayerInfoController : UIViewController {
         print("\(centerDataConstraint.constant)")
         
         self.loadPlayerData()
-        UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveLinear, animations: {
-            self.levelAndPlaytimeLabel.alpha = 1.0
-            self.dataStack.alpha = 1.0
-        }, completion: nil)
-        
+
         // Load ads
         let request = GADRequest()
         request.testDevices = [kGADSimulatorID]
@@ -94,6 +90,11 @@ class PlayerInfoController : UIViewController {
                 }
                 
             }
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                self.levelAndPlaytimeLabel.alpha = 1.0
+                self.dataStack.alpha = 1.0
+            })
         };
         
     }

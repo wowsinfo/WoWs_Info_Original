@@ -35,6 +35,16 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
         super.didReceiveMemoryWarning()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "gotoAdvancedInfo" {
+            let destination = segue.destination as! AdvancedInfoController
+            destination.playerInfo = ["HenryQuan", "2011774448"]
+            
+            // Change to Asia server
+            UserDefaults.standard.set(DataManagement.ServerIndex.Asia, forKey: DataManagement.DataName.Server)
+        }
+    }
+    
     func becomePro() {
         UserDefaults.standard.set(true, forKey: DataManagement.DataName.IsAdvancedUnlocked)
         UserDefaults.standard.set(true, forKey: DataManagement.DataName.IsThereAds)

@@ -11,6 +11,7 @@ import UIKit
 class RankController: UITableViewController {
     
     @IBOutlet var RankTableView: UITableView!
+    @IBOutlet weak var noInfoLabel: UILabel!
     var rankInfo = [[String]]()
     
     override func viewDidLoad() {
@@ -26,7 +27,16 @@ class RankController: UITableViewController {
         rank.getRankInformation { rank in
             DispatchQueue.main.async {
                 self.rankInfo = rank
-                self.RankTableView.reloadData()
+                // Remove message and reload data
+                if self.rankInfo.count > 0 {
+                    UIView.animate(withDuration: 0.5, animations: { 
+                        self.noInfoLabel.alpha = 0
+                    })
+                    
+                    UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveEaseIn, animations: { 
+                        self.RankTableView.reloadData()
+                    }, completion: nil)
+                }
             }
         }
     }
@@ -45,7 +55,6 @@ class RankController: UITableViewController {
         let cell = self.RankTableView.dequeueReusableCell(withIdentifier: "RankCell", for: indexPath) as! RankTableCell
         
         cell.battlesLabel.text = rankInfo[indexPath.row][RankInformation.RankDataIndex.battles]
-        cell.damageLabel.text = rankInfo[indexPath.row][RankInformation.RankDataIndex.damage]
         cell.winRateLabel.text = rankInfo[indexPath.row][RankInformation.RankDataIndex.winRate]
         
         let currentRank = rankInfo[indexPath.row][RankInformation.RankDataIndex.currentRank]
