@@ -58,7 +58,7 @@
 		92D9B4D91E565C6E00CFD46D /* ShipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4D81E565C6E00CFD46D /* ShipController.swift */; };
 		92D9B4DB1E565C8A00CFD46D /* ShipTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4DA1E565C8A00CFD46D /* ShipTableCell.swift */; };
 		92FD8D701E59B22300E7FADF /* ChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD8D6F1E59B22300E7FADF /* ChartsController.swift */; };
-		92FF85901E592ED9001BBCA1 /* Charts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF858F1E592ED9001BBCA1 /* Charts.swift */; };
+		92FF85901E592ED9001BBCA1 /* PlayerCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF858F1E592ED9001BBCA1 /* PlayerCharts.swift */; };
 		92FF85921E594157001BBCA1 /* ExpectedValue.json in Resources */ = {isa = PBXBuildFile; fileRef = 92FF85911E594157001BBCA1 /* ExpectedValue.json */; };
 /* End PBXBuildFile section */
 
@@ -137,7 +137,7 @@
 		92D9B4D81E565C6E00CFD46D /* ShipController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipController.swift; sourceTree = "<group>"; };
 		92D9B4DA1E565C8A00CFD46D /* ShipTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipTableCell.swift; sourceTree = "<group>"; };
 		92FD8D6F1E59B22300E7FADF /* ChartsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsController.swift; sourceTree = "<group>"; };
-		92FF858F1E592ED9001BBCA1 /* Charts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Charts.swift; sourceTree = "<group>"; };
+		92FF858F1E592ED9001BBCA1 /* PlayerCharts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCharts.swift; sourceTree = "<group>"; };
 		92FF85911E594157001BBCA1 /* ExpectedValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ExpectedValue.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -195,18 +195,14 @@
 		9210C0811E460A0900270002 /* Functions */ = {
 			isa = PBXGroup;
 			children = (
-				926528B91E41BD5600D1A685 /* PlayerInformation.swift */,
+				92E2A6591E697D670039486C /* Player */,
 				92634D0E1E540EBE000CDCB4 /* ServerUrl.swift */,
-				92634D0C1E540E77000CDCB4 /* PlayerStat.swift */,
 				924BD2661E457F6B00E15D04 /* DataManagement.swift */,
-				92FF858F1E592ED9001BBCA1 /* Charts.swift */,
-				924BAAE11E4EAF720000B246 /* PlayerOnline.swift */,
 				9210C07D1E4609BA00270002 /* PersonalRating.swift */,
 				92634D0A1E540E2C000CDCB4 /* RankInformation.swift */,
 				929B0B461E618B45007E54EA /* Language.swift */,
 				92634D101E540F10000CDCB4 /* ShipInformation.swift */,
 				929B0B481E619B5B007E54EA /* Encyclopedia.swift */,
-				92D9B4D11E55AE3200CFD46D /* PlayerAccountID.swift */,
 			);
 			name = Functions;
 			sourceTree = "<group>";
@@ -225,6 +221,7 @@
 		9215CA471E5C0CA200A7F465 /* Pro */ = {
 			isa = PBXGroup;
 			children = (
+				92E2A65A1E697D8A0039486C /* Welcome */,
 				925BE5A91E502C1900DA6A1A /* InternalWeb.storyboard */,
 				925BE5AF1E50325200DA6A1A /* AdvancedStat.storyboard */,
 				92B768661E5E5D02009803C3 /* MoreInformation.storyboard */,
@@ -273,12 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				9215CA471E5C0CA200A7F465 /* Pro */,
-				921EA69C1E35F2FB0007C7FC /* Main.storyboard */,
-				925BE5AB1E502D0000DA6A1A /* Settings.storyboard */,
-				92B7686D1E5E5DD6009803C3 /* ProVersion.storyboard */,
 				925BE5A61E502B9000DA6A1A /* SimpleStat.storyboard */,
-				929B0B4A1E619EE3007E54EA /* Wiki.storyboard */,
-				92B768721E5E5DE1009803C3 /* UsefulWebsite.storyboard */,
 				921EA6A11E35F2FB0007C7FC /* LaunchScreen.storyboard */,
 			);
 			name = Storyboard;
@@ -300,6 +292,30 @@
 				92D9B4DA1E565C8A00CFD46D /* ShipTableCell.swift */,
 			);
 			name = TableViewCell;
+			sourceTree = "<group>";
+		};
+		92E2A6591E697D670039486C /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				926528B91E41BD5600D1A685 /* PlayerInformation.swift */,
+				92634D0C1E540E77000CDCB4 /* PlayerStat.swift */,
+				92FF858F1E592ED9001BBCA1 /* PlayerCharts.swift */,
+				924BAAE11E4EAF720000B246 /* PlayerOnline.swift */,
+				92D9B4D11E55AE3200CFD46D /* PlayerAccountID.swift */,
+			);
+			name = Player;
+			sourceTree = "<group>";
+		};
+		92E2A65A1E697D8A0039486C /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				921EA69C1E35F2FB0007C7FC /* Main.storyboard */,
+				92B7686D1E5E5DD6009803C3 /* ProVersion.storyboard */,
+				929B0B4A1E619EE3007E54EA /* Wiki.storyboard */,
+				92B768721E5E5DE1009803C3 /* UsefulWebsite.storyboard */,
+				925BE5AB1E502D0000DA6A1A /* Settings.storyboard */,
+			);
+			name = Welcome;
 			sourceTree = "<group>";
 		};
 		AE0579B474F19BE0B7C58BB6 /* Pods */ = {
@@ -472,7 +488,7 @@
 				92634D0D1E540E77000CDCB4 /* PlayerStat.swift in Sources */,
 				926528C11E41BD5600D1A685 /* SettingsController.swift in Sources */,
 				929B0B4E1E61A022007E54EA /* AchievementCell.swift in Sources */,
-				92FF85901E592ED9001BBCA1 /* Charts.swift in Sources */,
+				92FF85901E592ED9001BBCA1 /* PlayerCharts.swift in Sources */,
 				924BD2651E457EB300E15D04 /* ServerController.swift in Sources */,
 				921EA6991E35F2FB0007C7FC /* AppDelegate.swift in Sources */,
 				92D9B4D41E55AF2400CFD46D /* RankController.swift in Sources */,
