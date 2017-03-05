@@ -32,12 +32,24 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
         layout.minimumLineSpacing = 0
         shipCollection.collectionViewLayout = layout
         
-        allInfo = Ships.getShipInformation(shipJson: Shipinformation.ShipJson)
-        ships = allInfo
+        if Shipinformation.ShipJson == nil {
+            _ = self.navigationController?.popToRootViewController(animated: true)
+        } else {
+            allInfo = Ships.getShipInformation(shipJson: Shipinformation.ShipJson)
+            ships = allInfo
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if isMovingFromParentViewController {
+            _ = self.navigationController?.popToRootViewController(animated: true)
+        }
     }
     
     // MARK: Textfield
@@ -66,12 +78,14 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = self.shipCollection.dequeueReusableCell(withReuseIdentifier: "ShipCell", for: indexPath) as! ShipCell
-        if let url = URL(string: ships[indexPath.row][Ships.dataIndex.image]) {
-            // Sometimes it wont work properly
-            cell.shipImage.sd_setImage(with: url)
+        if ships.count > 0 {
+            if let url = URL(string: ships[indexPath.row][Ships.dataIndex.image]) {
+                // Sometimes it wont work properly
+                cell.shipImage.sd_setImage(with: url)
+            }
+            
+            cell.shipNameLabel.text = ships[indexPath.row][Ships.dataIndex.name]
         }
-        
-        cell.shipNameLabel.text = ships[indexPath.row][Ships.dataIndex.name]
         
         return cell
     }
@@ -84,63 +98,63 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
     
     // In order to make it clean and tidy
     func filterShip() {
-        
-        let filterText = searchTextField.text!
-        
-        if filterText == "" {
-            // Empty
-            ships = allInfo
+        if allInfo.count > 0 {
+            let filterText = searchTextField.text!
+            
+            if filterText == "" {
+                // Empty
+                ships = allInfo
+                DispatchQueue.main.async {
+                    self.shipCollection.reloadData()
+                }
+                return
+            }
+            
+            // Clean it
+            ships = [[String]]()
+            
+            if let tier = Int(filterText) {
+                // Tier
+                if tier > 0 && tier <= 10 {
+                    for ship in allInfo {
+                        if Int(ship[Ships.dataIndex.tier]) == tier {
+                            ships.append(ship)
+                        }
+                    }
+                }
+            } else {
+                for ship in allInfo {
+                    switch filterText {
+                    case "dd":
+                        if ship[Ships.dataIndex.type] == "Destroyer" {
+                            ships.append(ship)
+                        }
+                    case "bb":
+                        if ship[Ships.dataIndex.type] == "Battleship" {
+                            ships.append(ship)
+                        }
+                    case "ca":
+                        if ship[Ships.dataIndex.type] == "Cruiser" {
+                            ships.append(ship)
+                        }
+                    case "cv":
+                        if ship[Ships.dataIndex.type] == "AirCarrier" {
+                            ships.append(ship)
+                        }
+                    default:
+                        // Find ship with name
+                        if ship[Ships.dataIndex.name].lowercased().contains(filterText.lowercased()) {
+                            ships.append(ship)
+                        }
+                    }
+                }
+            }
+            
+            // Update table now
             DispatchQueue.main.async {
                 self.shipCollection.reloadData()
             }
-            return
         }
-        
-        // Clean it
-        ships = [[String]]()
-        
-        if let tier = Int(filterText) {
-            // Tier
-            if tier > 0 && tier <= 10 {
-                for ship in allInfo {
-                    if Int(ship[Ships.dataIndex.tier]) == tier {
-                        ships.append(ship)
-                    }
-                }
-            }
-        } else {
-            for ship in allInfo {
-                switch filterText {
-                case "dd":
-                    if ship[Ships.dataIndex.type] == "Destroyer" {
-                        ships.append(ship)
-                    }
-                case "bb":
-                    if ship[Ships.dataIndex.type] == "Battleship" {
-                        ships.append(ship)
-                    }
-                case "ca":
-                    if ship[Ships.dataIndex.type] == "Cruiser" {
-                        ships.append(ship)
-                    }
-                case "cv":
-                    if ship[Ships.dataIndex.type] == "AirCarrier" {
-                        ships.append(ship)
-                    }
-                default:
-                    // Find ship with name
-                    if ship[Ships.dataIndex.name].lowercased().contains(filterText.lowercased()) {
-                        ships.append(ship)
-                    }
-                }
-            }
-        }
-        
-        // Update table now
-        DispatchQueue.main.async {
-            self.shipCollection.reloadData()
-        }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

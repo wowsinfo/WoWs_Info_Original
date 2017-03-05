@@ -41,7 +41,7 @@ class AdvancedInfoController: UIViewController {
         playerNameLabel.text = playerInfo[0]
         
         // Pass account id
-        _ = PlayerAccountID.init(ID: self.title!)
+        _ = PlayerAccount.init(ID: self.title!, Name: playerInfo[0])
         
         self.loadPlayerData()
         

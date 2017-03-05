@@ -26,7 +26,7 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         filterTextField.delegate = self
         
-        PlayerShip(account: PlayerAccountID.AccountID).getPlayerShipInfo(success: { data in
+        PlayerShip(account: PlayerAccount.AccountID).getPlayerShipInfo(success: { data in
             DispatchQueue.main.async {
                 self.targetShips = data
                 self.ShipTableView.reloadData()
@@ -40,6 +40,10 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func screenshotPressed(_ sender: UITapGestureRecognizer) {
+        print("Hello")
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -126,6 +130,32 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.ShipTableView.reloadData()
         }
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Change text to "Back"
+        let backItem = UIBarButtonItem()
+        backItem.title = NSLocalizedString("BACK", comment: "Back label")
+        navigationItem.backBarButtonItem = backItem
+        
+        if segue.identifier == "gotoShipDetail" {
+            let destination = segue.destination as! ShipScreenshotController
+            destination.battle = targetShips[sender as! Int][PlayerShip.PlayerShipDataIndex.battles]
+            destination.winrate = targetShips[sender as! Int][PlayerShip.PlayerShipDataIndex.winRate]
+            destination.damage = targetShips[sender as! Int][PlayerShip.PlayerShipDataIndex.averageDamage]
+            destination.killdeathRatio = targetShips[sender as! Int][PlayerShip.PlayerShipDataIndex.killDeathRatio]
+            destination.xp = targetShips[sender as! Int][PlayerShip.PlayerShipDataIndex.averageExp]
+            destination.hitratio = targetShips[sender as! Int][PlayerShip.PlayerShipDataIndex.hitRatio]
+            
+            destination.ratingIndex = Int(targetShips[sender as! Int][PlayerShip.PlayerShipDataIndex.rating])!
+            destination.shipName = targetShips[sender as! Int][PlayerShip.PlayerShipDataIndex.name]
+        }
+        
+    }
+
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "gotoShipDetail", sender: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

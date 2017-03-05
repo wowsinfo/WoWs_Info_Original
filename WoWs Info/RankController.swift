@@ -23,7 +23,7 @@ class RankController: UITableViewController {
         // Hide separator line
         RankTableView.separatorColor = UIColor.clear
         
-        let rank = RankInformation(ID: PlayerAccountID.AccountID)
+        let rank = RankInformation(ID: PlayerAccount.AccountID)
         rank.getRankInformation { rank in
             DispatchQueue.main.async {
                 self.rankInfo = rank
