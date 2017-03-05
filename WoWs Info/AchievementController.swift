@@ -32,11 +32,20 @@ class AchievementController: UICollectionViewController {
         
         // Get all achievement
         achievement = Achievements.getAchievementInformation()
+        if achievement.count == 0 {
+            _ = self.navigationController?.popToRootViewController(animated: true)
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        _ = self.navigationController?.popToRootViewController(animated: true)
     }
 
     // MARK: Collection view
@@ -52,14 +61,17 @@ class AchievementController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.achievementCollection.dequeueReusableCell(withReuseIdentifier: reuseIndetifier, for: indexPath) as! AchievementCell
         
-        var url: URL!
-        if achievement[indexPath.row][Achievements.dataIndex.hidden] == "0" {
-            url = URL(string: achievement[indexPath.row][Achievements.dataIndex.image])!
-        } else {
-            url = URL(string: achievement[indexPath.row][Achievements.dataIndex.image_disable])!
+        if achievement.count > 0
+        {
+            var url: URL!
+            if achievement[indexPath.row][Achievements.dataIndex.hidden] == "0" {
+                url = URL(string: achievement[indexPath.row][Achievements.dataIndex.image])!
+            } else {
+                url = URL(string: achievement[indexPath.row][Achievements.dataIndex.image_disable])!
+            }
+            
+            cell.achievementImage.sd_setImage(with: url)
         }
-        
-        cell.achievementImage.sd_setImage(with: url)
     
         return cell
     }

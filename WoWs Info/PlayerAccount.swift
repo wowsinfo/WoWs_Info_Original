@@ -9,11 +9,13 @@
 import UIKit
 
 // Save Account ID forever until player changes
-class PlayerAccountID {
+class PlayerAccount {
     
     static var AccountID = ""
-    init(ID: String) {
-        PlayerAccountID.AccountID = ID
+    static var AccountName = ""
+    init(ID: String, Name: String) {
+        PlayerAccount.AccountID = ID
+        PlayerAccount.AccountName = Name
     }
     
 }

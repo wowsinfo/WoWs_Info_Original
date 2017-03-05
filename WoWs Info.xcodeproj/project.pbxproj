@@ -52,11 +52,13 @@
 		92B7686B1E5E5DD6009803C3 /* ProVersion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B7686D1E5E5DD6009803C3 /* ProVersion.storyboard */; };
 		92B768701E5E5DE1009803C3 /* UsefulWebsite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B768721E5E5DE1009803C3 /* UsefulWebsite.storyboard */; };
 		92B768851E5E6E34009803C3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92B768871E5E6E34009803C3 /* Localizable.strings */; };
-		92D9B4D21E55AE3200CFD46D /* PlayerAccountID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4D11E55AE3200CFD46D /* PlayerAccountID.swift */; };
+		92D414AB1E6AA5EF00E8C8AF /* ShipScreenshotController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D414AA1E6AA5EF00E8C8AF /* ShipScreenshotController.swift */; };
+		92D9B4D21E55AE3200CFD46D /* PlayerAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4D11E55AE3200CFD46D /* PlayerAccount.swift */; };
 		92D9B4D41E55AF2400CFD46D /* RankController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4D31E55AF2400CFD46D /* RankController.swift */; };
 		92D9B4D61E55C6D600CFD46D /* RankTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4D51E55C6D600CFD46D /* RankTableCell.swift */; };
 		92D9B4D91E565C6E00CFD46D /* ShipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4D81E565C6E00CFD46D /* ShipController.swift */; };
 		92D9B4DB1E565C8A00CFD46D /* ShipTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4DA1E565C8A00CFD46D /* ShipTableCell.swift */; };
+		92F526F11E6B9476005A2E20 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F526F01E6B9476005A2E20 /* AboutController.swift */; };
 		92FD8D701E59B22300E7FADF /* ChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD8D6F1E59B22300E7FADF /* ChartsController.swift */; };
 		92FF85901E592ED9001BBCA1 /* PlayerCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF858F1E592ED9001BBCA1 /* PlayerCharts.swift */; };
 		92FF85921E594157001BBCA1 /* ExpectedValue.json in Resources */ = {isa = PBXBuildFile; fileRef = 92FF85911E594157001BBCA1 /* ExpectedValue.json */; };
@@ -131,11 +133,13 @@
 		92B768811E5E6144009803C3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/UsefulWebsite.strings"; sourceTree = "<group>"; };
 		92B768821E5E6144009803C3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		92B768861E5E6E34009803C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		92D9B4D11E55AE3200CFD46D /* PlayerAccountID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerAccountID.swift; sourceTree = "<group>"; };
+		92D414AA1E6AA5EF00E8C8AF /* ShipScreenshotController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipScreenshotController.swift; sourceTree = "<group>"; };
+		92D9B4D11E55AE3200CFD46D /* PlayerAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerAccount.swift; sourceTree = "<group>"; };
 		92D9B4D31E55AF2400CFD46D /* RankController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankController.swift; sourceTree = "<group>"; };
 		92D9B4D51E55C6D600CFD46D /* RankTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankTableCell.swift; sourceTree = "<group>"; };
 		92D9B4D81E565C6E00CFD46D /* ShipController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipController.swift; sourceTree = "<group>"; };
 		92D9B4DA1E565C8A00CFD46D /* ShipTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipTableCell.swift; sourceTree = "<group>"; };
+		92F526F01E6B9476005A2E20 /* AboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
 		92FD8D6F1E59B22300E7FADF /* ChartsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsController.swift; sourceTree = "<group>"; };
 		92FF858F1E592ED9001BBCA1 /* PlayerCharts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCharts.swift; sourceTree = "<group>"; };
 		92FF85911E594157001BBCA1 /* ExpectedValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ExpectedValue.json; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 				929B0B4F1E61A1E1007E54EA /* AchievementController.swift */,
 				922D0E561E6295DE0056EDE6 /* ShipInfoController.swift */,
 				925B627C1E62D7680073FF56 /* ShipDetailController.swift */,
+				92F526F01E6B9476005A2E20 /* AboutController.swift */,
 				9215CA481E5C119100A7F465 /* WebTableController.swift */,
 				926528BA1E41BD5600D1A685 /* SearchController.swift */,
 				9210C0691E45B3D500270002 /* WebViewController.swift */,
@@ -214,6 +219,7 @@
 				92FD8D6F1E59B22300E7FADF /* ChartsController.swift */,
 				92D9B4D31E55AF2400CFD46D /* RankController.swift */,
 				925BE5B11E5032AB00DA6A1A /* AdvancedInfoController.swift */,
+				92D414AA1E6AA5EF00E8C8AF /* ShipScreenshotController.swift */,
 			);
 			name = Pro;
 			sourceTree = "<group>";
@@ -301,7 +307,7 @@
 				92634D0C1E540E77000CDCB4 /* PlayerStat.swift */,
 				92FF858F1E592ED9001BBCA1 /* PlayerCharts.swift */,
 				924BAAE11E4EAF720000B246 /* PlayerOnline.swift */,
-				92D9B4D11E55AE3200CFD46D /* PlayerAccountID.swift */,
+				92D9B4D11E55AE3200CFD46D /* PlayerAccount.swift */,
 			);
 			name = Player;
 			sourceTree = "<group>";
@@ -490,6 +496,7 @@
 				929B0B4E1E61A022007E54EA /* AchievementCell.swift in Sources */,
 				92FF85901E592ED9001BBCA1 /* PlayerCharts.swift in Sources */,
 				924BD2651E457EB300E15D04 /* ServerController.swift in Sources */,
+				92D414AB1E6AA5EF00E8C8AF /* ShipScreenshotController.swift in Sources */,
 				921EA6991E35F2FB0007C7FC /* AppDelegate.swift in Sources */,
 				92D9B4D41E55AF2400CFD46D /* RankController.swift in Sources */,
 				929B0B471E618B45007E54EA /* Language.swift in Sources */,
@@ -504,8 +511,9 @@
 				920E1C411E5EB76300B43472 /* DonationController.swift in Sources */,
 				922D0E551E6295A20056EDE6 /* ShipCell.swift in Sources */,
 				92D9B4D61E55C6D600CFD46D /* RankTableCell.swift in Sources */,
-				92D9B4D21E55AE3200CFD46D /* PlayerAccountID.swift in Sources */,
+				92D9B4D21E55AE3200CFD46D /* PlayerAccount.swift in Sources */,
 				922D0E571E6295DE0056EDE6 /* ShipInfoController.swift in Sources */,
+				92F526F11E6B9476005A2E20 /* AboutController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

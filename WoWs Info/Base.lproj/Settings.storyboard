@@ -294,7 +294,7 @@
         <!--About-->
         <scene sceneID="NBM-3I-msV">
             <objects>
-                <viewController id="qyd-KM-Fc2" sceneMemberID="viewController">
+                <viewController id="qyd-KM-Fc2" customClass="AboutController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="l60-fr-8Mc"/>
                         <viewControllerLayoutGuide type="bottom" id="zeo-6V-yMn"/>
@@ -312,7 +312,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.0.3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6j1-au-PL7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.0.5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6j1-au-PL7">
                                 <rect key="frame" x="16" y="164" width="343" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="1Jt-Vg-XvZ"/>
@@ -333,7 +333,16 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0J-mH-UB1">
                                 <rect key="frame" x="16" y="222" width="343" height="416"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">1.0.3
+                                <mutableString key="text">1.0.5
+Bug fixed - Incorrect fade animation
+Bug fixed - Wiki crashes
+Animation changed
+More information is added in Wiki
+Preview pro version
+3D Touch supported
+Try tap on the Icon👆
+
+1.0.3.5
 Animation changed
 Text font and size are adjusted.
 Achievements and Ships galleries are added.
@@ -359,11 +368,15 @@ Basic functionality</mutableString>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="NIA-zQ-IRJ">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="NIA-zQ-IRJ">
                                 <rect key="frame" x="123.5" y="28" width="128" height="128"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="NIA-zQ-IRJ" secondAttribute="height" multiplier="1:1" id="Mpb-sb-cbx"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="VJy-Ja-jGk" appends="YES" id="4si-6j-o4d"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -389,6 +402,11 @@ Basic functionality</mutableString>
                     <navigationItem key="navigationItem" title="About" id="MAO-TF-fAJ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zEg-zY-h6R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="VJy-Ja-jGk" userLabel="gotoTwitter">
+                    <connections>
+                        <action selector="gotoTwitter:" destination="qyd-KM-Fc2" id="Ivt-rS-BCi"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-273" y="-368"/>
         </scene>

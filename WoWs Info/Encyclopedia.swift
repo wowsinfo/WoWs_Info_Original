@@ -48,12 +48,15 @@ class Achievements {
     static func getAchievementInformation() -> [[String]] {
         
         var achievementInfo = [[String]]()
-        for achievement in Achievements.achievementJson {
-            achievementInfo.append([achievement.1["name"].stringValue, achievement.1["description"].stringValue, achievement.1["image"].stringValue, achievement.1["image_inactive"].stringValue, achievement.1["hidden"].stringValue])
+        if Achievements.achievementJson != nil {
+            for achievement in Achievements.achievementJson {
+                achievementInfo.append([achievement.1["name"].stringValue, achievement.1["description"].stringValue, achievement.1["image"].stringValue, achievement.1["image_inactive"].stringValue, achievement.1["hidden"].stringValue])
+            }
+            // Sort Achievement by Hidden
+            achievementInfo.sort(by: {Int($1[4])! > Int($0[4])!})
+            print(achievementInfo)
+
         }
-        // Sort Achievement by Hidden
-        achievementInfo.sort(by: {Int($1[4])! > Int($0[4])!})
-        print(achievementInfo)
         return achievementInfo
         
     }
