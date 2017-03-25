@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		274C5706F9558650B958D5BA /* Pods_WoWs_Info.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6759118B58D4B67B8E919C40 /* Pods_WoWs_Info.framework */; };
 		920E1C411E5EB76300B43472 /* DonationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920E1C401E5EB76300B43472 /* DonationController.swift */; };
 		9210C06A1E45B3D500270002 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210C0691E45B3D500270002 /* WebViewController.swift */; };
 		9210C06E1E45E30E00270002 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210C06D1E45E30E00270002 /* NavigationController.swift */; };
@@ -20,6 +21,11 @@
 		9226E33A1E5BF19F00593026 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9226E3391E5BF19F00593026 /* Charts.framework */; };
 		922D0E551E6295A20056EDE6 /* ShipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D0E541E6295A20056EDE6 /* ShipCell.swift */; };
 		922D0E571E6295DE0056EDE6 /* ShipInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D0E561E6295DE0056EDE6 /* ShipInfoController.swift */; };
+		923044AB1E7E1AA400DF20E2 /* Siren.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923044AA1E7E1AA400DF20E2 /* Siren.framework */; };
+		92330DEC1E77F54200A06FD7 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92330DEB1E77F54200A06FD7 /* HeaderView.swift */; };
+		92330DEE1E77FA1C00A06FD7 /* WoWsInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92330DED1E77FA1C00A06FD7 /* WoWsInfo.storyboard */; };
+		92330DF01E77FA4B00A06FD7 /* WoWsInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92330DEF1E77FA4B00A06FD7 /* WoWsInfoController.swift */; };
+		92423B0E1E737F64006B538F /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929489081E61AB8800B471F2 /* SDWebImage.framework */; };
 		924BAAE21E4EAF720000B246 /* PlayerOnline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924BAAE11E4EAF720000B246 /* PlayerOnline.swift */; };
 		924BD2651E457EB300E15D04 /* ServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924BD2641E457EB300E15D04 /* ServerController.swift */; };
 		924BD2671E457F6B00E15D04 /* DataManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924BD2661E457F6B00E15D04 /* DataManagement.swift */; };
@@ -42,7 +48,6 @@
 		926528C11E41BD5600D1A685 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528BB1E41BD5600D1A685 /* SettingsController.swift */; };
 		926528C31E41BD5600D1A685 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528BD1E41BD5600D1A685 /* WelcomeController.swift */; };
 		928314B21E4A5B4E00ED4A1B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 928314B11E4A5B4E00ED4A1B /* GoogleService-Info.plist */; };
-		929489091E61AB8800B471F2 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929489081E61AB8800B471F2 /* SDWebImage.framework */; };
 		929B0B471E618B45007E54EA /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B461E618B45007E54EA /* Language.swift */; };
 		929B0B491E619B5B007E54EA /* Encyclopedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B481E619B5B007E54EA /* Encyclopedia.swift */; };
 		929B0B4B1E619EE3007E54EA /* Wiki.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 929B0B4A1E619EE3007E54EA /* Wiki.storyboard */; };
@@ -58,6 +63,7 @@
 		92D9B4D61E55C6D600CFD46D /* RankTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4D51E55C6D600CFD46D /* RankTableCell.swift */; };
 		92D9B4D91E565C6E00CFD46D /* ShipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4D81E565C6E00CFD46D /* ShipController.swift */; };
 		92D9B4DB1E565C8A00CFD46D /* ShipTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4DA1E565C8A00CFD46D /* ShipTableCell.swift */; };
+		92E745571E7FA83F008D79D6 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E745561E7FA83F008D79D6 /* Kanna.framework */; };
 		92F526F11E6B9476005A2E20 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F526F01E6B9476005A2E20 /* AboutController.swift */; };
 		92FD8D701E59B22300E7FADF /* ChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD8D6F1E59B22300E7FADF /* ChartsController.swift */; };
 		92FF85901E592ED9001BBCA1 /* PlayerCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF858F1E592ED9001BBCA1 /* PlayerCharts.swift */; };
@@ -86,6 +92,10 @@
 		9226E3391E5BF19F00593026 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/Charts/Charts.framework"; sourceTree = "<group>"; };
 		922D0E541E6295A20056EDE6 /* ShipCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipCell.swift; sourceTree = "<group>"; };
 		922D0E561E6295DE0056EDE6 /* ShipInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipInfoController.swift; sourceTree = "<group>"; };
+		923044AA1E7E1AA400DF20E2 /* Siren.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Siren.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/Siren/Siren.framework"; sourceTree = "<group>"; };
+		92330DEB1E77F54200A06FD7 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		92330DED1E77FA1C00A06FD7 /* WoWsInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WoWsInfo.storyboard; sourceTree = "<group>"; };
+		92330DEF1E77FA4B00A06FD7 /* WoWsInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WoWsInfoController.swift; sourceTree = "<group>"; };
 		923FFB3D1E5950340034686C /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		924BAAE11E4EAF720000B246 /* PlayerOnline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerOnline.swift; sourceTree = "<group>"; };
 		924BD2641E457EB300E15D04 /* ServerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerController.swift; sourceTree = "<group>"; };
@@ -99,6 +109,7 @@
 		925BE5AC1E502D0000DA6A1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		925BE5AF1E50325200DA6A1A /* AdvancedStat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdvancedStat.storyboard; sourceTree = "<group>"; };
 		925BE5B11E5032AB00DA6A1A /* AdvancedInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedInfoController.swift; sourceTree = "<group>"; };
+		925C13971E7E21A600590E1B /* WoWs Info.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WoWs Info.entitlements"; sourceTree = "<group>"; };
 		92634D0A1E540E2C000CDCB4 /* RankInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankInformation.swift; sourceTree = "<group>"; };
 		92634D0C1E540E77000CDCB4 /* PlayerStat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerStat.swift; sourceTree = "<group>"; };
 		92634D0E1E540EBE000CDCB4 /* ServerUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerUrl.swift; sourceTree = "<group>"; };
@@ -139,6 +150,7 @@
 		92D9B4D51E55C6D600CFD46D /* RankTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankTableCell.swift; sourceTree = "<group>"; };
 		92D9B4D81E565C6E00CFD46D /* ShipController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipController.swift; sourceTree = "<group>"; };
 		92D9B4DA1E565C8A00CFD46D /* ShipTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipTableCell.swift; sourceTree = "<group>"; };
+		92E745561E7FA83F008D79D6 /* Kanna.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kanna.framework; path = "Pods/../build/Debug-iphoneos/Kanna/Kanna.framework"; sourceTree = "<group>"; };
 		92F526F01E6B9476005A2E20 /* AboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
 		92FD8D6F1E59B22300E7FADF /* ChartsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsController.swift; sourceTree = "<group>"; };
 		92FF858F1E592ED9001BBCA1 /* PlayerCharts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCharts.swift; sourceTree = "<group>"; };
@@ -150,11 +162,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				929489091E61AB8800B471F2 /* SDWebImage.framework in Frameworks */,
+				92E745571E7FA83F008D79D6 /* Kanna.framework in Frameworks */,
+				923044AB1E7E1AA400DF20E2 /* Siren.framework in Frameworks */,
+				92423B0E1E737F64006B538F /* SDWebImage.framework in Frameworks */,
 				9215CA411E5BF34800A7F465 /* Pods_WoWs_Info.framework in Frameworks */,
 				9215CA3F1E5BF33D00A7F465 /* SwiftyJSON.framework in Frameworks */,
 				9226E33A1E5BF19F00593026 /* Charts.framework in Frameworks */,
 				9259C1CE1E57F88700F34CDC /* StoreKit.framework in Frameworks */,
+				274C5706F9558650B958D5BA /* Pods_WoWs_Info.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +179,8 @@
 		2359F6695FFC24A39880BFF8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				92E745561E7FA83F008D79D6 /* Kanna.framework */,
+				923044AA1E7E1AA400DF20E2 /* Siren.framework */,
 				929489081E61AB8800B471F2 /* SDWebImage.framework */,
 				9215CA401E5BF34800A7F465 /* Pods_WoWs_Info.framework */,
 				9215CA3A1E5BF28100A7F465 /* GoogleToolboxForMac.framework */,
@@ -184,6 +201,7 @@
 				920E1C401E5EB76300B43472 /* DonationController.swift */,
 				926528B81E41BD5600D1A685 /* PlayerInfoController.swift */,
 				929B0B4F1E61A1E1007E54EA /* AchievementController.swift */,
+				92330DEF1E77FA4B00A06FD7 /* WoWsInfoController.swift */,
 				922D0E561E6295DE0056EDE6 /* ShipInfoController.swift */,
 				925B627C1E62D7680073FF56 /* ShipDetailController.swift */,
 				92F526F01E6B9476005A2E20 /* AboutController.swift */,
@@ -256,6 +274,7 @@
 		921EA6971E35F2FB0007C7FC /* WoWs Info */ = {
 			isa = PBXGroup;
 			children = (
+				925C13971E7E21A600590E1B /* WoWs Info.entitlements */,
 				925636581E53F1CA0002E08A /* Assets.xcassets */,
 				92FF85911E594157001BBCA1 /* ExpectedValue.json */,
 				9210C0811E460A0900270002 /* Functions */,
@@ -286,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				929B0B4D1E61A022007E54EA /* AchievementCell.swift */,
+				92330DEB1E77F54200A06FD7 /* HeaderView.swift */,
 				922D0E541E6295A20056EDE6 /* ShipCell.swift */,
 			);
 			name = CollectionCell;
@@ -316,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				921EA69C1E35F2FB0007C7FC /* Main.storyboard */,
+				92330DED1E77FA1C00A06FD7 /* WoWsInfo.storyboard */,
 				92B7686D1E5E5DD6009803C3 /* ProVersion.storyboard */,
 				929B0B4A1E619EE3007E54EA /* Wiki.storyboard */,
 				92B768721E5E5DE1009803C3 /* UsefulWebsite.storyboard */,
@@ -371,11 +392,14 @@
 						DevelopmentTeam = 4YSG3SYMLE;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.InAppPurchase = {
 								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -419,6 +443,7 @@
 				925636591E53F1CA0002E08A /* Assets.xcassets in Resources */,
 				925BE5AD1E502D0000DA6A1A /* Settings.storyboard in Resources */,
 				929B0B4B1E619EE3007E54EA /* Wiki.storyboard in Resources */,
+				92330DEE1E77FA1C00A06FD7 /* WoWsInfo.storyboard in Resources */,
 				92B7686B1E5E5DD6009803C3 /* ProVersion.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,10 +504,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9210C06E1E45E30E00270002 /* NavigationController.swift in Sources */,
+				92330DF01E77FA4B00A06FD7 /* WoWsInfoController.swift in Sources */,
 				926528BE1E41BD5600D1A685 /* PlayerInfoController.swift in Sources */,
 				92634D0B1E540E2C000CDCB4 /* RankInformation.swift in Sources */,
 				926528C31E41BD5600D1A685 /* WelcomeController.swift in Sources */,
 				92634D0F1E540EBE000CDCB4 /* ServerUrl.swift in Sources */,
+				92330DEC1E77F54200A06FD7 /* HeaderView.swift in Sources */,
 				924BAAE21E4EAF720000B246 /* PlayerOnline.swift in Sources */,
 				925B627D1E62D7680073FF56 /* ShipDetailController.swift in Sources */,
 				929B0B501E61A1E1007E54EA /* AchievementController.swift in Sources */,
@@ -628,6 +655,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -678,6 +706,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -690,6 +719,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
@@ -701,9 +731,13 @@
 			baseConfigurationReference = 3B0C461C5DD33F3D39731E2D /* Pods-WoWs Info.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "WoWs Info/WoWs Info.entitlements";
 				DEVELOPMENT_TEAM = 4YSG3SYMLE;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Kanna",
+				);
 				INFOPLIST_FILE = "WoWs Info/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -719,9 +753,13 @@
 			baseConfigurationReference = 06D13CAC2212DD18FD32AB49 /* Pods-WoWs Info.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "WoWs Info/WoWs Info.entitlements";
 				DEVELOPMENT_TEAM = 4YSG3SYMLE;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Kanna",
+				);
 				INFOPLIST_FILE = "WoWs Info/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -41,12 +41,6 @@ class AchievementController: UICollectionViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        _ = self.navigationController?.popToRootViewController(animated: true)
-    }
 
     // MARK: Collection view
     override func numberOfSections(in collectionView: UICollectionView) -> Int {

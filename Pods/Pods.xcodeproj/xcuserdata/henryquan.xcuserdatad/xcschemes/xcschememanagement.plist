@@ -14,12 +14,27 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Kanna.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-WoWs Info.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Protobuf.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Siren.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -32,22 +47,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>00103D6C821BE85971C563025527BA5D</key>
+		<key>3947603B5989B80FC8269965C6451B89</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>38F6BEBB35D5DEB2E05DE1BA4EEFDE31</key>
+		<key>4D10E4FF5A483B852B47CCA0B994E340</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AD79E776E1C9B95347231F72A136D531</key>
+		<key>7C5F771E47F2DA54E42CFDAE8A2285A3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CB17E3413EF7325B1017BCF399A7823E</key>
+		<key>C2F7A1C574E7394245E87A90FBD768D7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C5B80060FE8C664DF08841000F41D515</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D590B3131A115D619154A5703F8EF47C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DAA0AC9201844CF148C475E1519C471B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

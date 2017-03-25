@@ -5,6 +5,8 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,19 +22,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aF9-ja-4j8">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
-                                <color key="backgroundColor" red="0.4392156862745098" green="0.69411764705882351" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="bQB-Pr-Sej">
+                                <rect key="frame" x="123" y="269" width="128" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="zcq-60-q5t"/>
+                                    <constraint firstAttribute="width" secondItem="bQB-Pr-Sej" secondAttribute="height" multiplier="1:1" id="2vN-uc-Jja"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.33728533983230591" green="0.63926470279693604" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="aF9-ja-4j8" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="0g0-MT-w4X"/>
-                            <constraint firstAttribute="trailing" secondItem="aF9-ja-4j8" secondAttribute="trailing" id="IhK-4m-b2o"/>
-                            <constraint firstItem="aF9-ja-4j8" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="L6H-ID-Qxz"/>
+                            <constraint firstItem="bQB-Pr-Sej" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="6T0-wh-mLp"/>
+                            <constraint firstItem="bQB-Pr-Sej" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.34133" id="S4P-MU-eDQ"/>
+                            <constraint firstItem="bQB-Pr-Sej" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Viz-8P-1Li"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="z4e-wS-gNh"/>
@@ -42,4 +43,7 @@
             <point key="canvasLocation" x="991.20000000000005" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Icon" width="1024" height="1024"/>
+    </resources>
 </document>

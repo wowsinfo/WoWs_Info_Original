@@ -16,7 +16,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBOutlet weak var searchBtn: UIButton!
     @IBOutlet weak var pickerView: UIView!
     @IBOutlet weak var serverPicker: UIPickerView!
-    
+
     var playerInfo = [[String]]()
     var selectedInfo = [String]()
     var searchLimit = 0
@@ -158,9 +158,6 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
             
             // Dismiss Keyboard
             username.resignFirstResponder()
-            
-            // Wait for 0.1 second
-            usleep(100000)
         }
         
     }
