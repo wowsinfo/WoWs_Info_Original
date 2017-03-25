@@ -44,14 +44,6 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
         super.didReceiveMemoryWarning()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        if isMovingFromParentViewController {
-            _ = self.navigationController?.popToRootViewController(animated: true)
-        }
-    }
-    
     // MARK: Textfield
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
@@ -124,28 +116,9 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
                 }
             } else {
                 for ship in allInfo {
-                    switch filterText {
-                    case "dd":
-                        if ship[Ships.dataIndex.type] == "Destroyer" {
-                            ships.append(ship)
-                        }
-                    case "bb":
-                        if ship[Ships.dataIndex.type] == "Battleship" {
-                            ships.append(ship)
-                        }
-                    case "ca":
-                        if ship[Ships.dataIndex.type] == "Cruiser" {
-                            ships.append(ship)
-                        }
-                    case "cv":
-                        if ship[Ships.dataIndex.type] == "AirCarrier" {
-                            ships.append(ship)
-                        }
-                    default:
-                        // Find ship with name
-                        if ship[Ships.dataIndex.name].lowercased().contains(filterText.lowercased()) {
-                            ships.append(ship)
-                        }
+                    // Find ship with name
+                    if ship[Ships.dataIndex.name].lowercased().contains(filterText.lowercased()) {
+                        ships.append(ship)
                     }
                 }
             }
@@ -173,6 +146,79 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
             destination.shipTier = ships[sender as! Int][Ships.dataIndex.tier]
         }
         
+    }
+    
+    // MARK: Ship Type
+    @IBAction func filterDD(_ sender: UIButton) {
+        if allInfo.count > 0 {
+            // Clean
+            ships = [[String]]()
+            
+            for ship in allInfo {
+                if ship[Ships.dataIndex.type] == "Destroyer" {
+                    ships.append(ship)
+                }
+            }
+            
+            // Update table now
+            DispatchQueue.main.async {
+                self.shipCollection.reloadData()
+            }
+        }
+    }
+    
+    @IBAction func filterCA(_ sender: UIButton) {
+        if allInfo.count > 0 {
+            // Clean
+            ships = [[String]]()
+            
+            for ship in allInfo {
+                if ship[Ships.dataIndex.type] == "Cruiser" {
+                    ships.append(ship)
+                }
+            }
+            
+            // Update table now
+            DispatchQueue.main.async {
+                self.shipCollection.reloadData()
+            }
+        }
+    }
+    
+    @IBAction func filterBB(_ sender: UIButton) {
+        if allInfo.count > 0 {
+            // Clean
+            ships = [[String]]()
+            
+            for ship in allInfo {
+                if ship[Ships.dataIndex.type] == "Battleship" {
+                    ships.append(ship)
+                }
+            }
+            
+            // Update table now
+            DispatchQueue.main.async {
+                self.shipCollection.reloadData()
+            }
+        }
+    }
+    
+    @IBAction func filterCV(_ sender: UIButton) {
+        if allInfo.count > 0 {
+            // Clean
+            ships = [[String]]()
+            
+            for ship in allInfo {
+                if ship[Ships.dataIndex.type] == "AirCarrier" {
+                    ships.append(ship)
+                }
+            }
+            
+            // Update table now
+            DispatchQueue.main.async {
+                self.shipCollection.reloadData()
+            }
+        }
     }
     
 

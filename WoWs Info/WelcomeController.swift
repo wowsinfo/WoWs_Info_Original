@@ -23,15 +23,15 @@ class WelcomeController : UIViewController {
     @IBOutlet weak var dashboardBtn: UIImageView!
     @IBOutlet weak var dashboardBtnConstant: NSLayoutConstraint!
     @IBOutlet weak var settingsBtnConstraint: NSLayoutConstraint!
-    let isProVersion = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
+    @IBOutlet weak var gotoHelpBtn: UIBarButtonItem!
+    let serverName = ["RU", "EU", "NA", "ASIA"]
     
     @IBOutlet weak var bannerView: GADBannerView!
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-        UserDefaults.standard.set(true, forKey: DataManagement.DataName.IsAdvancedUnlocked)
+        let isProVersion = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
         
         // If it is first launch
         if UserDefaults.standard.bool(forKey: DataManagement.DataName.FirstLaunch) {
@@ -57,6 +57,8 @@ class WelcomeController : UIViewController {
         } else {
             // Hide dashboard
             dashboardBtn.isHidden = true
+            // Hide help btn
+            gotoHelpBtn.isEnabled = false
             
             // Load ads
             let request = GADRequest()
@@ -126,19 +128,19 @@ class WelcomeController : UIViewController {
         // Update online player number
         PlayerOnline().getOnlinePlayerNumber { (player) in
             DispatchQueue.main.async {
-                self.onlinePlayerLabel.text = "\(player) " + NSLocalizedString("ONLINE", comment: "Online player label")
+                self.onlinePlayerLabel.text = self.serverName[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)] + " \(player)"
                 print("Updated")
             }
         }
         
         // If there is user information
         let user = UserDefaults.standard.string(forKey: DataManagement.DataName.UserName)!
-        if user == ">_<" {
+        if user == ">_<" || user == "" {
             dashboardBtn.isHidden = true
         } else {
             let serverIndex = UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)
             // That should be the server index
-            if Int(user.components(separatedBy: "|")[2]) != serverIndex{
+            if Int(user.components(separatedBy: "|")[2]) != serverIndex {
                 dashboardBtn.isHidden = true
             } else {
                 dashboardBtn.isHidden = false
@@ -168,4 +170,8 @@ class WelcomeController : UIViewController {
         
     }
 
+    @IBAction func gotoHelp(_ sender: UIBarButtonItem) {
+        UIApplication.shared.openURL(URL(string: "https://yihengquan.wordpress.com/2017/03/16/ios-wows-info/")!)
+    }
+    
 }

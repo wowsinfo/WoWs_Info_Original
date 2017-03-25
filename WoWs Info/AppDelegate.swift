@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FirebaseMessaging
+import Siren
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -31,17 +33,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             defaults.set(true, forKey: DataManagement.DataName.FirstLaunch)
             defaults.set(3, forKey: DataManagement.DataName.Server)
             defaults.set(15, forKey: DataManagement.DataName.SearchLimit)
-            defaults.set("", forKey: DataManagement.DataName.UserName)
+            defaults.set(">_<", forKey: DataManagement.DataName.UserName)
             // For future updates
-            defaults.set(false, forKey: DataManagement.DataName.IsThereAds)
-            defaults.set(false, forKey: DataManagement.DataName.IsAdvancedUnlocked)
+            // CHANGE THIS IN THE FUTURE
+            defaults.set(true, forKey: DataManagement.DataName.IsThereAds)
+            defaults.set(true, forKey: DataManagement.DataName.IsAdvancedUnlocked)
             
         }
         
-        // Copy username into clipboard
+        // Whether user purchases or not
+        /*if UserDefaults.standard.object(forKey: DataManagement.DataName.hasPurchased) == nil {
+            UserDefaults.standard.set(false, forKey: DataManagement.DataName.hasPurchased)
+            UserDefaults.standard.set(false, forKey: DataManagement.DataName.IsThereAds)
+            UserDefaults.standard.set(false, forKey: DataManagement.DataName.IsAdvancedUnlocked)
+        }*/
+        
+        UserDefaults.standard.set(true, forKey: DataManagement.DataName.IsAdvancedUnlocked)
+        // Reset name
         if !UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked) {
             UserDefaults.standard.set(">_<", forKey: DataManagement.DataName.UserName)
         }
+        
+        // Setup siren
+        let siren = Siren.sharedInstance
+        siren.alertType = .force
+        // siren.debugEnabled = true
+        siren.checkVersion(checkType: .immediately)
+        
+        // Setup remote notification
+        let notificationTypes: UIUserNotificationType = [UIUserNotificationType.alert, UIUserNotificationType.badge, UIUserNotificationType.sound]
+        let notificationSettings = UIUserNotificationSettings(types: notificationTypes, categories: nil)
+        application.registerForRemoteNotifications()
+        application.registerUserNotificationSettings(notificationSettings)
         
         return true
     }
@@ -58,14 +81,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        Siren.sharedInstance.checkVersion(checkType: .immediately)
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        Siren.sharedInstance.checkVersion(checkType: .daily)
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        
+        print(userInfo)
+        
     }
     
     @available(iOS 9.0, *)
