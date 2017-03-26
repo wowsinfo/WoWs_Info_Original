@@ -25,6 +25,9 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         ShipTableView.separatorColor = UIColor.clear
         
         filterTextField.delegate = self
+        
+        // Get recent info
+        RecentData(account: PlayerAccount.AccountID).getRecentData()
         self.tabBarController?.tabBar.isUserInteractionEnabled = false
         
         PlayerShip(account: PlayerAccount.AccountID).getPlayerShipInfo(success: { data in
@@ -38,9 +41,6 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
                 self.tabBarController?.tabBar.isUserInteractionEnabled = true
             }
         })
-        
-        // Get recent info
-        RecentData(account: PlayerAccount.AccountID).getRecentData()
         
     }
 

@@ -108,6 +108,7 @@ class ChartsController: UIViewController, ChartViewDelegate {
             chartDataSet.colors = ChartColorTemplates.vordiplom()
             chartDataSet.valueFont = UIFont.systemFont(ofSize: 10)
             let chartData = BarChartData.init(dataSets: [chartDataSet])
+
             mostPlayedBarChart.data = chartData
         }
         
@@ -130,6 +131,11 @@ class ChartsController: UIViewController, ChartViewDelegate {
         chartDataSet.colors = ChartColorTemplates.material()
         chartDataSet.valueFont = UIFont.systemFont(ofSize: 12)
         let chartData = PieChartData.init(dataSets: [chartDataSet])
+        
+        let format = NumberFormatter()
+        format.minimumFractionDigits = 0
+        chartData.setValueFormatter(DefaultValueFormatter(formatter: format))
+        
         typeBattlePieChart.data = chartData
 
     }
@@ -156,6 +162,11 @@ class ChartsController: UIViewController, ChartViewDelegate {
         chartDataSet.colors = ChartColorTemplates.joyful()
         chartDataSet.valueFont = UIFont.systemFont(ofSize: 12)
         let chartData = BarChartData.init(dataSets: [chartDataSet])
+        
+        let format = NumberFormatter()
+        format.minimumFractionDigits = 0
+        chartData.setValueFormatter(DefaultValueFormatter(formatter: format))
+        
         tierBattleBarChart.data = chartData
         
     }

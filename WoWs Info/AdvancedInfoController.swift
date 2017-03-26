@@ -90,7 +90,6 @@ class AdvancedInfoController: UIViewController {
         let user = UserDefaults.standard
         if user.object(forKey: DataManagement.DataName.friend) != nil {
             let friends = user.object(forKey: DataManagement.DataName.friend) as! [String]
-            let tks = user.object(forKey: DataManagement.DataName.tk) as! [String]
             
             for friend in friends {
                 if friend.contains(self.title!) {
@@ -103,11 +102,14 @@ class AdvancedInfoController: UIViewController {
             
             // Search for tk if not found
             if !hasFound {
-                for tk in tks {
-                    if tk.contains(self.title!) {
-                        self.playerNameLabel.textColor = UIColor(red: 230/255, green: 106/255, blue: 1, alpha: 1.0)
-                        hideFriendTKBtn()
-                        break
+                if user.object(forKey: DataManagement.DataName.tk) != nil {
+                    let tks = user.object(forKey: DataManagement.DataName.tk) as! [String]
+                    for tk in tks {
+                        if tk.contains(self.title!) {
+                            self.playerNameLabel.textColor = UIColor(red: 230/255, green: 106/255, blue: 1, alpha: 1.0)
+                            hideFriendTKBtn()
+                            break
+                        }
                     }
                 }
             }
@@ -253,11 +255,12 @@ class AdvancedInfoController: UIViewController {
         let user = UserDefaults.standard
         if user.object(forKey: DataManagement.DataName.friend) == nil {
             user.set([String](), forKey: DataManagement.DataName.friend)
-        } else {
-            var list = user.object(forKey: DataManagement.DataName.friend) as! [String]
-            list.append("\(self.playerNameLabel.text!)|\(self.title!)|\(user.integer(forKey: DataManagement.DataName.Server))")
-            user.set(list, forKey: DataManagement.DataName.friend)
         }
+        
+        var list = user.object(forKey: DataManagement.DataName.friend) as! [String]
+        list.append("\(self.playerNameLabel.text!)|\(self.title!)|\(user.integer(forKey: DataManagement.DataName.Server))")
+        user.set(list, forKey: DataManagement.DataName.friend)
+
     }
     
     @IBAction func tkBtnPressed(_ sender: UIButton) {
@@ -266,11 +269,12 @@ class AdvancedInfoController: UIViewController {
         let user = UserDefaults.standard
         if UserDefaults.standard.object(forKey: DataManagement.DataName.tk) == nil {
             UserDefaults.standard.set([String](), forKey: DataManagement.DataName.tk)
-        } else {
-            var list = user.object(forKey: DataManagement.DataName.tk) as! [String]
-            list.append("\(self.playerNameLabel.text!)|\(self.title!)|\(user.integer(forKey: DataManagement.DataName.Server))")
-            user.set(list, forKey: DataManagement.DataName.tk)
         }
+        
+        var list = user.object(forKey: DataManagement.DataName.tk) as! [String]
+        list.append("\(self.playerNameLabel.text!)|\(self.title!)|\(user.integer(forKey: DataManagement.DataName.Server))")
+        user.set(list, forKey: DataManagement.DataName.tk)
+        
     }
     
     func hideFriendTKBtn() {

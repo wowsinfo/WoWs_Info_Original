@@ -13,7 +13,7 @@ class News {
 
     let server = UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)
     var url: String!
-    var webpage: String!
+    var webpage = ""
     static var news: [[String]]!
     var serverUrl: String!
     
@@ -62,24 +62,26 @@ class News {
     func getNews() -> [[String]] {
         
         var data = [[String]]()
-        if let news = HTML(html: webpage, encoding: .utf8) {
-            for link in news.css(".tile__title") {
-                data.append([link.text!, "", ""])
-            }
-            
-            var index = 0
-            for link in news.css(".fit-link") {
-                data[index][1] = serverUrl + link["href"]!
-                index += 1
-            }
-            
-            index = 0
-            for link in news.css("._date") {
-                data[index][2] = link.text!.replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: " ", with: "")
-                index += 1
+        if webpage != "" {
+            if let news = HTML(html: webpage, encoding: .utf8) {
+                for link in news.css(".tile__title") {
+                    data.append([link.text!, "", ""])
+                }
+                
+                var index = 0
+                for link in news.css(".fit-link") {
+                    data[index][1] = serverUrl + link["href"]!
+                    index += 1
+                }
+                
+                index = 0
+                for link in news.css("._date") {
+                    data[index][2] = link.text!.replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: " ", with: "")
+                    index += 1
+                }
             }
         }
-        
+    
         print(data)
         return data
         
