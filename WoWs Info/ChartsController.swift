@@ -15,14 +15,25 @@ class ChartsController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var tierBattleBarChart: BarChartView!
     @IBOutlet weak var typeBattlePieChart: PieChartView!
     @IBOutlet weak var mostPlayedBarChart: HorizontalBarChartView!
+    @IBOutlet weak var recentBattleLineChart: LineChartView!
+    @IBOutlet weak var recentWinrateLineChart: LineChartView!
+    @IBOutlet weak var recentDamageLineChart: LineChartView!
+    @IBOutlet weak var screenshotBtn: UIButton!
+    @IBOutlet weak var scrollView: UIView!
+    @IBOutlet weak var pageView: UIScrollView!
+    @IBOutlet weak var playerNameLabel: UILabel!
     
     var data: Charts!
+    var recentData: [[String]]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Get data first
         data = Charts(data: PlayerShip.playerShipInfo)
+        // Get recent data as well
+        recentData = RecentData.getRecentDataString()
+        print(recentData)
         
         // Set up tier battles chart
         tierBattleBarChart.delegate = self
@@ -36,6 +47,20 @@ class ChartsController: UIViewController, ChartViewDelegate {
         mostPlayedBarChart.delegate = self
         setupMostPlayedBarChart()
         
+        // Well, sometimes there is no recent data
+        if recentData.count > 1 {
+            // Set up recent charts
+            recentBattleLineChart.delegate = self
+            setupRecentBattleLineChart()
+            
+            recentDamageLineChart.delegate = self
+            setupRecentDamageLineChart()
+            
+            recentWinrateLineChart.delegate = self
+            setupRecentWinrateLineChart()
+        }
+        
+        playerNameLabel.text = PlayerAccount.AccountName
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,6 +88,7 @@ class ChartsController: UIViewController, ChartViewDelegate {
         
     }
     
+    // MARK: Setup charts
     func setupMostPlayedBarChart() {
         
         var mostPlayedInformation = data.getMostPlayedShipInformation()
@@ -134,6 +160,110 @@ class ChartsController: UIViewController, ChartViewDelegate {
         
     }
     
+    func lineChartOptimised(chart: LineChartView) {
+        
+        chart.noDataText = "No recent infomation >_<"
+        chart.isUserInteractionEnabled = false
+        chart.chartDescription?.text = ""
+        
+        chart.xAxis.labelPosition = .bottom
+        chart.xAxis.setLabelCount(recentData.count, force: false)
+        chart.xAxis.drawGridLinesEnabled = false
+        chart.xAxis.drawLabelsEnabled = false
+        
+        chart.rightAxis.drawLabelsEnabled = false
+        chart.rightAxis.drawGridLinesEnabled = false
+        chart.rightAxis.drawAxisLineEnabled = false
+        
+        chart.leftAxis.drawLabelsEnabled = true
+        chart.leftAxis.drawGridLinesEnabled = false
+        chart.leftAxis.drawAxisLineEnabled = true
+        
+    }
+
+    
+    func setupRecentBattleLineChart() {
+        lineChartOptimised(chart: recentBattleLineChart)
+        let colour = UIColor(red: 35/255, green: 135/255, blue: 255/255, alpha: 1.0)
+        
+        var dataEntries: [ChartDataEntry] = []
+        for i in 0..<recentData.count {
+            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(recentData[i][RecentData.dataIndex.battle])!)
+            dataEntries.append(dataEntry)
+        }
+        
+        let chartDataSet = LineChartDataSet(values: dataEntries, label: NSLocalizedString("CHART_BATTLE", comment: "Chart battle label"))
+        chartDataSet.setColor(colour)
+        chartDataSet.setCircleColor(colour)
+        chartDataSet.circleRadius = 3.0
+        chartDataSet.drawValuesEnabled = false
+        let chartData = LineChartData.init(dataSets: [chartDataSet])
+        recentBattleLineChart.data = chartData
+        
+        let avg = getRecentAverage(index: RecentData.dataIndex.battle)
+        let average = ChartLimitLine(limit: avg, label: String(format: "%.1f", avg))
+        average.labelPosition = .rightBottom
+        average.lineWidth = 0.5
+        average.lineColor = colour
+        recentBattleLineChart.rightAxis.addLimitLine(average)
+        
+    }
+    
+    func setupRecentWinrateLineChart() {
+        lineChartOptimised(chart: recentWinrateLineChart)
+        let colour = UIColor(red: 77/255, green: 167/255, blue: 77/255, alpha: 1.0)
+        
+        var dataEntries: [ChartDataEntry] = []
+        for i in 0..<recentData.count {
+            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(recentData[i][RecentData.dataIndex.win])!)
+            dataEntries.append(dataEntry)
+        }
+        
+        let chartDataSet = LineChartDataSet(values: dataEntries, label: NSLocalizedString("WIN_RATE", comment: "Chart battle label"))
+        chartDataSet.setColor(colour)
+        chartDataSet.setCircleColor(colour)
+        chartDataSet.circleRadius = 3.0
+        chartDataSet.drawValuesEnabled = false
+        let chartData = LineChartData.init(dataSets: [chartDataSet])
+        recentWinrateLineChart.data = chartData
+        
+        let avg = getRecentAverage(index: RecentData.dataIndex.win)
+        let average = ChartLimitLine(limit: avg, label: String(format: "%.1f", avg))
+        average.labelPosition = .rightBottom
+        average.lineWidth = 0.5
+        average.lineColor = colour
+        recentWinrateLineChart.rightAxis.addLimitLine(average)
+        
+    }
+    
+    func setupRecentDamageLineChart() {
+        lineChartOptimised(chart: recentDamageLineChart)
+        let colour = UIColor(red: 201/255, green: 74/255, blue: 74/255, alpha: 1.0)
+        
+        var dataEntries: [ChartDataEntry] = []
+        for i in 0..<recentData.count {
+            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(recentData[i][RecentData.dataIndex.damage])!)
+            dataEntries.append(dataEntry)
+        }
+        
+        let chartDataSet = LineChartDataSet(values: dataEntries, label: NSLocalizedString("AVG_DAMAGE", comment: "Chart battle label"))
+        chartDataSet.setColor(colour)
+        chartDataSet.setCircleColor(colour)
+        chartDataSet.circleRadius = 3.0
+        chartDataSet.drawValuesEnabled = false
+        let chartData = LineChartData.init(dataSets: [chartDataSet])
+        recentDamageLineChart.data = chartData
+        
+        let avg = getRecentAverage(index: RecentData.dataIndex.damage)
+        let average = ChartLimitLine(limit: avg, label: String(format: "%.0f", avg))
+        average.labelPosition = .rightBottom
+        average.lineWidth = 0.5
+        average.lineColor = colour
+        recentDamageLineChart.rightAxis.addLimitLine(average)
+        
+    }
+    
+    // MARK: Average Tier
     func getAverageTier(data: [Int]) -> Double {
         
         // (Tier1 * Battle + Tier2 * Battle + ... + Tier10 * Battle)/Total Battles
@@ -150,5 +280,30 @@ class ChartsController: UIViewController, ChartViewDelegate {
         return totalTier / totalBattle
         
     }
+    
+    // MARK: Recent Average
+    func getRecentAverage(index: Int) -> Double {
+        
+        var sum = 0.0
+        for data in recentData {
+            sum += Double(data[index])!
+        }
+        
+        // Calculate average
+        return sum/Double(recentData.count)
+        
+    }
+    
+    // MARK: Screenshot
+    @IBAction func screenshotBtnPressed(_ sender: Any) {
+        UIGraphicsBeginImageContextWithOptions(self.pageView.contentSize, true, UIScreen.main.scale)
+        self.scrollView.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        UIImageWriteToSavedPhotosAlbum(screenshot!, nil, nil, nil)
+        self.screenshotBtn.isEnabled = false
+    }
+    
 
 }

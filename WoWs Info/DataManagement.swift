@@ -27,6 +27,8 @@ class DataManagement {
         static let IsThereAds = "ads"
         static let IsAdvancedUnlocked = "advancedunlocked"
         static let hasPurchased = "hasPurchased"
+        static let friend = "friend_list"
+        static let tk = "team_killer"
     }
     
 }

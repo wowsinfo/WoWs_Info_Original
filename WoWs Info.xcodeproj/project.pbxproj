@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		274C5706F9558650B958D5BA /* Pods_WoWs_Info.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6759118B58D4B67B8E919C40 /* Pods_WoWs_Info.framework */; };
 		920E1C411E5EB76300B43472 /* DonationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920E1C401E5EB76300B43472 /* DonationController.swift */; };
 		9210C06A1E45B3D500270002 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210C0691E45B3D500270002 /* WebViewController.swift */; };
 		9210C06E1E45E30E00270002 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210C06D1E45E30E00270002 /* NavigationController.swift */; };
@@ -48,6 +47,14 @@
 		926528C11E41BD5600D1A685 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528BB1E41BD5600D1A685 /* SettingsController.swift */; };
 		926528C31E41BD5600D1A685 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528BD1E41BD5600D1A685 /* WelcomeController.swift */; };
 		928314B21E4A5B4E00ED4A1B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 928314B11E4A5B4E00ED4A1B /* GoogleService-Info.plist */; };
+		929928411E86132C0091A174 /* RecentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929928401E86132B0091A174 /* RecentData.swift */; };
+		929928431E8638A70091A174 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929928421E8638A70091A174 /* News.swift */; };
+		929928451E865FA20091A174 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929928441E865FA20091A174 /* NewsCell.swift */; };
+		929928471E865FF60091A174 /* NewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929928461E865FF60091A174 /* NewsController.swift */; };
+		929928491E868DF10091A174 /* FriendList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 929928481E868DF10091A174 /* FriendList.storyboard */; };
+		9299284B1E86920F0091A174 /* FriendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299284A1E86920F0091A174 /* FriendController.swift */; };
+		9299284D1E8692180091A174 /* TKController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299284C1E8692180091A174 /* TKController.swift */; };
+		9299284F1E86935C0091A174 /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299284E1E86935C0091A174 /* ListController.swift */; };
 		929B0B471E618B45007E54EA /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B461E618B45007E54EA /* Language.swift */; };
 		929B0B491E619B5B007E54EA /* Encyclopedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B481E619B5B007E54EA /* Encyclopedia.swift */; };
 		929B0B4B1E619EE3007E54EA /* Wiki.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 929B0B4A1E619EE3007E54EA /* Wiki.storyboard */; };
@@ -63,7 +70,6 @@
 		92D9B4D61E55C6D600CFD46D /* RankTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4D51E55C6D600CFD46D /* RankTableCell.swift */; };
 		92D9B4D91E565C6E00CFD46D /* ShipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4D81E565C6E00CFD46D /* ShipController.swift */; };
 		92D9B4DB1E565C8A00CFD46D /* ShipTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4DA1E565C8A00CFD46D /* ShipTableCell.swift */; };
-		92E745571E7FA83F008D79D6 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E745561E7FA83F008D79D6 /* Kanna.framework */; };
 		92F526F11E6B9476005A2E20 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F526F01E6B9476005A2E20 /* AboutController.swift */; };
 		92FD8D701E59B22300E7FADF /* ChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD8D6F1E59B22300E7FADF /* ChartsController.swift */; };
 		92FF85901E592ED9001BBCA1 /* PlayerCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF858F1E592ED9001BBCA1 /* PlayerCharts.swift */; };
@@ -122,6 +128,14 @@
 		92813BB61E47447C009AA9E8 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		928314B11E4A5B4E00ED4A1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		929489081E61AB8800B471F2 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework"; sourceTree = "<group>"; };
+		929928401E86132B0091A174 /* RecentData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentData.swift; sourceTree = "<group>"; };
+		929928421E8638A70091A174 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		929928441E865FA20091A174 /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		929928461E865FF60091A174 /* NewsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsController.swift; sourceTree = "<group>"; };
+		929928481E868DF10091A174 /* FriendList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FriendList.storyboard; sourceTree = "<group>"; };
+		9299284A1E86920F0091A174 /* FriendController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendController.swift; sourceTree = "<group>"; };
+		9299284C1E8692180091A174 /* TKController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKController.swift; sourceTree = "<group>"; };
+		9299284E1E86935C0091A174 /* ListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
 		929B0B461E618B45007E54EA /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		929B0B481E619B5B007E54EA /* Encyclopedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encyclopedia.swift; sourceTree = "<group>"; };
 		929B0B4A1E619EE3007E54EA /* Wiki.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Wiki.storyboard; sourceTree = "<group>"; };
@@ -150,7 +164,6 @@
 		92D9B4D51E55C6D600CFD46D /* RankTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankTableCell.swift; sourceTree = "<group>"; };
 		92D9B4D81E565C6E00CFD46D /* ShipController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipController.swift; sourceTree = "<group>"; };
 		92D9B4DA1E565C8A00CFD46D /* ShipTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipTableCell.swift; sourceTree = "<group>"; };
-		92E745561E7FA83F008D79D6 /* Kanna.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kanna.framework; path = "Pods/../build/Debug-iphoneos/Kanna/Kanna.framework"; sourceTree = "<group>"; };
 		92F526F01E6B9476005A2E20 /* AboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
 		92FD8D6F1E59B22300E7FADF /* ChartsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsController.swift; sourceTree = "<group>"; };
 		92FF858F1E592ED9001BBCA1 /* PlayerCharts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCharts.swift; sourceTree = "<group>"; };
@@ -162,14 +175,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92E745571E7FA83F008D79D6 /* Kanna.framework in Frameworks */,
 				923044AB1E7E1AA400DF20E2 /* Siren.framework in Frameworks */,
 				92423B0E1E737F64006B538F /* SDWebImage.framework in Frameworks */,
 				9215CA411E5BF34800A7F465 /* Pods_WoWs_Info.framework in Frameworks */,
 				9215CA3F1E5BF33D00A7F465 /* SwiftyJSON.framework in Frameworks */,
 				9226E33A1E5BF19F00593026 /* Charts.framework in Frameworks */,
 				9259C1CE1E57F88700F34CDC /* StoreKit.framework in Frameworks */,
-				274C5706F9558650B958D5BA /* Pods_WoWs_Info.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,7 +190,6 @@
 		2359F6695FFC24A39880BFF8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				92E745561E7FA83F008D79D6 /* Kanna.framework */,
 				923044AA1E7E1AA400DF20E2 /* Siren.framework */,
 				929489081E61AB8800B471F2 /* SDWebImage.framework */,
 				9215CA401E5BF34800A7F465 /* Pods_WoWs_Info.framework */,
@@ -205,12 +215,14 @@
 				922D0E561E6295DE0056EDE6 /* ShipInfoController.swift */,
 				925B627C1E62D7680073FF56 /* ShipDetailController.swift */,
 				92F526F01E6B9476005A2E20 /* AboutController.swift */,
+				929928461E865FF60091A174 /* NewsController.swift */,
 				9215CA481E5C119100A7F465 /* WebTableController.swift */,
 				926528BA1E41BD5600D1A685 /* SearchController.swift */,
 				9210C0691E45B3D500270002 /* WebViewController.swift */,
 				926528BB1E41BD5600D1A685 /* SettingsController.swift */,
 				926528BD1E41BD5600D1A685 /* WelcomeController.swift */,
 				924BD2641E457EB300E15D04 /* ServerController.swift */,
+				929928501E8693770091A174 /* FriendAndTKList */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -221,6 +233,7 @@
 				92E2A6591E697D670039486C /* Player */,
 				92634D0E1E540EBE000CDCB4 /* ServerUrl.swift */,
 				924BD2661E457F6B00E15D04 /* DataManagement.swift */,
+				929928421E8638A70091A174 /* News.swift */,
 				9210C07D1E4609BA00270002 /* PersonalRating.swift */,
 				92634D0A1E540E2C000CDCB4 /* RankInformation.swift */,
 				929B0B461E618B45007E54EA /* Language.swift */,
@@ -301,6 +314,16 @@
 			name = Storyboard;
 			sourceTree = "<group>";
 		};
+		929928501E8693770091A174 /* FriendAndTKList */ = {
+			isa = PBXGroup;
+			children = (
+				9299284A1E86920F0091A174 /* FriendController.swift */,
+				9299284C1E8692180091A174 /* TKController.swift */,
+				9299284E1E86935C0091A174 /* ListController.swift */,
+			);
+			name = FriendAndTKList;
+			sourceTree = "<group>";
+		};
 		929B0B4C1E619FF3007E54EA /* CollectionCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,6 +339,7 @@
 			children = (
 				92D9B4D51E55C6D600CFD46D /* RankTableCell.swift */,
 				92D9B4DA1E565C8A00CFD46D /* ShipTableCell.swift */,
+				929928441E865FA20091A174 /* NewsCell.swift */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -326,6 +350,7 @@
 				926528B91E41BD5600D1A685 /* PlayerInformation.swift */,
 				92634D0C1E540E77000CDCB4 /* PlayerStat.swift */,
 				92FF858F1E592ED9001BBCA1 /* PlayerCharts.swift */,
+				929928401E86132B0091A174 /* RecentData.swift */,
 				924BAAE11E4EAF720000B246 /* PlayerOnline.swift */,
 				92D9B4D11E55AE3200CFD46D /* PlayerAccount.swift */,
 			);
@@ -339,6 +364,7 @@
 				92330DED1E77FA1C00A06FD7 /* WoWsInfo.storyboard */,
 				92B7686D1E5E5DD6009803C3 /* ProVersion.storyboard */,
 				929B0B4A1E619EE3007E54EA /* Wiki.storyboard */,
+				929928481E868DF10091A174 /* FriendList.storyboard */,
 				92B768721E5E5DE1009803C3 /* UsefulWebsite.storyboard */,
 				925BE5AB1E502D0000DA6A1A /* Settings.storyboard */,
 			);
@@ -430,6 +456,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				929928491E868DF10091A174 /* FriendList.storyboard in Resources */,
 				925BE5B01E50325200DA6A1A /* AdvancedStat.storyboard in Resources */,
 				925BE5A81E502B9000DA6A1A /* SimpleStat.storyboard in Resources */,
 				92B768641E5E5D02009803C3 /* MoreInformation.storyboard in Resources */,
@@ -507,24 +534,30 @@
 				92330DF01E77FA4B00A06FD7 /* WoWsInfoController.swift in Sources */,
 				926528BE1E41BD5600D1A685 /* PlayerInfoController.swift in Sources */,
 				92634D0B1E540E2C000CDCB4 /* RankInformation.swift in Sources */,
+				9299284B1E86920F0091A174 /* FriendController.swift in Sources */,
 				926528C31E41BD5600D1A685 /* WelcomeController.swift in Sources */,
 				92634D0F1E540EBE000CDCB4 /* ServerUrl.swift in Sources */,
 				92330DEC1E77F54200A06FD7 /* HeaderView.swift in Sources */,
 				924BAAE21E4EAF720000B246 /* PlayerOnline.swift in Sources */,
 				925B627D1E62D7680073FF56 /* ShipDetailController.swift in Sources */,
 				929B0B501E61A1E1007E54EA /* AchievementController.swift in Sources */,
+				9299284F1E86935C0091A174 /* ListController.swift in Sources */,
 				924BD2671E457F6B00E15D04 /* DataManagement.swift in Sources */,
 				9215CA491E5C119100A7F465 /* WebTableController.swift in Sources */,
 				9210C06A1E45B3D500270002 /* WebViewController.swift in Sources */,
 				9210C07E1E4609BA00270002 /* PersonalRating.swift in Sources */,
 				92D9B4D91E565C6E00CFD46D /* ShipController.swift in Sources */,
 				92634D0D1E540E77000CDCB4 /* PlayerStat.swift in Sources */,
+				929928411E86132C0091A174 /* RecentData.swift in Sources */,
 				926528C11E41BD5600D1A685 /* SettingsController.swift in Sources */,
+				929928431E8638A70091A174 /* News.swift in Sources */,
+				9299284D1E8692180091A174 /* TKController.swift in Sources */,
 				929B0B4E1E61A022007E54EA /* AchievementCell.swift in Sources */,
 				92FF85901E592ED9001BBCA1 /* PlayerCharts.swift in Sources */,
 				924BD2651E457EB300E15D04 /* ServerController.swift in Sources */,
 				92D414AB1E6AA5EF00E8C8AF /* ShipScreenshotController.swift in Sources */,
 				921EA6991E35F2FB0007C7FC /* AppDelegate.swift in Sources */,
+				929928471E865FF60091A174 /* NewsController.swift in Sources */,
 				92D9B4D41E55AF2400CFD46D /* RankController.swift in Sources */,
 				929B0B471E618B45007E54EA /* Language.swift in Sources */,
 				925BE5B21E5032AB00DA6A1A /* AdvancedInfoController.swift in Sources */,
@@ -535,6 +568,7 @@
 				9259C1CC1E57BC4400F34CDC /* IAPController.swift in Sources */,
 				92D9B4DB1E565C8A00CFD46D /* ShipTableCell.swift in Sources */,
 				926528C01E41BD5600D1A685 /* SearchController.swift in Sources */,
+				929928451E865FA20091A174 /* NewsCell.swift in Sources */,
 				920E1C411E5EB76300B43472 /* DonationController.swift in Sources */,
 				922D0E551E6295A20056EDE6 /* ShipCell.swift in Sources */,
 				92D9B4D61E55C6D600CFD46D /* RankTableCell.swift in Sources */,
@@ -734,10 +768,7 @@
 				CODE_SIGN_ENTITLEMENTS = "WoWs Info/WoWs Info.entitlements";
 				DEVELOPMENT_TEAM = 4YSG3SYMLE;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/Kanna",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "WoWs Info/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -756,10 +787,7 @@
 				CODE_SIGN_ENTITLEMENTS = "WoWs Info/WoWs Info.entitlements";
 				DEVELOPMENT_TEAM = 4YSG3SYMLE;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/Kanna",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "WoWs Info/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
