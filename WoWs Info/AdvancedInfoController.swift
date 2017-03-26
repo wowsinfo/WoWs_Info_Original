@@ -28,6 +28,8 @@ class AdvancedInfoController: UIViewController {
     @IBOutlet weak var centerConstraint: NSLayoutConstraint!
     @IBOutlet weak var personalRatingLabel: UILabel!
     @IBOutlet var statView: UIView!
+    @IBOutlet weak var friendBtn: UIButton!
+    @IBOutlet weak var tkBtn: UIButton!
     
     let username = UserDefaults.standard.string(forKey: DataManagement.DataName.UserName)!
     
@@ -56,6 +58,9 @@ class AdvancedInfoController: UIViewController {
         // Get server index
         self.serverIndex = UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)
         
+        // Check for friend or tk
+        setupNameColour()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,6 +82,36 @@ class AdvancedInfoController: UIViewController {
         performSegue(withIdentifier: "gotoMoreInfo", sender: nil)
         hasGotoMoreInfo = true
         
+    }
+    
+    func setupNameColour() {
+        // Check if this player is friend or tk
+        var hasFound = false
+        let user = UserDefaults.standard
+        if user.object(forKey: DataManagement.DataName.friend) != nil {
+            let friends = user.object(forKey: DataManagement.DataName.friend) as! [String]
+            let tks = user.object(forKey: DataManagement.DataName.tk) as! [String]
+            
+            for friend in friends {
+                if friend.contains(self.title!) {
+                    self.playerNameLabel.textColor = UIColor(red: 35/255, green: 135/255, blue: 1, alpha: 1.0)
+                    hideFriendTKBtn()
+                    hasFound = true
+                    break
+                }
+            }
+            
+            // Search for tk if not found
+            if !hasFound {
+                for tk in tks {
+                    if tk.contains(self.title!) {
+                        self.playerNameLabel.textColor = UIColor(red: 230/255, green: 106/255, blue: 1, alpha: 1.0)
+                        hideFriendTKBtn()
+                        break
+                    }
+                }
+            }
+        }
     }
     
     func setLabelText(data: [String]) {
@@ -210,5 +245,40 @@ class AdvancedInfoController: UIViewController {
         self.present(shareSheet, animated: true, completion: nil)
         
     }
+    
+    // MARK: Button pressed
+    @IBAction func friendbtnPressed(_ sender: UIButton) {
+        hideFriendTKBtn()
+        
+        let user = UserDefaults.standard
+        if user.object(forKey: DataManagement.DataName.friend) == nil {
+            user.set([String](), forKey: DataManagement.DataName.friend)
+        } else {
+            var list = user.object(forKey: DataManagement.DataName.friend) as! [String]
+            list.append("\(self.playerNameLabel.text!)|\(self.title!)|\(user.integer(forKey: DataManagement.DataName.Server))")
+            user.set(list, forKey: DataManagement.DataName.friend)
+        }
+    }
+    
+    @IBAction func tkBtnPressed(_ sender: UIButton) {
+        hideFriendTKBtn()
+        
+        let user = UserDefaults.standard
+        if UserDefaults.standard.object(forKey: DataManagement.DataName.tk) == nil {
+            UserDefaults.standard.set([String](), forKey: DataManagement.DataName.tk)
+        } else {
+            var list = user.object(forKey: DataManagement.DataName.tk) as! [String]
+            list.append("\(self.playerNameLabel.text!)|\(self.title!)|\(user.integer(forKey: DataManagement.DataName.Server))")
+            user.set(list, forKey: DataManagement.DataName.tk)
+        }
+    }
+    
+    func hideFriendTKBtn() {
+        friendBtn.isHidden = true
+        tkBtn.isHidden = true
+        tkBtn.setTitleColor(UIColor.darkText, for: .normal)
+    }
+    
+    
  
 }

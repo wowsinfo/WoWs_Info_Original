@@ -193,6 +193,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WbX-5P-gaD">
+                                <rect key="frame" x="329" y="149" width="30" height="30"/>
+                                <color key="backgroundColor" red="0.33728533979999997" green="0.63926470280000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="7gl-vw-utW"/>
+                                    <constraint firstAttribute="width" constant="30" id="89U-ah-15u"/>
+                                </constraints>
+                                <state key="normal" image="Friend"/>
+                                <connections>
+                                    <action selector="friendbtnPressed:" destination="aqY-f9-abh" eventType="touchUpInside" id="az9-sP-mic"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vG2-LF-G9z">
+                                <rect key="frame" x="329" y="199" width="30" height="30"/>
+                                <color key="backgroundColor" red="0.901039719581604" green="0.41619032621383667" blue="0.99971669912338257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="2LA-ng-xVa"/>
+                                    <constraint firstAttribute="height" constant="30" id="ill-hC-QPl"/>
+                                </constraints>
+                                <state key="normal" title="TK"/>
+                                <connections>
+                                    <action selector="tkBtnPressed:" destination="aqY-f9-abh" eventType="touchUpInside" id="G9o-9V-MTb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -214,6 +238,7 @@
                             <constraint firstItem="uru-CD-MbX" firstAttribute="trailing" secondItem="BIc-p7-n4Z" secondAttribute="trailingMargin" id="FxT-yQ-qWf"/>
                             <constraint firstItem="hr9-SP-IV6" firstAttribute="leading" secondItem="qLk-Cq-ioQ" secondAttribute="trailing" constant="53" id="Hxo-gg-88X"/>
                             <constraint firstItem="LZZ-Vb-NY6" firstAttribute="top" secondItem="mYM-Xn-15Q" secondAttribute="bottom" constant="20" id="KFG-OK-IxG"/>
+                            <constraint firstItem="vG2-LF-G9z" firstAttribute="top" secondItem="WbX-5P-gaD" secondAttribute="bottom" constant="20" id="Khm-Kq-POB"/>
                             <constraint firstItem="hyJ-Vf-vcM" firstAttribute="top" secondItem="CIE-5o-LVp" secondAttribute="bottom" constant="20" id="NU4-MP-ST1"/>
                             <constraint firstItem="Gog-UL-QGP" firstAttribute="leading" secondItem="hr9-SP-IV6" secondAttribute="trailing" constant="53" id="Ndn-Qz-OcZ"/>
                             <constraint firstItem="CIE-5o-LVp" firstAttribute="width" secondItem="BIc-p7-n4Z" secondAttribute="width" multiplier="0.128" id="PAr-gQ-mMz"/>
@@ -228,13 +253,16 @@
                             <constraint firstItem="hr9-SP-IV6" firstAttribute="top" secondItem="mYM-Xn-15Q" secondAttribute="bottom" constant="8" id="cMX-Pb-eZW"/>
                             <constraint firstItem="CIE-5o-LVp" firstAttribute="trailing" secondItem="BIc-p7-n4Z" secondAttribute="trailingMargin" id="dOM-S9-aKm"/>
                             <constraint firstItem="YQC-Pu-JPg" firstAttribute="top" secondItem="dYV-bz-dH0" secondAttribute="bottom" id="hIE-Kk-wwT"/>
+                            <constraint firstItem="vG2-LF-G9z" firstAttribute="trailing" secondItem="BIc-p7-n4Z" secondAttribute="trailingMargin" id="hp2-lE-x8W"/>
                             <constraint firstItem="6HC-jz-Z84" firstAttribute="top" secondItem="qLk-Cq-ioQ" secondAttribute="bottom" id="j1b-de-hDd"/>
                             <constraint firstItem="dYV-bz-dH0" firstAttribute="top" secondItem="6HC-jz-Z84" secondAttribute="bottom" constant="10" id="jbW-ME-M7n"/>
                             <constraint firstItem="IgV-eM-WGn" firstAttribute="trailing" secondItem="BIc-p7-n4Z" secondAttribute="trailingMargin" id="oMX-V3-1gn"/>
+                            <constraint firstItem="WbX-5P-gaD" firstAttribute="trailing" secondItem="BIc-p7-n4Z" secondAttribute="trailingMargin" id="oSC-Vx-WNx"/>
                             <constraint firstItem="hr9-SP-IV6" firstAttribute="leading" secondItem="YQC-Pu-JPg" secondAttribute="trailing" constant="35" id="qoG-yH-QAg"/>
                             <constraint firstItem="We0-Rg-UiM" firstAttribute="leading" secondItem="hr9-SP-IV6" secondAttribute="trailing" constant="35" id="rNa-Os-Im6"/>
                             <constraint firstItem="hr9-SP-IV6" firstAttribute="leading" secondItem="6HC-jz-Z84" secondAttribute="trailing" constant="23" id="uFF-Db-o5t"/>
                             <constraint firstItem="CrF-r3-6ab" firstAttribute="top" secondItem="hr9-SP-IV6" secondAttribute="bottom" constant="8" id="vV6-cc-ZeE"/>
+                            <constraint firstItem="WbX-5P-gaD" firstAttribute="top" secondItem="IgV-eM-WGn" secondAttribute="bottom" constant="8" id="w02-7F-Lbm"/>
                             <constraint firstItem="IgV-eM-WGn" firstAttribute="top" secondItem="uru-CD-MbX" secondAttribute="bottom" constant="12" id="wFN-4S-VZJ"/>
                             <constraint firstItem="LZZ-Vb-NY6" firstAttribute="leading" secondItem="hr9-SP-IV6" secondAttribute="trailing" constant="53" id="zM3-sf-haH"/>
                             <constraint firstItem="nEc-xz-1nq" firstAttribute="top" secondItem="jWq-0p-si5" secondAttribute="bottom" id="zUC-Xs-O5S"/>
@@ -253,6 +281,7 @@
                         <outlet property="averageDamageLabel" destination="CyW-YX-Gjc" id="Moz-mo-XU2"/>
                         <outlet property="averageExpLabel" destination="YQC-Pu-JPg" id="ywx-4o-QJb"/>
                         <outlet property="centerConstraint" destination="znf-hf-YEX" id="qrw-NP-a96"/>
+                        <outlet property="friendBtn" destination="WbX-5P-gaD" id="3YU-n6-b4P"/>
                         <outlet property="killDeathRatioLabel" destination="nEc-xz-1nq" id="ZcH-W7-HzJ"/>
                         <outlet property="levelAndPlaytimeLabel" destination="IgV-eM-WGn" id="CNZ-Dg-zgq"/>
                         <outlet property="mainBatteryHitRatioLabel" destination="nPT-Hs-pPq" id="KWL-Sk-NxJ"/>
@@ -263,6 +292,7 @@
                         <outlet property="screenshot" destination="CrF-r3-6ab" id="oAs-Pu-byb"/>
                         <outlet property="setPlayerIDBtn" destination="I4n-7f-jfd" id="TO2-er-Nc3"/>
                         <outlet property="statView" destination="BIc-p7-n4Z" id="Pro-Z1-ZNP"/>
+                        <outlet property="tkBtn" destination="vG2-LF-G9z" id="WaY-By-pkR"/>
                         <outlet property="totalBattlesLabel" destination="6HC-jz-Z84" id="Sik-r8-HeU"/>
                         <outlet property="winRateLabel" destination="We0-Rg-UiM" id="Q5c-nI-Cqb"/>
                         <segue destination="HgG-yT-BXm" kind="show" identifier="gotoWebView" id="NOg-JV-VPU"/>
@@ -327,6 +357,7 @@
         <image name="Battles" width="195" height="185"/>
         <image name="Damage" width="167" height="167"/>
         <image name="EXP" width="94" height="92"/>
+        <image name="Friend" width="25" height="25"/>
         <image name="HitRatio" width="201" height="204"/>
         <image name="Icon" width="1024" height="1024"/>
         <image name="KillDeathRatio" width="376" height="319"/>

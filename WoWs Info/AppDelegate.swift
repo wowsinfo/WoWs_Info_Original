@@ -48,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(false, forKey: DataManagement.DataName.IsAdvancedUnlocked)
         }*/
         
+        // REMOVE THIS
         UserDefaults.standard.set(true, forKey: DataManagement.DataName.IsAdvancedUnlocked)
         // Reset name
         if !UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked) {

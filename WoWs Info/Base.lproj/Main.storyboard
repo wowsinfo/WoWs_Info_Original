@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -140,8 +139,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SearchIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="jsm-j2-cyY">
-                                <rect key="frame" x="124" y="270" width="127.5" height="127.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Szh-iE-KxA">
+                                <rect key="frame" x="186" y="221" width="2" height="225"/>
+                                <color key="backgroundColor" red="0.33728533979999997" green="0.63926470280000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="2" id="04H-3x-ozm"/>
+                                    <constraint firstAttribute="height" constant="225" id="JYT-TT-VQz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fc7-aW-j6a">
+                                <rect key="frame" x="75" y="332" width="225" height="2"/>
+                                <color key="backgroundColor" red="0.33728533979999997" green="0.63926470280000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="QLs-s9-lyt"/>
+                                    <constraint firstAttribute="width" constant="225" id="axc-yc-2S3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SearchIcon" translatesAutoresizingMaskIntoConstraints="NO" id="jsm-j2-cyY">
+                                <rect key="frame" x="124" y="270" width="128" height="128"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="jsm-j2-cyY" secondAttribute="height" multiplier="1:1" id="FFr-m0-cMD"/>
@@ -167,13 +188,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Settings" translatesAutoresizingMaskIntoConstraints="NO" id="DfF-cb-uuY">
-                                <rect key="frame" x="4" y="561" width="48" height="48"/>
+                                <rect key="frame" x="75" y="396" width="48" height="48"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="DfF-cb-uuY" secondAttribute="height" multiplier="1:1" id="T8h-Sg-HCQ"/>
+                                    <constraint firstAttribute="width" constant="48" id="FAI-IN-YJl"/>
+                                    <constraint firstAttribute="height" constant="48" id="wad-eE-JBM"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="lVF-ak-Iya" appends="YES" id="cUk-Ni-qTs"/>
+                                </connections>
+                            </imageView>
+                            <imageView alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="List" translatesAutoresizingMaskIntoConstraints="NO" id="zrP-DM-BDq">
+                                <rect key="frame" x="166" y="434" width="42" height="42"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="Rr0-mo-hZc"/>
+                                    <constraint firstAttribute="height" constant="42" id="Y5c-Cf-GGa"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="D3u-Yp-AEl" appends="YES" id="p9x-i5-8Jo"/>
                                 </connections>
                             </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlayerOnline" translatesAutoresizingMaskIntoConstraints="NO" id="9ex-8a-OyU">
@@ -183,21 +216,12 @@
                                     <constraint firstAttribute="width" constant="16" id="geL-bb-bjG"/>
                                 </constraints>
                             </imageView>
-                            <imageView alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pro" translatesAutoresizingMaskIntoConstraints="NO" id="qw8-bs-EHE">
-                                <rect key="frame" x="6" y="505" width="48" height="48"/>
+                            <imageView alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wiki" translatesAutoresizingMaskIntoConstraints="NO" id="mCF-HW-z5E">
+                                <rect key="frame" x="75" y="221" width="52" height="52"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="qw8-bs-EHE" secondAttribute="height" multiplier="1:1" id="eCN-Vk-H4w"/>
-                                </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="ybM-4L-NJD" appends="YES" id="5jw-Bx-Lq6"/>
-                                </connections>
-                            </imageView>
-                            <imageView alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Web" translatesAutoresizingMaskIntoConstraints="NO" id="mCF-HW-z5E">
-                                <rect key="frame" x="319" y="505" width="48" height="48"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="mCF-HW-z5E" secondAttribute="height" multiplier="1:1" id="L5N-63-dCP"/>
+                                    <constraint firstAttribute="height" constant="52" id="FaZ-CS-hl4"/>
+                                    <constraint firstAttribute="width" constant="52" id="OpF-xQ-nCz"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -205,57 +229,76 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="aVO-zJ-DBu" appends="YES" id="b3e-QV-a0Q"/>
+                                    <outletCollection property="gestureRecognizers" destination="T4N-Jr-7Ev" appends="YES" id="Vfq-sj-syJ"/>
                                 </connections>
                             </imageView>
-                            <imageView alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dashboard" translatesAutoresizingMaskIntoConstraints="NO" id="qBg-At-rhd">
-                                <rect key="frame" x="323" y="565" width="42" height="42"/>
+                            <imageView alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Web" translatesAutoresizingMaskIntoConstraints="NO" id="qyc-xM-6aQ">
+                                <rect key="frame" x="252" y="221" width="48" height="48"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="Ugt-Jl-UZj"/>
-                                    <constraint firstAttribute="width" constant="42" id="ykc-fg-4lf"/>
+                                    <constraint firstAttribute="width" constant="48" id="RKz-Tl-Wke"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="YRV-hP-ETU"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="48" id="acQ-YI-Wep"/>
+                                    <constraint firstAttribute="height" constant="48" id="n45-gO-TyH"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="aVO-zJ-DBu" appends="YES" id="Zg0-5V-q6w"/>
+                                </connections>
+                            </imageView>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ztn-Qw-bkT">
+                                <rect key="frame" x="94" y="574" width="188" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.33728533979999997" green="0.63926470280000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Unlock Pro">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="MN2-QR-DYf" kind="show" id="KnC-hb-1jT"/>
+                                </connections>
+                            </button>
+                            <imageView alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dashboard" translatesAutoresizingMaskIntoConstraints="NO" id="qBg-At-rhd">
+                                <rect key="frame" x="255" y="402" width="42" height="42"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="XI7-FD-Njs"/>
+                                    <constraint firstAttribute="width" constant="42" id="ppu-6C-tMg"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="tZn-T9-bfE" appends="YES" id="zv9-Sa-EqH"/>
                                 </connections>
                             </imageView>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nJ8-lZ-fbT">
-                                <rect key="frame" x="329" y="64" width="46" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="sd9-BV-Fgs"/>
-                                    <constraint firstAttribute="height" constant="30" id="xFt-B3-APC"/>
-                                </constraints>
-                                <state key="normal" title="wiki"/>
-                                <connections>
-                                    <segue destination="J53-5b-biH" kind="show" id="pod-Vx-Nmz"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qBg-At-rhd" firstAttribute="top" secondItem="mCF-HW-z5E" secondAttribute="bottom" constant="12" id="1Q4-dY-sxV"/>
                             <constraint firstItem="pk4-lT-BcX" firstAttribute="top" secondItem="ViO-11-NX3" secondAttribute="bottom" constant="4" id="4Xg-mB-m93"/>
-                            <constraint firstItem="DfF-cb-uuY" firstAttribute="width" secondItem="Y6n-Ia-o00" secondAttribute="width" multiplier="0.128" id="6af-lr-Pzh"/>
+                            <constraint firstItem="qBg-At-rhd" firstAttribute="leading" secondItem="Szh-iE-KxA" secondAttribute="trailing" constant="67" id="6rP-24-aik"/>
+                            <constraint firstItem="Fc7-aW-j6a" firstAttribute="centerY" secondItem="Y6n-Ia-o00" secondAttribute="centerY" id="7Gu-QL-px7"/>
+                            <constraint firstItem="Fc7-aW-j6a" firstAttribute="top" secondItem="mCF-HW-z5E" secondAttribute="bottom" constant="59" id="980-8A-fgU"/>
+                            <constraint firstItem="Szh-iE-KxA" firstAttribute="centerX" secondItem="Y6n-Ia-o00" secondAttribute="centerX" id="9Fl-cM-LSf"/>
                             <constraint firstAttribute="trailing" secondItem="3s9-ZJ-axo" secondAttribute="trailing" id="Cg6-Up-nCt"/>
-                            <constraint firstItem="3s9-ZJ-axo" firstAttribute="top" secondItem="qBg-At-rhd" secondAttribute="bottom" constant="10" id="CrK-3f-LGc"/>
                             <constraint firstItem="jsm-j2-cyY" firstAttribute="centerY" secondItem="Y6n-Ia-o00" secondAttribute="centerY" id="EJl-uo-MN0"/>
                             <constraint firstItem="9ex-8a-OyU" firstAttribute="leading" secondItem="Y6n-Ia-o00" secondAttribute="leading" constant="4" id="HWX-0Q-5il"/>
-                            <constraint firstItem="3s9-ZJ-axo" firstAttribute="top" secondItem="DfF-cb-uuY" secondAttribute="baseline" constant="8" id="HsO-FK-1Gp"/>
+                            <constraint firstItem="Fc7-aW-j6a" firstAttribute="top" secondItem="qyc-xM-6aQ" secondAttribute="bottom" constant="63" id="KAV-F8-vX2"/>
+                            <constraint firstItem="zrP-DM-BDq" firstAttribute="top" secondItem="jsm-j2-cyY" secondAttribute="bottom" constant="36" id="LIR-bo-UD2"/>
                             <constraint firstItem="3s9-ZJ-axo" firstAttribute="leading" secondItem="Y6n-Ia-o00" secondAttribute="leading" id="LyO-zy-4lY"/>
+                            <constraint firstItem="zrP-DM-BDq" firstAttribute="centerX" secondItem="Y6n-Ia-o00" secondAttribute="centerX" id="Q3e-Wa-r8p"/>
+                            <constraint firstItem="DfF-cb-uuY" firstAttribute="top" secondItem="Fc7-aW-j6a" secondAttribute="bottom" constant="62" id="QUa-GW-Iwb"/>
                             <constraint firstItem="8k4-zb-fQc" firstAttribute="top" secondItem="3s9-ZJ-axo" secondAttribute="bottom" id="Rmz-z1-qLG"/>
-                            <constraint firstItem="nJ8-lZ-fbT" firstAttribute="top" secondItem="ViO-11-NX3" secondAttribute="bottom" id="WYc-g6-lVj"/>
+                            <constraint firstItem="qyc-xM-6aQ" firstAttribute="leading" secondItem="Szh-iE-KxA" secondAttribute="trailing" constant="64" id="WF1-Ab-HmB"/>
                             <constraint firstAttribute="trailing" secondItem="pk4-lT-BcX" secondAttribute="trailing" constant="6" id="YT0-rQ-H8v"/>
-                            <constraint firstAttribute="trailing" secondItem="qBg-At-rhd" secondAttribute="trailing" constant="10" id="Zsc-A9-cgQ"/>
-                            <constraint firstAttribute="trailing" secondItem="mCF-HW-z5E" secondAttribute="trailing" constant="8" id="c4g-HL-cCv"/>
+                            <constraint firstItem="qBg-At-rhd" firstAttribute="top" secondItem="Fc7-aW-j6a" secondAttribute="bottom" constant="68" id="ZJN-DP-xpJ"/>
+                            <constraint firstItem="Szh-iE-KxA" firstAttribute="leading" secondItem="mCF-HW-z5E" secondAttribute="trailing" constant="59" id="bJF-NJ-KjC"/>
                             <constraint firstItem="jsm-j2-cyY" firstAttribute="centerX" secondItem="Y6n-Ia-o00" secondAttribute="centerX" id="czr-er-KPV"/>
-                            <constraint firstItem="DfF-cb-uuY" firstAttribute="leading" secondItem="Y6n-Ia-o00" secondAttribute="leading" constant="4" id="dfw-jY-KnQ"/>
-                            <constraint firstItem="DfF-cb-uuY" firstAttribute="top" secondItem="qw8-bs-EHE" secondAttribute="bottom" constant="8" id="fHg-QR-aiK"/>
-                            <constraint firstItem="qw8-bs-EHE" firstAttribute="leading" secondItem="Y6n-Ia-o00" secondAttribute="leading" constant="6" id="ffa-D3-bOS"/>
                             <constraint firstItem="pk4-lT-BcX" firstAttribute="leading" secondItem="9ex-8a-OyU" secondAttribute="trailing" constant="2" id="hEl-Km-IUq"/>
-                            <constraint firstItem="mCF-HW-z5E" firstAttribute="width" secondItem="Y6n-Ia-o00" secondAttribute="width" multiplier="0.128" id="pvb-S9-zzS"/>
+                            <constraint firstItem="Szh-iE-KxA" firstAttribute="leading" secondItem="DfF-cb-uuY" secondAttribute="trailing" constant="63" id="mRf-a6-H8h"/>
+                            <constraint firstItem="Fc7-aW-j6a" firstAttribute="centerX" secondItem="Y6n-Ia-o00" secondAttribute="centerX" id="skh-DA-mFe"/>
+                            <constraint firstItem="Szh-iE-KxA" firstAttribute="centerY" secondItem="Y6n-Ia-o00" secondAttribute="centerY" id="yUG-jh-hMu"/>
                             <constraint firstItem="9ex-8a-OyU" firstAttribute="top" secondItem="ViO-11-NX3" secondAttribute="bottom" constant="4" id="yyQ-Tj-meD"/>
-                            <constraint firstItem="qw8-bs-EHE" firstAttribute="width" secondItem="Y6n-Ia-o00" secondAttribute="width" multiplier="0.128" id="z1T-33-gMe"/>
-                            <constraint firstAttribute="trailing" secondItem="nJ8-lZ-fbT" secondAttribute="trailing" id="zN7-Qv-9Vg"/>
                             <constraint firstItem="jsm-j2-cyY" firstAttribute="width" secondItem="Y6n-Ia-o00" secondAttribute="width" multiplier="0.34" id="zsq-RJ-LmG"/>
                         </constraints>
                     </view>
@@ -263,7 +306,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="jWR-dD-855"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="cjL-lE-byP">
                             <connections>
-                                <segue destination="0sE-bA-7e7" kind="show" id="jyN-pQ-iiU"/>
+                                <segue destination="0sE-bA-7e7" kind="show" identifier="gotoNews" id="jyN-pQ-iiU"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="?" id="o6B-1a-X4l">
@@ -275,18 +318,17 @@
                     <connections>
                         <outlet property="bannerView" destination="3s9-ZJ-axo" id="TcK-Y8-weu"/>
                         <outlet property="dashboardBtn" destination="qBg-At-rhd" id="dq8-A7-4UW"/>
-                        <outlet property="dashboardBtnConstant" destination="CrK-3f-LGc" id="oeo-nZ-IKR"/>
+                        <outlet property="friendImage" destination="zrP-DM-BDq" id="gnZ-Fo-RTM"/>
                         <outlet property="gotoHelpBtn" destination="o6B-1a-X4l" id="WgQ-7y-yzB"/>
                         <outlet property="gotoSearchController" destination="p2X-CF-Ugz" id="kkr-Y8-bdW"/>
                         <outlet property="gotoSettingsController" destination="lVF-ak-Iya" id="ZI1-AQ-XYv"/>
                         <outlet property="onlinePlayerIcon" destination="9ex-8a-OyU" id="dX5-1l-Xas"/>
                         <outlet property="onlinePlayerLabel" destination="pk4-lT-BcX" id="BPF-I4-5TO"/>
-                        <outlet property="proImage" destination="qw8-bs-EHE" id="fcT-2i-5Pr"/>
+                        <outlet property="proImage" destination="Ztn-Qw-bkT" id="RKR-Or-emo"/>
                         <outlet property="searchButton" destination="jsm-j2-cyY" id="HsJ-CU-sSF"/>
                         <outlet property="settingsBtn" destination="DfF-cb-uuY" id="LHC-4T-TvR"/>
-                        <outlet property="settingsBtnConstraint" destination="HsO-FK-1Gp" id="wcr-Yd-X2X"/>
-                        <outlet property="webImage" destination="mCF-HW-z5E" id="4SI-RI-7eR"/>
-                        <outlet property="wikiBtn" destination="nJ8-lZ-fbT" id="PbQ-FS-J2X"/>
+                        <outlet property="webImage" destination="qyc-xM-6aQ" id="Spc-Un-5df"/>
+                        <outlet property="wikiImage" destination="mCF-HW-z5E" id="wrP-1W-ixG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kym-MY-sce" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -305,14 +347,19 @@
                         <segue destination="nij-Qh-fQW" kind="show" identifier="gotoDashboard" id="7Bj-rB-0CW"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="ybM-4L-NJD" userLabel="GotoPro">
+                <tapGestureRecognizer id="T4N-Jr-7Ev" userLabel="Goto Wiki">
                     <connections>
-                        <segue destination="MN2-QR-DYf" kind="show" id="GX9-kh-3Ib"/>
+                        <segue destination="J53-5b-biH" kind="show" id="oye-oo-wzy"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="aVO-zJ-DBu" userLabel="Goto UsefulWeb">
                     <connections>
                         <segue destination="3AN-7w-9CF" kind="show" id="wD9-sd-ndh"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="D3u-Yp-AEl" userLabel="Goto List">
+                    <connections>
+                        <segue destination="D0u-6T-gr5" kind="show" id="wI5-se-LJN"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -343,7 +390,7 @@
                 <viewControllerPlaceholder storyboardName="ProVersion" referencedIdentifier="ProViewController" id="MN2-QR-DYf" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T7s-Ls-U47" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="740" y="-1060"/>
+            <point key="canvasLocation" x="740" y="-1126"/>
         </scene>
         <!--WebsiteViewController-->
         <scene sceneID="jPg-rH-OEr">
@@ -351,7 +398,15 @@
                 <viewControllerPlaceholder storyboardName="UsefulWebsite" referencedIdentifier="WebsiteViewController" id="3AN-7w-9CF" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2WC-3l-UMn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="762" y="-902"/>
+            <point key="canvasLocation" x="761" y="-1062"/>
+        </scene>
+        <!--FriendList-->
+        <scene sceneID="XIQ-tq-kdn">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FriendList" referencedIdentifier="FriendList" id="D0u-6T-gr5" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="asj-eI-Vd4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="756" y="-986"/>
         </scene>
         <!--AdvancedInfoController-->
         <scene sceneID="4BM-H3-gFk">
@@ -369,16 +424,17 @@
             </objects>
             <point key="canvasLocation" x="811" y="-387"/>
         </scene>
-        <!--Table View Controller-->
+        <!--News Controller-->
         <scene sceneID="1Gb-41-FA3">
             <objects>
-                <tableViewController id="0sE-bA-7e7" sceneMemberID="viewController">
+                <tableViewController id="0sE-bA-7e7" customClass="NewsController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="nfa-7g-d8y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="68" id="myI-bz-V9t">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCell" rowHeight="68" id="myI-bz-V9t" customClass="NewsCell" customModule="WoWs_Info" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="myI-bz-V9t" id="5bN-qq-ZXY">
@@ -413,6 +469,10 @@
                                         <constraint firstItem="hDb-oV-ibW" firstAttribute="leading" secondItem="5bN-qq-ZXY" secondAttribute="leadingMargin" id="z7I-7F-Lbm"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="Xbq-2M-buD" id="2YU-Xb-MrA"/>
+                                    <outlet property="titleLabel" destination="hDb-oV-ibW" id="G7u-yX-RMD"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -421,7 +481,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="2em-bW-wOa" kind="show" id="WnS-Vy-TjA"/>
+                        <segue destination="2em-bW-wOa" kind="show" identifier="gotoWebView" id="WnS-Vy-TjA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AMZ-iY-Az0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -463,13 +523,14 @@
     </scenes>
     <resources>
         <image name="Dashboard" width="128" height="128"/>
+        <image name="List" width="256" height="256"/>
         <image name="PlayerOnline" width="128" height="128"/>
-        <image name="Pro" width="279" height="154"/>
         <image name="Search" width="400" height="250"/>
-        <image name="SearchIcon.png" width="514" height="514"/>
+        <image name="SearchIcon" width="512" height="512"/>
         <image name="Server" width="256" height="256"/>
         <image name="Settings" width="128" height="128"/>
         <image name="Web" width="128" height="128"/>
+        <image name="Wiki" width="272" height="346"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="LtZ-KO-ucJ"/>

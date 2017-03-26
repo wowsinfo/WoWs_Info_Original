@@ -13,25 +13,25 @@ class WelcomeController : UIViewController {
     
     @IBOutlet var gotoSearchController: UITapGestureRecognizer!
     @IBOutlet var gotoSettingsController: UITapGestureRecognizer!
-    @IBOutlet weak var proImage: UIImageView!
+    @IBOutlet weak var proImage: UIButton!
+    
+    @IBOutlet weak var friendImage: UIImageView!
+    @IBOutlet weak var wikiImage: UIImageView!
     @IBOutlet weak var webImage: UIImageView!
     @IBOutlet weak var searchButton: UIImageView!
-    @IBOutlet weak var wikiBtn: UIButton!
     @IBOutlet weak var settingsBtn: UIImageView!
     @IBOutlet weak var onlinePlayerLabel: UILabel!
     @IBOutlet weak var onlinePlayerIcon: UIImageView!
     @IBOutlet weak var dashboardBtn: UIImageView!
-    @IBOutlet weak var dashboardBtnConstant: NSLayoutConstraint!
-    @IBOutlet weak var settingsBtnConstraint: NSLayoutConstraint!
     @IBOutlet weak var gotoHelpBtn: UIBarButtonItem!
     let serverName = ["RU", "EU", "NA", "ASIA"]
+    let isProVersion = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
     
     @IBOutlet weak var bannerView: GADBannerView!
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        let isProVersion = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
         
         // If it is first launch
         if UserDefaults.standard.bool(forKey: DataManagement.DataName.FirstLaunch) {
@@ -50,15 +50,14 @@ class WelcomeController : UIViewController {
         if isProVersion {
             // Hide bannerView
             bannerView.isHidden = true
-            
-            // Move settings button down
-            settingsBtnConstraint.constant -= 50
-            dashboardBtnConstant.constant -= 50
         } else {
+            proImage.layer.cornerRadius = 5.0
             // Hide dashboard
             dashboardBtn.isHidden = true
             // Hide help btn
             gotoHelpBtn.isEnabled = false
+            // Hide friend list
+            friendImage.isHidden = true
             
             // Load ads
             let request = GADRequest()
@@ -107,21 +106,32 @@ class WelcomeController : UIViewController {
             
             // Show Settings and Dashboard Button
             UIView.animate(withDuration: 0.75, delay: 2.5, options: .curveEaseIn, animations: {
-                self.settingsBtn.alpha = 1.0
-                self.settingsBtn.frame.origin.x += 25
-                self.proImage.alpha = 1.0
-                self.proImage.frame.origin.x += 25
-                self.dashboardBtn.alpha = 1.0
-                self.dashboardBtn.frame.origin.x -= 25
                 self.webImage.alpha = 1.0
-                self.webImage.frame.origin.x -= 25
             }, completion: nil)
             
-            // Show wiki button
-            UIView.animate(withDuration: 0.75, delay: 3.0, options: .curveEaseIn, animations: { 
-                self.wikiBtn.alpha = 1.0
-                self.wikiBtn.frame.origin.y -= 10
+            UIView.animate(withDuration: 0.75, delay: 2.75, options: .curveEaseIn, animations: {
+                self.wikiImage.alpha = 1.0
             }, completion: nil)
+            
+            UIView.animate(withDuration: 0.75, delay: 3.0, options: .curveEaseIn, animations: {
+                self.settingsBtn.alpha = 1.0
+            }, completion: nil)
+            
+            UIView.animate(withDuration: 0.75, delay: 3.25, options: .curveEaseIn, animations: {
+                self.dashboardBtn.alpha = 1.0
+            }, completion: nil)
+            
+            if isProVersion {
+                UIView.animate(withDuration: 0.75, delay: 3.5, options: .curveEaseIn, animations: {
+                    self.friendImage.alpha = 1.0
+                }, completion: nil)
+            } else {
+                // Show pro button
+                UIView.animate(withDuration: 0.75, delay: 3.75, options: .curveEaseIn, animations: {
+                    self.proImage.alpha = 1.0
+                }, completion: nil)
+            }
+            
             
         }
         
@@ -130,20 +140,6 @@ class WelcomeController : UIViewController {
             DispatchQueue.main.async {
                 self.onlinePlayerLabel.text = self.serverName[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)] + " \(player)"
                 print("Updated")
-            }
-        }
-        
-        // If there is user information
-        let user = UserDefaults.standard.string(forKey: DataManagement.DataName.UserName)!
-        if user == ">_<" || user == "" {
-            dashboardBtn.isHidden = true
-        } else {
-            let serverIndex = UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)
-            // That should be the server index
-            if Int(user.components(separatedBy: "|")[2]) != serverIndex {
-                dashboardBtn.isHidden = true
-            } else {
-                dashboardBtn.isHidden = false
             }
         }
         
@@ -166,6 +162,8 @@ class WelcomeController : UIViewController {
             let destination = segue.destination as! AdvancedInfoController
             let playerAccount = UserDefaults.standard.string(forKey: DataManagement.DataName.UserName)!
             destination.playerInfo = playerAccount.components(separatedBy: "|")
+            // Change server
+            UserDefaults.standard.set(Int(playerAccount.components(separatedBy: "|")[2]), forKey: DataManagement.DataName.Server)
         }
         
     }
