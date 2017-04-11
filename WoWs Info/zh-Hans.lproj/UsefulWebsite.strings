@@ -3,16 +3,16 @@
 "2Lh-Vx-6So.text" = "WoWs Stats & Numbers";
 
 /* Class = "UITableViewSection"; headerTitle = "Websites"; ObjectID = "8oj-vU-KPk"; */
-"8oj-vU-KPk.headerTitle" = "网站";
+"8oj-vU-KPk.headerTitle" = "官方网站";
 
 /* Class = "UITableViewSection"; headerTitle = "Tool"; ObjectID = "Jav-Zb-ODn"; */
-"Jav-Zb-ODn.headerTitle" = "工具";
+"Jav-Zb-ODn.headerTitle" = "数据网站";
 
 /* Class = "UILabel"; text = "World of Warships Wiki"; ObjectID = "MVq-px-8JE"; */
 "MVq-px-8JE.text" = "战舰世界百科";
 
 /* Class = "UINavigationItem"; title = "Websites and Tool"; ObjectID = "Osa-p6-6PY"; */
-"Osa-p6-6PY.title" = "网站和工具";
+"Osa-p6-6PY.title" = "";
 
 /* Class = "UILabel"; text = "World of Warships stats"; ObjectID = "W9v-YA-cWn"; */
 "W9v-YA-cWn.text" = "World of Warships stats";
@@ -21,7 +21,13 @@
 "heM-gj-FpN.text" = "战舰世界官网";
 
 /* Class = "UILabel"; text = "WOWS Training Room"; ObjectID = "mDf-Dd-Y4u"; */
-"mDf-Dd-Y4u.text" = "WOWS Training Room";
+"mDf-Dd-Y4u.text" = "Warships Today";
 
 /* Class = "UILabel"; text = "Player Ranking [Suihei Koubou]"; ObjectID = "zOJ-dT-ccn"; */
-"zOJ-dT-ccn.text" = "Player Ranking [Suihei Koubou]";
+"zOJ-dT-ccn.text" = "玩家排名 [Suihei Koubou]";
+
+"U5v-09-ehF.headerTitle" = "实用网站";
+
+"jRl-vN-8j1.headerTitle" = "实用工具";
+
+"14M-d4-WXb.headerTitle" = "工会";

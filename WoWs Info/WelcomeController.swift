@@ -8,7 +8,6 @@
 
 import UIKit
 import GoogleMobileAds
-
 class WelcomeController : UIViewController {
     
     @IBOutlet var gotoSearchController: UITapGestureRecognizer!
@@ -50,6 +49,11 @@ class WelcomeController : UIViewController {
         if isProVersion {
             // Hide bannerView
             bannerView.isHidden = true
+            
+            // If there is a valid id
+            if UserDefaults.standard.string(forKey: DataManagement.DataName.UserName) == ">_<" {
+                dashboardBtn.isHidden = true
+            }
         } else {
             proImage.layer.cornerRadius = 5.0
             // Hide dashboard
@@ -58,6 +62,8 @@ class WelcomeController : UIViewController {
             gotoHelpBtn.isEnabled = false
             // Hide friend list
             friendImage.isHidden = true
+            // Show pro
+            proImage.isHidden = false
             
             // Load ads
             let request = GADRequest()
@@ -77,21 +83,28 @@ class WelcomeController : UIViewController {
         // Get Achievement information
         Achievements().getAchievementJson()
         
+        // Get upgrade information
+        Upgrade().getUpgradeJson()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(true)
-        onlinePlayerLabel.text = " --- "
+        onlinePlayerLabel.text = " ... "
+        
+        if UserDefaults.standard.string(forKey: DataManagement.DataName.UserName) != ">_<" {
+            dashboardBtn.isHidden = false
+        }
         
         if searchButton.alpha == 0.0 {
             // Show Ads first
-            UIView.animate(withDuration: 0.75, delay: 0.0, options: .curveEaseIn, animations: {
+            UIView.animate(withDuration: 0.85, delay: 0.0, options: .curveEaseIn, animations: {
                 self.bannerView.alpha = 1.0
             }, completion: nil)
             
             // Show online player
-            UIView.animate(withDuration: 0.75, delay: 1.0, options: .curveEaseIn, animations: {
+            UIView.animate(withDuration: 0.85, delay: 1.0, options: .curveEaseIn, animations: {
                 self.onlinePlayerLabel.alpha = 1.0
                 self.onlinePlayerLabel.frame.origin.y += 25
                 self.onlinePlayerIcon.alpha = 1.0
@@ -99,35 +112,35 @@ class WelcomeController : UIViewController {
             }, completion: nil)
             
             // Show Search Button
-            UIView.animate(withDuration: 0.75, delay: 2.0, options: .curveEaseIn, animations: {
+            UIView.animate(withDuration: 0.85, delay: 2.0, options: .curveEaseIn, animations: {
                 self.searchButton.alpha = 1.0
                 self.searchButton.frame.origin.y -= 25
             }, completion: nil)
             
             // Show Settings and Dashboard Button
-            UIView.animate(withDuration: 0.75, delay: 2.5, options: .curveEaseIn, animations: {
+            UIView.animate(withDuration: 0.85, delay: 2.5, options: .curveEaseIn, animations: {
                 self.webImage.alpha = 1.0
             }, completion: nil)
             
-            UIView.animate(withDuration: 0.75, delay: 2.75, options: .curveEaseIn, animations: {
+            UIView.animate(withDuration: 0.85, delay: 2.75, options: .curveEaseIn, animations: {
                 self.wikiImage.alpha = 1.0
             }, completion: nil)
             
-            UIView.animate(withDuration: 0.75, delay: 3.0, options: .curveEaseIn, animations: {
+            UIView.animate(withDuration: 0.85, delay: 3.0, options: .curveEaseIn, animations: {
                 self.settingsBtn.alpha = 1.0
             }, completion: nil)
             
-            UIView.animate(withDuration: 0.75, delay: 3.25, options: .curveEaseIn, animations: {
+            UIView.animate(withDuration: 0.85, delay: 3.25, options: .curveEaseIn, animations: {
                 self.dashboardBtn.alpha = 1.0
             }, completion: nil)
             
             if isProVersion {
-                UIView.animate(withDuration: 0.75, delay: 3.5, options: .curveEaseIn, animations: {
+                UIView.animate(withDuration: 0.85, delay: 3.5, options: .curveEaseIn, animations: {
                     self.friendImage.alpha = 1.0
                 }, completion: nil)
             } else {
                 // Show pro button
-                UIView.animate(withDuration: 0.75, delay: 3.75, options: .curveEaseIn, animations: {
+                UIView.animate(withDuration: 0.85, delay: 3.75, options: .curveEaseIn, animations: {
                     self.proImage.alpha = 1.0
                 }, completion: nil)
             }

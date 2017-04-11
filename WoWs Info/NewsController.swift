@@ -14,9 +14,13 @@ class NewsController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = NSLocalizedString("WEB_LOADING", comment: "Loading news")
         
-        self.tableView.estimatedRowHeight = 67
+        // Automatic row height and remove separator line
+        self.tableView.separatorColor = UIColor.clear
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 70.0
+        
+        self.title = NSLocalizedString("WEB_LOADING", comment: "Loading news")
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,8 +55,6 @@ class NewsController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "NewsCell") as! NewsCell
         cell.dateLabel.text = newsData[indexPath.row][News.dataIndex.time]
-        cell.titleLabel.numberOfLines = 0
-        cell.titleLabel.sizeToFit()
         cell.titleLabel.text = newsData[indexPath.row][News.dataIndex.title]
         
         return cell

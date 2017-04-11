@@ -42,21 +42,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // Whether user purchases or not
-        /*if UserDefaults.standard.object(forKey: DataManagement.DataName.hasPurchased) == nil {
+        if UserDefaults.standard.object(forKey: DataManagement.DataName.hasPurchased) == nil {
             UserDefaults.standard.set(false, forKey: DataManagement.DataName.hasPurchased)
             UserDefaults.standard.set(false, forKey: DataManagement.DataName.IsThereAds)
             UserDefaults.standard.set(false, forKey: DataManagement.DataName.IsAdvancedUnlocked)
-        }*/
+        }
         
-        // REMOVE THIS
-        UserDefaults.standard.set(true, forKey: DataManagement.DataName.IsAdvancedUnlocked)
+        if UserDefaults.standard.bool(forKey: DataManagement.DataName.hasPurchased) == false {
+            UserDefaults.standard.set(false, forKey: DataManagement.DataName.IsThereAds)
+            UserDefaults.standard.set(false, forKey: DataManagement.DataName.IsAdvancedUnlocked)
+        }
+        
         // Reset name
         if !UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked) {
             UserDefaults.standard.set(">_<", forKey: DataManagement.DataName.UserName)
         }
         
         // Setup siren
-        let siren = Siren.sharedInstance
+        let siren = Siren.shared
         siren.alertType = .force
         // siren.debugEnabled = true
         siren.checkVersion(checkType: .immediately)
@@ -82,12 +85,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-        Siren.sharedInstance.checkVersion(checkType: .immediately)
+        Siren.shared.checkVersion(checkType: .immediately)
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        Siren.sharedInstance.checkVersion(checkType: .daily)
+        Siren.shared.checkVersion(checkType: .daily)
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -110,7 +113,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController?.performSegue(withIdentifier: "gotoSearch", sender: nil)
         }
     }
-
 
 }
 

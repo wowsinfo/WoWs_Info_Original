@@ -38,6 +38,8 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
             allInfo = Ships.getShipInformation(shipJson: Shipinformation.ShipJson)
             ships = allInfo
         }
+        
+        self.title = "\(allInfo.count)"
     }
 
     override func didReceiveMemoryWarning() {

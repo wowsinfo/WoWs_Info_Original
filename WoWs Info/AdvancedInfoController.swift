@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class AdvancedInfoController: UIViewController {
 
@@ -14,6 +15,7 @@ class AdvancedInfoController: UIViewController {
     var serverIndex = 0
     var hasGotoMoreInfo = false
     var hasVisitNumber = false
+    var isPreview = false
     @IBOutlet weak var number: UIImageView!
     @IBOutlet weak var moreInfo: UIImageView!
     @IBOutlet weak var screenshot: UIImageView!
@@ -60,6 +62,13 @@ class AdvancedInfoController: UIViewController {
         
         // Check for friend or tk
         setupNameColour()
+        
+        // If it is for review
+        if isPreview {
+            tkBtn.isHidden = true
+            friendBtn.isHidden = true
+            setPlayerIDBtn.isEnabled = false
+        }
         
     }
 
@@ -245,6 +254,7 @@ class AdvancedInfoController: UIViewController {
         shareSheet.addAction(cancel)
         
         self.present(shareSheet, animated: true, completion: nil)
+        AudioServicesPlaySystemSound(1520)
         
     }
     
@@ -254,7 +264,7 @@ class AdvancedInfoController: UIViewController {
         
         let user = UserDefaults.standard
         if user.object(forKey: DataManagement.DataName.friend) == nil {
-            user.set([String](), forKey: DataManagement.DataName.friend)
+            user.set(["HenryQuan|2011774448|3"], forKey: DataManagement.DataName.friend)
         }
         
         var list = user.object(forKey: DataManagement.DataName.friend) as! [String]

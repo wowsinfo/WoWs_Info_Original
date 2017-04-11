@@ -23,8 +23,8 @@
 		923044AB1E7E1AA400DF20E2 /* Siren.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923044AA1E7E1AA400DF20E2 /* Siren.framework */; };
 		92330DEC1E77F54200A06FD7 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92330DEB1E77F54200A06FD7 /* HeaderView.swift */; };
 		92330DEE1E77FA1C00A06FD7 /* WoWsInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92330DED1E77FA1C00A06FD7 /* WoWsInfo.storyboard */; };
-		92330DF01E77FA4B00A06FD7 /* WoWsInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92330DEF1E77FA4B00A06FD7 /* WoWsInfoController.swift */; };
 		92423B0E1E737F64006B538F /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929489081E61AB8800B471F2 /* SDWebImage.framework */; };
+		92476A481E96025D0050F8A9 /* WikiDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92476A461E96025D0050F8A9 /* WikiDataCell.swift */; };
 		924BAAE21E4EAF720000B246 /* PlayerOnline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924BAAE11E4EAF720000B246 /* PlayerOnline.swift */; };
 		924BD2651E457EB300E15D04 /* ServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924BD2641E457EB300E15D04 /* ServerController.swift */; };
 		924BD2671E457F6B00E15D04 /* DataManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924BD2661E457F6B00E15D04 /* DataManagement.swift */; };
@@ -37,11 +37,11 @@
 		925BE5AD1E502D0000DA6A1A /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925BE5AB1E502D0000DA6A1A /* Settings.storyboard */; };
 		925BE5B01E50325200DA6A1A /* AdvancedStat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925BE5AF1E50325200DA6A1A /* AdvancedStat.storyboard */; };
 		925BE5B21E5032AB00DA6A1A /* AdvancedInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BE5B11E5032AB00DA6A1A /* AdvancedInfoController.swift */; };
+		9260D0471E960BF500BBCB03 /* WikiDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9260D0461E960BF500BBCB03 /* WikiDataController.swift */; };
 		92634D0B1E540E2C000CDCB4 /* RankInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92634D0A1E540E2C000CDCB4 /* RankInformation.swift */; };
 		92634D0D1E540E77000CDCB4 /* PlayerStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92634D0C1E540E77000CDCB4 /* PlayerStat.swift */; };
 		92634D0F1E540EBE000CDCB4 /* ServerUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92634D0E1E540EBE000CDCB4 /* ServerUrl.swift */; };
 		92634D111E540F10000CDCB4 /* ShipInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92634D101E540F10000CDCB4 /* ShipInformation.swift */; };
-		9263F34F1E87540500CA3E0E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9263F34E1E87540500CA3E0E /* GoogleService-Info.plist */; };
 		926528BE1E41BD5600D1A685 /* PlayerInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528B81E41BD5600D1A685 /* PlayerInfoController.swift */; };
 		926528BF1E41BD5600D1A685 /* PlayerInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528B91E41BD5600D1A685 /* PlayerInformation.swift */; };
 		926528C01E41BD5600D1A685 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528BA1E41BD5600D1A685 /* SearchController.swift */; };
@@ -60,6 +60,8 @@
 		929B0B4B1E619EE3007E54EA /* Wiki.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 929B0B4A1E619EE3007E54EA /* Wiki.storyboard */; };
 		929B0B4E1E61A022007E54EA /* AchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B4D1E61A022007E54EA /* AchievementCell.swift */; };
 		929B0B501E61A1E1007E54EA /* AchievementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B4F1E61A1E1007E54EA /* AchievementController.swift */; };
+		92AAE8C01E938511006DB929 /* WikiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AAE8BF1E938511006DB929 /* WikiController.swift */; };
+		92AAE8C21E938663006DB929 /* WikiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AAE8C11E938663006DB929 /* WikiCell.swift */; };
 		92B768641E5E5D02009803C3 /* MoreInformation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B768661E5E5D02009803C3 /* MoreInformation.storyboard */; };
 		92B7686B1E5E5DD6009803C3 /* ProVersion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B7686D1E5E5DD6009803C3 /* ProVersion.storyboard */; };
 		92B768701E5E5DE1009803C3 /* UsefulWebsite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B768721E5E5DE1009803C3 /* UsefulWebsite.storyboard */; };
@@ -71,9 +73,11 @@
 		92D9B4D91E565C6E00CFD46D /* ShipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4D81E565C6E00CFD46D /* ShipController.swift */; };
 		92D9B4DB1E565C8A00CFD46D /* ShipTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4DA1E565C8A00CFD46D /* ShipTableCell.swift */; };
 		92F526F11E6B9476005A2E20 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F526F01E6B9476005A2E20 /* AboutController.swift */; };
+		92FBEEE71E912E1E00FD7E1A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92FBEEE61E912E1E00FD7E1A /* GoogleService-Info.plist */; };
 		92FD8D701E59B22300E7FADF /* ChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD8D6F1E59B22300E7FADF /* ChartsController.swift */; };
 		92FF85901E592ED9001BBCA1 /* PlayerCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF858F1E592ED9001BBCA1 /* PlayerCharts.swift */; };
 		92FF85921E594157001BBCA1 /* ExpectedValue.json in Resources */ = {isa = PBXBuildFile; fileRef = 92FF85911E594157001BBCA1 /* ExpectedValue.json */; };
+		DBE1AD73018CEBD25354AA3F /* Pods_WoWs_Info.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6759118B58D4B67B8E919C40 /* Pods_WoWs_Info.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,8 +105,8 @@
 		923044AA1E7E1AA400DF20E2 /* Siren.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Siren.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/Siren/Siren.framework"; sourceTree = "<group>"; };
 		92330DEB1E77F54200A06FD7 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		92330DED1E77FA1C00A06FD7 /* WoWsInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WoWsInfo.storyboard; sourceTree = "<group>"; };
-		92330DEF1E77FA4B00A06FD7 /* WoWsInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WoWsInfoController.swift; sourceTree = "<group>"; };
 		923FFB3D1E5950340034686C /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
+		92476A461E96025D0050F8A9 /* WikiDataCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiDataCell.swift; sourceTree = "<group>"; };
 		924BAAE11E4EAF720000B246 /* PlayerOnline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerOnline.swift; sourceTree = "<group>"; };
 		924BD2641E457EB300E15D04 /* ServerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerController.swift; sourceTree = "<group>"; };
 		924BD2661E457F6B00E15D04 /* DataManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManagement.swift; sourceTree = "<group>"; };
@@ -116,11 +120,11 @@
 		925BE5AF1E50325200DA6A1A /* AdvancedStat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdvancedStat.storyboard; sourceTree = "<group>"; };
 		925BE5B11E5032AB00DA6A1A /* AdvancedInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedInfoController.swift; sourceTree = "<group>"; };
 		925C13971E7E21A600590E1B /* WoWs Info.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WoWs Info.entitlements"; sourceTree = "<group>"; };
+		9260D0461E960BF500BBCB03 /* WikiDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiDataController.swift; sourceTree = "<group>"; };
 		92634D0A1E540E2C000CDCB4 /* RankInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankInformation.swift; sourceTree = "<group>"; };
 		92634D0C1E540E77000CDCB4 /* PlayerStat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerStat.swift; sourceTree = "<group>"; };
 		92634D0E1E540EBE000CDCB4 /* ServerUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerUrl.swift; sourceTree = "<group>"; };
 		92634D101E540F10000CDCB4 /* ShipInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipInformation.swift; sourceTree = "<group>"; };
-		9263F34E1E87540500CA3E0E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		926528B81E41BD5600D1A685 /* PlayerInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerInfoController.swift; sourceTree = "<group>"; };
 		926528B91E41BD5600D1A685 /* PlayerInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerInformation.swift; sourceTree = "<group>"; };
 		926528BA1E41BD5600D1A685 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 		929B0B4A1E619EE3007E54EA /* Wiki.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Wiki.storyboard; sourceTree = "<group>"; };
 		929B0B4D1E61A022007E54EA /* AchievementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementCell.swift; sourceTree = "<group>"; };
 		929B0B4F1E61A1E1007E54EA /* AchievementController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementController.swift; sourceTree = "<group>"; };
+		92AAE8BF1E938511006DB929 /* WikiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiController.swift; sourceTree = "<group>"; };
+		92AAE8C11E938663006DB929 /* WikiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiCell.swift; sourceTree = "<group>"; };
 		92B768601E5E5A57009803C3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		92B768621E5E5A57009803C3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SimpleStat.strings"; sourceTree = "<group>"; };
 		92B768631E5E5A58009803C3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -165,6 +171,7 @@
 		92D9B4D81E565C6E00CFD46D /* ShipController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipController.swift; sourceTree = "<group>"; };
 		92D9B4DA1E565C8A00CFD46D /* ShipTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipTableCell.swift; sourceTree = "<group>"; };
 		92F526F01E6B9476005A2E20 /* AboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
+		92FBEEE61E912E1E00FD7E1A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		92FD8D6F1E59B22300E7FADF /* ChartsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsController.swift; sourceTree = "<group>"; };
 		92FF858F1E592ED9001BBCA1 /* PlayerCharts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCharts.swift; sourceTree = "<group>"; };
 		92FF85911E594157001BBCA1 /* ExpectedValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ExpectedValue.json; sourceTree = "<group>"; };
@@ -181,6 +188,7 @@
 				9215CA3F1E5BF33D00A7F465 /* SwiftyJSON.framework in Frameworks */,
 				9226E33A1E5BF19F00593026 /* Charts.framework in Frameworks */,
 				9259C1CE1E57F88700F34CDC /* StoreKit.framework in Frameworks */,
+				DBE1AD73018CEBD25354AA3F /* Pods_WoWs_Info.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,23 +213,18 @@
 		9210C0801E4609EF00270002 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				9215CA461E5C0C7C00A7F465 /* Pro */,
 				9210C06D1E45E30E00270002 /* NavigationController.swift */,
-				9259C1CB1E57BC4400F34CDC /* IAPController.swift */,
-				920E1C401E5EB76300B43472 /* DonationController.swift */,
-				926528B81E41BD5600D1A685 /* PlayerInfoController.swift */,
-				929B0B4F1E61A1E1007E54EA /* AchievementController.swift */,
-				92330DEF1E77FA4B00A06FD7 /* WoWsInfoController.swift */,
-				922D0E561E6295DE0056EDE6 /* ShipInfoController.swift */,
-				925B627C1E62D7680073FF56 /* ShipDetailController.swift */,
-				92F526F01E6B9476005A2E20 /* AboutController.swift */,
-				929928461E865FF60091A174 /* NewsController.swift */,
-				9215CA481E5C119100A7F465 /* WebTableController.swift */,
-				926528BA1E41BD5600D1A685 /* SearchController.swift */,
-				9210C0691E45B3D500270002 /* WebViewController.swift */,
-				926528BB1E41BD5600D1A685 /* SettingsController.swift */,
-				926528BD1E41BD5600D1A685 /* WelcomeController.swift */,
-				924BD2641E457EB300E15D04 /* ServerController.swift */,
+				9215CA461E5C0C7C00A7F465 /* Pro */,
+				9260D04E1E960C5800BBCB03 /* IAP */,
+				9260D0501E960C8300BBCB03 /* PlayerInfo */,
+				9260D0481E960BFE00BBCB03 /* Wiki */,
+				9260D04A1E960C2F00BBCB03 /* About */,
+				9260D0491E960C1A00BBCB03 /* Web */,
+				9260D04B1E960C3800BBCB03 /* News */,
+				9260D04C1E960C3D00BBCB03 /* Search */,
+				9260D04D1E960C4200BBCB03 /* Settings */,
+				9260D04F1E960C7400BBCB03 /* Welcome */,
+				9260D0511E960C8A00BBCB03 /* Server */,
 				929928501E8693770091A174 /* FriendAndTKList */,
 			);
 			name = ViewControllers;
@@ -296,8 +299,8 @@
 				92D9B4D71E55C87700CFD46D /* TableViewCell */,
 				9210C0801E4609EF00270002 /* ViewControllers */,
 				921EA6981E35F2FB0007C7FC /* AppDelegate.swift */,
+				92FBEEE61E912E1E00FD7E1A /* GoogleService-Info.plist */,
 				921EA6A41E35F2FB0007C7FC /* Info.plist */,
-				9263F34E1E87540500CA3E0E /* GoogleService-Info.plist */,
 				92B768871E5E6E34009803C3 /* Localizable.strings */,
 				92813BB61E47447C009AA9E8 /* GoogleMobileAds.framework */,
 			);
@@ -312,6 +315,92 @@
 				921EA6A11E35F2FB0007C7FC /* LaunchScreen.storyboard */,
 			);
 			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		9260D0481E960BFE00BBCB03 /* Wiki */ = {
+			isa = PBXGroup;
+			children = (
+				929B0B4F1E61A1E1007E54EA /* AchievementController.swift */,
+				92AAE8BF1E938511006DB929 /* WikiController.swift */,
+				9260D0461E960BF500BBCB03 /* WikiDataController.swift */,
+				922D0E561E6295DE0056EDE6 /* ShipInfoController.swift */,
+				925B627C1E62D7680073FF56 /* ShipDetailController.swift */,
+			);
+			name = Wiki;
+			sourceTree = "<group>";
+		};
+		9260D0491E960C1A00BBCB03 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				9215CA481E5C119100A7F465 /* WebTableController.swift */,
+				9210C0691E45B3D500270002 /* WebViewController.swift */,
+			);
+			name = Web;
+			sourceTree = "<group>";
+		};
+		9260D04A1E960C2F00BBCB03 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				92F526F01E6B9476005A2E20 /* AboutController.swift */,
+			);
+			name = About;
+			sourceTree = "<group>";
+		};
+		9260D04B1E960C3800BBCB03 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				929928461E865FF60091A174 /* NewsController.swift */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		9260D04C1E960C3D00BBCB03 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				926528BA1E41BD5600D1A685 /* SearchController.swift */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		9260D04D1E960C4200BBCB03 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				926528BB1E41BD5600D1A685 /* SettingsController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		9260D04E1E960C5800BBCB03 /* IAP */ = {
+			isa = PBXGroup;
+			children = (
+				9259C1CB1E57BC4400F34CDC /* IAPController.swift */,
+				920E1C401E5EB76300B43472 /* DonationController.swift */,
+			);
+			name = IAP;
+			sourceTree = "<group>";
+		};
+		9260D04F1E960C7400BBCB03 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				926528BD1E41BD5600D1A685 /* WelcomeController.swift */,
+			);
+			name = Welcome;
+			sourceTree = "<group>";
+		};
+		9260D0501E960C8300BBCB03 /* PlayerInfo */ = {
+			isa = PBXGroup;
+			children = (
+				926528B81E41BD5600D1A685 /* PlayerInfoController.swift */,
+			);
+			name = PlayerInfo;
+			sourceTree = "<group>";
+		};
+		9260D0511E960C8A00BBCB03 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				924BD2641E457EB300E15D04 /* ServerController.swift */,
+			);
+			name = Server;
 			sourceTree = "<group>";
 		};
 		929928501E8693770091A174 /* FriendAndTKList */ = {
@@ -340,6 +429,8 @@
 				92D9B4D51E55C6D600CFD46D /* RankTableCell.swift */,
 				92D9B4DA1E565C8A00CFD46D /* ShipTableCell.swift */,
 				929928441E865FA20091A174 /* NewsCell.swift */,
+				92AAE8C11E938663006DB929 /* WikiCell.swift */,
+				92476A461E96025D0050F8A9 /* WikiDataCell.swift */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -465,7 +556,7 @@
 				92FF85921E594157001BBCA1 /* ExpectedValue.json in Resources */,
 				92B768701E5E5DE1009803C3 /* UsefulWebsite.storyboard in Resources */,
 				925BE5AA1E502C1900DA6A1A /* InternalWeb.storyboard in Resources */,
-				9263F34F1E87540500CA3E0E /* GoogleService-Info.plist in Resources */,
+				92FBEEE71E912E1E00FD7E1A /* GoogleService-Info.plist in Resources */,
 				92B768851E5E6E34009803C3 /* Localizable.strings in Resources */,
 				925636591E53F1CA0002E08A /* Assets.xcassets in Resources */,
 				925BE5AD1E502D0000DA6A1A /* Settings.storyboard in Resources */,
@@ -531,14 +622,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				9210C06E1E45E30E00270002 /* NavigationController.swift in Sources */,
-				92330DF01E77FA4B00A06FD7 /* WoWsInfoController.swift in Sources */,
 				926528BE1E41BD5600D1A685 /* PlayerInfoController.swift in Sources */,
 				92634D0B1E540E2C000CDCB4 /* RankInformation.swift in Sources */,
 				9299284B1E86920F0091A174 /* FriendController.swift in Sources */,
+				9260D0471E960BF500BBCB03 /* WikiDataController.swift in Sources */,
 				926528C31E41BD5600D1A685 /* WelcomeController.swift in Sources */,
 				92634D0F1E540EBE000CDCB4 /* ServerUrl.swift in Sources */,
 				92330DEC1E77F54200A06FD7 /* HeaderView.swift in Sources */,
 				924BAAE21E4EAF720000B246 /* PlayerOnline.swift in Sources */,
+				92AAE8C21E938663006DB929 /* WikiCell.swift in Sources */,
 				925B627D1E62D7680073FF56 /* ShipDetailController.swift in Sources */,
 				929B0B501E61A1E1007E54EA /* AchievementController.swift in Sources */,
 				9299284F1E86935C0091A174 /* ListController.swift in Sources */,
@@ -556,6 +648,7 @@
 				92FF85901E592ED9001BBCA1 /* PlayerCharts.swift in Sources */,
 				924BD2651E457EB300E15D04 /* ServerController.swift in Sources */,
 				92D414AB1E6AA5EF00E8C8AF /* ShipScreenshotController.swift in Sources */,
+				92476A481E96025D0050F8A9 /* WikiDataCell.swift in Sources */,
 				921EA6991E35F2FB0007C7FC /* AppDelegate.swift in Sources */,
 				929928471E865FF60091A174 /* NewsController.swift in Sources */,
 				92D9B4D41E55AF2400CFD46D /* RankController.swift in Sources */,
@@ -575,6 +668,7 @@
 				92D9B4D21E55AE3200CFD46D /* PlayerAccount.swift in Sources */,
 				922D0E571E6295DE0056EDE6 /* ShipInfoController.swift in Sources */,
 				92F526F11E6B9476005A2E20 /* AboutController.swift in Sources */,
+				92AAE8C01E938511006DB929 /* WikiController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

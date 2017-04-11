@@ -8,6 +8,7 @@
 
 import UIKit
 import Charts
+import AudioToolbox
 
 class ChartsController: UIViewController, ChartViewDelegate {
     
@@ -314,6 +315,7 @@ class ChartsController: UIViewController, ChartViewDelegate {
         
         UIImageWriteToSavedPhotosAlbum(screenshot!, nil, nil, nil)
         self.screenshotBtn.isEnabled = false
+        AudioServicesPlaySystemSound(1520)
     }
     
 

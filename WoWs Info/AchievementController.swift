@@ -35,6 +35,8 @@ class AchievementController: UICollectionViewController {
         if achievement.count == 0 {
             _ = self.navigationController?.popToRootViewController(animated: true)
         }
+        
+        self.title = "\(achievement.count)"
     }
 
     override func didReceiveMemoryWarning() {

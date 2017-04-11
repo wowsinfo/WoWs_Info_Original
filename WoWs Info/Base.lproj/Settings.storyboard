@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zCY-jZ-ewq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zCY-jZ-ewq">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -333,7 +333,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0J-mH-UB1">
                                 <rect key="frame" x="16" y="222" width="343" height="416"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">1.0.6
+                                <string key="text">1.0.6
 Update detection
 Remote notification
 Filter ship types in ship gallery
@@ -369,7 +369,7 @@ You could now donate through PayPal.
 Remove old about page
 
 1.0
-Basic functionality</mutableString>
+Basic functionality</string>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -510,7 +510,7 @@ Basic functionality</mutableString>
         <!--View Controller-->
         <scene sceneID="QsT-zW-IUi">
             <objects>
-                <viewController id="McY-cc-V9e" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="McY-cc-V9e" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sjS-3e-YEU"/>
                         <viewControllerLayoutGuide type="bottom" id="JJd-Xd-iGz"/>
@@ -520,9 +520,9 @@ Basic functionality</mutableString>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXS-ei-X7H">
-                                <rect key="frame" x="16" y="20" width="343" height="627"/>
+                                <rect key="frame" x="16" y="28" width="343" height="619"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">SwiftyJson
+                                <mutableString key="text">SwiftyJson
 ——————————————
 https://github.com/SwiftyJSON/SwiftyJSON
 
@@ -544,7 +544,15 @@ https://github.com/rs/SDWebImage
 
 Copyright (c) 2009-2017 Olivier Poitrey
 
-Licensed under the MIT License</string>
+Licensed under the MIT License
+
+Kanna
+——————————————
+https://github.com/tid-kijyun/Kanna
+
+Copyright (c) 2014 - 2015 Atsushi Kiwaki (@_tid_)
+
+Licensed under the MIT License</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -552,7 +560,7 @@ Licensed under the MIT License</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="AXS-ei-X7H" firstAttribute="leading" secondItem="QOo-jh-am6" secondAttribute="leadingMargin" id="GPP-4A-M3p"/>
-                            <constraint firstItem="AXS-ei-X7H" firstAttribute="top" secondItem="sjS-3e-YEU" secondAttribute="bottom" id="H06-25-lVK"/>
+                            <constraint firstItem="AXS-ei-X7H" firstAttribute="top" secondItem="sjS-3e-YEU" secondAttribute="bottom" constant="8" id="H06-25-lVK"/>
                             <constraint firstItem="AXS-ei-X7H" firstAttribute="trailing" secondItem="QOo-jh-am6" secondAttribute="trailingMargin" id="m06-Hr-NX3"/>
                             <constraint firstItem="JJd-Xd-iGz" firstAttribute="top" secondItem="AXS-ei-X7H" secondAttribute="bottom" constant="20" id="qBy-Pp-XWx"/>
                         </constraints>
@@ -560,7 +568,7 @@ Licensed under the MIT License</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4S5-Np-xjW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1079" y="358"/>
+            <point key="canvasLocation" x="-1079.2" y="357.57121439280365"/>
         </scene>
         <!--Donation Controller-->
         <scene sceneID="yhV-ee-hP0">
