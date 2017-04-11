@@ -93,3 +93,15 @@
 "WIN_RATE" = "胜率";
 
 "AVG_DAMAGE" = "平均伤害";
+
+"ACHIEVEMENT" = "成就";
+
+"WARSHIPS" = "战舰";
+
+"UPGRADES" = "升级品";
+
+"FLAGS" = "旗子";
+
+"CAMOUFLAGE" = "迷彩";
+
+"COMMANDER_SKILL" = "舰长技能";

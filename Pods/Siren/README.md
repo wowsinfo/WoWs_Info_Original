@@ -2,7 +2,24 @@
 
 ### Notify users when a new version of your app is available and prompt them to upgrade.
 
-![Travis-CI](https://travis-ci.org/ArtSabintsev/Siren.svg?branch=master) [![CocoaPods](https://img.shields.io/cocoapods/v/Siren.svg)]()  [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)]() [![SwiftPM Compatible](https://img.shields.io/badge/SwiftPM-Compatible-brightgreen.svg)]() [![CocoaPods](https://img.shields.io/cocoapods/dt/Siren.svg)]() [![CocoaPods](https://img.shields.io/cocoapods/dm/Siren.svg)]()
+[![BuddyBuild](https://dashboard.buddybuild.com/api/statusImage?appID=58c4d0d85601d40100c5c51d&branch=master&build=latest)](https://dashboard.buddybuild.com/apps/58c4d0d85601d40100c5c51d/build/latest?branch=master) [![CocoaPods](https://img.shields.io/cocoapods/v/Siren.svg)](https://cocoapods.org/pods/Siren)  [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![SwiftPM Compatible](https://img.shields.io/badge/SwiftPM-Compatible-brightgreen.svg)](https://swift.org/package-manager/) [![CocoaPods](https://img.shields.io/cocoapods/dt/Siren.svg)](https://cocoapods.org/pods/Siren) [![CocoaPods](https://img.shields.io/cocoapods/dm/Siren.svg)](https://cocoapods.org/pods/Siren)
+---
+
+## Table of Contents
+- [About](https://github.com/ArtSabintsev/Siren#about)
+- [Features](https://github.com/ArtSabintsev/Siren#features)
+- [Screenshots](https://github.com/ArtSabintsev/Siren#screenshots)
+- [Installation Instructions](https://github.com/ArtSabintsev/Siren#installation-instructions)
+- [Example Code](https://github.com/ArtSabintsev/Siren#example-code)
+- [Granular/Differentiated Version Management](https://github.com/ArtSabintsev/Siren#granular-version-update-management)
+- [Delegates (Optional)](https://github.com/ArtSabintsev/Siren#optional-delegate-and-delegate-methods)
+- [Localization](https://github.com/ArtSabintsev/Siren#localization)
+- [Device Compatibility](https://github.com/ArtSabintsev/Siren#device-compatibility)
+- [Testing Siren](https://github.com/ArtSabintsev/Siren#testing-siren)
+- [App Store Review & Submissions](https://github.com/ArtSabintsev/Siren#app-store-submissions)
+- [Words of Caution](https://github.com/ArtSabintsev/Siren#words-of-caution)
+- [Ports](https://github.com/ArtSabintsev/Siren#ports)
+- [Attribution](https://github.com/ArtSabintsev/Siren#created-and-maintained-by)
 ---
 
 ## About
@@ -12,36 +29,30 @@ If a new version is available, an alert can be presented to the user informing t
 
 - Siren is built to work with the [**Semantic Versioning**](http://semver.org/) system.
 	- Semantic Versioning is a three number versioning system (e.g., 1.0.0)
-	- Siren also supports two-number versioning (e.g., 1.0)
-	- Siren also supports four-number versioning (e.g., 1.0.0.0)
+	- Siren also supports two-number versioning (e.g., 1.0) and four-number versioning (e.g., 1.0.0.0)
 - Siren is actively maintained by [**Arthur Sabintsev**](http://github.com/ArtSabintsev) and [**Aaron Brager**](http://twitter.com/getaaron)
 
-## Ports
-- Siren is a Swift language port of [**Harpy**](http://github.com/ArtSabintsev/Harpy), an Objective-C library that achieves the same functionality.
-- Siren and Harpy are maintained by the same developers.
-- This library was the inspiration for [**Egghead Games' Siren library**](https://github.com/eggheadgames/Siren), which achieves the same functionality with the Google Play store on the Android platform.
-- This library was the inspiration for [**Gant Laborde's Siren library**](https://github.com/GantMan/react-native-siren), which achieves the same functionality for React Native projects (iOS/Android).
+### README Translations
+- [**简体中文**](README.zh_CN.md) (by [**Daniel Hu**](http://www.jianshu.com/u/d8bbc4831623))
 
 ## Features
 - [x] CocoaPods Support
 - [x] Carthage Support
 - [x] Swift Package Manager Support
-- [x] Localized for 30+ languages (See **Localization**)
-- [x] Pre-Update Device Compatibility Check (See **Device Compatibility**)
-- [x] Three types of alerts (see **Screenshots**)
-- [x] Optional delegate methods (see **Optional Delegate**)
-- [x] Unit Tests!
+- [x] Localized for 30+ languages (see [Localization](https://github.com/ArtSabintsev/Siren#localization))
+- [x] Pre-Update Device Compatibility Check (see [Device Compatibility](https://github.com/ArtSabintsev/Siren#device-compatibility)
+- [x] Three types of alerts (see [Screenshots](https://github.com/ArtSabintsev/Siren#screenshots))
+- [x] Optional delegate methods (see [Delegates (Optional)](https://github.com/ArtSabintsev/Siren#optional-delegate-and-delegate-methods)
+- [x] Unit Tests
+- [x] Documentation can be found at http://sabintsev.com/Siren.
 
 ## Screenshots
-
 - The **left picture** forces the user to update the app.
 - The **center picture** gives the user the option to update the app.
 - The **right picture** gives the user the option to skip the current update.
 - These options are controlled by the `SirenAlertType` enum.
 
-<img src="https://github.com/ArtSabintsev/Harpy/blob/master/samplePictures/picForcedUpdate.png?raw=true" height=480">
-<img src="https://github.com/ArtSabintsev/Harpy/blob/master/samplePictures/picOptionalUpdate.png?raw=true" height=480">
-<img src="https://github.com/ArtSabintsev/Harpy/blob/master/samplePictures/picSkippedUpdate.png?raw=true" height=480">
+<img src="https://github.com/ArtSabintsev/Siren/blob/master/Assets/picForcedUpdate.png?raw=true" height="480"><img src="https://github.com/ArtSabintsev/Siren/blob/master/Assets/picOptionalUpdate.png?raw=true" height="480"><img src="https://github.com/ArtSabintsev/Siren/blob/master/Assets/picSkippedUpdate.png?raw=true" height="480">
 
 
 ## Installation Instructions
@@ -53,13 +64,11 @@ pod 'Siren'
 ```
 
 For Swift 2.3 support:
-
 ```ruby
 pod 'Siren', :git => 'https://github.com/ArtSabintsev/Siren.git', :branch => 'swift2.3'
 ```
 
 For Swift 2.2 support:
-
 ```ruby
 pod 'Siren', '0.9.5'
 ```
@@ -79,27 +88,31 @@ github "ArtSabintsev/Siren" "swift2.3"
 
 ### Swift Package Manager
 ```swift
-.Package(url: "https://github.com/ArtSabintsev/Siren.git", majorVersion: 1)
+.Package(url: "https://github.com/ArtSabintsev/Siren.git", majorVersion: 2)
 ```
 
-## Setup
+## Example Code
 
-Here's some commented sample code. Adapt this to meet your app's needs. For a full list of optional settings/preferences, please refer to https://github.com/ArtSabintsev/Siren/blob/master/Sample%20App/Sample%20App/AppDelegate.swift in the Sample Project.
+Below is some commented sample code. Adapt this to meet your app's needs.
+
+For a full list of optional settings/preferences, please refer to https://github.com/ArtSabintsev/Siren/blob/master/SirenExample/SirenExample/AppDelegate.swift in the Sample Project.
 
 ```Swift
 func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 	/* Siren code should go below window?.makeKeyAndVisible() */
 
-	// Siren is a singleton
-	let siren = Siren.sharedInstance
+	  // Siren is a singleton
+	  let siren = Siren.shared
 
-	// Optional: Defaults to .Option
-	siren.alertType = <#SirenAlertType_Enum_Value#>
+	  // Optional: Defaults to .Option
+	  siren.alertType = <#SirenAlertType_Enum_Value#>
 
-	/*
-	    Replace .Immediately with .Daily or .Weekly to specify a maximum daily or weekly frequency for version
-	    checks.
-	*/
+	  // Optional: Set this variable if you would only like to show an alert if your app has been available on the store for a few days.
+	  // This default value is set to 1 to avoid this issue: https://github.com/ArtSabintsev/Siren#words-of-caution
+	  // To show the update immediately after Apple has updated their JSON, set this value to 0. Not recommended due to aforementioned reason in https://github.com/ArtSabintsev/Siren#words-of-caution.
+	  siren.showAlertAfterCurrentVersionHasBeenReleasedForDays = 3
+
+	  // Replace .Immediately with .Daily or .Weekly to specify a maximum daily or weekly frequency for version checks.
     siren.checkVersion(checkType: .immediately)
 
     return true
@@ -111,7 +124,7 @@ func applicationDidBecomeActive(application: UIApplication) {
 	    Useful if user returns to your app from the background after extended period of time.
     	 Place in applicationDidBecomeActive(_:).	*/
 
-    Siren.sharedInstance.checkVersion(checkType: .daily)
+    Siren.shared.checkVersion(checkType: .daily)
 }
 
 func applicationWillEnterForeground(application: UIApplication) {
@@ -122,7 +135,7 @@ func applicationWillEnterForeground(application: UIApplication) {
        ONLY USE WITH SirenAlertType.Force
    */
 
-    Siren.sharedInstance.checkVersion(checkType: .immediately)
+    Siren.shared.checkVersion(checkType: .immediately)
 }
 ```
 
@@ -150,15 +163,15 @@ extension AppDelegate: SirenDelegate {
 
 Siren will call the `sirenDidDetectNewVersionWithoutAlert(message: String)` delegate method, passing a localized, suggested update string suitable for display. Implement this method to display your own messaging, optionally using `message`.
 
-## Differentiated Alerts for Revision, Patch, Minor, and Major Updates
+## Granular Version Update Management
 If you would like to set a different type of alert for revision, patch, minor, and/or major updates, simply add one or all of the following *optional* lines to your setup *before* calling the `checkVersion()` method:
 
 ```swift
 	/* Siren defaults to SirenAlertType.Option for all updates */
-	siren.sharedInstance().revisionUpdateAlertType = <#SirenAlertType_Enum_Value#>
-	siren.sharedInstance().patchUpdateAlertType = <#SirenAlertType_Enum_Value#>
-	siren.sharedInstance().minorUpdateAlertType = <#SirenAlertType_Enum_Value#>
-	siren.sharedInstance().majorUpdateAlertType = <#SirenAlertType_Enum_Value#>
+	siren.shared.revisionUpdateAlertType = <#SirenAlertType_Enum_Value#>
+	siren.shared.patchUpdateAlertType = <#SirenAlertType_Enum_Value#>
+	siren.shared.minorUpdateAlertType = <#SirenAlertType_Enum_Value#>
+	siren.shared.majorUpdateAlertType = <#SirenAlertType_Enum_Value#>
 ```
 
 ## Optional Delegate and Delegate Methods
@@ -212,13 +225,13 @@ Siren is localized for
 
 You may want the update dialog to *always* appear in a certain language, ignoring iOS's language setting (e.g. apps released in a specific country).
 
-You can enable it like this:
+You can enable it like so:
 
 ```swift
-Siren.sharedInstance.forceLanguageLocalization = SirenLanguageType.<#SirenLanguageType_Enum_Value#>
+Siren.shared.forceLanguageLocalization = SirenLanguageType.<#SirenLanguageType_Enum_Value#>
 ```
 ## Device Compatibility
-If an app update is available, Siren checks to make sure that the version of iOS on the user's device is compatible the one that is required by the app update. For example, if a user has iOS 9 installed on their device, but the app update requires iOS 10, an alert will not be shown. This takes care of the *false positive* case regarding app updating.
+If an app update is available, Siren checks to make sure that the version of iOS on the user's device is compatible with the one that is required by the app update. For example, if a user has iOS 9 installed on their device, but the app update requires iOS 10, an alert will not be shown. This takes care of the *false positive* case regarding app updating.
 
 ## Testing Siren
 Temporarily change the version string in Xcode (within the `.xcodeproj`) to an older version than the one that's currently available in the App Store. Afterwards, build and run your app, and you should see the alert.
@@ -229,6 +242,22 @@ For your convenience, you may turn on debugging statements by setting `self.debu
 
 ## App Store Submissions
 The App Store reviewer will **not** see the alert. The version in the App Store will always be older than the version being reviewed.
+
+## Words of Caution
+Occasionally, the iTunes JSON will update faster than the App Store CDN, meaning the JSON may state that the new version of the app has been release, while no new binary is made available for download via the App Store. It is for this reason, I caution developers to not use the `Force` option unless you are controlling the `Force` option with a remote configuration file (e.g., enabling Siren remotely only after you have guaranteed that the app has propagated to the App Store).
+
+Also, in even rarer situations, the iTunes JSON may fluctuate between multiple versions of your app shortly after pushing out a new version. This is extremely rare, and has only been reported once in the five years that Siren and Harpy have been around.
+
+## Ports
+- **Objective-C (iOS)**
+   - [**Harpy**](http://github.com/ArtSabintsev/Harpy)
+   - Siren was ported _from_ Harpy, as Siren and Harpy are maintained by the same developer.
+- **Java (Android)**
+   - [**Egghead Games' Siren library**](https://github.com/eggheadgames/Siren)
+   - The Siren Swift library inspired the Java library.
+- **React Native (iOS)**
+   - [**Gant Laborde's Siren library**](https://github.com/GantMan/react-native-siren)
+   - The Siren Swift library inspired the React Native library.
 
 ## Created and maintained by
 [Arthur Ariel Sabintsev](http://www.sabintsev.com/) & [Aaron Brager](http://twitter.com/getaaron)

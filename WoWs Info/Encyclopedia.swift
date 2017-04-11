@@ -113,3 +113,56 @@ class Ships {
     }
     
 }
+
+class Upgrade {
+    
+    var upgradeAPI: String!
+    static var upgradeJSON: JSON!
+    
+    struct dataIndex {
+        static let name = 0
+        static let description = 1
+        static let image = 2
+        static let price = 3
+        static let id = 4
+    }
+    
+    init() {
+        // Setup achievementsAPI
+        let server = ServerUrl.Server[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)]
+        upgradeAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/upgrades/?application_id=4e54ba74077a8230e457bf3e7e9ae858&fields=description%2Cname%2Cimage%2Cprice_credit" + Language.getLanguageString()
+    }
+    
+    func getUpgradeJson() {
+        
+        let request = URLRequest(url: URL(string: upgradeAPI)!)
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if error != nil {
+                print("Error: \(error!)")
+            } else {
+                let dataJson = JSON(data!)
+                if dataJson["status"].stringValue == "ok" {
+                    Upgrade.upgradeJSON = dataJson["data"]
+                }
+            }
+        }
+        task.resume()
+        
+    }
+    
+    static func getUpgradeInformation() -> [[String]] {
+        
+        var upgradeInfo = [[String]]()
+        if Upgrade.upgradeJSON != nil {
+            for upgrade in Upgrade.upgradeJSON {
+                upgradeInfo.append([upgrade.1["name"].stringValue, upgrade.1["description"].stringValue, upgrade.1["image"].stringValue, upgrade.1["price_credit"].stringValue, upgrade.0])
+            }
+            print(upgradeInfo)
+            
+        }
+        return upgradeInfo
+        
+    }
+    
+    
+}

@@ -12,7 +12,7 @@ import StoreKit
 class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTransactionObserver {
 
     let isProVersion = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
-    let proIAP = "com.yihengquan.WoWs_Info.Pro"
+    let proIAP = "com.yihengquan.WoWsInfo.Pro"
     var productList = [SKProduct]()
     var product = SKProduct()
     
@@ -39,6 +39,7 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
         if segue.identifier == "gotoAdvancedInfo" {
             let destination = segue.destination as! AdvancedInfoController
             destination.playerInfo = ["HenryQuan", "2011774448"]
+            destination.isPreview = true
             
             // Change to Asia server
             UserDefaults.standard.set(DataManagement.ServerIndex.Asia, forKey: DataManagement.DataName.Server)
@@ -48,6 +49,7 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
     func becomePro() {
         UserDefaults.standard.set(true, forKey: DataManagement.DataName.IsAdvancedUnlocked)
         UserDefaults.standard.set(true, forKey: DataManagement.DataName.IsThereAds)
+        UserDefaults.standard.set(true, forKey: DataManagement.DataName.hasPurchased)
         // Thank you
         let alert = UIAlertController(title: NSLocalizedString("PURCHASE_TITLE", comment: "Title"), message: NSLocalizedString("PURCHASE_MESSAGE", comment: "Message"), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("PURCHASE_OK", comment: "OK"), style: .cancel, handler: nil))

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class ShipScreenshotController: UIViewController {
     
@@ -62,5 +63,6 @@ class ShipScreenshotController: UIViewController {
         UIImageWriteToSavedPhotosAlbum(screenshot!, nil, nil, nil)
         
         _ = self.navigationController?.popViewController(animated: true)
+        AudioServicesPlaySystemSound(1520)
     }
 }

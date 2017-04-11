@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import AudioToolbox
 import SwiftyJSON
 
 class ShipDetailController: UIViewController {
@@ -92,6 +93,7 @@ class ShipDetailController: UIViewController {
             UIImageWriteToSavedPhotosAlbum(screenshot!, nil, nil, nil)
         }, completion: nil)
         
+        AudioServicesPlaySystemSound(1520)
         self.screenshotBtn.isEnabled = false
         
     }
