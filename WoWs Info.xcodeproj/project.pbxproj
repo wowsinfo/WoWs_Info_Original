@@ -76,6 +76,12 @@
 		92D9B4D61E55C6D600CFD46D /* RankTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4D51E55C6D600CFD46D /* RankTableCell.swift */; };
 		92D9B4D91E565C6E00CFD46D /* ShipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4D81E565C6E00CFD46D /* ShipController.swift */; };
 		92D9B4DB1E565C8A00CFD46D /* ShipTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4DA1E565C8A00CFD46D /* ShipTableCell.swift */; };
+		92E45B1C1EAE0F5200360E62 /* Clan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E45B1B1EAE0F5200360E62 /* Clan.storyboard */; };
+		92E45B1E1EAE13C200360E62 /* ClanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E45B1D1EAE13C200360E62 /* ClanCell.swift */; };
+		92E45B201EAE13CC00360E62 /* MemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E45B1F1EAE13CC00360E62 /* MemberCell.swift */; };
+		92E45B231EAE148700360E62 /* ClanSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E45B221EAE148700360E62 /* ClanSearchController.swift */; };
+		92E45B251EAE149D00360E62 /* ClanInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E45B241EAE149D00360E62 /* ClanInfoController.swift */; };
+		92E45B271EAE17A900360E62 /* Clan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E45B261EAE17A900360E62 /* Clan.swift */; };
 		92F526F11E6B9476005A2E20 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F526F01E6B9476005A2E20 /* AboutController.swift */; };
 		92FBEEE71E912E1E00FD7E1A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92FBEEE61E912E1E00FD7E1A /* GoogleService-Info.plist */; };
 		92FD8D701E59B22300E7FADF /* ChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD8D6F1E59B22300E7FADF /* ChartsController.swift */; };
@@ -176,6 +182,12 @@
 		92D9B4D51E55C6D600CFD46D /* RankTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankTableCell.swift; sourceTree = "<group>"; };
 		92D9B4D81E565C6E00CFD46D /* ShipController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipController.swift; sourceTree = "<group>"; };
 		92D9B4DA1E565C8A00CFD46D /* ShipTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipTableCell.swift; sourceTree = "<group>"; };
+		92E45B1B1EAE0F5200360E62 /* Clan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Clan.storyboard; sourceTree = "<group>"; };
+		92E45B1D1EAE13C200360E62 /* ClanCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClanCell.swift; sourceTree = "<group>"; };
+		92E45B1F1EAE13CC00360E62 /* MemberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberCell.swift; sourceTree = "<group>"; };
+		92E45B221EAE148700360E62 /* ClanSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClanSearchController.swift; sourceTree = "<group>"; };
+		92E45B241EAE149D00360E62 /* ClanInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClanInfoController.swift; sourceTree = "<group>"; };
+		92E45B261EAE17A900360E62 /* Clan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clan.swift; sourceTree = "<group>"; };
 		92F526F01E6B9476005A2E20 /* AboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
 		92FBEEE61E912E1E00FD7E1A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		92FD8D6F1E59B22300E7FADF /* ChartsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsController.swift; sourceTree = "<group>"; };
@@ -219,6 +231,7 @@
 		9210C0801E4609EF00270002 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				92E45B211EAE147500360E62 /* Clan */,
 				92BF559C1E9FB54A00573F0A /* Review */,
 				9210C06D1E45E30E00270002 /* NavigationController.swift */,
 				9215CA461E5C0C7C00A7F465 /* Pro */,
@@ -246,6 +259,7 @@
 				929928421E8638A70091A174 /* News.swift */,
 				9210C07D1E4609BA00270002 /* PersonalRating.swift */,
 				92634D0A1E540E2C000CDCB4 /* RankInformation.swift */,
+				92E45B261EAE17A900360E62 /* Clan.swift */,
 				929B0B461E618B45007E54EA /* Language.swift */,
 				92634D101E540F10000CDCB4 /* ShipInformation.swift */,
 				929B0B481E619B5B007E54EA /* Encyclopedia.swift */,
@@ -448,6 +462,8 @@
 				929928441E865FA20091A174 /* NewsCell.swift */,
 				92AAE8C11E938663006DB929 /* WikiCell.swift */,
 				92476A461E96025D0050F8A9 /* WikiDataCell.swift */,
+				92E45B1D1EAE13C200360E62 /* ClanCell.swift */,
+				92E45B1F1EAE13CC00360E62 /* MemberCell.swift */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -475,8 +491,18 @@
 				929928481E868DF10091A174 /* FriendList.storyboard */,
 				92B768721E5E5DE1009803C3 /* UsefulWebsite.storyboard */,
 				925BE5AB1E502D0000DA6A1A /* Settings.storyboard */,
+				92E45B1B1EAE0F5200360E62 /* Clan.storyboard */,
 			);
 			name = Welcome;
+			sourceTree = "<group>";
+		};
+		92E45B211EAE147500360E62 /* Clan */ = {
+			isa = PBXGroup;
+			children = (
+				92E45B221EAE148700360E62 /* ClanSearchController.swift */,
+				92E45B241EAE149D00360E62 /* ClanInfoController.swift */,
+			);
+			name = Clan;
 			sourceTree = "<group>";
 		};
 		AE0579B474F19BE0B7C58BB6 /* Pods */ = {
@@ -580,6 +606,7 @@
 				929B0B4B1E619EE3007E54EA /* Wiki.storyboard in Resources */,
 				92330DEE1E77FA1C00A06FD7 /* WoWsInfo.storyboard in Resources */,
 				92B7686B1E5E5DD6009803C3 /* ProVersion.storyboard in Resources */,
+				92E45B1C1EAE0F5200360E62 /* Clan.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,22 +668,26 @@
 				92BD115C1EA0E70000D04C16 /* AdvancedShipDetailController.swift in Sources */,
 				927661051EA0676C00282732 /* IAPCell.swift in Sources */,
 				9210C06E1E45E30E00270002 /* NavigationController.swift in Sources */,
+				92E45B271EAE17A900360E62 /* Clan.swift in Sources */,
 				926528BE1E41BD5600D1A685 /* PlayerInfoController.swift in Sources */,
 				92634D0B1E540E2C000CDCB4 /* RankInformation.swift in Sources */,
 				9299284B1E86920F0091A174 /* FriendController.swift in Sources */,
 				9260D0471E960BF500BBCB03 /* WikiDataController.swift in Sources */,
 				926528C31E41BD5600D1A685 /* WelcomeController.swift in Sources */,
 				92634D0F1E540EBE000CDCB4 /* ServerUrl.swift in Sources */,
+				92E45B231EAE148700360E62 /* ClanSearchController.swift in Sources */,
 				92330DEC1E77F54200A06FD7 /* HeaderView.swift in Sources */,
 				924BAAE21E4EAF720000B246 /* PlayerOnline.swift in Sources */,
 				92AAE8C21E938663006DB929 /* WikiCell.swift in Sources */,
 				925B627D1E62D7680073FF56 /* ShipDetailController.swift in Sources */,
 				929B0B501E61A1E1007E54EA /* AchievementController.swift in Sources */,
 				9299284F1E86935C0091A174 /* ListController.swift in Sources */,
+				92E45B201EAE13CC00360E62 /* MemberCell.swift in Sources */,
 				924BD2671E457F6B00E15D04 /* DataManagement.swift in Sources */,
 				9215CA491E5C119100A7F465 /* WebTableController.swift in Sources */,
 				9210C06A1E45B3D500270002 /* WebViewController.swift in Sources */,
 				9210C07E1E4609BA00270002 /* PersonalRating.swift in Sources */,
+				92E45B1E1EAE13C200360E62 /* ClanCell.swift in Sources */,
 				92D9B4D91E565C6E00CFD46D /* ShipController.swift in Sources */,
 				92634D0D1E540E77000CDCB4 /* PlayerStat.swift in Sources */,
 				929928411E86132C0091A174 /* RecentData.swift in Sources */,
@@ -666,6 +697,7 @@
 				929B0B4E1E61A022007E54EA /* AchievementCell.swift in Sources */,
 				92FF85901E592ED9001BBCA1 /* PlayerCharts.swift in Sources */,
 				924BD2651E457EB300E15D04 /* ServerController.swift in Sources */,
+				92E45B251EAE149D00360E62 /* ClanInfoController.swift in Sources */,
 				92D414AB1E6AA5EF00E8C8AF /* ShipScreenshotController.swift in Sources */,
 				92476A481E96025D0050F8A9 /* WikiDataCell.swift in Sources */,
 				921EA6991E35F2FB0007C7FC /* AppDelegate.swift in Sources */,

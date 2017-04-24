@@ -36,7 +36,7 @@
                                 </connections>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8Jb-gz-SaF">
-                                <rect key="frame" x="0.0" y="70" width="375" height="597"/>
+                                <rect key="frame" x="0.0" y="70" width="375" height="547"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <sections/>
                             </tableView>
@@ -104,7 +104,7 @@
                             <constraint firstItem="Afq-X2-mcI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="d5X-FH-MkS"/>
                             <constraint firstItem="8Jb-gz-SaF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gQA-2x-Wjh"/>
                             <constraint firstAttribute="trailing" secondItem="4ok-0m-aBb" secondAttribute="trailing" id="iV9-cY-Ifh"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8Jb-gz-SaF" secondAttribute="bottom" id="j28-BU-Ynd"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8Jb-gz-SaF" secondAttribute="bottom" constant="50" id="j28-BU-Ynd"/>
                             <constraint firstItem="8Jb-gz-SaF" firstAttribute="top" secondItem="Afq-X2-mcI" secondAttribute="bottom" constant="8" symbolic="YES" id="m8u-ac-36H"/>
                             <constraint firstItem="Szl-9h-kdo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="rsy-JF-bfx"/>
                             <constraint firstItem="Afq-X2-mcI" firstAttribute="leading" secondItem="GwC-Ez-4AF" secondAttribute="trailing" constant="8" id="std-gb-vGO"/>
