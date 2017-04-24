@@ -98,19 +98,19 @@ class ShipRating {
         ShipRating.shipExpected = JSON(data: jsonData! as Data)
     }
     
-    func getRatingForShips(Damage: Double, WinRate: Double, Frags: Double, ID: String) -> Int{
+    func getRatingForShips(Damage: Double, WinRate: Double, Frags: Double, ID: String) -> String{
         
         let rDmg = Damage/(ShipRating.shipExpected["data"][ID]["average_damage_dealt"].doubleValue)
-        let rWins = winrate/(ShipRating.shipExpected["data"][ID]["win_rate"].doubleValue)
+        let rWins = WinRate/(ShipRating.shipExpected["data"][ID]["win_rate"].doubleValue/100)
         let rFrags = Frags/(ShipRating.shipExpected["data"][ID]["average_frags"].doubleValue)
-        
-        let nDmg = max(0, (rDmg - 0.4) / (1 - 0.4))
-        let nFrags = max(0, (rFrags - 0.1) / (1 - 0.1))
-        let nWins = max(0, (rWins - 0.7) / (1 - 0.7))
-        
+         
+        let nDmg = max(0.0, (rDmg - 0.4) / (1.0 - 0.4))
+        let nFrags = max(0.0, (rFrags - 0.1) / (1.0 - 0.1))
+        let nWins = max(0.0, (rWins - 0.7) / (1.0 - 0.7))
+    
         let shipPR = 700 * nDmg + 300 * nFrags + 150 * nWins
-        print(shipPR)
-        return PersonalRating.getPersonalRatingIndex(PR: shipPR)
+        
+        return "\(shipPR)|\(PersonalRating.getPersonalRatingIndex(PR: shipPR))"
         
     }
 

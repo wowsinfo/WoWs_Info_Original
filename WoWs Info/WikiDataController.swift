@@ -36,13 +36,13 @@ class WikiDataController: UITableViewController {
                 dataString.sort(by: {Int($0[Upgrade.dataIndex.price])! < Int($1[Upgrade.dataIndex.price])!})
                 break
             case flag:
-                print("01")
+                dataString = Flag.getFlagInformation()
                 break
             case camouflage:
-                print("012")
+                dataString = Camouflage.getCamouflageInformation()
                 break
             case skill:
-                print("0123")
+                dataString = CommanderSkill.getCommanderSkillInformation()
                 break
             default:
                 break
@@ -68,6 +68,15 @@ class WikiDataController: UITableViewController {
         cell.upgradeImage.sd_setImage(with: URL(string: dataString[indexPath.row][Upgrade.dataIndex.image])!)
         cell.upgradePriceLabel.text = dataString[indexPath.row][Upgrade.dataIndex.price]
         cell.upgradeDescriptionLabel.text = dataString[indexPath.row][Upgrade.dataIndex.description]
+        if dataType == skill {
+            cell.creditImage.isHidden = true
+        } else if dataType > 0 {
+            cell.creditImage.image = #imageLiteral(resourceName: "Gold")
+            if cell.upgradePriceLabel.text == "0" && dataType == camouflage {
+                cell.creditImage.image = #imageLiteral(resourceName: "Silver")
+                cell.upgradePriceLabel.text = dataString[indexPath.row][Camouflage.price_credit]
+            }
+        }
         return cell
     }
 

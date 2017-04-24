@@ -12,6 +12,7 @@ class WikiController: UITableViewController {
 
     let name = [NSLocalizedString("ACHIEVEMENT", comment: "Achievement"), NSLocalizedString("WARSHIPS", comment: "Warships"), NSLocalizedString("UPGRADES", comment: "Upgrades"), NSLocalizedString("FLAGS", comment: "Flags"), NSLocalizedString("CAMOUFLAGE", comment: "Camouflage"), NSLocalizedString("COMMANDER_SKILL", comment: "CommanderSkill")]
     let identifier = ["gotoAchievement", "gotoWarships", "gotoWikiData"]
+    let iconImage = [#imageLiteral(resourceName: "AchievementIcon"), #imageLiteral(resourceName: "Icon"),#imageLiteral(resourceName: "UpgradesIcon"), #imageLiteral(resourceName: "FlagsIcon"), #imageLiteral(resourceName: "CamouflageIcon"), #imageLiteral(resourceName: "CommanderSkillIcon")]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,7 @@ class WikiController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WikiCell", for: indexPath) as! WikiCell
         cell.wikiTextLabel.text = name[indexPath.row]
+        cell.wikiImage.image = iconImage[indexPath.row]
         
         return cell
     }

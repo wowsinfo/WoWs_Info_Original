@@ -89,6 +89,14 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
         performSegue(withIdentifier: "gotoShipDetail", sender: indexPath.row)
     }
     
+    @IBAction func resetBtnPressed(_ sender: Any) {
+        // Empty
+        ships = allInfo
+        DispatchQueue.main.async {
+            self.shipCollection.reloadData()
+        }
+
+    }
     
     // In order to make it clean and tidy
     func filterShip() {
@@ -96,11 +104,6 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
             let filterText = searchTextField.text!
             
             if filterText == "" {
-                // Empty
-                ships = allInfo
-                DispatchQueue.main.async {
-                    self.shipCollection.reloadData()
-                }
                 return
             }
             
