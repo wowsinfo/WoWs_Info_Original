@@ -8,6 +8,7 @@
 
 import UIKit
 import AudioToolbox
+import SDWebImage
 
 class ShipScreenshotController: UIViewController {
     
@@ -19,7 +20,11 @@ class ShipScreenshotController: UIViewController {
     var hitratio: String!
     var killdeathRatio: String!
     var ratingIndex: Int!
+    var shipID: String!
+    var shipType: String!
     
+    @IBOutlet weak var shipTypeImage: UIImageView!
+    @IBOutlet weak var shipImage: UIImageView!
     @IBOutlet weak var screenshotImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var shipNameLabel: UILabel!
@@ -34,6 +39,7 @@ class ShipScreenshotController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print(shipID)
         nameLabel.text = PlayerAccount.AccountName
         shipNameLabel.text = shipName
         battleLabel.text = battle
@@ -44,6 +50,11 @@ class ShipScreenshotController: UIViewController {
         killdeathLabel.text = killdeathRatio
         ratingLabel.text = PersonalRating.Comment[ratingIndex]
         ratingLabel.textColor = PersonalRating.ColorGroup[ratingIndex]
+        
+        Shipinformation.getImageWithId(ID: shipID) { (Link) in
+            self.shipImage.sd_setImage(with: URL(string: Link)!)
+        }
+        shipTypeImage.image = Shipinformation.getImageWithType(type: shipType)
     }
 
     override func didReceiveMemoryWarning() {

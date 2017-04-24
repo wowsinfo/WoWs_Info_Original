@@ -33,7 +33,7 @@ class Achievements {
         let request = URLRequest(url: URL(string: achievementsAPI)!)
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if error != nil {
-                print("Error: \(error)")
+                print("Error: \(error!)")
             } else {
                 let dataJson = JSON(data!)
                 if dataJson["status"].stringValue == "ok" {
@@ -87,7 +87,7 @@ class Ships {
         let request = URLRequest(url: URL(string: shipsAPI)!)
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if error != nil {
-                print("Error: \(error)")
+                print("Error: \(error!)")
             } else {
                 let dataJson = JSON(data!)
                 if dataJson["status"].stringValue == "ok" {
@@ -114,6 +114,7 @@ class Ships {
     
 }
 
+// MARK: Upgrade is the template for all the calss below
 class Upgrade {
     
     var upgradeAPI: String!
@@ -164,5 +165,151 @@ class Upgrade {
         
     }
     
+}
+
+class Flag {
+    
+    var flagAPI: String!
+    static var flagJSON: JSON!
+    
+    init() {
+        let server = ServerUrl.Server[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)]
+        flagAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/exterior/?application_id=4e54ba74077a8230e457bf3e7e9ae858\(Language.getLanguageString())&type=Flags&fields=description%2Cimage.small%2Cname%2Cprice_gold"
+    }
+    
+    
+    func getFlagJson() {
+        
+        let request = URLRequest(url: URL(string: flagAPI)!)
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if error != nil {
+                print("Error: \(error!)")
+            } else {
+                let dataJson = JSON(data!)
+                if dataJson["status"].stringValue == "ok" {
+                    Flag.flagJSON = dataJson["data"]
+                }
+            }
+        }
+        task.resume()
+        
+    }
+    
+    static func getFlagInformation() -> [[String]] {
+        
+        var flagInfo = [[String]]()
+        if Flag.flagJSON != nil {
+            for flag in Flag.flagJSON {
+                flagInfo.append([flag.1["name"].stringValue, flag.1["description"].stringValue, flag.1["image"]["small"].stringValue, flag.1["price_gold"].stringValue, flag.0])
+            }
+            print(flagInfo)
+            
+        }
+        flagInfo.sort(by: {Int($0[Upgrade.dataIndex.price])! < Int($1[Upgrade.dataIndex.price])!})
+        return flagInfo
+        
+    }
+    
+}
+
+class Camouflage {
+    
+    var camouflageAPI: String!
+    static var camouflageJSON: JSON!
+    
+    static let price_credit = 5
+    
+    init() {
+        // Setup achievementsAPI
+        let server = ServerUrl.Server[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)]
+        camouflageAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/exterior/?application_id=4e54ba74077a8230e457bf3e7e9ae858\(Language.getLanguageString())&fields=type%2Cdescription%2Cimage.small%2Cname%2Cprice_gold%2Cprice_credit"
+    }
+    
+    func getCamouflageJson() {
+        
+        let request = URLRequest(url: URL(string: camouflageAPI)!)
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if error != nil {
+                print("Error: \(error!)")
+            } else {
+                let dataJson = JSON(data!)
+                if dataJson["status"].stringValue == "ok" {
+                    Camouflage.camouflageJSON = dataJson["data"]
+                }
+            }
+        }
+        task.resume()
+        
+    }
+    
+    static func getCamouflageInformation() -> [[String]] {
+        
+        var camouflageInfo = [[String]]()
+        if Camouflage.camouflageJSON != nil {
+            for camouflage in Camouflage.camouflageJSON {
+                if camouflage.1["type"].stringValue == "Permoflage" || camouflage.1["type"].stringValue == "Camouflage" {
+                    camouflageInfo.append([camouflage.1["name"].stringValue, camouflage.1["description"].stringValue, camouflage.1["image"]["small"].stringValue, camouflage.1["price_gold"].stringValue, camouflage.0, camouflage.1["price_credit"].stringValue])
+                }
+                
+                
+                print(camouflageInfo)
+                
+            }
+        }
+        camouflageInfo.sort(by: {Int($0[Upgrade.dataIndex.price])! < Int($1[Upgrade.dataIndex.price])!})
+        
+        return camouflageInfo
+        
+    }
+    
+}
+
+class CommanderSkill {
+    
+    var commanderSkillAPI: String!
+    static var commanderSkillJSON: JSON!
+    
+    static let tier = 5
+    
+    init() {
+        // Setup achievementsAPI
+        let server = ServerUrl.Server[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)]
+        commanderSkillAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/crewskills/?application_id=4e54ba74077a8230e457bf3e7e9ae858&fields=icon%2Cname%2Ctier%2Cperks.description%2Cperks.perk_id" + Language.getLanguageString()
+    }
+    
+    func getCommanderSkillJson() {
+        
+        let request = URLRequest(url: URL(string: commanderSkillAPI)!)
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if error != nil {
+                print("Error: \(error!)")
+            } else {
+                let dataJson = JSON(data!)
+                if dataJson["status"].stringValue == "ok" {
+                    CommanderSkill.commanderSkillJSON = dataJson["data"]
+                }
+            }
+        }
+        task.resume()
+        
+    }
+    
+    static func getCommanderSkillInformation() -> [[String]] {
+        
+        var commanderSkillInfo = [[String]]()
+        if CommanderSkill.commanderSkillJSON != nil {
+            for skill in CommanderSkill.commanderSkillJSON {
+                var description = ""
+                for perk in skill.1["perks"] {
+                    description += perk.1["description"].stringValue + "\n"
+                }
+                commanderSkillInfo.append([skill.1["name"].stringValue, description, skill.1["icon"].stringValue, "", "", skill.1["tier"].stringValue])
+            }
+            print(commanderSkillInfo)
+            commanderSkillInfo.sort(by: {$0[CommanderSkill.tier] < $1[CommanderSkill.tier]})
+        }
+        return commanderSkillInfo
+        
+    }
     
 }

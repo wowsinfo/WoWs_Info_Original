@@ -15,5 +15,6 @@ class WikiDataCell: UITableViewCell {
     @IBOutlet weak var upgradeImage: UIImageView!
     @IBOutlet weak var upgradeDescriptionLabel: UILabel!
     @IBOutlet weak var upgradePriceLabel: UILabel!
+    @IBOutlet weak var creditImage: UIImageView!
     
 }

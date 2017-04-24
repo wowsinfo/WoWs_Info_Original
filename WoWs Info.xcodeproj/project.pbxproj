@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E212AE10551E33B03FE0311 /* Pods_WoWs_Info.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6759118B58D4B67B8E919C40 /* Pods_WoWs_Info.framework */; };
 		920E1C411E5EB76300B43472 /* DonationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920E1C401E5EB76300B43472 /* DonationController.swift */; };
 		9210C06A1E45B3D500270002 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210C0691E45B3D500270002 /* WebViewController.swift */; };
 		9210C06E1E45E30E00270002 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210C06D1E45E30E00270002 /* NavigationController.swift */; };
@@ -47,6 +48,7 @@
 		926528C01E41BD5600D1A685 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528BA1E41BD5600D1A685 /* SearchController.swift */; };
 		926528C11E41BD5600D1A685 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528BB1E41BD5600D1A685 /* SettingsController.swift */; };
 		926528C31E41BD5600D1A685 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528BD1E41BD5600D1A685 /* WelcomeController.swift */; };
+		927661051EA0676C00282732 /* IAPCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927661041EA0676C00282732 /* IAPCell.swift */; };
 		929928411E86132C0091A174 /* RecentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929928401E86132B0091A174 /* RecentData.swift */; };
 		929928431E8638A70091A174 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929928421E8638A70091A174 /* News.swift */; };
 		929928451E865FA20091A174 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929928441E865FA20091A174 /* NewsCell.swift */; };
@@ -66,6 +68,8 @@
 		92B7686B1E5E5DD6009803C3 /* ProVersion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B7686D1E5E5DD6009803C3 /* ProVersion.storyboard */; };
 		92B768701E5E5DE1009803C3 /* UsefulWebsite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B768721E5E5DE1009803C3 /* UsefulWebsite.storyboard */; };
 		92B768851E5E6E34009803C3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92B768871E5E6E34009803C3 /* Localizable.strings */; };
+		92BD115C1EA0E70000D04C16 /* AdvancedShipDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BD115B1EA0E70000D04C16 /* AdvancedShipDetailController.swift */; };
+		92BF559E1E9FB57000573F0A /* ReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF559D1E9FB57000573F0A /* ReviewController.swift */; };
 		92D414AB1E6AA5EF00E8C8AF /* ShipScreenshotController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D414AA1E6AA5EF00E8C8AF /* ShipScreenshotController.swift */; };
 		92D9B4D21E55AE3200CFD46D /* PlayerAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4D11E55AE3200CFD46D /* PlayerAccount.swift */; };
 		92D9B4D41E55AF2400CFD46D /* RankController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4D31E55AF2400CFD46D /* RankController.swift */; };
@@ -77,7 +81,6 @@
 		92FD8D701E59B22300E7FADF /* ChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD8D6F1E59B22300E7FADF /* ChartsController.swift */; };
 		92FF85901E592ED9001BBCA1 /* PlayerCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF858F1E592ED9001BBCA1 /* PlayerCharts.swift */; };
 		92FF85921E594157001BBCA1 /* ExpectedValue.json in Resources */ = {isa = PBXBuildFile; fileRef = 92FF85911E594157001BBCA1 /* ExpectedValue.json */; };
-		DBE1AD73018CEBD25354AA3F /* Pods_WoWs_Info.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6759118B58D4B67B8E919C40 /* Pods_WoWs_Info.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +133,9 @@
 		926528BA1E41BD5600D1A685 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		926528BB1E41BD5600D1A685 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		926528BD1E41BD5600D1A685 /* WelcomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
+		927661041EA0676C00282732 /* IAPCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPCell.swift; sourceTree = "<group>"; };
+		9276610C1EA0887E00282732 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		9276610E1EA0888100282732 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		92813BB61E47447C009AA9E8 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		929489081E61AB8800B471F2 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework"; sourceTree = "<group>"; };
 		929928401E86132B0091A174 /* RecentData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentData.swift; sourceTree = "<group>"; };
@@ -147,7 +153,6 @@
 		929B0B4F1E61A1E1007E54EA /* AchievementController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementController.swift; sourceTree = "<group>"; };
 		92AAE8BF1E938511006DB929 /* WikiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiController.swift; sourceTree = "<group>"; };
 		92AAE8C11E938663006DB929 /* WikiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiCell.swift; sourceTree = "<group>"; };
-		92B768601E5E5A57009803C3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		92B768621E5E5A57009803C3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SimpleStat.strings"; sourceTree = "<group>"; };
 		92B768631E5E5A58009803C3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		92B768651E5E5D02009803C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MoreInformation.storyboard; sourceTree = "<group>"; };
@@ -157,13 +162,14 @@
 		92B768711E5E5DE1009803C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/UsefulWebsite.storyboard; sourceTree = "<group>"; };
 		92B768741E5E5DE3009803C3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/UsefulWebsite.strings"; sourceTree = "<group>"; };
 		92B7687C1E5E6142009803C3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/MoreInformation.strings"; sourceTree = "<group>"; };
-		92B7687D1E5E6142009803C3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		92B7687E1E5E6143009803C3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Settings.strings"; sourceTree = "<group>"; };
 		92B7687F1E5E6143009803C3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/ProVersion.strings"; sourceTree = "<group>"; };
 		92B768801E5E6143009803C3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/SimpleStat.strings"; sourceTree = "<group>"; };
 		92B768811E5E6144009803C3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/UsefulWebsite.strings"; sourceTree = "<group>"; };
 		92B768821E5E6144009803C3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		92B768861E5E6E34009803C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		92BD115B1EA0E70000D04C16 /* AdvancedShipDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedShipDetailController.swift; sourceTree = "<group>"; };
+		92BF559D1E9FB57000573F0A /* ReviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewController.swift; sourceTree = "<group>"; };
 		92D414AA1E6AA5EF00E8C8AF /* ShipScreenshotController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipScreenshotController.swift; sourceTree = "<group>"; };
 		92D9B4D11E55AE3200CFD46D /* PlayerAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerAccount.swift; sourceTree = "<group>"; };
 		92D9B4D31E55AF2400CFD46D /* RankController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankController.swift; sourceTree = "<group>"; };
@@ -188,7 +194,7 @@
 				9215CA3F1E5BF33D00A7F465 /* SwiftyJSON.framework in Frameworks */,
 				9226E33A1E5BF19F00593026 /* Charts.framework in Frameworks */,
 				9259C1CE1E57F88700F34CDC /* StoreKit.framework in Frameworks */,
-				DBE1AD73018CEBD25354AA3F /* Pods_WoWs_Info.framework in Frameworks */,
+				2E212AE10551E33B03FE0311 /* Pods_WoWs_Info.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +219,7 @@
 		9210C0801E4609EF00270002 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				92BF559C1E9FB54A00573F0A /* Review */,
 				9210C06D1E45E30E00270002 /* NavigationController.swift */,
 				9215CA461E5C0C7C00A7F465 /* Pro */,
 				9260D04E1E960C5800BBCB03 /* IAP */,
@@ -325,6 +332,7 @@
 				9260D0461E960BF500BBCB03 /* WikiDataController.swift */,
 				922D0E561E6295DE0056EDE6 /* ShipInfoController.swift */,
 				925B627C1E62D7680073FF56 /* ShipDetailController.swift */,
+				92BD115B1EA0E70000D04C16 /* AdvancedShipDetailController.swift */,
 			);
 			name = Wiki;
 			sourceTree = "<group>";
@@ -423,11 +431,20 @@
 			name = CollectionCell;
 			sourceTree = "<group>";
 		};
+		92BF559C1E9FB54A00573F0A /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				92BF559D1E9FB57000573F0A /* ReviewController.swift */,
+			);
+			name = Review;
+			sourceTree = "<group>";
+		};
 		92D9B4D71E55C87700CFD46D /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				92D9B4D51E55C6D600CFD46D /* RankTableCell.swift */,
 				92D9B4DA1E565C8A00CFD46D /* ShipTableCell.swift */,
+				927661041EA0676C00282732 /* IAPCell.swift */,
 				929928441E865FA20091A174 /* NewsCell.swift */,
 				92AAE8C11E938663006DB929 /* WikiCell.swift */,
 				92476A461E96025D0050F8A9 /* WikiDataCell.swift */,
@@ -501,7 +518,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Henry Quan";
 				TargetAttributes = {
 					921EA6941E35F2FB0007C7FC = {
@@ -621,6 +638,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92BD115C1EA0E70000D04C16 /* AdvancedShipDetailController.swift in Sources */,
+				927661051EA0676C00282732 /* IAPCell.swift in Sources */,
 				9210C06E1E45E30E00270002 /* NavigationController.swift in Sources */,
 				926528BE1E41BD5600D1A685 /* PlayerInfoController.swift in Sources */,
 				92634D0B1E540E2C000CDCB4 /* RankInformation.swift in Sources */,
@@ -650,6 +669,7 @@
 				92D414AB1E6AA5EF00E8C8AF /* ShipScreenshotController.swift in Sources */,
 				92476A481E96025D0050F8A9 /* WikiDataCell.swift in Sources */,
 				921EA6991E35F2FB0007C7FC /* AppDelegate.swift in Sources */,
+				92BF559E1E9FB57000573F0A /* ReviewController.swift in Sources */,
 				929928471E865FF60091A174 /* NewsController.swift in Sources */,
 				92D9B4D41E55AF2400CFD46D /* RankController.swift in Sources */,
 				929B0B471E618B45007E54EA /* Language.swift in Sources */,
@@ -679,8 +699,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				921EA69D1E35F2FB0007C7FC /* Base */,
-				92B768601E5E5A57009803C3 /* zh-Hans */,
-				92B7687D1E5E6142009803C3 /* zh-Hant */,
+				9276610C1EA0887E00282732 /* zh-Hans */,
+				9276610E1EA0888100282732 /* zh-Hant */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
