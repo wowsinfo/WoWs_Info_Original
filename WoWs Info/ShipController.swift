@@ -209,6 +209,9 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.ShipTableView.reloadData()
             self.calAvgShipRating()
         }
+        
+        filterTextField.text = ""
+        filterTextField.becomeFirstResponder()
     }
     
     @IBAction func caBtnPressed(_ sender: Any) {
