@@ -49,6 +49,7 @@
 		926528C11E41BD5600D1A685 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528BB1E41BD5600D1A685 /* SettingsController.swift */; };
 		926528C31E41BD5600D1A685 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528BD1E41BD5600D1A685 /* WelcomeController.swift */; };
 		927661051EA0676C00282732 /* IAPCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927661041EA0676C00282732 /* IAPCell.swift */; };
+		927AA8631EAEDAD600169B0A /* ClanSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927AA8621EAEDAD600169B0A /* ClanSearchCell.swift */; };
 		929928411E86132C0091A174 /* RecentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929928401E86132B0091A174 /* RecentData.swift */; };
 		929928431E8638A70091A174 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929928421E8638A70091A174 /* News.swift */; };
 		929928451E865FA20091A174 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929928441E865FA20091A174 /* NewsCell.swift */; };
@@ -142,6 +143,7 @@
 		927661041EA0676C00282732 /* IAPCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPCell.swift; sourceTree = "<group>"; };
 		9276610C1EA0887E00282732 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		9276610E1EA0888100282732 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		927AA8621EAEDAD600169B0A /* ClanSearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClanSearchCell.swift; sourceTree = "<group>"; };
 		92813BB61E47447C009AA9E8 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		929489081E61AB8800B471F2 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework"; sourceTree = "<group>"; };
 		929928401E86132B0091A174 /* RecentData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentData.swift; sourceTree = "<group>"; };
@@ -464,6 +466,7 @@
 				92476A461E96025D0050F8A9 /* WikiDataCell.swift */,
 				92E45B1D1EAE13C200360E62 /* ClanCell.swift */,
 				92E45B1F1EAE13CC00360E62 /* MemberCell.swift */,
+				927AA8621EAEDAD600169B0A /* ClanSearchCell.swift */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -689,6 +692,7 @@
 				9210C07E1E4609BA00270002 /* PersonalRating.swift in Sources */,
 				92E45B1E1EAE13C200360E62 /* ClanCell.swift in Sources */,
 				92D9B4D91E565C6E00CFD46D /* ShipController.swift in Sources */,
+				927AA8631EAEDAD600169B0A /* ClanSearchCell.swift in Sources */,
 				92634D0D1E540E77000CDCB4 /* PlayerStat.swift in Sources */,
 				929928411E86132C0091A174 /* RecentData.swift in Sources */,
 				926528C11E41BD5600D1A685 /* SettingsController.swift in Sources */,

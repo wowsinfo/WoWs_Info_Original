@@ -318,6 +318,14 @@
                                     <action selector="redoAnimation:" destination="TO9-W7-tFs" eventType="touchUpInside" id="Asd-Ss-omr"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0D-PG-R8F">
+                                <rect key="frame" x="164" y="183" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Clan"/>
+                                <connections>
+                                    <segue destination="MLI-ep-TcU" kind="show" id="9xK-ie-G9E"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -473,6 +481,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="asj-eI-Vd4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="756" y="-986"/>
+        </scene>
+        <!--ClanSearchController-->
+        <scene sceneID="tFR-qr-IEu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Clan" referencedIdentifier="ClanSearchController" id="MLI-ep-TcU" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AOE-v5-ose" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="644" y="-924"/>
         </scene>
         <!--AdvancedInfoController-->
         <scene sceneID="4BM-H3-gFk">
@@ -870,7 +886,7 @@
         <image name="Wiki" width="272" height="346"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="niY-zq-gml"/>
         <segue reference="LtZ-KO-ucJ"/>
+        <segue reference="KnC-hb-1jT"/>
     </inferredMetricsTieBreakers>
 </document>

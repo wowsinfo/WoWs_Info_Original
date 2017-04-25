@@ -57,6 +57,23 @@ class NewsController: UITableViewController {
         cell.dateLabel.text = newsData[indexPath.row][News.dataIndex.time]
         cell.titleLabel.text = newsData[indexPath.row][News.dataIndex.title]
         
+        // Headlines
+        if indexPath.row == 0 {
+            cell.backgroundColor = UIColor.init(red: 112/255, green: 177/255, blue: 251/255, alpha: 1)
+            cell.dateLabel.textColor = UIColor.white
+            cell.titleLabel.textColor = UIColor.white
+            
+            cell.titleLabel.font = UIFont.systemFont(ofSize: 26, weight: UIFontWeightMedium)
+            cell.dateLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFontWeightLight)
+        } else {
+            cell.backgroundColor = UIColor.white
+            cell.dateLabel.textColor = UIColor.black
+            cell.titleLabel.textColor = UIColor.black
+            
+            cell.titleLabel.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightMedium)
+            cell.dateLabel.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightLight)
+        }
+        
         return cell
     }
     

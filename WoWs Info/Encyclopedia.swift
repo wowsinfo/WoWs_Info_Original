@@ -131,7 +131,7 @@ class Upgrade {
     init() {
         // Setup achievementsAPI
         let server = ServerUrl.Server[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)]
-        upgradeAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/upgrades/?application_id=4e54ba74077a8230e457bf3e7e9ae858&fields=description%2Cname%2Cimage%2Cprice_credit" + Language.getLanguageString()
+        upgradeAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/consumables/?application_id=4e54ba74077a8230e457bf3e7e9ae858&type=Modernization&fields=profile.description%2Cdescription%2Cprice_credit%2Cname%2Cimage" + Language.getLanguageString()
     }
     
     func getUpgradeJson() {
@@ -156,7 +156,13 @@ class Upgrade {
         var upgradeInfo = [[String]]()
         if Upgrade.upgradeJSON != nil {
             for upgrade in Upgrade.upgradeJSON {
-                upgradeInfo.append([upgrade.1["name"].stringValue, upgrade.1["description"].stringValue, upgrade.1["image"].stringValue, upgrade.1["price_credit"].stringValue, upgrade.0])
+                var description = upgrade.1["description"].stringValue + "\n\n"
+                
+                for profile in upgrade.1["profile"] {
+                    description += profile.1["description"].stringValue + "\n"
+                }
+                
+                upgradeInfo.append([upgrade.1["name"].stringValue, description, upgrade.1["image"].stringValue, upgrade.1["price_credit"].stringValue, upgrade.0])
             }
             print(upgradeInfo)
             
@@ -174,7 +180,7 @@ class Flag {
     
     init() {
         let server = ServerUrl.Server[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)]
-        flagAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/exterior/?application_id=4e54ba74077a8230e457bf3e7e9ae858\(Language.getLanguageString())&type=Flags&fields=description%2Cimage.small%2Cname%2Cprice_gold"
+        flagAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/consumables/?application_id=4e54ba74077a8230e457bf3e7e9ae858&type=Flags&fields=profile.description%2Cdescription%2Cprice_gold%2Cname%2Cimage" + Language.getLanguageString()
     }
     
     
@@ -200,7 +206,13 @@ class Flag {
         var flagInfo = [[String]]()
         if Flag.flagJSON != nil {
             for flag in Flag.flagJSON {
-                flagInfo.append([flag.1["name"].stringValue, flag.1["description"].stringValue, flag.1["image"]["small"].stringValue, flag.1["price_gold"].stringValue, flag.0])
+                var description = flag.1["description"].stringValue + "\n\n"
+                
+                for profile in flag.1["profile"] {
+                    description += profile.1["description"].stringValue + "\n"
+                }
+                
+                flagInfo.append([flag.1["name"].stringValue, description, flag.1["image"].stringValue, flag.1["price_gold"].stringValue, flag.0])
             }
             print(flagInfo)
             
@@ -222,7 +234,7 @@ class Camouflage {
     init() {
         // Setup achievementsAPI
         let server = ServerUrl.Server[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)]
-        camouflageAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/exterior/?application_id=4e54ba74077a8230e457bf3e7e9ae858\(Language.getLanguageString())&fields=type%2Cdescription%2Cimage.small%2Cname%2Cprice_gold%2Cprice_credit"
+        camouflageAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/consumables/?application_id=4e54ba74077a8230e457bf3e7e9ae858\(Language.getLanguageString())&fields=profile.description%2Cdescription%2Cprice_credit%2Cname%2Cimage%2Ctype%2Cprice_gold"
     }
     
     func getCamouflageJson() {
@@ -248,12 +260,15 @@ class Camouflage {
         if Camouflage.camouflageJSON != nil {
             for camouflage in Camouflage.camouflageJSON {
                 if camouflage.1["type"].stringValue == "Permoflage" || camouflage.1["type"].stringValue == "Camouflage" {
-                    camouflageInfo.append([camouflage.1["name"].stringValue, camouflage.1["description"].stringValue, camouflage.1["image"]["small"].stringValue, camouflage.1["price_gold"].stringValue, camouflage.0, camouflage.1["price_credit"].stringValue])
+                    var description = ""
+                    
+                    for profile in camouflage.1["profile"] {
+                        description += profile.1["description"].stringValue + "\n"
+                    }
+
+                    camouflageInfo.append([camouflage.1["name"].stringValue, description, camouflage.1["image"].stringValue, camouflage.1["price_gold"].stringValue, camouflage.0, camouflage.1["price_credit"].stringValue])
                 }
-                
-                
                 print(camouflageInfo)
-                
             }
         }
         camouflageInfo.sort(by: {Int($0[Upgrade.dataIndex.price])! < Int($1[Upgrade.dataIndex.price])!})
