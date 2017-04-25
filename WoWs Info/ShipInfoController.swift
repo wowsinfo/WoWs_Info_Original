@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import AudioToolbox
 
 class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate {
 
@@ -95,7 +96,10 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
         DispatchQueue.main.async {
             self.shipCollection.reloadData()
         }
-
+        
+        AudioServicesPlaySystemSound(1520)
+        searchTextField.text = ""
+        searchTextField.becomeFirstResponder()
     }
     
     // In order to make it clean and tidy
@@ -170,6 +174,8 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
                 self.shipCollection.reloadData()
             }
         }
+        
+        AudioServicesPlaySystemSound(1520)
     }
     
     @IBAction func filterCA(_ sender: UIButton) {
@@ -188,6 +194,7 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
                 self.shipCollection.reloadData()
             }
         }
+        AudioServicesPlaySystemSound(1520)
     }
     
     @IBAction func filterBB(_ sender: UIButton) {
@@ -206,6 +213,7 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
                 self.shipCollection.reloadData()
             }
         }
+        AudioServicesPlaySystemSound(1520)
     }
     
     @IBAction func filterCV(_ sender: UIButton) {
@@ -224,6 +232,7 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
                 self.shipCollection.reloadData()
             }
         }
+        AudioServicesPlaySystemSound(1520)
     }
     
 
