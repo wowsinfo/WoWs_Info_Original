@@ -78,9 +78,10 @@ class ClanInfo {
         let server = ServerUrl.Server[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)]
         clanID = ID
         clanAPI = "https://api.worldofwarships.\(server)/wows/clans/info/?application_id=***ApplicationID***&clan_id=\(ID)&extra=members&fields=creator_name%2Cdescription%2Cmembers.account_id%2Cmembers.account_name"
+        print(clanAPI)
     }
     
-    func getClanList(clan: String, success: @escaping ([[String]]) -> ()) {
+    func getClanList(success: @escaping ([[String]]) -> ()) {
         
         let request = URLRequest(url: URL(string: clanAPI)!)
         
@@ -90,16 +91,18 @@ class ClanInfo {
                 print("Error: \(error!)")
             } else {
                 let dataJson = JSON(data!)
+                print("dataJson: \(dataJson)")
                 var clanInfo = [[String]]()
                 if dataJson["status"].stringValue == "ok" {
                     // If data is valid
                     let clanDatajson = dataJson["data"]
+                    print("clanDataJson: \(clanDatajson)")
                     // Add basic information
-                    clanInfo.append([[clanDatajson][clanID]["creator_name"].stringValue, [clanDatajson][clanID]["description"].stringValue])
+                    clanInfo.append([clanDatajson[self.clanID]["creator_name"].stringValue, clanDatajson[self.clanID]["description"].stringValue])
                     
                     // Get all member
-                    for member in clanDatajson[clanID]["members"] {
-                        clanInfo.append([member.1["account_name"], member.1["account_id"]])
+                    for member in clanDatajson[self.clanID]["members"] {
+                        clanInfo.append([member.1["account_name"].stringValue, member.1["account_id"].stringValue])
                     }
                 }
                 success(clanInfo)

@@ -14,5 +14,6 @@ class ClanCell: UITableViewCell {
     @IBOutlet weak var clanDescription: UILabel!
     @IBOutlet weak var leaderImage: UIImageView!
     @IBOutlet weak var leaderName: UILabel!
+    @IBOutlet weak var memberCountLabel: UILabel!
     
 }
