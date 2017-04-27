@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="O4H-US-JQd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bqn-W6-De3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,80 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Clan Search Controller-->
-        <scene sceneID="Gf4-gA-O9s">
-            <objects>
-                <viewController storyboardIdentifier="ClanSearchController" id="O4H-US-JQd" customClass="ClanSearchController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jJm-PV-zrc"/>
-                        <viewControllerLayoutGuide type="bottom" id="Wy3-sP-6Rs"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="nGf-RY-jus">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Server : Asia" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zck-xv-2lt">
-                                <rect key="frame" x="16" y="28" width="343" height="19"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="done"/>
-                            </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ayh-rH-Imd">
-                                <rect key="frame" x="0.0" y="55" width="375" height="612"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ClanSearchCell" rowHeight="60" id="Ncx-Bs-Sir" customClass="ClanSearchCell" customModule="WoWs_Info" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ncx-Bs-Sir" id="0Xy-x6-pie">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[XXX] XXX XXX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KjJ-72-RGa">
-                                                    <rect key="frame" x="8" y="18" width="359" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="KjJ-72-RGa" firstAttribute="centerY" secondItem="0Xy-x6-pie" secondAttribute="centerY" id="fyN-ys-uk6"/>
-                                                <constraint firstItem="KjJ-72-RGa" firstAttribute="leading" secondItem="0Xy-x6-pie" secondAttribute="leadingMargin" id="lc7-g6-1pI"/>
-                                                <constraint firstItem="KjJ-72-RGa" firstAttribute="trailing" secondItem="0Xy-x6-pie" secondAttribute="trailingMargin" id="q0U-NN-MUw"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="clanResultLabel" destination="KjJ-72-RGa" id="dYG-wt-ang"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Wy3-sP-6Rs" firstAttribute="top" secondItem="ayh-rH-Imd" secondAttribute="bottom" id="8pc-z3-o4Q"/>
-                            <constraint firstAttribute="trailing" secondItem="ayh-rH-Imd" secondAttribute="trailing" id="bcW-aE-eSx"/>
-                            <constraint firstItem="zck-xv-2lt" firstAttribute="trailing" secondItem="nGf-RY-jus" secondAttribute="trailingMargin" id="eSk-yf-vLX"/>
-                            <constraint firstItem="zck-xv-2lt" firstAttribute="top" secondItem="jJm-PV-zrc" secondAttribute="bottom" constant="8" id="l04-Jb-WXr"/>
-                            <constraint firstItem="zck-xv-2lt" firstAttribute="leading" secondItem="nGf-RY-jus" secondAttribute="leadingMargin" id="oNY-9c-tr8"/>
-                            <constraint firstItem="ayh-rH-Imd" firstAttribute="leading" secondItem="nGf-RY-jus" secondAttribute="leading" id="rTg-oe-Pwd"/>
-                            <constraint firstItem="ayh-rH-Imd" firstAttribute="top" secondItem="zck-xv-2lt" secondAttribute="bottom" constant="8" id="yCU-vU-IgS"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="resultTableView" destination="ayh-rH-Imd" id="WS3-1o-22v"/>
-                        <outlet property="searchTextField" destination="zck-xv-2lt" id="Ghj-uN-2G1"/>
-                        <segue destination="bqn-W6-De3" kind="show" identifier="gotoClanInfo" id="w13-fL-esD"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rhy-T5-tYF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-156" y="45"/>
-        </scene>
         <!--Clan Info Controller-->
         <scene sceneID="HtZ-Pc-gzH">
             <objects>
-                <tableViewController id="bqn-W6-De3" customClass="ClanInfoController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ClanInfoController" hidesBottomBarWhenPushed="YES" id="bqn-W6-De3" customClass="ClanInfoController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" id="sHV-oi-odq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="17I-eO-2Gi" id="zF4-hA-pbH">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="159.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[CICN] Chili Chicken" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="tQu-om-7hT">
@@ -154,15 +84,15 @@
                                     <outlet property="memberCountLabel" destination="hLC-ax-bYW" id="l1P-yP-Vba"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MemberCell" rowHeight="53" id="wdS-w4-weg" customClass="MemberCell" customModule="WoWs_Info" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MemberCell" rowHeight="53" id="wdS-w4-weg" customClass="MemberCell" customModule="WoWs_Info" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="188" width="375" height="53"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wdS-w4-weg" id="N5L-zB-Zqf">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="52.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="53"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nostalgia_J" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="HXZ-xV-40k">
-                                            <rect key="frame" x="8" y="8" width="359" height="31.5"/>
+                                            <rect key="frame" x="8" y="8" width="326" height="31.5"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
