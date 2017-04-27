@@ -9,15 +9,24 @@
 import UIKit
 import StoreKit
 
-class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTransactionObserver {
+class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTransactionObserver, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var IAPTable: UITableView!
+    
     let isProVersion = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
     let proIAP = "com.yihengquan.WoWsInfo.Pro"
     var productList = [SKProduct]()
     var product = SKProduct()
+    let descriptionString = [NSLocalizedString("IAP_NOADS", comment: "Remove ads"), NSLocalizedString("IAP_DASHBOARD", comment: "Dashboard"), NSLocalizedString("IAP_FRIENDLIST", comment: "Friend list"), NSLocalizedString("IAP_BETTERSTAT", comment: "Better stat"), NSLocalizedString("IAP_RATING", comment: "PR"), NSLocalizedString("IAP_CHARTS", comment: "Charts"), NSLocalizedString("IAP_RANK", comment: "Rank")]
+    let iconImage = [#imageLiteral(resourceName: "NoAds"),#imageLiteral(resourceName: "Dashboard"),#imageLiteral(resourceName: "List"),#imageLiteral(resourceName: "SearchIcon"),#imageLiteral(resourceName: "Number"),#imageLiteral(resourceName: "Graphs"),#imageLiteral(resourceName: "Rank")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        IAPTable.delegate = self
+        IAPTable.dataSource = self
+        IAPTable.separatorColor = UIColor.clear
         
         SKPaymentQueue.default().add(self)
         
@@ -92,6 +101,7 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
         
     }
     
+    // MARK: Proudct request
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         
         let myProduct = response.products
@@ -101,6 +111,12 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
             print(p.localizedTitle)
             print(p.localizedDescription)
             print(p.price)
+            
+            // Get localised price
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .currency
+            formatter.locale = p.priceLocale
+            self.priceLabel.text = "\(formatter.string(from: p.price)!)"
             productList.append(p)
         }
         
@@ -133,6 +149,18 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
             }
         }
         
+    }
+    
+    // MARK: UITableView
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return descriptionString.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = IAPTable.dequeueReusableCell(withIdentifier: "IAPCell", for: indexPath) as! IAPCell
+        cell.descriptionLabel.text = descriptionString[indexPath.row]
+        cell.iconImage.image = iconImage[indexPath.row]
+        return cell
     }
     
 }

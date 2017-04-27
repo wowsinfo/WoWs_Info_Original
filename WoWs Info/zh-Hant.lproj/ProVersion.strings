@@ -20,11 +20,10 @@
 /* Class = "UILabel"; text = "Useful Charts"; ObjectID = "gOZ-Ev-zaB"; */
 "gOZ-Ev-zaB.text" = "有用的圖表";
 
-/* Class = "UILabel"; text = "35% off until May"; ObjectID = "hwb-c6-tS8"; */
-"hwb-c6-tS8.text" = "65折 到5月為止";
-
 /* Class = "UILabel"; text = "Ship Information"; ObjectID = "iey-Or-Z7B"; */
 "iey-Or-Z7B.text" = "船的信息";
 
 /* Class = "UILabel"; text = "Rank Information"; ObjectID = "qMC-L4-gdP"; */
 "qMC-L4-gdP.text" = "賽季信息";
+
+"Kwc-1N-P7K.normalTitle" = "體驗專業版";

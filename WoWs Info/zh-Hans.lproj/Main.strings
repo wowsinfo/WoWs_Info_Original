@@ -1,12 +1,75 @@
 
+/* Class = "UIButton"; normalTitle = "Twitter"; ObjectID = "2Vd-1Z-518"; */
+"2Vd-1Z-518.normalTitle" = "Twitter";
+
+/* Class = "UILabel"; text = "Level 3"; ObjectID = "8Yl-l0-W5D"; */
+"8Yl-l0-W5D.text" = "第三步";
+
 /* Class = "UITextField"; placeholder = "Server: "; ObjectID = "Afq-X2-mcI"; */
 "Afq-X2-mcI.placeholder" = "服务器: ";
+
+/* Class = "UILabel"; text = "Level 2"; ObjectID = "BdW-qf-VQN"; */
+"BdW-qf-VQN.text" = "第二步";
+
+/* Class = "UILabel"; text = "Level 1"; ObjectID = "ITi-IT-Had"; */
+"ITi-IT-Had.text" = "第一步";
 
 /* Class = "UINavigationItem"; title = "WoWs Info"; ObjectID = "MPU-Xo-NZ2"; */
 "MPU-Xo-NZ2.title" = "WoWs Info";
 
+/* Class = "UILabel"; text = "Please write a review so that more people could find it on App Store."; ObjectID = "NE4-l6-BeN"; */
+"NE4-l6-BeN.text" = "请给这个APP给一个评价，这样更多的人可以在AppStore中找到它。";
+
+/* Class = "UILabel"; text = "All of your donation will motivate me developing better apps. My future applications will be free for everyone and mainly depend on donations and advertisement. It is always my dream being a developer helping people living a better and convenient life."; ObjectID = "VOZ-DU-w1y"; */
+"VOZ-DU-w1y.text" = "您慷慨的捐赠可以帮助我继续开发优质的免费APP。想要成为出色的开发者驱使着我前行，我希望通过APP让大家的生活更美好更方便。";
+
+/* Class = "UIButton"; normalTitle = "Write a review"; ObjectID = "Wuh-In-bad"; */
+"Wuh-In-bad.normalTitle" = "写一个评价";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "Xbq-2M-buD"; */
+"Xbq-2M-buD.text" = "日期";
+
+/* Class = "UILabel"; text = "Donate"; ObjectID = "YvK-Fq-lw9"; */
+"YvK-Fq-lw9.text" = "捐助";
+
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "ZOs-yp-qIp"; */
+"ZOs-yp-qIp.normalTitle" = "完成";
+
+/* Class = "UIButton"; normalTitle = "Unlock Pro"; ObjectID = "Ztn-Qw-bkT"; */
+"Ztn-Qw-bkT.normalTitle" = "解锁专业版";
+
+/* Class = "UILabel"; text = "Thank you very much"; ObjectID = "b3p-id-wq6"; */
+"b3p-id-wq6.text" = "非常感谢您";
+
+/* Class = "UIButton"; normalTitle = "Pro"; ObjectID = "c6x-oT-WzF"; */
+"c6x-oT-WzF.normalTitle" = "Pro";
+
+/* Class = "UIButton"; normalTitle = "Email"; ObjectID = "dX0-FE-WqM"; */
+"dX0-FE-WqM.normalTitle" = "电子邮件";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "hDb-oV-ibW"; */
+"hDb-oV-ibW.text" = "标题";
+
+/* Class = "UILabel"; text = "If you have any suggestion or find any bugs, please contact me via E-mail or just send me a message on Twitter."; ObjectID = "iYw-6b-cu0"; */
+"iYw-6b-cu0.text" = "如果您有任何建议或者发现了任何问题，请通过电子邮件联系我。";
+
 /* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "jWR-dD-855"; */
 "jWR-dD-855.title" = "返回";
+
+/* Class = "UILabel"; text = "Level 4 "; ObjectID = "nVd-zB-Rl4"; */
+"nVd-zB-Rl4.text" = "第四步";
+
+/* Class = "UIBarButtonItem"; title = "?"; ObjectID = "o6B-1a-X4l"; */
+"o6B-1a-X4l.title" = "?";
+
+/* Class = "UIButton"; normalTitle = "Share with friends"; ObjectID = "ow3-jZ-GCf"; */
+"ow3-jZ-GCf.normalTitle" = "分享给朋友";
+
+/* Class = "UILabel"; text = "If you like this app, please share with your friends so that it could help more people."; ObjectID = "s4P-g2-qr1"; */
+"s4P-g2-qr1.text" = "如果您喜欢这个APP，请分享给好友。这样它可以帮到更多的人。";
+
+/* Class = "UILabel"; text = "As the number of app unit increases, the price of In-App Purchase will decrease until it is free."; ObjectID = "uwu-ZD-wul"; */
+"uwu-ZD-wul.text" = "下载的用户越多，内购的价格会随之下降直到免费。";
 
 /* Class = "UINavigationItem"; title = "Quick Search Mode"; ObjectID = "v8u-OF-dZ1"; */
 "v8u-OF-dZ1.title" = "快速搜索模式";

@@ -34,7 +34,7 @@ class RecentData {
         let request = URLRequest(url: URL(string: recentInfoAPI)!)
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if (error != nil) {
-                print("Error: \(error)")
+                print("Error: \(error!)")
             } else {
                 let recentJson = JSON(data!)
                 if recentJson["status"].stringValue == "ok" {

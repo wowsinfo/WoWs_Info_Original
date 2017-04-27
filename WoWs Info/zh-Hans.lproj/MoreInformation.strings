@@ -39,7 +39,7 @@
 "msA-9d-bxq.text" = "战斗分布图（按等级）";
 
 /* Class = "UITextField"; placeholder = "Enter tier, name or type(e.g. dd)"; ObjectID = "oFj-de-ubT"; */
-"oFj-de-ubT.placeholder" = "输入船的等级， 名字或者种类（dd）";
+"oFj-de-ubT.placeholder" = "输入船的等级或者名字种类";
 
 /* Class = "UILabel"; text = "Battles by Type"; ObjectID = "rT0-LS-Utb"; */
 "rT0-LS-Utb.text" = "战斗分布图（按种类）";

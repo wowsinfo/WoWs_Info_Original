@@ -13,8 +13,6 @@ class AdvancedInfoController: UIViewController {
 
     var playerInfo = [String]()
     var serverIndex = 0
-    var hasGotoMoreInfo = false
-    var hasVisitNumber = false
     var isPreview = false
     @IBOutlet weak var number: UIImageView!
     @IBOutlet weak var moreInfo: UIImageView!
@@ -22,16 +20,18 @@ class AdvancedInfoController: UIViewController {
     @IBOutlet weak var playerNameLabel: UILabel!
     @IBOutlet weak var levelAndPlaytimeLabel: UILabel!
     @IBOutlet weak var totalBattlesLabel: UILabel!
+    @IBOutlet weak var prLabel: UILabel!
     @IBOutlet weak var winRateLabel: UILabel!
     @IBOutlet weak var averageExpLabel: UILabel!
     @IBOutlet weak var averageDamageLabel: UILabel!
     @IBOutlet weak var killDeathRatioLabel: UILabel!
     @IBOutlet weak var mainBatteryHitRatioLabel: UILabel!
     @IBOutlet weak var centerConstraint: NSLayoutConstraint!
-    @IBOutlet weak var personalRatingLabel: UILabel!
     @IBOutlet var statView: UIView!
     @IBOutlet weak var friendBtn: UIButton!
     @IBOutlet weak var tkBtn: UIButton!
+    @IBOutlet weak var retryBtn: UIButton!
+    var shipData: [[String]]!
     
     let username = UserDefaults.standard.string(forKey: DataManagement.DataName.UserName)!
     
@@ -70,10 +70,37 @@ class AdvancedInfoController: UIViewController {
             setPlayerIDBtn.isEnabled = false
         }
         
+        // Load data here
+        PlayerShip(account: PlayerAccount.AccountID).getPlayerShipInfo()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        shipData = PlayerShip.playerShipInfo
+        UIView.animate(withDuration: 0.5, delay: 1, options: .curveEaseIn, animations: {
+            self.moreInfo.alpha = 1
+        }, completion: nil)
+        
+        if shipData.count > 0 {
+            UIView.animate(withDuration: 0.5, delay: 1, options: .curveEaseIn, animations: {
+                self.prLabel.alpha = 1
+            }, completion: nil)
+            self.calAvgShipRating()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated : Bool) {
+        super.viewWillDisappear(animated)
+        
+        if (self.isMovingFromParentViewController){
+            // Free it
+            PlayerShip.playerShipInfo = [[String]]()
+        }
     }
     
     func loadPlayerData() {
@@ -86,10 +113,7 @@ class AdvancedInfoController: UIViewController {
     
     @IBAction func gotoMoreInfo(_ sender: UITapGestureRecognizer) {
         
-        moreInfo.isHidden = true
-        
         performSegue(withIdentifier: "gotoMoreInfo", sender: nil)
-        hasGotoMoreInfo = true
         
     }
     
@@ -158,16 +182,10 @@ class AdvancedInfoController: UIViewController {
                     self.totalBattlesLabel.text = String(format: "%.0f", totalBattles!)
                     self.moreInfo.isHidden = true
                 }
-                
-                // Get personal rating
-                _ = PersonalRating(Damage: data[PlayerStat.dataIndex.averageDamage], WinRate: data[PlayerStat.dataIndex.winRate], Frags: data[PlayerStat.dataIndex.averageFrags])
-                self.personalRatingLabel.textColor = PersonalRating.ColorGroup[PersonalRating.index]
-                self.personalRatingLabel.text = PersonalRating.Comment[PersonalRating.index]
             }
             
             UIView.animate(withDuration: 0.5, animations: {
                 self.levelAndPlaytimeLabel.alpha = 1.0
-                self.personalRatingLabel.alpha = 1.0
                 self.winRateLabel.alpha = 1.0
                 self.averageDamageLabel.alpha = 1.0
                 self.killDeathRatioLabel.alpha = 1.0
@@ -186,8 +204,18 @@ class AdvancedInfoController: UIViewController {
         UserDefaults.standard.setValue(playerIDAndName, forKey: DataManagement.DataName.UserName)
         
         // Alert
-        let alert = UIAlertController(title: "^_^", message: NSLocalizedString("DASHBOARD_MESSAGE", comment: "Dashboard Message"), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        var gamePerDay = totalBattlesLabel.text?.components(separatedBy: "(")[1]
+        gamePerDay = gamePerDay?.replacingOccurrences(of: ")", with: "")
+        
+        let alert: UIAlertController!
+        if Double(gamePerDay!)! >= 15 {
+            alert = UIAlertController(title: ">_<", message: NSLocalizedString("GAME_ISNOT_EVERYTHING", comment: "Remainder"), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("GAME_ISNOT_EVERYTHING_BTN", comment: "Remainder"), style: .default, handler: nil))
+        } else {
+            alert = UIAlertController(title: "^_^", message: NSLocalizedString("DASHBOARD_MESSAGE", comment: "Dashboard Message"), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        }
+        
         self.present(alert, animated: true, completion: nil)
         
         setPlayerIDBtn.isEnabled = false
@@ -196,12 +224,20 @@ class AdvancedInfoController: UIViewController {
     
     @IBAction func visitNumber(_ sender: UITapGestureRecognizer) {
         
-        self.number.isHidden = true
         // Open World of Warships number
         let number = ServerUrl(serverIndex: serverIndex).getUrlForNumber(account: self.title!, name: playerNameLabel.text!)
         performSegue(withIdentifier: "gotoWebView", sender: number)
-        hasVisitNumber = true
         
+    }
+    
+    @IBAction func retryBtnPressed(_ sender: Any) {
+        // Load data here
+        PlayerShip(account: PlayerAccount.AccountID).getPlayerShipInfo()
+        AudioServicesPlaySystemSound(1520)
+        moreInfo.alpha = 0
+        UIView.animate(withDuration: 0.5, delay: 1.5, options: .curveEaseIn, animations: {
+            self.moreInfo.alpha = 1
+        }, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -224,6 +260,9 @@ class AdvancedInfoController: UIViewController {
         // Hide number and today and screenshot
         number.isHidden = true
         moreInfo.isHidden = true
+        tkBtn.isHidden = true
+        friendBtn.isHidden = true
+        retryBtn.isHidden = true
         self.screenshot.isHidden = true
      
         UIGraphicsBeginImageContextWithOptions(view.frame.size, true, 0.0)
@@ -233,14 +272,12 @@ class AdvancedInfoController: UIViewController {
      
         UIImageWriteToSavedPhotosAlbum(screenshot!, nil, nil, nil)
      
-        // show number and moreInfo if have not been pressed
-        if !hasVisitNumber {
-            number.isHidden = false
-        }
-        
-        if !hasGotoMoreInfo {
-            moreInfo.isHidden = false
-        }
+        // show number and moreInfo
+        number.isHidden = false
+        moreInfo.isHidden = false
+        tkBtn.isHidden = false
+        friendBtn.isHidden = false
+        retryBtn.isHidden = false
         
         // Popup share button
         let shareSheet  = UIAlertController.init(title: NSLocalizedString("SHARE_TITLE", comment: "Share title"), message: nil, preferredStyle: .actionSheet)
@@ -267,9 +304,12 @@ class AdvancedInfoController: UIViewController {
             user.set(["HenryQuan|2011774448|3"], forKey: DataManagement.DataName.friend)
         }
         
-        var list = user.object(forKey: DataManagement.DataName.friend) as! [String]
-        list.append("\(self.playerNameLabel.text!)|\(self.title!)|\(user.integer(forKey: DataManagement.DataName.Server))")
-        user.set(list, forKey: DataManagement.DataName.friend)
+        let text = "\(self.playerNameLabel.text!)|\(self.title!)|\(user.integer(forKey: DataManagement.DataName.Server))"
+        if text != "HenryQuan|2011774448|3" {
+            var list = user.object(forKey: DataManagement.DataName.friend) as! [String]
+            list.append(text)
+            user.set(list, forKey: DataManagement.DataName.friend)
+        }
 
     }
     
@@ -293,6 +333,44 @@ class AdvancedInfoController: UIViewController {
         tkBtn.setTitleColor(UIColor.darkText, for: .normal)
     }
     
-    
+    func calAvgShipRating() {
+        
+        var actualDmg = 0.0
+        var actualWins = 0.0
+        var actualFrags = 0.0
+        
+        var expectedDmg = 0.0
+        var expectedWins = 0.0
+        var expectedFrags = 0.0
+        
+        var rating = 0.0
+        
+        for ship in shipData {
+            actualDmg += Double(ship[PlayerShip.PlayerShipDataIndex.totalDamage])!
+            actualWins += Double(ship[PlayerShip.PlayerShipDataIndex.totalWins])!
+            actualFrags += Double(ship[PlayerShip.PlayerShipDataIndex.totalFrags])!
+            
+            expectedDmg += Double(ShipRating.shipExpected["data"][ship[PlayerShip.PlayerShipDataIndex.id]]["average_damage_dealt"].doubleValue) * Double(ship[PlayerShip.PlayerShipDataIndex.battles])!
+            expectedWins += Double(ShipRating.shipExpected["data"][ship[PlayerShip.PlayerShipDataIndex.id]]["win_rate"].doubleValue) * Double(ship[PlayerShip.PlayerShipDataIndex.battles])! / 100
+            expectedFrags += Double(ShipRating.shipExpected["data"][ship[PlayerShip.PlayerShipDataIndex.id]]["average_frags"].doubleValue) * Double(ship[PlayerShip.PlayerShipDataIndex.battles])!
+        }
+        
+        print(actualDmg,expectedDmg,"\n",actualWins,expectedWins,"\n", actualFrags,expectedFrags)
+        
+        let rDmg = actualDmg / expectedDmg
+        let rFrags = actualFrags / expectedFrags
+        let rWins = actualWins / expectedWins
+        
+        let nDmg = max(0.0, (rDmg - 0.4) / (1.0 - 0.4))
+        let nFrags = max(0.0, (rFrags - 0.1) / (1.0 - 0.1))
+        let nWins = max(0.0, (rWins - 0.7) / (1.0 - 0.7))
+        
+        rating = 700 * nDmg + 300 * nFrags + 150 * nWins
+        print("Rating: \(rating)")
+        
+        let index = PersonalRating.getPersonalRatingIndex(PR: rating)
+        prLabel.text = PersonalRating.Comment[index]
+        prLabel.textColor = PersonalRating.ColorGroup[index]
+    }
  
 }
