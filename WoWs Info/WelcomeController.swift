@@ -75,28 +75,6 @@ class WelcomeController : UIViewController {
             bannerView.rootViewController = self
             bannerView.load(request)
         }
-        
-        // Load rating
-        ShipRating().loadExpctedJson()
-        
-        // Get ship information
-        Shipinformation().getShipInformation()
-        
-        // Get Achievement information
-        Achievements().getAchievementJson()
-        
-        // Get upgrade information
-        Upgrade().getUpgradeJson()
-        
-        // Get flag information
-        Flag().getFlagJson()
-        
-        // Get camouflage information
-        Camouflage().getCamouflageJson()
-        
-        // Get commander skill information
-        CommanderSkill().getCommanderSkillJson()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {

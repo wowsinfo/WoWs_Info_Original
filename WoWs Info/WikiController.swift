@@ -16,6 +16,7 @@ class WikiController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.topItem?.title = NSLocalizedString("WOWS_WIKI", comment: "Wiki Title")
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,6 +45,11 @@ class WikiController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Change text to "Back"
+        let backItem = UIBarButtonItem()
+        backItem.title = NSLocalizedString("BACK", comment: "Back button")
+        navigationItem.backBarButtonItem = backItem
+        
         if segue.identifier == "gotoWikiData" {
             // We have to send seme data
             let destination = segue.destination as! WikiDataController

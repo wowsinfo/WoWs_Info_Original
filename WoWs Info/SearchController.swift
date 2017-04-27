@@ -33,7 +33,6 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         usernameTableView.dataSource = self
         usernameTableView.separatorColor = UIColor.clear
         
-        self.title = ""
         username.contentVerticalAlignment = UIControlContentVerticalAlignment.center
         
         // Pickerview setup

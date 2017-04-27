@@ -75,7 +75,7 @@
         <!--Ship Info Controller-->
         <scene sceneID="uML-jp-o1F">
             <objects>
-                <viewController id="CO8-Rs-Lu0" customClass="ShipInfoController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="CO8-Rs-Lu0" customClass="ShipInfoController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zDo-eB-0yk"/>
                         <viewControllerLayoutGuide type="bottom" id="fGQ-8c-IGC"/>
@@ -233,7 +233,7 @@
         <!--Ship Detail Controller-->
         <scene sceneID="12q-Hd-SiY">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="bqy-rI-GmY" customClass="ShipDetailController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="bqy-rI-GmY" customClass="ShipDetailController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q3g-9h-dfo"/>
                         <viewControllerLayoutGuide type="bottom" id="Ikr-Rz-DmX"/>
@@ -816,7 +816,7 @@
         <!--Table View Controller-->
         <scene sceneID="vP5-7d-4Lz">
             <objects>
-                <tableViewController id="Kn5-P6-pX6" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="Kn5-P6-pX6" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="m8b-rF-MWC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1201,8 +1201,8 @@
         <!--Achievement Controller-->
         <scene sceneID="UC3-Si-48N">
             <objects>
-                <collectionViewController id="Xce-dw-IdV" customClass="AchievementController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="cHU-QU-x7Q">
+                <collectionViewController hidesBottomBarWhenPushed="YES" id="Xce-dw-IdV" customClass="AchievementController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="cHU-QU-x7Q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1255,7 +1255,7 @@
         <!--Wiki Data Controller-->
         <scene sceneID="cFo-18-oR8">
             <objects>
-                <tableViewController id="5gJ-nU-Q1b" customClass="WikiDataController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="5gJ-nU-Q1b" customClass="WikiDataController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="83" sectionHeaderHeight="28" sectionFooterHeight="28" id="div-pd-ej2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
