@@ -14,7 +14,7 @@
         <!--Advanced Info Controller-->
         <scene sceneID="Arr-fF-agX">
             <objects>
-                <viewController storyboardIdentifier="AdvancedInfoController" id="aqY-f9-abh" customClass="AdvancedInfoController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AdvancedInfoController" hidesBottomBarWhenPushed="YES" id="aqY-f9-abh" customClass="AdvancedInfoController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Pwb-5e-d4o"/>
                         <viewControllerLayoutGuide type="bottom" id="hyJ-Vf-vcM"/>

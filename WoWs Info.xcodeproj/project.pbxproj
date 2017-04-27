@@ -65,6 +65,7 @@
 		929B0B4B1E619EE3007E54EA /* Wiki.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 929B0B4A1E619EE3007E54EA /* Wiki.storyboard */; };
 		929B0B4E1E61A022007E54EA /* AchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B4D1E61A022007E54EA /* AchievementCell.swift */; };
 		929B0B501E61A1E1007E54EA /* AchievementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B4F1E61A1E1007E54EA /* AchievementController.swift */; };
+		929C426D1EB20E2600DD0F6A /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929C426C1EB20E2600DD0F6A /* DashboardController.swift */; };
 		92AAE8C01E938511006DB929 /* WikiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AAE8BF1E938511006DB929 /* WikiController.swift */; };
 		92AAE8C21E938663006DB929 /* WikiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AAE8C11E938663006DB929 /* WikiCell.swift */; };
 		92B768641E5E5D02009803C3 /* MoreInformation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B768661E5E5D02009803C3 /* MoreInformation.storyboard */; };
@@ -82,7 +83,6 @@
 		92E45B1C1EAE0F5200360E62 /* Clan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E45B1B1EAE0F5200360E62 /* Clan.storyboard */; };
 		92E45B1E1EAE13C200360E62 /* ClanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E45B1D1EAE13C200360E62 /* ClanCell.swift */; };
 		92E45B201EAE13CC00360E62 /* MemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E45B1F1EAE13CC00360E62 /* MemberCell.swift */; };
-		92E45B231EAE148700360E62 /* ClanSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E45B221EAE148700360E62 /* ClanSearchController.swift */; };
 		92E45B251EAE149D00360E62 /* ClanInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E45B241EAE149D00360E62 /* ClanInfoController.swift */; };
 		92E45B271EAE17A900360E62 /* Clan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E45B261EAE17A900360E62 /* Clan.swift */; };
 		92F526F11E6B9476005A2E20 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F526F01E6B9476005A2E20 /* AboutController.swift */; };
@@ -164,6 +164,7 @@
 		929B0B4A1E619EE3007E54EA /* Wiki.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Wiki.storyboard; sourceTree = "<group>"; };
 		929B0B4D1E61A022007E54EA /* AchievementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementCell.swift; sourceTree = "<group>"; };
 		929B0B4F1E61A1E1007E54EA /* AchievementController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementController.swift; sourceTree = "<group>"; };
+		929C426C1EB20E2600DD0F6A /* DashboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
 		92AAE8BF1E938511006DB929 /* WikiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiController.swift; sourceTree = "<group>"; };
 		92AAE8C11E938663006DB929 /* WikiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiCell.swift; sourceTree = "<group>"; };
 		92B768621E5E5A57009803C3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SimpleStat.strings"; sourceTree = "<group>"; };
@@ -192,7 +193,6 @@
 		92E45B1B1EAE0F5200360E62 /* Clan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Clan.storyboard; sourceTree = "<group>"; };
 		92E45B1D1EAE13C200360E62 /* ClanCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClanCell.swift; sourceTree = "<group>"; };
 		92E45B1F1EAE13CC00360E62 /* MemberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberCell.swift; sourceTree = "<group>"; };
-		92E45B221EAE148700360E62 /* ClanSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClanSearchController.swift; sourceTree = "<group>"; };
 		92E45B241EAE149D00360E62 /* ClanInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClanInfoController.swift; sourceTree = "<group>"; };
 		92E45B261EAE17A900360E62 /* Clan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clan.swift; sourceTree = "<group>"; };
 		92F526F01E6B9476005A2E20 /* AboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
@@ -245,6 +245,7 @@
 		9210C0801E4609EF00270002 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				929C426B1EB20E0200DD0F6A /* Dashboard */,
 				920105B61EB1890500E5F338 /* Tab Bar */,
 				92E45B211EAE147500360E62 /* Clan */,
 				92BF559C1E9FB54A00573F0A /* Review */,
@@ -462,6 +463,14 @@
 			name = CollectionCell;
 			sourceTree = "<group>";
 		};
+		929C426B1EB20E0200DD0F6A /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				929C426C1EB20E2600DD0F6A /* DashboardController.swift */,
+			);
+			name = Dashboard;
+			sourceTree = "<group>";
+		};
 		92BF559C1E9FB54A00573F0A /* Review */ = {
 			isa = PBXGroup;
 			children = (
@@ -517,7 +526,6 @@
 		92E45B211EAE147500360E62 /* Clan */ = {
 			isa = PBXGroup;
 			children = (
-				92E45B221EAE148700360E62 /* ClanSearchController.swift */,
 				92E45B241EAE149D00360E62 /* ClanInfoController.swift */,
 			);
 			name = Clan;
@@ -693,7 +701,6 @@
 				9260D0471E960BF500BBCB03 /* WikiDataController.swift in Sources */,
 				926528C31E41BD5600D1A685 /* WelcomeController.swift in Sources */,
 				92634D0F1E540EBE000CDCB4 /* ServerUrl.swift in Sources */,
-				92E45B231EAE148700360E62 /* ClanSearchController.swift in Sources */,
 				92330DEC1E77F54200A06FD7 /* HeaderView.swift in Sources */,
 				924BAAE21E4EAF720000B246 /* PlayerOnline.swift in Sources */,
 				920105B51EB1827B00E5F338 /* Reachability.swift in Sources */,
@@ -734,6 +741,7 @@
 				926528BF1E41BD5600D1A685 /* PlayerInformation.swift in Sources */,
 				9259C1CC1E57BC4400F34CDC /* IAPController.swift in Sources */,
 				92D9B4DB1E565C8A00CFD46D /* ShipTableCell.swift in Sources */,
+				929C426D1EB20E2600DD0F6A /* DashboardController.swift in Sources */,
 				926528C01E41BD5600D1A685 /* SearchController.swift in Sources */,
 				929928451E865FA20091A174 /* NewsCell.swift in Sources */,
 				920E1C411E5EB76300B43472 /* DonationController.swift in Sources */,

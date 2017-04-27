@@ -40,7 +40,7 @@ class ClanInfoController: UITableViewController {
         ClanInfo(ID: clanID).getClanList { (Clan) in
             DispatchQueue.main.async {
                 self.clanInfo = Clan
-                print("Clan : \(Clan)")
+                print("Clan: \(Clan)")
                 self.tableView.reloadData()
             }
         }
@@ -80,8 +80,14 @@ class ClanInfoController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row > 0 {
-            // From member list
-            performSegue(withIdentifier: "gotoAdvancedInfo", sender: indexPath.row)
+            if UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked) == true {
+                // From member list, Pro only
+                performSegue(withIdentifier: "gotoAdvancedInfo", sender: indexPath.row)
+            } else {
+                let proOnly = UIAlertController(title: "Sorry", message: "This is for pro version only. Update to Pro version to use this feature.", preferredStyle: .alert)
+                proOnly.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(proOnly, animated: true, completion: nil)
+            }
         }
     }
 
