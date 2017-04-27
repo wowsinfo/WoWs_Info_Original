@@ -15,6 +15,7 @@ class WebTableController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.separatorColor = UIColor.clear
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,6 +29,7 @@ class WebTableController: UITableViewController {
         if tag! > 0 {
             UIApplication.shared.openURL(URL(string: website[tag! - 1])!)
         }
+        tableView.reloadData()
 
     }
 

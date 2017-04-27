@@ -105,3 +105,21 @@
 "CAMOUFLAGE" = "迷彩";
 
 "COMMANDER_SKILL" = "舰长技能";
+
+"GAME_ISNOT_EVERYTHING" = "游戏不是生活的全部\n已保存您的用户名和ID";
+
+"GAME_ISNOT_EVERYTHING_BTN" = "是啊，我应该去做些什么";
+
+"IAP_NOADS" = "无广告";
+
+"IAP_DASHBOARD" = "个人数据";
+
+"IAP_FRIENDLIST" = "朋友列表";
+
+"IAP_BETTERSTAT" = "更详细的数据";
+
+"IAP_RATING" = "PR评分";
+
+"IAP_CHARTS" = "实用的图表";
+
+"IAP_RANK" = "排位赛信息";

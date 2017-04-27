@@ -28,7 +28,7 @@
 
 "WELCOME_MESSAGE" = "This application is designed to get a quick overview of other players before battle begins. Please first customise some settings.";
 
-"PURCHASE_TITLE" = "All set";
+"PURCHASE_TITLE" = "^_^";
 
 "PURCHASE_MESSAGE" = "You have unlocked Pro features\nPlease restart this application";
 
@@ -105,3 +105,21 @@
 "CAMOUFLAGE" = "Camouflage";
 
 "COMMANDER_SKILL" = "Commander Skill";
+
+"GAME_ISNOT_EVERYTHING" = "Game is great but it is not everything in life\nYour name and ID are saved!";
+
+"GAME_ISNOT_EVERYTHING_BTN" = "Yes, I should do somthing";
+
+"IAP_NOADS" = "No ads";
+
+"IAP_DASHBOARD" = "Dashboard";
+
+"IAP_FRIENDLIST" = "Friend list";
+
+"IAP_BETTERSTAT" = "Better and detailed statistic";
+
+"IAP_RATING" = "Personal rating";
+
+"IAP_CHARTS" = "Useful charts";
+
+"IAP_RANK" = "Rank Information";

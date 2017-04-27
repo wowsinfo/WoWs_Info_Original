@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class ShipController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
 
+    @IBOutlet weak var shipCountLabel: UILabel!
+    @IBOutlet weak var avgRatingLabel: UILabel!
     @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var ShipTableView: UITableView!
@@ -30,17 +33,16 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         RecentData(account: PlayerAccount.AccountID).getRecentData()
         self.tabBarController?.tabBar.isUserInteractionEnabled = false
         
-        PlayerShip(account: PlayerAccount.AccountID).getPlayerShipInfo(success: { data in
-            DispatchQueue.main.async {
-                self.targetShips = data
-                self.ShipTableView.reloadData()
-                
-                self.loadingIndicator.isHidden = true
-                self.loadingView.isHidden = true
-                
-                self.tabBarController?.tabBar.isUserInteractionEnabled = true
-            }
-        })
+        DispatchQueue.main.async {
+            self.targetShips = PlayerShip.playerShipInfo
+            self.ShipTableView.reloadData()
+            
+            self.loadingIndicator.isHidden = true
+            self.loadingView.isHidden = true
+            self.calAvgShipRating()
+            
+            self.tabBarController?.tabBar.isUserInteractionEnabled = true
+        }
         
     }
 
@@ -77,11 +79,6 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         let filterText = filterTextField.text!
         
         if filterText == "" {
-            // Empty
-            targetShips = PlayerShip.playerShipInfo
-            DispatchQueue.main.async {
-                self.ShipTableView.reloadData()
-            }
             return
         }
         
@@ -106,28 +103,9 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         } else {
             for ship in PlayerShip.playerShipInfo {
-                switch filterText {
-                case "dd":
-                    if ship[PlayerShip.PlayerShipDataIndex.type] == "Destroyer" {
-                        targetShips.append(ship)
-                    }
-                case "bb":
-                    if ship[PlayerShip.PlayerShipDataIndex.type] == "Battleship" {
-                        targetShips.append(ship)
-                    }
-                case "ca":
-                    if ship[PlayerShip.PlayerShipDataIndex.type] == "Cruiser" {
-                        targetShips.append(ship)
-                    }
-                case "cv":
-                    if ship[PlayerShip.PlayerShipDataIndex.type] == "AirCarrier" {
-                        targetShips.append(ship)
-                    }
-                default:
-                    // Find ship with name
-                    if ship[PlayerShip.PlayerShipDataIndex.name].lowercased().contains(filterText.lowercased()) {
-                        targetShips.append(ship)
-                    }
+                // Find ship with name
+                if ship[PlayerShip.PlayerShipDataIndex.name].lowercased().contains(filterText.lowercased()) {
+                    targetShips.append(ship)
                 }
             }
         }
@@ -135,6 +113,7 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Update table now
         DispatchQueue.main.async {
             self.ShipTableView.reloadData()
+            self.calAvgShipRating()
         }
         
     }
@@ -154,10 +133,133 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
             destination.xp = targetShips[sender as! Int][PlayerShip.PlayerShipDataIndex.averageExp]
             destination.hitratio = targetShips[sender as! Int][PlayerShip.PlayerShipDataIndex.hitRatio]
             
-            destination.ratingIndex = Int(targetShips[sender as! Int][PlayerShip.PlayerShipDataIndex.rating])!
+            destination.ratingIndex = Int(targetShips[sender as! Int][PlayerShip.PlayerShipDataIndex.rating].components(separatedBy: "|")[1])!
             destination.shipName = targetShips[sender as! Int][PlayerShip.PlayerShipDataIndex.name]
+            destination.shipID = targetShips[sender as! Int][PlayerShip.PlayerShipDataIndex.id]
+            destination.shipType = targetShips[sender as! Int][PlayerShip.PlayerShipDataIndex.type]
+            print(targetShips[sender as! Int][PlayerShip.PlayerShipDataIndex.id])
         }
         
+    }
+    
+    func calAvgShipRating() {
+        
+        var actualDmg = 0.0
+        var actualWins = 0.0
+        var actualFrags = 0.0
+        
+        var expectedDmg = 0.0
+        var expectedWins = 0.0
+        var expectedFrags = 0.0
+        
+        var rating = 0.0
+        
+        for ship in targetShips {
+            actualDmg += Double(ship[PlayerShip.PlayerShipDataIndex.totalDamage])!
+            actualWins += Double(ship[PlayerShip.PlayerShipDataIndex.totalWins])!
+            actualFrags += Double(ship[PlayerShip.PlayerShipDataIndex.totalFrags])!
+            
+            expectedDmg += Double(ShipRating.shipExpected["data"][ship[PlayerShip.PlayerShipDataIndex.id]]["average_damage_dealt"].doubleValue) * Double(ship[PlayerShip.PlayerShipDataIndex.battles])!
+            expectedWins += Double(ShipRating.shipExpected["data"][ship[PlayerShip.PlayerShipDataIndex.id]]["win_rate"].doubleValue) * Double(ship[PlayerShip.PlayerShipDataIndex.battles])! / 100
+            expectedFrags += Double(ShipRating.shipExpected["data"][ship[PlayerShip.PlayerShipDataIndex.id]]["average_frags"].doubleValue) * Double(ship[PlayerShip.PlayerShipDataIndex.battles])!
+        }
+        
+        print(actualDmg,expectedDmg,"\n",actualWins,expectedWins,"\n", actualFrags,expectedFrags)
+        
+        let rDmg = actualDmg / expectedDmg
+        let rFrags = actualFrags / expectedFrags
+        let rWins = actualWins / expectedWins
+        
+        let nDmg = max(0.0, (rDmg - 0.4) / (1.0 - 0.4))
+        let nFrags = max(0.0, (rFrags - 0.1) / (1.0 - 0.1))
+        let nWins = max(0.0, (rWins - 0.7) / (1.0 - 0.7))
+        
+        rating = 700 * nDmg + 300 * nFrags + 150 * nWins
+        print("Rating: \(rating)")
+        
+        let index = PersonalRating.getPersonalRatingIndex(PR: rating)
+        avgRatingLabel.text = PersonalRating.Comment[index]
+        avgRatingLabel.textColor = PersonalRating.ColorGroup[index]
+        
+        shipCountLabel.text = "\(targetShips.count)"
+    }
+    
+    // MARK: Btn Pressed
+    @IBAction func ddBtnPressed(_ sender: Any) {
+        AudioServicesPlaySystemSound(1520)
+        // Clean it
+        targetShips = [[String]]()
+        for ship in PlayerShip.playerShipInfo {
+            if ship[PlayerShip.PlayerShipDataIndex.type] == "Destroyer" {
+                targetShips.append(ship)
+            }
+        }
+        // Update table now
+        DispatchQueue.main.async {
+            self.ShipTableView.reloadData()
+            self.calAvgShipRating()
+        }
+    }
+    
+    @IBAction func resetBtnPressed(_ sender: Any) {
+        AudioServicesPlaySystemSound(1520)
+        // Empty
+        targetShips = PlayerShip.playerShipInfo
+        DispatchQueue.main.async {
+            self.ShipTableView.reloadData()
+            self.calAvgShipRating()
+        }
+        
+        filterTextField.text = ""
+        filterTextField.becomeFirstResponder()
+    }
+    
+    @IBAction func caBtnPressed(_ sender: Any) {
+        AudioServicesPlaySystemSound(1520)
+        // Clean it
+        targetShips = [[String]]()
+        for ship in PlayerShip.playerShipInfo {
+            if ship[PlayerShip.PlayerShipDataIndex.type] == "Cruiser" {
+                targetShips.append(ship)
+            }
+        }
+        // Update table now
+        DispatchQueue.main.async {
+            self.ShipTableView.reloadData()
+            self.calAvgShipRating()
+        }
+    }
+    
+    @IBAction func bbBtnPressed(_ sender: Any) {
+        AudioServicesPlaySystemSound(1520)
+        // Clean it
+        targetShips = [[String]]()
+        for ship in PlayerShip.playerShipInfo {
+            if ship[PlayerShip.PlayerShipDataIndex.type] == "Battleship" {
+                targetShips.append(ship)
+            }
+        }
+        // Update table now
+        DispatchQueue.main.async {
+            self.ShipTableView.reloadData()
+            self.calAvgShipRating()
+        }
+    }
+    
+    @IBAction func cvBtnPressed(_ sender: Any) {
+        AudioServicesPlaySystemSound(1520)
+        // Clean it
+        targetShips = [[String]]()
+        for ship in PlayerShip.playerShipInfo {
+            if ship[PlayerShip.PlayerShipDataIndex.type] == "AirCarrier" {
+                targetShips.append(ship)
+            }
+        }
+        // Update table now
+        DispatchQueue.main.async {
+            self.ShipTableView.reloadData()
+            self.calAvgShipRating()
+        }
     }
 
     
@@ -185,7 +287,7 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         let tierName = NSLocalizedString("TIER", comment: "Tier label") + " \(tierSymbol[Int(tier)! - 1]) " + name
         cell.TierNameLabel.text = tierName
         
-        let index = Int(targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.rating])!
+        let index = Int(targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.rating].components(separatedBy: "|")[1])!
         cell.shipRating.text = PersonalRating.Comment[index]
         cell.shipRating.textColor = PersonalRating.ColorGroup[index]
         
@@ -203,4 +305,5 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return targetShips.count
     }
+    
 }

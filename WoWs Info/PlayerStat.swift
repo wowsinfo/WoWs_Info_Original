@@ -46,7 +46,7 @@ class PlayerStat{
         // Get data
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if (error != nil) {
-                print("Error: \(error)")
+                print("Error: \(error!)")
             } else {
                 let dataJson = JSON(data!)
                 if dataJson["status"].stringValue == "ok" {
@@ -88,7 +88,7 @@ class PlayerStat{
         
         // Make room for everyone
         var information = [String]()
-        for _ in 0...8 {
+        for _ in 0...13 {
             information.append("")
         }
         

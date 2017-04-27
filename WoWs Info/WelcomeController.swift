@@ -18,6 +18,8 @@ class WelcomeController : UIViewController {
     @IBOutlet weak var wikiImage: UIImageView!
     @IBOutlet weak var webImage: UIImageView!
     @IBOutlet weak var searchButton: UIImageView!
+    @IBOutlet weak var donationImage: UIImageView!
+    @IBOutlet weak var appstoreImage: UIImageView!
     @IBOutlet weak var settingsBtn: UIImageView!
     @IBOutlet weak var onlinePlayerLabel: UILabel!
     @IBOutlet weak var onlinePlayerIcon: UIImageView!
@@ -86,11 +88,20 @@ class WelcomeController : UIViewController {
         // Get upgrade information
         Upgrade().getUpgradeJson()
         
+        // Get flag information
+        Flag().getFlagJson()
+        
+        // Get camouflage information
+        Camouflage().getCamouflageJson()
+        
+        // Get commander skill information
+        CommanderSkill().getCommanderSkillJson()
+        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
-        super.viewWillAppear(true)
+        super.viewDidAppear(true)
         onlinePlayerLabel.text = " ... "
         
         if UserDefaults.standard.string(forKey: DataManagement.DataName.UserName) != ">_<" {
@@ -117,35 +128,7 @@ class WelcomeController : UIViewController {
                 self.searchButton.frame.origin.y -= 25
             }, completion: nil)
             
-            // Show Settings and Dashboard Button
-            UIView.animate(withDuration: 0.85, delay: 2.5, options: .curveEaseIn, animations: {
-                self.webImage.alpha = 1.0
-            }, completion: nil)
-            
-            UIView.animate(withDuration: 0.85, delay: 2.75, options: .curveEaseIn, animations: {
-                self.wikiImage.alpha = 1.0
-            }, completion: nil)
-            
-            UIView.animate(withDuration: 0.85, delay: 3.0, options: .curveEaseIn, animations: {
-                self.settingsBtn.alpha = 1.0
-            }, completion: nil)
-            
-            UIView.animate(withDuration: 0.85, delay: 3.25, options: .curveEaseIn, animations: {
-                self.dashboardBtn.alpha = 1.0
-            }, completion: nil)
-            
-            if isProVersion {
-                UIView.animate(withDuration: 0.85, delay: 3.5, options: .curveEaseIn, animations: {
-                    self.friendImage.alpha = 1.0
-                }, completion: nil)
-            } else {
-                // Show pro button
-                UIView.animate(withDuration: 0.85, delay: 3.75, options: .curveEaseIn, animations: {
-                    self.proImage.alpha = 1.0
-                }, completion: nil)
-            }
-            
-            
+            performAnimation()
         }
         
         // Update online player number
@@ -180,9 +163,79 @@ class WelcomeController : UIViewController {
         }
         
     }
+    
+    func hideAllLabels() {
+        searchButton.alpha = 0
+        onlinePlayerIcon.alpha = 0
+        onlinePlayerLabel.alpha = 0
+        wikiImage.alpha = 0
+        settingsBtn.alpha = 0
+        donationImage.alpha = 0
+        appstoreImage.alpha = 0
+        friendImage.alpha = 0
+        dashboardBtn.alpha = 0
+        webImage.alpha = 0
+    }
+    
+    func performAnimation() {
+        
+        // Show Settings and Dashboard Button
+        UIView.animate(withDuration: 0.85, delay: 2.5, options: .curveEaseIn, animations: {
+            self.webImage.alpha = 1.0
+            self.webImage.frame.origin.y -= CGFloat(arc4random() % 150 + 1)
+            self.webImage.frame.origin.x -= CGFloat(arc4random() % 150 + 1)
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 0.85, delay: 2.75, options: .curveEaseIn, animations: {
+            self.wikiImage.alpha = 1.0
+            self.wikiImage.frame.origin.y -= CGFloat(arc4random() % 150 + 1)
+            self.wikiImage.frame.origin.x += CGFloat(arc4random() % 150 + 1)
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 0.85, delay: 3.0, options: .curveEaseIn, animations: {
+            self.donationImage.alpha = 1.0
+            self.donationImage.frame.origin.x += CGFloat(arc4random() % 150 + 1)
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 0.85, delay: 3.25, options: .curveEaseIn, animations: {
+            self.settingsBtn.alpha = 1.0
+            self.settingsBtn.frame.origin.y += CGFloat(arc4random() % 150 + 1)
+            self.settingsBtn.frame.origin.x += CGFloat(arc4random() % 150 + 1)
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 0.85, delay: 3.5, options: .curveEaseIn, animations: {
+            self.dashboardBtn.alpha = 1.0
+            self.dashboardBtn.frame.origin.y += CGFloat(arc4random() % 150 + 1)
+            self.dashboardBtn.frame.origin.x -= CGFloat(arc4random() % 150 + 1)
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 0.85, delay: 3.75, options: .curveEaseIn, animations: {
+            self.appstoreImage.alpha = 1.0
+            self.appstoreImage.frame.origin.x -= CGFloat(arc4random() % 150 + 1)
+        }, completion: nil)
+        
+        if isProVersion {
+            UIView.animate(withDuration: 0.85, delay: 3.75, options: .curveEaseIn, animations: {
+            self.friendImage.alpha = 1.0
+            self.friendImage.frame.origin.y += CGFloat(arc4random() % 150 + 1)
+            }, completion: nil)
+            } else {
+            // Show pro button
+            UIView.animate(withDuration: 0.85, delay: 4.00, options: .curveEaseIn, animations: {
+            self.proImage.alpha = 1.0
+            }, completion: nil)
+        }
+    }
 
     @IBAction func gotoHelp(_ sender: UIBarButtonItem) {
         UIApplication.shared.openURL(URL(string: "https://yihengquan.wordpress.com/2017/03/16/ios-wows-info/")!)
+    }
+    
+    @IBAction func redoAnimation(_ sender: Any) {
+        
+        hideAllLabels()
+        performAnimation()
+        
     }
     
 }

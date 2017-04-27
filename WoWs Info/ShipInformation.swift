@@ -25,12 +25,32 @@ class Shipinformation {
         let request = URLRequest.init(url: URL(string: shipInfoAPI)!)
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if error != nil {
-                print("Error: \(error)")
+                print("Error: \(error!)")
             } else {
                 let dataJson = JSON(data!)
                 if dataJson["status"].stringValue == "ok" {
                     // Get Information for all ships
                     Shipinformation.ShipJson = dataJson["data"]
+                }
+            }
+        }
+        task.resume()
+        
+    }
+    
+    static func getImageWithId(ID: String, Success: @escaping (String) -> ()) {
+        
+        // Get all ship information here
+        let server = ServerUrl.Server[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)]
+        let request = URLRequest.init(url: URL(string: "https://api.worldofwarships.\(server)/wows/encyclopedia/ships/?application_id=4e54ba74077a8230e457bf3e7e9ae858&fields=images.small&ship_id=" + ID)!)
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if error != nil {
+                print("Error: \(error!)")
+            } else {
+                let dataJson = JSON(data!)
+                if dataJson["status"].stringValue == "ok" {
+                    // Get Information for all ships
+                    Success(dataJson["data"][ID]["images"]["small"].stringValue)
                 }
             }
         }
@@ -78,6 +98,10 @@ class PlayerShip {
         static let averageFrags = 8
         static let name = 9
         static let rating = 10
+        static let totalDamage = 11
+        static let totalFrags = 12
+        static let totalWins = 13
+        static let id = 14
     }
     
     init(account: String) {
@@ -85,12 +109,12 @@ class PlayerShip {
         playerShipsAPI = "https://api.worldofwarships.\(server)/wows/ships/stats/?application_id=4e54ba74077a8230e457bf3e7e9ae858&account_id=\(account)&fields=ship_id%2Cpvp.battles%2Cpvp.damage_dealt%2Cpvp.wins%2Cpvp.xp%2Cpvp.frags%2Cpvp.survived_battles%2Cpvp.main_battery.hits%2Cpvp.main_battery.shots"
     }
     
-    func getPlayerShipInfo(success: @escaping ([[String]]) -> ()) {
+    func getPlayerShipInfo() {
         
         let request = URLRequest.init(url: URL(string: playerShipsAPI)!)
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if error != nil {
-                print("Error: \(error)")
+                print("Error: \(error!)")
             } else {
                 let dataJson = JSON(data!)
                 if dataJson["status"].stringValue == "ok" {
@@ -120,6 +144,10 @@ class PlayerShip {
                             information[PlayerShip.PlayerShipDataIndex.type] = ""
                             information.append(shipID)
                             
+                            information[PlayerShip.PlayerShipDataIndex.totalDamage] = "\(damage)"
+                            information[PlayerShip.PlayerShipDataIndex.totalWins] = "\(wins)"
+                            information[PlayerShip.PlayerShipDataIndex.totalFrags] = "\(frags)"
+                            
                             // Get ship information
                             if Shipinformation.ShipJson != nil {
                                 let ship = Shipinformation.ShipJson[shipID]
@@ -130,7 +158,7 @@ class PlayerShip {
                                     information[PlayerShip.PlayerShipDataIndex.name] = ship["name"].stringValue
                                     
                                     let ratingIndex = ShipRating().getRatingForShips(Damage: damage/battles, WinRate: wins/battles, Frags: frags/battles, ID: shipID)
-                                    information.append(String(ratingIndex))
+                                    information[PlayerShip.PlayerShipDataIndex.rating] = ratingIndex
                                     
                                     // Only add new ships
                                     shipInfo.append(information)
@@ -142,14 +170,12 @@ class PlayerShip {
                     // Sort array
                     shipInfo.sort(by: {
                         // If they have same rating
-                        if $0[10] == $1[10] {
+                        if Int($0[10].components(separatedBy: "|")[1])! == Int($1[10].components(separatedBy: "|")[1])! {
                             return Int($0[5])! > Int($1[5])!
                         }
-                        return $0[10] > $1[10]
+                        return Int($0[10].components(separatedBy: "|")[1])! > Int($1[10].components(separatedBy: "|")[1])!
                     })
                     
-                    // Update and long term use of this data
-                    success(shipInfo)
                     PlayerShip.playerShipInfo = shipInfo
                     
                     print(shipInfo)
