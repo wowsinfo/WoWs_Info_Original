@@ -20,7 +20,7 @@ class NewsController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 70.0
         
-        self.title = NSLocalizedString("WEB_LOADING", comment: "Loading news")
+        self.navigationController?.navigationBar.topItem?.title = NSLocalizedString("WEB_LOADING", comment: "Loading news")
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,9 +33,9 @@ class NewsController: UITableViewController {
         if newsData.count == 0 {
             newsData = News().getNews()
             if newsData.count > 0 {
-                self.title = NSLocalizedString("NEWS", comment: "News label")
+                self.navigationController?.navigationBar.topItem?.title = NSLocalizedString("NEWS", comment: "News label")
             } else {
-                self.title = ">_<"
+                self.navigationController?.navigationBar.topItem?.title = ">_<"
             }
             self.tableView.reloadData()
         }
