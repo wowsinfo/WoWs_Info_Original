@@ -29,7 +29,7 @@ class TabBarController: UITabBarController {
                 let proOnly = UIAlertController(title: "Sorry", message: "This is for pro version only. Update to Pro version to use this feature.", preferredStyle: .alert)
                 proOnly.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 self.present(proOnly, animated: true, completion: {
-                    self.selectedIndex = 2
+                    self.selectedIndex = 4
                 })
             }
         } else {
