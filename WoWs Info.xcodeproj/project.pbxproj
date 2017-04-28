@@ -14,6 +14,9 @@
 		9210C06A1E45B3D500270002 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210C0691E45B3D500270002 /* WebViewController.swift */; };
 		9210C06E1E45E30E00270002 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210C06D1E45E30E00270002 /* NavigationController.swift */; };
 		9210C07E1E4609BA00270002 /* PersonalRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210C07D1E4609BA00270002 /* PersonalRating.swift */; };
+		92130AE41EB3003300B79DD5 /* UpgradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92130AE31EB3003300B79DD5 /* UpgradeCell.swift */; };
+		92130AE61EB3006300B79DD5 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92130AE51EB3006300B79DD5 /* SettingsCell.swift */; };
+		92130AE81EB3092300B79DD5 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92130AE71EB3092300B79DD5 /* SettingsController.swift */; };
 		9215CA3F1E5BF33D00A7F465 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923FFB3D1E5950340034686C /* SwiftyJSON.framework */; };
 		9215CA411E5BF34800A7F465 /* Pods_WoWs_Info.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9215CA401E5BF34800A7F465 /* Pods_WoWs_Info.framework */; };
 		9215CA491E5C119100A7F465 /* WebTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9215CA481E5C119100A7F465 /* WebTableController.swift */; };
@@ -48,7 +51,7 @@
 		926528BE1E41BD5600D1A685 /* PlayerInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528B81E41BD5600D1A685 /* PlayerInfoController.swift */; };
 		926528BF1E41BD5600D1A685 /* PlayerInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528B91E41BD5600D1A685 /* PlayerInformation.swift */; };
 		926528C01E41BD5600D1A685 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528BA1E41BD5600D1A685 /* SearchController.swift */; };
-		926528C11E41BD5600D1A685 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528BB1E41BD5600D1A685 /* SettingsController.swift */; };
+		926528C11E41BD5600D1A685 /* InSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528BB1E41BD5600D1A685 /* InSettingsController.swift */; };
 		926528C31E41BD5600D1A685 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528BD1E41BD5600D1A685 /* WelcomeController.swift */; };
 		927661051EA0676C00282732 /* IAPCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927661041EA0676C00282732 /* IAPCell.swift */; };
 		927AA8631EAEDAD600169B0A /* ClanSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927AA8621EAEDAD600169B0A /* ClanSearchCell.swift */; };
@@ -106,6 +109,9 @@
 		9210C0691E45B3D500270002 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		9210C06D1E45E30E00270002 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		9210C07D1E4609BA00270002 /* PersonalRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalRating.swift; sourceTree = "<group>"; };
+		92130AE31EB3003300B79DD5 /* UpgradeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradeCell.swift; sourceTree = "<group>"; };
+		92130AE51EB3006300B79DD5 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		92130AE71EB3092300B79DD5 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		9215CA3A1E5BF28100A7F465 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleToolboxForMac.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/GoogleToolboxForMac/GoogleToolboxForMac.framework"; sourceTree = "<group>"; };
 		9215CA401E5BF34800A7F465 /* Pods_WoWs_Info.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_WoWs_Info.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/Pods_WoWs_Info.framework"; sourceTree = "<group>"; };
 		9215CA481E5C119100A7F465 /* WebTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebTableController.swift; sourceTree = "<group>"; };
@@ -143,7 +149,7 @@
 		926528B81E41BD5600D1A685 /* PlayerInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerInfoController.swift; sourceTree = "<group>"; };
 		926528B91E41BD5600D1A685 /* PlayerInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerInformation.swift; sourceTree = "<group>"; };
 		926528BA1E41BD5600D1A685 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
-		926528BB1E41BD5600D1A685 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		926528BB1E41BD5600D1A685 /* InSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InSettingsController.swift; sourceTree = "<group>"; };
 		926528BD1E41BD5600D1A685 /* WelcomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
 		927661041EA0676C00282732 /* IAPCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPCell.swift; sourceTree = "<group>"; };
 		9276610C1EA0887E00282732 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -245,11 +251,11 @@
 		9210C0801E4609EF00270002 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9210C06D1E45E30E00270002 /* NavigationController.swift */,
 				929C426B1EB20E0200DD0F6A /* Dashboard */,
 				920105B61EB1890500E5F338 /* Tab Bar */,
 				92E45B211EAE147500360E62 /* Clan */,
 				92BF559C1E9FB54A00573F0A /* Review */,
-				9210C06D1E45E30E00270002 /* NavigationController.swift */,
 				9215CA461E5C0C7C00A7F465 /* Pro */,
 				9260D04E1E960C5800BBCB03 /* IAP */,
 				9260D0501E960C8300BBCB03 /* PlayerInfo */,
@@ -404,7 +410,8 @@
 		9260D04D1E960C4200BBCB03 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				926528BB1E41BD5600D1A685 /* SettingsController.swift */,
+				926528BB1E41BD5600D1A685 /* InSettingsController.swift */,
+				92130AE71EB3092300B79DD5 /* SettingsController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -485,6 +492,8 @@
 				92D9B4D51E55C6D600CFD46D /* RankTableCell.swift */,
 				92D9B4DA1E565C8A00CFD46D /* ShipTableCell.swift */,
 				927661041EA0676C00282732 /* IAPCell.swift */,
+				92130AE31EB3003300B79DD5 /* UpgradeCell.swift */,
+				92130AE51EB3006300B79DD5 /* SettingsCell.swift */,
 				929928441E865FA20091A174 /* NewsCell.swift */,
 				92AAE8C11E938663006DB929 /* WikiCell.swift */,
 				92476A461E96025D0050F8A9 /* WikiDataCell.swift */,
@@ -715,11 +724,13 @@
 				9210C06A1E45B3D500270002 /* WebViewController.swift in Sources */,
 				9210C07E1E4609BA00270002 /* PersonalRating.swift in Sources */,
 				92E45B1E1EAE13C200360E62 /* ClanCell.swift in Sources */,
+				92130AE61EB3006300B79DD5 /* SettingsCell.swift in Sources */,
 				92D9B4D91E565C6E00CFD46D /* ShipController.swift in Sources */,
 				927AA8631EAEDAD600169B0A /* ClanSearchCell.swift in Sources */,
+				92130AE41EB3003300B79DD5 /* UpgradeCell.swift in Sources */,
 				92634D0D1E540E77000CDCB4 /* PlayerStat.swift in Sources */,
 				929928411E86132C0091A174 /* RecentData.swift in Sources */,
-				926528C11E41BD5600D1A685 /* SettingsController.swift in Sources */,
+				926528C11E41BD5600D1A685 /* InSettingsController.swift in Sources */,
 				929928431E8638A70091A174 /* News.swift in Sources */,
 				9299284D1E8692180091A174 /* TKController.swift in Sources */,
 				929B0B4E1E61A022007E54EA /* AchievementCell.swift in Sources */,
@@ -734,6 +745,7 @@
 				929928471E865FF60091A174 /* NewsController.swift in Sources */,
 				92D9B4D41E55AF2400CFD46D /* RankController.swift in Sources */,
 				929B0B471E618B45007E54EA /* Language.swift in Sources */,
+				92130AE81EB3092300B79DD5 /* SettingsController.swift in Sources */,
 				925BE5B21E5032AB00DA6A1A /* AdvancedInfoController.swift in Sources */,
 				92FD8D701E59B22300E7FADF /* ChartsController.swift in Sources */,
 				929B0B491E619B5B007E54EA /* Encyclopedia.swift in Sources */,

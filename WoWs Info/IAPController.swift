@@ -45,6 +45,12 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // Change text to "Back"
+        let backItem = UIBarButtonItem()
+        backItem.title = NSLocalizedString("BACK", comment: "Back label")
+        navigationItem.backBarButtonItem = backItem
+        
         if segue.identifier == "gotoAdvancedInfo" {
             let destination = segue.destination as! AdvancedInfoController
             destination.playerInfo = ["HenryQuan", "2011774448"]
