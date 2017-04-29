@@ -166,7 +166,6 @@
                         <outlet property="limitSlider" destination="qEe-KB-iw5" id="YcW-dt-byW"/>
                         <outlet property="silderCountLabel" destination="8zT-Wo-wFI" id="d9X-cb-msm"/>
                         <outlet property="username" destination="XKc-2W-qHR" id="KUC-w0-tfd"/>
-                        <segue destination="qqE-E9-l8W" kind="show" identifier="gotoDonation" id="lVR-xc-Jyz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aYP-jO-Rhh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -462,54 +461,6 @@ Licensed under the MIT License</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4S5-Np-xjW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1079.2" y="357.57121439280365"/>
-        </scene>
-        <!--Donation Controller-->
-        <scene sceneID="yhV-ee-hP0">
-            <objects>
-                <viewController id="qqE-E9-l8W" customClass="DonationController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="a7Z-Ae-xQq"/>
-                        <viewControllerLayoutGuide type="bottom" id="FP1-rV-qn5"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="GO7-S7-Hcg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8H-1c-AGP">
-                                <rect key="frame" x="0.0" y="541" width="375" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="uTz-Cc-kch"/>
-                                </constraints>
-                                <state key="normal" title="Save QR code to album"/>
-                                <connections>
-                                    <action selector="saveToAlbum:" destination="qqE-E9-l8W" eventType="touchUpInside" id="t5x-zO-iu3"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2mi-Cq-Oin" userLabel="QR Image">
-                                <rect key="frame" x="37" y="133" width="300" height="400"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="2mi-Cq-Oin" secondAttribute="height" multiplier="3:4" id="s7t-dc-gk8"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="2mi-Cq-Oin" firstAttribute="width" secondItem="GO7-S7-Hcg" secondAttribute="width" multiplier="0.8" id="6W3-CB-Y3i"/>
-                            <constraint firstItem="2mi-Cq-Oin" firstAttribute="centerY" secondItem="GO7-S7-Hcg" secondAttribute="centerY" id="O4o-CD-klv"/>
-                            <constraint firstItem="Q8H-1c-AGP" firstAttribute="top" secondItem="2mi-Cq-Oin" secondAttribute="bottom" constant="8" id="QlQ-Gh-cpV"/>
-                            <constraint firstItem="Q8H-1c-AGP" firstAttribute="leading" secondItem="GO7-S7-Hcg" secondAttribute="leading" id="el0-nd-9wW"/>
-                            <constraint firstItem="2mi-Cq-Oin" firstAttribute="centerX" secondItem="GO7-S7-Hcg" secondAttribute="centerX" id="oMI-f4-PD5"/>
-                            <constraint firstAttribute="trailing" secondItem="Q8H-1c-AGP" secondAttribute="trailing" id="wze-17-b3v"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="QRImage" destination="2mi-Cq-Oin" id="0N4-ZH-uCv"/>
-                        <outlet property="saveImageBtn" destination="Q8H-1c-AGP" id="Oo6-NX-cm1"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DgY-dq-39M" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-274.39999999999998" y="357.57121439280365"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PzC-2g-yI3">

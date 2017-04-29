@@ -47,9 +47,9 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isPro { return imageSet.count }
+        if isPro { return imageSet.count + 1 }
         // IF not ask user to buy it
-        return imageSet.count + 1
+        return imageSet.count + 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -57,20 +57,31 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
         
         if isPro {
             // Paid version
-            let cell = settingsTableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsCell
-            cell.logoImage.image = imageSet[index]
-            cell.nameLabel.text = wordSet[index]
-            return cell
+            if indexPath.row != imageSet.count {
+                // Setting cell
+                let cell = settingsTableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsCell
+                cell.logoImage.image = imageSet[index]
+                cell.nameLabel.text = wordSet[index]
+                return cell
+            } else {
+                // Developer cell
+                let cell = settingsTableView.dequeueReusableCell(withIdentifier: "DeveloperCell", for: indexPath) as! DeveloperCell
+                return cell
+            }
         } else {
             // Free version
             if index == 0 {
                 let cell = settingsTableView.dequeueReusableCell(withIdentifier: "UpgradeCell", for: indexPath) as! UpgradeCell
                 cell.proLabel.text = NSLocalizedString("UPGRADE_SETTINGS", comment: "Upgrade to Pro")
                 return cell
-            } else {
+            } else if indexPath.row != imageSet.count + 1{
                 let cell = settingsTableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsCell
                 cell.logoImage.image = imageSet[index - 1]
                 cell.nameLabel.text = wordSet[index - 1]
+                return cell
+            } else {
+                // Developer cell
+                let cell = settingsTableView.dequeueReusableCell(withIdentifier: "DeveloperCell", for: indexPath) as! DeveloperCell
                 return cell
             }
         }
@@ -78,10 +89,13 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isPro {
-            performSegue(withIdentifier: segueSet[indexPath.row + 1], sender: nil)
+            if indexPath.row != imageSet.count {
+                performSegue(withIdentifier: segueSet[indexPath.row + 1], sender: nil)
+            }
         } else {
-            print(indexPath.row)
-            performSegue(withIdentifier: segueSet[indexPath.row], sender: nil)
+            if indexPath.row != imageSet.count + 1 {
+                performSegue(withIdentifier: segueSet[indexPath.row], sender: nil)
+            }
         }
     }
     

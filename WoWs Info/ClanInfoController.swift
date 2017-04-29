@@ -67,7 +67,7 @@ class ClanInfoController: UITableViewController {
             cell.clanNameWithTag.text = "[\(clanTag!)] \(clanName!)"
             cell.clanDescription.text = clanInfo[0][ClanInfo.dataIndex.description]
             cell.leaderName.text = clanInfo[0][ClanInfo.dataIndex.leader]
-            cell.memberCountLabel.text = "Member List (\(self.clanMember!))"
+            cell.memberCountLabel.text = "\(NSLocalizedString("MEMBER_LIST", comment: "Member List")) (\(self.clanMember!))"
             cell.backgroundColor = UIColor.init(red: 112/255, green: 177/255, blue: 251/255, alpha: 1)
             return cell
         } else {
