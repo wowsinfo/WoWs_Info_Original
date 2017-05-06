@@ -66,6 +66,7 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
             } else {
                 // Developer cell
                 let cell = settingsTableView.dequeueReusableCell(withIdentifier: "DeveloperCell", for: indexPath) as! DeveloperCell
+                cell.devLabel.text = NSLocalizedString("DEV_LABEL", comment: "Devloper")
                 return cell
             }
         } else {
@@ -82,6 +83,7 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
             } else {
                 // Developer cell
                 let cell = settingsTableView.dequeueReusableCell(withIdentifier: "DeveloperCell", for: indexPath) as! DeveloperCell
+                cell.devLabel.text = NSLocalizedString("DEV_LABEL", comment: "Devloper")
                 return cell
             }
         }

@@ -43,6 +43,8 @@ class AdvancedInfoController: UITableViewController {
         self.title  = playerInfo[1]
         playerNameLabel.text = playerInfo[0]
         
+        self.prLabel.text = ""
+        
         // Pass account id
         _ = PlayerAccount.init(ID: self.title!, Name: playerInfo[0])
         
@@ -57,8 +59,8 @@ class AdvancedInfoController: UITableViewController {
         // Check for friend or tk
         setupNameColour()
         
-        // If it is for review
-        if isPreview {
+        // If it is for review or not pro
+        if isPreview || !isPro{
             tkBtn.isHidden = true
             friendBtn.isHidden = true
             setPlayerIDBtn.isEnabled = false
@@ -253,10 +255,19 @@ class AdvancedInfoController: UITableViewController {
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        
+        if isPreview { return true }
+        
         if !isPro {
             // Do not segue if it is not Pro
+            let pro = UIAlertController(title: NSLocalizedString("PRO_TITLE", comment: "Title"), message: NSLocalizedString("PRO_MESSAGE", comment: "Message"), preferredStyle: .alert)
+            pro.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(pro, animated: true, completion: nil)
+            
             return false
         }
+        
+        if self.prLabel.text == "" { return false }
         
         if identifier == "gotoClan" {
             if clanData.count == 0 {
@@ -271,8 +282,6 @@ class AdvancedInfoController: UITableViewController {
                 return false
             }
         }
-        
-        
         
         return true
     }

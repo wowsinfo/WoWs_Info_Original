@@ -28,7 +28,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         super.viewDidLoad()
         
         // Setup Segmented controll
-        let modeSegment = UISegmentedControl.init(items: ["Player", "Clan"])
+        let modeSegment = UISegmentedControl.init(items: [NSLocalizedString("PLAYER_SEGMENT", comment: "Player"), NSLocalizedString("CLAN_SEGMENT", comment: "Clan")])
         modeSegment.selectedSegmentIndex = 0
         modeSegment.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
         self.navigationItem.titleView = modeSegment
@@ -223,12 +223,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
             selectedInfo = accountInfo.components(separatedBy: "|")
             
             // Go to player info controller
-            let isProVersion = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
-            if isProVersion {
-                performSegue(withIdentifier: "gotoAdvancedDetails", sender: [String]())
-            } else {
-                performSegue(withIdentifier: "gotoDetails", sender: [String]())
-            }
+            performSegue(withIdentifier: "gotoAdvancedDetails", sender: [String]())
         } else {
             performSegue(withIdentifier: "gotoClanInfo", sender: indexPath.row)
         }
@@ -249,16 +244,9 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
             let index = sender as! Int
             destination.clanDataString = "\(playerInfo[index][ClanSearch.dataIndex.id]) | \(playerInfo[index][ClanSearch.dataIndex.memberCount]) | \(playerInfo[index][ClanSearch.dataIndex.name]) | \(playerInfo[index][ClanSearch.dataIndex.tag])"
         } else {
-            let isProVersion = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
-            if isProVersion {
-                // Go to AdvancedInfoController
-                let destination = segue.destination as! AdvancedInfoController
-                destination.playerInfo = selectedInfo
-            } else {
-                // Go to PlayerInfoController
-                let destination = segue.destination as! PlayerInfoController
-                destination.playerInfo = selectedInfo
-            }
+            // Go to AdvancedInfoController
+            let destination = segue.destination as! AdvancedInfoController
+            destination.playerInfo = selectedInfo
         }
         
     }

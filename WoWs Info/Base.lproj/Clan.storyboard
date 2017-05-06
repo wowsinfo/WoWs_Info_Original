@@ -22,10 +22,10 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="17I-eO-2Gi" id="zF4-hA-pbH">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="159.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[XXX] XXX XXX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="tQu-om-7hT">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[XXX] XXX XXX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="tQu-om-7hT">
                                             <rect key="frame" x="8" y="8" width="359" height="36"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -88,7 +88,7 @@
                                 <rect key="frame" x="0.0" y="188" width="375" height="53"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wdS-w4-weg" id="N5L-zB-Zqf">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="52.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="53"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="HXZ-xV-40k">
