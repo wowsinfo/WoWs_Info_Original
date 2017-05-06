@@ -84,9 +84,9 @@ class ClanInfoController: UITableViewController {
                 // From member list, Pro only
                 performSegue(withIdentifier: "gotoAdvancedInfo", sender: indexPath.row)
             } else {
-                let proOnly = UIAlertController(title: "Sorry", message: "This is for pro version only. Update to Pro version to use this feature.", preferredStyle: .alert)
-                proOnly.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                self.present(proOnly, animated: true, completion: nil)
+                let pro = UIAlertController(title: NSLocalizedString("PRO_TITLE", comment: "Title"), message: NSLocalizedString("PRO_MESSAGE", comment: "Message"), preferredStyle: .alert)
+                pro.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(pro, animated: true, completion: nil)
             }
         }
     }

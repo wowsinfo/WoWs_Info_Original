@@ -21,19 +21,4 @@ class TabBarController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        if item.title == NSLocalizedString("DASHBOARD_BAR", comment: "Dashboard Name") {
-            // Dashboard is only for paid user
-            if UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked) == false {
-                // Ask user to pruchase pro version
-                let proOnly = UIAlertController(title: "Sorry", message: "This is for pro version only. Update to Pro version to use this feature.", preferredStyle: .alert)
-                proOnly.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                self.present(proOnly, animated: true, completion: {
-                    self.selectedIndex = 4
-                })
-            }
-        } else {
-            print(self.selectedIndex)
-        }
-    }
 }

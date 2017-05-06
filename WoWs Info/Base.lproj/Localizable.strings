@@ -128,7 +128,7 @@
 
 "WOWS_WIKI" = "World of Warships Wiki";
 
-"DASHBOARD_BAR" = "Dashboard";
+"DASHBOARD_BAR" = "Contacts";
 
 "WEB_SETTINGS" = "Useful Websites";
 
@@ -141,3 +141,13 @@
 "UPGRADE_SETTINGS" = "Upgrade to Pro";
 
 "MEMBER_LIST" = "Member List";
+
+"DEV_LABEL" = "Developer";
+
+"PLAYER_SEGMENT" = "Player";
+
+"CLAN_SEGMENT" = "Clan";
+
+"PRO_TITLE" = "Update to Pro";
+
+"PRO_MESSAGE" = "Sorry but this is only for Pro Version. Please purchase Pro Version to unlock this feature.";

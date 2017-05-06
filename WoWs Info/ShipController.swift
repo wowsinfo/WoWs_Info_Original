@@ -273,9 +273,6 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = self.ShipTableView.dequeueReusableCell(withIdentifier: "ShipCell", for: indexPath) as! ShipTableCell
         cell.battlesLabel.text = targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.battles]
         cell.damageLabel.text = targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.averageDamage]
-        cell.xpLabel.text = targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.averageExp]
-        cell.hitRatioLabel.text = targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.hitRatio]
-        cell.killDeathLabel.text = targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.killDeathRatio]
         cell.winRateLabel.text = targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.winRate]
         
         // Setup tier name and type

@@ -11,55 +11,99 @@ import UIKit
 class FriendController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var friendTableView: UITableView!
+    @IBOutlet weak var modeSegment: UISegmentedControl!
     var friendList = [String]()
+    var tkList = [String]()
+    var currPlayer = ""
+    let isPro = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBarController?.tabBar.tintColor = UIColor.white
-        self.tabBarController?.tabBar.barTintColor = UIColor(red: 35/255, green: 135/255, blue: 1, alpha: 1.0)
         
-        let user = UserDefaults.standard
-        if user.object(forKey: DataManagement.DataName.friend) != nil {
-            friendList = user.object(forKey: DataManagement.DataName.friend) as! [String]
+        if !isPro {
+            let pro = UIAlertController(title: NSLocalizedString("PRO_TITLE", comment: "Title"), message: NSLocalizedString("PRO_MESSAGE", comment: "Message"), preferredStyle: .alert)
+            pro.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(pro, animated: true, completion: nil)
         }
         
+        // Get data
+        let user = UserDefaults.standard
+        if user.object(forKey: DataManagement.DataName.friend) != nil && user.object(forKey: DataManagement.DataName.tk) != nil {
+            friendList = user.object(forKey: DataManagement.DataName.friend) as! [String]
+            tkList = user.object(forKey: DataManagement.DataName.tk) as! [String]
+        }
+        currPlayer = user.string(forKey: DataManagement.DataName.UserName)!
+        
+        // Setup tableview
         friendTableView.delegate = self
         friendTableView.dataSource = self
         friendTableView.separatorColor = UIColor.clear
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        self.tabBarController?.tabBar.barTintColor = UIColor(red: 35/255, green: 135/255, blue: 1, alpha: 1.0)
-        friendTableView.reloadData()
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.friendTableView.reloadData()
     }
     
     // MARK: Table View
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friendList.count
+        // 0 for friend
+        if modeSegment.selectedSegmentIndex == 0 { return friendList.count }
+        // 1 for tk
+        if modeSegment.selectedSegmentIndex == 1 { return tkList.count }
+        // 2 for currPlayer
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = friendList[indexPath.row]
+        // Better font
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20.0, weight: UIFontWeightLight)
+        
+        if modeSegment.selectedSegmentIndex == 0 {
+            // Friend
+            cell.textLabel?.text = friendList[indexPath.row]
+            return cell
+        }
+        
+        // Tk
+        cell.textLabel?.text = tkList[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        UserDefaults.standard.set(Int(friendList[indexPath.row].components(separatedBy: "|")[2]), forKey: DataManagement.DataName.Server)
-        performSegue(withIdentifier: "gotoFriendInfo", sender: friendList[indexPath.row])
+        // UserDefaults.standard.set(Int(friendList[indexPath.row].components(separatedBy: "|")[2]), forKey: DataManagement.DataName.Server)
+        if modeSegment.selectedSegmentIndex == 0 {
+            performSegue(withIdentifier: "gotoInfo", sender: friendList[indexPath.row])
+        } else if modeSegment.selectedSegmentIndex == 1 {
+            performSegue(withIdentifier: "gotoInfo", sender: tkList[indexPath.row])
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "gotoFriendInfo" {
+        if segue.identifier == "gotoInfo" {
             let destination = segue.destination as! AdvancedInfoController
             destination.playerInfo = (sender as! String).components(separatedBy: "|")
+        }
+    }
+    
+    // MARK: Segmented Control
+    @IBAction func modeChanged(_ sender: Any) {
+        if modeSegment.selectedSegmentIndex != 2 {
+            self.friendTableView.reloadData()
+        } else {
+            // Go to dashboard
+            if currPlayer != ">_<" {
+                performSegue(withIdentifier: "gotoInfo", sender: currPlayer)
+            }
+            
+            // Move to friend list
+            modeSegment.selectedSegmentIndex = 0
+            self.friendTableView.reloadData()
         }
     }
 

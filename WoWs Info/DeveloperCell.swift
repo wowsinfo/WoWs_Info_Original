@@ -9,5 +9,5 @@
 import UIKit
 
 class DeveloperCell: UITableViewCell {
-
+    @IBOutlet weak var devLabel: UILabel!
 }
