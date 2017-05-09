@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Setup siren
         let siren = Siren.shared
-        siren.alertType = .force
+        siren.alertType = .option
         // siren.debugEnabled = true
         siren.checkVersion(checkType: .immediately)
         

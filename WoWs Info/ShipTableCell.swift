@@ -15,7 +15,6 @@ class ShipTableCell: UITableViewCell {
     @IBOutlet weak var winRateLabel: UILabel!
     @IBOutlet weak var damageLabel: UILabel!
     @IBOutlet weak var shipTypeImage: UIImageView!
-    @IBOutlet weak var shipRating: UILabel!
 
     // Change the frame
     override var frame: CGRect {

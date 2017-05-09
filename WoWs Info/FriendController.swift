@@ -20,12 +20,6 @@ class FriendController: UIViewController, UITableViewDelegate, UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if !isPro {
-            let pro = UIAlertController(title: NSLocalizedString("PRO_TITLE", comment: "Title"), message: NSLocalizedString("PRO_MESSAGE", comment: "Message"), preferredStyle: .alert)
-            pro.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(pro, animated: true, completion: nil)
-        }
-        
         // Get data
         let user = UserDefaults.standard
         if user.object(forKey: DataManagement.DataName.friend) != nil && user.object(forKey: DataManagement.DataName.tk) != nil {
@@ -44,10 +38,35 @@ class FriendController: UIViewController, UITableViewDelegate, UITableViewDataSo
         super.didReceiveMemoryWarning()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Get data again
+        let user = UserDefaults.standard
+        if user.object(forKey: DataManagement.DataName.friend) != nil && user.object(forKey: DataManagement.DataName.tk) != nil {
+            friendList = user.object(forKey: DataManagement.DataName.friend) as! [String]
+            tkList = user.object(forKey: DataManagement.DataName.tk) as! [String]
+        }
+        currPlayer = user.string(forKey: DataManagement.DataName.UserName)!
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         self.friendTableView.reloadData()
     }
+    
+    // MARK: Button Pressed
+    @IBAction func dashboardBtnPressed(_ sender: Any) {
+        if !isPro {
+            let pro = UIAlertController(title: NSLocalizedString("PRO_TITLE", comment: "Title"), message: NSLocalizedString("PRO_MESSAGE", comment: "Message"), preferredStyle: .alert)
+            pro.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(pro, animated: true, completion: nil)
+        } else if currPlayer != ">_<" {
+            // Go to dashboard
+            performSegue(withIdentifier: "gotoInfo", sender: currPlayer)
+        }
+    }
+    
     
     // MARK: Table View
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -96,10 +115,7 @@ class FriendController: UIViewController, UITableViewDelegate, UITableViewDataSo
         if modeSegment.selectedSegmentIndex != 2 {
             self.friendTableView.reloadData()
         } else {
-            // Go to dashboard
-            if currPlayer != ">_<" {
-                performSegue(withIdentifier: "gotoInfo", sender: currPlayer)
-            }
+            
             
             // Move to friend list
             modeSegment.selectedSegmentIndex = 0

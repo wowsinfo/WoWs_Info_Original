@@ -149,6 +149,9 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
                 queue.finishTransaction(t)
             case .failed:
                 print("Failed")
+                let pro = UIAlertController(title: ">_<", message: NSLocalizedString("IAP_FAILED", comment: "Message"), preferredStyle: .alert)
+                pro.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(pro, animated: true, completion: nil)
                 queue.finishTransaction(t)
             default:
                 break
