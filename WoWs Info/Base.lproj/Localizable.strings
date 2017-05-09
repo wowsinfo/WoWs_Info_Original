@@ -151,3 +151,5 @@
 "PRO_TITLE" = "Update to Pro";
 
 "PRO_MESSAGE" = "Sorry but this is only for Pro Version. Please purchase Pro Version to unlock this feature.";
+
+"IAP_FAILED" = "Purchse Failed. Please try again later";

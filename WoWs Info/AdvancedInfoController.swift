@@ -270,7 +270,7 @@ class AdvancedInfoController: UITableViewController {
         if self.prLabel.text == "" { return false }
         
         if identifier == "gotoClan" {
-            if clanData.count == 0 {
+            if clanData[2] == "" {
                 // If player does not have a clan
                 return false
             }

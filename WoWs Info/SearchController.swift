@@ -56,13 +56,16 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         super.didReceiveMemoryWarning()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         // Clean text
         username.text = ""
         // Reload tableview
         usernameTableView.reloadData()
+
+        // Reload search limit
+        searchLimit = UserDefaults.standard.integer(forKey: DataManagement.DataName.SearchLimit)
     }
     
     func getServerName() {
@@ -169,6 +172,16 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         return true
     }
+    
+    @IBAction func textChanged(_ sender: Any) {
+        
+        // Cancel it if text keep changing
+        NSObject.cancelPreviousPerformRequests(withTarget: self)
+        // Request data here
+        self.perform(#selector(loadDataIntoTableview), with: nil, afterDelay: 0.75)
+        
+    }
+    
     
     // MARK: PickerView
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
