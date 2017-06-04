@@ -1,4 +1,10 @@
 
+/* Class = "UITabBarItem"; title = "News"; ObjectID = "BVv-ac-v1g"; */
+"BVv-ac-v1g.title" = "最新消息";
+
+/* Class = "UITabBarItem"; title = "Wiki"; ObjectID = "Pnp-Rs-KWU"; */
+"Pnp-Rs-KWU.title" = "图鉴";
+
 /* Class = "UIButton"; normalTitle = "Twitter"; ObjectID = "2Vd-1Z-518"; */
 "2Vd-1Z-518.normalTitle" = "Twitter";
 
@@ -73,3 +79,4 @@
 
 /* Class = "UINavigationItem"; title = "Quick Search Mode"; ObjectID = "v8u-OF-dZ1"; */
 "v8u-OF-dZ1.title" = "快速搜索模式";
+

@@ -13,6 +13,7 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
 
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var IAPTable: UITableView!
+    var isReady = false
     
     let isProVersion = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
     let proIAP = "com.yihengquan.WoWsInfo.Pro"
@@ -45,6 +46,12 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // Change text to "Back"
+        let backItem = UIBarButtonItem()
+        backItem.title = NSLocalizedString("BACK", comment: "Back label")
+        navigationItem.backBarButtonItem = backItem
+        
         if segue.identifier == "gotoAdvancedInfo" {
             let destination = segue.destination as! AdvancedInfoController
             destination.playerInfo = ["HenryQuan", "2011774448"]
@@ -77,13 +84,19 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
     @IBAction func purchaseBtnPressed(_ sender: UIButton) {
         
         // Make a request if user is not paid customer
-        if !isProVersion {
-            // Check if can make payment
-            print(productList)
-            for p in productList {
-                if p.productIdentifier == proIAP {
-                    self.product = p
-                    buyProduct()
+        if !isReady {
+            let pro = UIAlertController(title: NSLocalizedString("WAIT_TITLE", comment: "Title"), message: NSLocalizedString("WAIT_MESSAGE", comment: "Message"), preferredStyle: .alert)
+            pro.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(pro, animated: true, completion: nil)
+        } else {
+            if !isProVersion {
+                // Check if can make payment
+                print(productList)
+                for p in productList {
+                    if p.productIdentifier == proIAP {
+                        self.product = p
+                        buyProduct()
+                    }
                 }
             }
         }
@@ -117,6 +130,7 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
             formatter.numberStyle = .currency
             formatter.locale = p.priceLocale
             self.priceLabel.text = "\(formatter.string(from: p.price)!)"
+            isReady = true
             productList.append(p)
         }
         

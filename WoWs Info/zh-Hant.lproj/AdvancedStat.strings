@@ -1,0 +1,54 @@
+
+/* Class = "UILabel"; text = " "; ObjectID = "3D6-0r-icE"; */
+"3D6-0r-icE.text" = " ";
+
+/* Class = "UILabel"; text = " "; ObjectID = "7d0-cP-Zag"; */
+"7d0-cP-Zag.text" = " ";
+
+/* Class = "UILabel"; text = " "; ObjectID = "LDs-3z-iil"; */
+"LDs-3z-iil.text" = " ";
+
+/* Class = "UILabel"; text = "Detailed Information"; ObjectID = "MO6-zf-TiS"; */
+"MO6-zf-TiS.text" = "詳細數據";
+
+/* Class = "UILabel"; text = " "; ObjectID = "TIi-YL-dgc"; */
+"TIi-YL-dgc.text" = " ";
+
+/* Class = "UILabel"; text = " "; ObjectID = "Zts-7v-e1W"; */
+"Zts-7v-e1W.text" = " ";
+
+/* Class = "UITableViewSection"; footerTitle = "Data is updated after every battle."; ObjectID = "cFZ-dr-FFq"; */
+"cFZ-dr-FFq.footerTitle" = "數據會在每場戰鬥之後更新";
+
+/* Class = "UILabel"; text = " "; ObjectID = "cKh-im-yWp"; */
+"cKh-im-yWp.text" = " ";
+
+/* Class = "UITableViewSection"; footerTitle = "Press + to set this as yourself for quick access."; ObjectID = "eAk-5j-B8F"; */
+"eAk-5j-B8F.footerTitle" = "按右上角的 + 將這位玩家設置為自己";
+
+/* Class = "UIButton"; normalTitle = "TK"; ObjectID = "h1a-04-dqP"; */
+"h1a-04-dqP.normalTitle" = "TK";
+
+/* Class = "UILabel"; text = "Visit WoWS Stats & Numbers"; ObjectID = "kOP-Jf-rVT"; */
+"kOP-Jf-rVT.text" = "訪問Numbers網站";
+
+/* Class = "UILabel"; text = " "; ObjectID = "oF8-Ub-lx8"; */
+"oF8-Ub-lx8.text" = " ";
+
+/* Class = "UILabel"; text = " "; ObjectID = "opv-vX-a8O"; */
+"opv-vX-a8O.text" = " ";
+
+/* Class = "UITableViewSection"; footerTitle = "Please do not judge others by their statistics."; ObjectID = "pTV-cq-WYs"; */
+"pTV-cq-WYs.footerTitle" = "請不要用數據來評價別的玩家";
+
+/* Class = "UILabel"; text = " "; ObjectID = "pps-Z0-Ee3"; */
+"pps-Z0-Ee3.text" = " ";
+
+/* Class = "UILabel"; text = " "; ObjectID = "sbL-45-1uz"; */
+"sbL-45-1uz.text" = " ";
+
+/* Class = "UILabel"; text = "Clan: "; ObjectID = "xDA-Eg-ARU"; */
+"xDA-Eg-ARU.text" = "工會：";
+
+/* Class = "UIButton"; normalTitle = "Update Data"; ObjectID = "xff-At-fqW"; */
+"xff-At-fqW.normalTitle" = "更新數據";

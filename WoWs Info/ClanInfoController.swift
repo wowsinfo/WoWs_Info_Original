@@ -40,7 +40,7 @@ class ClanInfoController: UITableViewController {
         ClanInfo(ID: clanID).getClanList { (Clan) in
             DispatchQueue.main.async {
                 self.clanInfo = Clan
-                print("Clan : \(Clan)")
+                print("Clan: \(Clan)")
                 self.tableView.reloadData()
             }
         }
@@ -67,7 +67,7 @@ class ClanInfoController: UITableViewController {
             cell.clanNameWithTag.text = "[\(clanTag!)] \(clanName!)"
             cell.clanDescription.text = clanInfo[0][ClanInfo.dataIndex.description]
             cell.leaderName.text = clanInfo[0][ClanInfo.dataIndex.leader]
-            cell.memberCountLabel.text = "Member List (\(self.clanMember!))"
+            cell.memberCountLabel.text = "\(NSLocalizedString("MEMBER_LIST", comment: "Member List")) (\(self.clanMember!))"
             cell.backgroundColor = UIColor.init(red: 112/255, green: 177/255, blue: 251/255, alpha: 1)
             return cell
         } else {
@@ -80,8 +80,14 @@ class ClanInfoController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row > 0 {
-            // From member list
-            performSegue(withIdentifier: "gotoAdvancedInfo", sender: indexPath.row)
+            if UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked) == true {
+                // From member list, Pro only
+                performSegue(withIdentifier: "gotoAdvancedInfo", sender: indexPath.row)
+            } else {
+                let pro = UIAlertController(title: NSLocalizedString("PRO_TITLE", comment: "Title"), message: NSLocalizedString("PRO_MESSAGE", comment: "Message"), preferredStyle: .alert)
+                pro.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(pro, animated: true, completion: nil)
+            }
         }
     }
 

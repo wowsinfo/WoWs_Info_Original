@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Setup siren
         let siren = Siren.shared
-        siren.alertType = .force
+        siren.alertType = .option
         // siren.debugEnabled = true
         siren.checkVersion(checkType: .immediately)
         
@@ -69,6 +69,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let notificationSettings = UIUserNotificationSettings(types: notificationTypes, categories: nil)
         application.registerForRemoteNotifications()
         application.registerUserNotificationSettings(notificationSettings)
+        
+        // Remove cache
+        CacheCleaner.cleanCache()
         
         return true
     }
@@ -106,12 +109,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     @available(iOS 9.0, *)
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         // Go to search
-        if shortcutItem.type == "com.yihengquan.WoWs-Info.Search" {
+        /*if shortcutItem.type == "com.yihengquan.WoWs-Info.Search" {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let welcome = storyboard.instantiateViewController(withIdentifier: "WelcomeNavigation")
             self.window?.rootViewController = welcome
             self.window?.rootViewController?.performSegue(withIdentifier: "gotoSearch", sender: nil)
-        }
+        }*/
     }
 
 }

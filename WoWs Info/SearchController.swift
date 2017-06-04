@@ -13,7 +13,6 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
 
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var usernameTableView: UITableView!
-    @IBOutlet weak var searchBtn: UIButton!
     @IBOutlet weak var pickerView: UIView!
     @IBOutlet weak var serverPicker: UIPickerView!
 
@@ -21,95 +20,111 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     var selectedInfo = [String]()
     var searchLimit = 0
     var server = UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)
+    var modeIndex = 0
     
     let serverName = [NSLocalizedString("RU", comment: "Russia"), NSLocalizedString("EU", comment: "Europe"), NSLocalizedString("NA", comment: "North Amercia"), NSLocalizedString("ASIA", comment: "Asia")]
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        
+        // Setup Segmented controll
+        let modeSegment = UISegmentedControl.init(items: [NSLocalizedString("PLAYER_SEGMENT", comment: "Player"), NSLocalizedString("CLAN_SEGMENT", comment: "Clan")])
+        modeSegment.selectedSegmentIndex = 0
+        modeSegment.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
+        self.navigationItem.titleView = modeSegment
    
         // Tableview setup
         usernameTableView.delegate = self
         usernameTableView.dataSource = self
         usernameTableView.separatorColor = UIColor.clear
         
-        self.title = ""
-        username.contentVerticalAlignment = UIControlContentVerticalAlignment.center
-        
         // Pickerview setup
         serverPicker.delegate = self
         serverPicker.delegate = self
+        
+        // Textfield setup
+        username.delegate = self
 
+        // Vary from 10 - 100
         searchLimit = UserDefaults.standard.integer(forKey: DataManagement.DataName.SearchLimit)
         
+        // Load server name
         getServerName()
-        
-    }
-    
-    // When user is back to this view clean last search text
-    override func viewWillAppear(_ animated: Bool) {
-        
-        super.viewWillAppear(true)
-        
-        username.text = ""
-        usernameTableView.reloadData()
-        
-        // Popup keyboard after view is loaded
-        username.becomeFirstResponder()
-        
     }
 
     override func didReceiveMemoryWarning() {
-        
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
+        // Clean text
+        username.text = ""
+        // Reload tableview
+        usernameTableView.reloadData()
+
+        // Reload search limit
+        searchLimit = UserDefaults.standard.integer(forKey: DataManagement.DataName.SearchLimit)
     }
     
     func getServerName() {
-        
         server = UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)
         username.placeholder = NSLocalizedString("SERVER", comment: "Server label") + " : \(ServerUrl.ServerName[server])"
+    }
+    
+    // MARK: segmentedControl pressed
+    func segmentedControlValueChanged(segment: UISegmentedControl) {
+        // Clean text
+        username.text = ""
+        playerInfo = [[String]]()
+        // Reload tableview
+        usernameTableView.reloadData()
         
+        // Change Mode
+        modeIndex = segment.selectedSegmentIndex
     }
     
     // MARK: Load data into tableview
     func refreshTabelView() {
         DispatchQueue.main.async {
-            self.usernameTableView.reloadData()
+            UIView.transition(with: self.view, duration: 0.25, options: .curveEaseIn, animations: {
+                self.usernameTableView.reloadData()
+                self.usernameTableView.reloadRows(at: self.usernameTableView.indexPathsForVisibleRows!, with: .none)
+            })
         };
     }
     
     func loadDataIntoTableview() {
         
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         playerInfo.removeAll()
         self.refreshTabelView()
         
         let userInput = username.text!
         
-        let player = PlayerInfomation(limit: searchLimit)
-        if (player.isInputValid(input: userInput)) {
-            player.getDataFromAPI(search: userInput, success: {success in
-                if !success.isEmpty {
-                    self.playerInfo = success
+        if modeIndex == 0 {
+            // Player
+            let player = PlayerInfomation(limit: searchLimit)
+            if (player.isInputValid(input: userInput)) {
+                player.getDataFromAPI(search: userInput, success: {success in
+                    if !success.isEmpty {
+                        self.playerInfo = success
+                        // Refresh TableView
+                        self.refreshTabelView()
+                    }
+                })
+            }
+        } else {
+            // Clan
+            ClanSearch().getClanList(clan: userInput) { (clan) in
+                DispatchQueue.main.async {
+                    self.playerInfo = clan
                     // Refresh TableView
                     self.refreshTabelView()
                 }
-            })
+            }
         }
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
         
-    }
-    
-    // MARK: UITextfield
-    @IBAction func usernameChanged(_ sender: UITextField) {
-        
-        // Cancel last request if user types really quick
-        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(loadDataIntoTableview), object: usernameTableView)
-        
-        // Load data into tableview if user pauses for 0.25 seconds
-        self.perform(#selector(loadDataIntoTableview), with: usernameTableView, afterDelay: 0.5)
         
     }
     
@@ -150,17 +165,26 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
     }
     
-    @IBAction func searchBtnPressed(_ sender: UIButton) {
+    // MARK: UITextField
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Dismiss keyboard
+        self.view.endEditing(true)
         
-        if (username.text?.characters.count)! >= 3 {
-            // Load data into tableview
-            loadDataIntoTableview()
-            
-            // Dismiss Keyboard
-            username.resignFirstResponder()
-        }
+        // Request data here
+        loadDataIntoTableview()
+        
+        return true
+    }
+    
+    @IBAction func textChanged(_ sender: Any) {
+        
+        // Cancel it if text keep changing
+        NSObject.cancelPreviousPerformRequests(withTarget: self)
+        // Request data here
+        self.perform(#selector(loadDataIntoTableview), with: nil, afterDelay: 0.75)
         
     }
+    
     
     // MARK: PickerView
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -190,11 +214,12 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         // Change to a better font
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20.0, weight: UIFontWeightLight)
         
-        if (!playerInfo.indices.contains(indexPath.row)) {
-            cell.textLabel?.text = NSLocalizedString("UNKNOWN_ERROR", comment: "Unknown error label")
-        }
-        else {
+        if modeIndex == 0 {
+            // Player
             cell.textLabel?.text = "\(playerInfo[indexPath.row][0])|\(playerInfo[indexPath.row][1])"
+        } else {
+            // Clan
+            cell.textLabel?.text = "[\(playerInfo[indexPath.row][ClanSearch.dataIndex.tag])] \(playerInfo[indexPath.row][ClanSearch.dataIndex.name])"
         }
         
         return cell
@@ -206,22 +231,17 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         // Dismiss keyboard
         username.resignFirstResponder()
         
-        // Get Account details
-        let selectedCell = tableView.cellForRow(at: indexPath)
-        let accountInfo: String = (selectedCell?.textLabel?.text)!
-        
-        if accountInfo == NSLocalizedString("UNKNOWN_ERROR", comment: "Unknown error label") {
-            return
-        }
-        
-        selectedInfo = accountInfo.components(separatedBy: "|")
-        
-        // Go to player info controller
-        let isProVersion = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
-        if isProVersion {
+        if modeIndex == 0 {
+            // Get Account details
+            let selectedCell = tableView.cellForRow(at: indexPath)
+            let accountInfo: String = (selectedCell?.textLabel?.text)!
+            
+            selectedInfo = accountInfo.components(separatedBy: "|")
+            
+            // Go to player info controller
             performSegue(withIdentifier: "gotoAdvancedDetails", sender: [String]())
         } else {
-            performSegue(withIdentifier: "gotoDetails", sender: [String]())
+            performSegue(withIdentifier: "gotoClanInfo", sender: indexPath.row)
         }
         
     }
@@ -234,14 +254,14 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         backItem.title = NSLocalizedString("BACK", comment: "Back label")
         navigationItem.backBarButtonItem = backItem
         
-        let isProVersion = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
-        if isProVersion {
+        if segue.identifier == "gotoClanInfo" {
+            // Pass data
+            let destination = segue.destination as! ClanInfoController
+            let index = sender as! Int
+            destination.clanDataString = "\(playerInfo[index][ClanSearch.dataIndex.id]) | \(playerInfo[index][ClanSearch.dataIndex.memberCount]) | \(playerInfo[index][ClanSearch.dataIndex.name]) | \(playerInfo[index][ClanSearch.dataIndex.tag])"
+        } else {
             // Go to AdvancedInfoController
             let destination = segue.destination as! AdvancedInfoController
-            destination.playerInfo = selectedInfo
-        } else {
-            // Go to PlayerInfoController
-            let destination = segue.destination as! PlayerInfoController
             destination.playerInfo = selectedInfo
         }
         

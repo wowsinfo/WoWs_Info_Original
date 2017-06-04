@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8kZ-I7-DAt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8kZ-I7-DAt">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,7 +13,7 @@
         <!--Unlock WoWs Info Pro-->
         <scene sceneID="jjn-jh-3VO">
             <objects>
-                <viewController storyboardIdentifier="ProViewController" id="AX0-kP-dK9" customClass="IAPController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProViewController" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="AX0-kP-dK9" customClass="IAPController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eJy-pA-VEy"/>
                         <viewControllerLayoutGuide type="bottom" id="B9d-dA-dyP"/>
