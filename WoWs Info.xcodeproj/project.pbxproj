@@ -51,6 +51,7 @@
 		926528BF1E41BD5600D1A685 /* PlayerInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528B91E41BD5600D1A685 /* PlayerInformation.swift */; };
 		926528C01E41BD5600D1A685 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528BA1E41BD5600D1A685 /* SearchController.swift */; };
 		926528C11E41BD5600D1A685 /* InSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528BB1E41BD5600D1A685 /* InSettingsController.swift */; };
+		92755BE81ED94E2700D52B79 /* CacheCleaner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92755BE71ED94E2700D52B79 /* CacheCleaner.swift */; };
 		927661051EA0676C00282732 /* IAPCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927661041EA0676C00282732 /* IAPCell.swift */; };
 		927AA8631EAEDAD600169B0A /* ClanSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927AA8621EAEDAD600169B0A /* ClanSearchCell.swift */; };
 		9295B1CE1EBDEF3B008FE418 /* FriendList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9295B1D01EBDEF3B008FE418 /* FriendList.storyboard */; };
@@ -148,6 +149,7 @@
 		926528B91E41BD5600D1A685 /* PlayerInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerInformation.swift; sourceTree = "<group>"; };
 		926528BA1E41BD5600D1A685 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		926528BB1E41BD5600D1A685 /* InSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InSettingsController.swift; sourceTree = "<group>"; };
+		92755BE71ED94E2700D52B79 /* CacheCleaner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheCleaner.swift; sourceTree = "<group>"; };
 		927661041EA0676C00282732 /* IAPCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPCell.swift; sourceTree = "<group>"; };
 		9276610E1EA0888100282732 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		927AA8621EAEDAD600169B0A /* ClanSearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClanSearchCell.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				929B0B461E618B45007E54EA /* Language.swift */,
 				92634D101E540F10000CDCB4 /* ShipInformation.swift */,
 				929B0B481E619B5B007E54EA /* Encyclopedia.swift */,
+				92755BE71ED94E2700D52B79 /* CacheCleaner.swift */,
 			);
 			name = Functions;
 			sourceTree = "<group>";
@@ -729,6 +732,7 @@
 				926528C11E41BD5600D1A685 /* InSettingsController.swift in Sources */,
 				929928431E8638A70091A174 /* News.swift in Sources */,
 				929B0B4E1E61A022007E54EA /* AchievementCell.swift in Sources */,
+				92755BE81ED94E2700D52B79 /* CacheCleaner.swift in Sources */,
 				920105B81EB1892000E5F338 /* TabBarController.swift in Sources */,
 				92FF85901E592ED9001BBCA1 /* PlayerCharts.swift in Sources */,
 				924BD2651E457EB300E15D04 /* ServerController.swift in Sources */,
@@ -987,7 +991,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yihengquan.WoWs-Info";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1006,7 +1010,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yihengquan.WoWs-Info";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

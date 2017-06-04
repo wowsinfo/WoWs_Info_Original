@@ -88,7 +88,10 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     // MARK: Load data into tableview
     func refreshTabelView() {
         DispatchQueue.main.async {
-            self.usernameTableView.reloadData()
+            UIView.transition(with: self.view, duration: 0.25, options: .curveEaseIn, animations: {
+                self.usernameTableView.reloadData()
+                self.usernameTableView.reloadRows(at: self.usernameTableView.indexPathsForVisibleRows!, with: .none)
+            })
         };
     }
     
