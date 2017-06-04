@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="h9V-Do-Fnn">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Friend Controller-->
+        <scene sceneID="AX3-Pm-cAR">
+            <objects>
+                <viewController storyboardIdentifier="ListController" id="h9V-Do-Fnn" customClass="FriendController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tx6-JT-tpe"/>
+                        <viewControllerLayoutGuide type="bottom" id="vt9-25-VkS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="c5g-Nl-U9a">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aCG-tO-Asu">
+                                <rect key="frame" x="16" y="631" width="312" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="Zgd-qn-JE7"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Friends"/>
+                                    <segment title="TK"/>
+                                </segments>
+                                <connections>
+                                    <action selector="modeChanged:" destination="h9V-Do-Fnn" eventType="valueChanged" id="Of3-PG-D5g"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9j0-xh-rD5">
+                                <rect key="frame" x="0.0" y="20" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rhz-gi-irn">
+                                <rect key="frame" x="338" y="631" width="28" height="28"/>
+                                <state key="normal" image="Dashboard"/>
+                                <connections>
+                                    <action selector="dashboardBtnPressed:" destination="h9V-Do-Fnn" eventType="touchUpInside" id="Hxt-SF-H20"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9j0-xh-rD5" firstAttribute="top" secondItem="tx6-JT-tpe" secondAttribute="bottom" id="69k-mv-eXO"/>
+                            <constraint firstItem="9j0-xh-rD5" firstAttribute="leading" secondItem="c5g-Nl-U9a" secondAttribute="leading" id="7N5-43-RU9"/>
+                            <constraint firstItem="vt9-25-VkS" firstAttribute="top" secondItem="aCG-tO-Asu" secondAttribute="bottom" constant="8" id="D1E-F3-5cc"/>
+                            <constraint firstItem="aCG-tO-Asu" firstAttribute="top" secondItem="9j0-xh-rD5" secondAttribute="bottom" constant="8" id="I9k-ZG-K3H"/>
+                            <constraint firstAttribute="trailing" secondItem="9j0-xh-rD5" secondAttribute="trailing" id="IE7-Jf-GF5"/>
+                            <constraint firstAttribute="trailing" secondItem="Rhz-gi-irn" secondAttribute="trailing" constant="9" id="J4E-dH-bS5"/>
+                            <constraint firstItem="aCG-tO-Asu" firstAttribute="trailing" secondItem="c5g-Nl-U9a" secondAttribute="trailingMargin" constant="-31" id="Ttg-I7-3Tx"/>
+                            <constraint firstItem="aCG-tO-Asu" firstAttribute="leading" secondItem="c5g-Nl-U9a" secondAttribute="leadingMargin" id="je4-IL-jUr"/>
+                            <constraint firstItem="vt9-25-VkS" firstAttribute="top" secondItem="Rhz-gi-irn" secondAttribute="bottom" constant="8" id="q3u-ke-s9T"/>
+                            <constraint firstItem="Rhz-gi-irn" firstAttribute="leading" secondItem="aCG-tO-Asu" secondAttribute="trailing" constant="10" id="voA-LB-HsF"/>
+                            <constraint firstItem="Rhz-gi-irn" firstAttribute="top" secondItem="9j0-xh-rD5" secondAttribute="bottom" constant="8" id="zUx-P3-SJV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="friendTableView" destination="9j0-xh-rD5" id="tZM-fl-iqX"/>
+                        <outlet property="modeSegment" destination="aCG-tO-Asu" id="0ci-10-suK"/>
+                        <segue destination="uRB-b3-NAT" kind="show" identifier="gotoInfo" id="9lm-VG-dB4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mtj-52-5Ch" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-882.39999999999998" y="499.70014992503752"/>
+        </scene>
+        <!--AdvancedInfoController-->
+        <scene sceneID="9H8-hb-zwC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AdvancedStat" referencedIdentifier="AdvancedInfoController" id="uRB-b3-NAT" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="llB-xH-ksF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-263" y="499"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Dashboard" width="128" height="128"/>
+    </resources>
+</document>

@@ -1,0 +1,86 @@
+//
+//  IntroController.swift
+//  WoWs Info
+//
+//  Created by Henry Quan on 27/4/17.
+//  Copyright © 2017 Henry Quan. All rights reserved.
+//
+
+import UIKit
+import GoogleMobileAds
+
+class IntroController: UIViewController, GADInterstitialDelegate {
+
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    var interstitial: GADInterstitial!
+    let isPro = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Load rating
+        ShipRating().loadExpctedJson()
+        
+        // Get ship information
+        Shipinformation().getShipInformation()
+        
+        // Get Achievement information
+        Achievements().getAchievementJson()
+        
+        // Get upgrade information
+        Upgrade().getUpgradeJson()
+        
+        // Get flag information
+        Flag().getFlagJson()
+        
+        // Get camouflage information
+        Camouflage().getCamouflageJson()
+        
+        // Get commander skill information
+        CommanderSkill().getCommanderSkillJson()
+        
+        // Setup Ads
+        if !isPro {
+            interstitial = GADInterstitial(adUnitID: "ca-app-pub-5048098651344514/7499671184")
+            interstitial.delegate = self
+            let request = GADRequest()
+            request.testDevices = [kGADSimulatorID]
+            interstitial.load(request)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline:.now() + .seconds(3)) {
+            // Stop loading and go to first viewcontroller
+            self.loadingIndicator.stopAnimating()
+            self.loadingIndicator.hidesWhenStopped = true
+            
+            if Reachability.isConnectedToNetwork() == true {
+                // Show an ads
+                if !self.isPro {
+                    if self.interstitial.isReady {
+                        self.interstitial.present(fromRootViewController: self)
+                    } else {
+                        print("\n\n\n\nads\nNot Ready\n\n\n\n\n")
+                        self.performSegue(withIdentifier: "gotoMain", sender: nil)
+                    }
+                    
+                } else {
+                    self.performSegue(withIdentifier: "gotoMain", sender: nil)
+                }
+            } else {
+                // Show alert
+                let alert = UIAlertController(title: ">_<", message: NSLocalizedString("NO_INTERNET", comment: "No Internet"), preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        self.performSegue(withIdentifier: "gotoMain", sender: nil)
+    }
+}

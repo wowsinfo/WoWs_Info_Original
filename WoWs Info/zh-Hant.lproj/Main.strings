@@ -73,3 +73,9 @@
 
 /* Class = "UINavigationItem"; title = "Quick Search Mode"; ObjectID = "v8u-OF-dZ1"; */
 "v8u-OF-dZ1.title" = "快速搜索模式";
+
+/* Class = "UITabBarItem"; title = "News"; ObjectID = "BVv-ac-v1g"; */
+"BVv-ac-v1g.title" = "最新消息";
+
+/* Class = "UITabBarItem"; title = "Wiki"; ObjectID = "Pnp-Rs-KWU"; */
+"Pnp-Rs-KWU.title" = "圖鑑";

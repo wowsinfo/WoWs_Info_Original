@@ -123,3 +123,37 @@
 "IAP_CHARTS" = "实用的图表";
 
 "IAP_RANK" = "排位赛信息";
+
+"NO_INTERNET" = "无网络";
+
+"WOWS_WIKI" = "战舰世界图鉴";
+
+"DASHBOARD_BAR" = "通讯录";
+
+"WEB_SETTINGS" = "实用的网站";
+
+"APP_SETTINGS" = "分享给朋友";
+
+"DONATION_SETTINGS" = "支持开发者";
+
+"SETTINGS_SETTINGS" = "设置";
+
+"UPGRADE_SETTINGS" = "升级为专业版";
+
+"MEMBER_LIST" = "玩家列表";
+
+"DEV_LABEL" = "开发者";
+
+"PLAYER_SEGMENT" = "玩家";
+
+"CLAN_SEGMENT" = "工会";
+
+"PRO_TITLE" = "升级到专业版";
+
+"PRO_MESSAGE" = "非常抱歉，请升级到专业版来使用这个功能。";
+
+"IAP_FAILED" = "无法完成购买。";
+
+"WAIT_TITLE" = "请稍等...";
+
+"WAIT_MESSAGE" = "正在加载中";

@@ -13,7 +13,6 @@ class News {
 
     let server = UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)
     var url: String!
-    var webpage = ""
     static var news: [[String]]!
     var serverUrl: String!
     
@@ -25,11 +24,6 @@ class News {
     
     init() {
         serverUrl = "https://worldofwarships." + ServerUrl.Server[server]
-        do {
-            webpage = try String(contentsOf: URL(string: getRequestUrl())!, encoding: .utf8)
-        } catch let error {
-            print("Error: \(error)")
-        }
     }
     
     func getRequestUrl() -> String {
@@ -59,32 +53,36 @@ class News {
         return language
     }
     
-    func getNews() -> [[String]] {
-        
-        var data = [[String]]()
-        if webpage != "" {
-            if let news = HTML(html: webpage, encoding: .utf8) {
-                for link in news.css(".tile__title") {
-                    data.append([link.text!, "", ""])
+    func getNews(success: @escaping ([[String]]) -> ()){
+    
+        let urlRequest = URLRequest(url: URL(string: getRequestUrl())!)
+        let task = URLSession.shared.dataTask(with: urlRequest) { (data, responce, error) in
+            if error != nil {
+                print("Error: \(String(describing: error))")
+            } else {
+                var newsInfo = [[String]]()
+                if let news = HTML(html: data!, encoding: .utf8) {
+                    
+                    for link in news.css(".tile__title") {
+                        newsInfo.append([link.text!, "", ""])
+                    }
+                    
+                    var index = 0
+                    for link in news.css(".fit-link") {
+                        newsInfo[index][1] = self.serverUrl + link["href"]!
+                        index += 1
+                    }
+                    
+                    index = 0
+                    for link in news.css("._date") {
+                        newsInfo[index][2] = link.text!.replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: " ", with: "")
+                        index += 1
+                    }
                 }
-                
-                var index = 0
-                for link in news.css(".fit-link") {
-                    data[index][1] = serverUrl + link["href"]!
-                    index += 1
-                }
-                
-                index = 0
-                for link in news.css("._date") {
-                    data[index][2] = link.text!.replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: " ", with: "")
-                    index += 1
-                }
+                success(newsInfo)
             }
         }
-    
-        print(data)
-        return data
-        
+        task.resume()
     }
     
 }

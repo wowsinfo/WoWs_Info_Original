@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E212AE10551E33B03FE0311 /* Pods_WoWs_Info.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6759118B58D4B67B8E919C40 /* Pods_WoWs_Info.framework */; };
-		920E1C411E5EB76300B43472 /* DonationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920E1C401E5EB76300B43472 /* DonationController.swift */; };
+		920105B31EB180FA00E5F338 /* IntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920105B21EB180FA00E5F338 /* IntroController.swift */; };
+		920105B51EB1827B00E5F338 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920105B41EB1827B00E5F338 /* Reachability.swift */; };
+		920105B81EB1892000E5F338 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920105B71EB1892000E5F338 /* TabBarController.swift */; };
 		9210C06A1E45B3D500270002 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210C0691E45B3D500270002 /* WebViewController.swift */; };
 		9210C06E1E45E30E00270002 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210C06D1E45E30E00270002 /* NavigationController.swift */; };
 		9210C07E1E4609BA00270002 /* PersonalRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210C07D1E4609BA00270002 /* PersonalRating.swift */; };
+		92130AE41EB3003300B79DD5 /* UpgradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92130AE31EB3003300B79DD5 /* UpgradeCell.swift */; };
+		92130AE61EB3006300B79DD5 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92130AE51EB3006300B79DD5 /* SettingsCell.swift */; };
+		92130AE81EB3092300B79DD5 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92130AE71EB3092300B79DD5 /* SettingsController.swift */; };
 		9215CA3F1E5BF33D00A7F465 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923FFB3D1E5950340034686C /* SwiftyJSON.framework */; };
 		9215CA411E5BF34800A7F465 /* Pods_WoWs_Info.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9215CA401E5BF34800A7F465 /* Pods_WoWs_Info.framework */; };
 		9215CA491E5C119100A7F465 /* WebTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9215CA481E5C119100A7F465 /* WebTableController.swift */; };
@@ -23,9 +27,10 @@
 		922D0E571E6295DE0056EDE6 /* ShipInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D0E561E6295DE0056EDE6 /* ShipInfoController.swift */; };
 		923044AB1E7E1AA400DF20E2 /* Siren.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923044AA1E7E1AA400DF20E2 /* Siren.framework */; };
 		92330DEC1E77F54200A06FD7 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92330DEB1E77F54200A06FD7 /* HeaderView.swift */; };
-		92330DEE1E77FA1C00A06FD7 /* WoWsInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92330DED1E77FA1C00A06FD7 /* WoWsInfo.storyboard */; };
+		92338F881EB4C4AF00054DAE /* DeveloperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92338F871EB4C4AF00054DAE /* DeveloperCell.swift */; };
 		92423B0E1E737F64006B538F /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929489081E61AB8800B471F2 /* SDWebImage.framework */; };
 		92476A481E96025D0050F8A9 /* WikiDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92476A461E96025D0050F8A9 /* WikiDataCell.swift */; };
+		924B21E81EB36D950016A7C8 /* Clan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924B21EA1EB36D950016A7C8 /* Clan.storyboard */; };
 		924BAAE21E4EAF720000B246 /* PlayerOnline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924BAAE11E4EAF720000B246 /* PlayerOnline.swift */; };
 		924BD2651E457EB300E15D04 /* ServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924BD2641E457EB300E15D04 /* ServerController.swift */; };
 		924BD2671E457F6B00E15D04 /* DataManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924BD2661E457F6B00E15D04 /* DataManagement.swift */; };
@@ -36,7 +41,6 @@
 		925BE5A81E502B9000DA6A1A /* SimpleStat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925BE5A61E502B9000DA6A1A /* SimpleStat.storyboard */; };
 		925BE5AA1E502C1900DA6A1A /* InternalWeb.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925BE5A91E502C1900DA6A1A /* InternalWeb.storyboard */; };
 		925BE5AD1E502D0000DA6A1A /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925BE5AB1E502D0000DA6A1A /* Settings.storyboard */; };
-		925BE5B01E50325200DA6A1A /* AdvancedStat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925BE5AF1E50325200DA6A1A /* AdvancedStat.storyboard */; };
 		925BE5B21E5032AB00DA6A1A /* AdvancedInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BE5B11E5032AB00DA6A1A /* AdvancedInfoController.swift */; };
 		9260D0471E960BF500BBCB03 /* WikiDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9260D0461E960BF500BBCB03 /* WikiDataController.swift */; };
 		92634D0B1E540E2C000CDCB4 /* RankInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92634D0A1E540E2C000CDCB4 /* RankInformation.swift */; };
@@ -46,23 +50,25 @@
 		926528BE1E41BD5600D1A685 /* PlayerInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528B81E41BD5600D1A685 /* PlayerInfoController.swift */; };
 		926528BF1E41BD5600D1A685 /* PlayerInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528B91E41BD5600D1A685 /* PlayerInformation.swift */; };
 		926528C01E41BD5600D1A685 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528BA1E41BD5600D1A685 /* SearchController.swift */; };
-		926528C11E41BD5600D1A685 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528BB1E41BD5600D1A685 /* SettingsController.swift */; };
-		926528C31E41BD5600D1A685 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528BD1E41BD5600D1A685 /* WelcomeController.swift */; };
+		926528C11E41BD5600D1A685 /* InSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926528BB1E41BD5600D1A685 /* InSettingsController.swift */; };
+		92755BE81ED94E2700D52B79 /* CacheCleaner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92755BE71ED94E2700D52B79 /* CacheCleaner.swift */; };
 		927661051EA0676C00282732 /* IAPCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927661041EA0676C00282732 /* IAPCell.swift */; };
 		927AA8631EAEDAD600169B0A /* ClanSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927AA8621EAEDAD600169B0A /* ClanSearchCell.swift */; };
+		9295B1CE1EBDEF3B008FE418 /* FriendList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9295B1D01EBDEF3B008FE418 /* FriendList.storyboard */; };
+		9295B1D71EBDF40B008FE418 /* AdvancedStat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9295B1D91EBDF40B008FE418 /* AdvancedStat.storyboard */; };
+		9295B1DF1EBE077E008FE418 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9295B1DE1EBE077E008FE418 /* GoogleService-Info.plist */; };
 		929928411E86132C0091A174 /* RecentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929928401E86132B0091A174 /* RecentData.swift */; };
 		929928431E8638A70091A174 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929928421E8638A70091A174 /* News.swift */; };
 		929928451E865FA20091A174 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929928441E865FA20091A174 /* NewsCell.swift */; };
 		929928471E865FF60091A174 /* NewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929928461E865FF60091A174 /* NewsController.swift */; };
-		929928491E868DF10091A174 /* FriendList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 929928481E868DF10091A174 /* FriendList.storyboard */; };
 		9299284B1E86920F0091A174 /* FriendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299284A1E86920F0091A174 /* FriendController.swift */; };
-		9299284D1E8692180091A174 /* TKController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299284C1E8692180091A174 /* TKController.swift */; };
-		9299284F1E86935C0091A174 /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299284E1E86935C0091A174 /* ListController.swift */; };
 		929B0B471E618B45007E54EA /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B461E618B45007E54EA /* Language.swift */; };
 		929B0B491E619B5B007E54EA /* Encyclopedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B481E619B5B007E54EA /* Encyclopedia.swift */; };
 		929B0B4B1E619EE3007E54EA /* Wiki.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 929B0B4A1E619EE3007E54EA /* Wiki.storyboard */; };
 		929B0B4E1E61A022007E54EA /* AchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B4D1E61A022007E54EA /* AchievementCell.swift */; };
 		929B0B501E61A1E1007E54EA /* AchievementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B4F1E61A1E1007E54EA /* AchievementController.swift */; };
+		929C426D1EB20E2600DD0F6A /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929C426C1EB20E2600DD0F6A /* DashboardController.swift */; };
+		92A76B3E1EB4401D00F369ED /* DonationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A76B3D1EB4401D00F369ED /* DonationController.swift */; };
 		92AAE8C01E938511006DB929 /* WikiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AAE8BF1E938511006DB929 /* WikiController.swift */; };
 		92AAE8C21E938663006DB929 /* WikiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AAE8C11E938663006DB929 /* WikiCell.swift */; };
 		92B768641E5E5D02009803C3 /* MoreInformation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B768661E5E5D02009803C3 /* MoreInformation.storyboard */; };
@@ -77,14 +83,11 @@
 		92D9B4D61E55C6D600CFD46D /* RankTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4D51E55C6D600CFD46D /* RankTableCell.swift */; };
 		92D9B4D91E565C6E00CFD46D /* ShipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4D81E565C6E00CFD46D /* ShipController.swift */; };
 		92D9B4DB1E565C8A00CFD46D /* ShipTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4DA1E565C8A00CFD46D /* ShipTableCell.swift */; };
-		92E45B1C1EAE0F5200360E62 /* Clan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E45B1B1EAE0F5200360E62 /* Clan.storyboard */; };
 		92E45B1E1EAE13C200360E62 /* ClanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E45B1D1EAE13C200360E62 /* ClanCell.swift */; };
 		92E45B201EAE13CC00360E62 /* MemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E45B1F1EAE13CC00360E62 /* MemberCell.swift */; };
-		92E45B231EAE148700360E62 /* ClanSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E45B221EAE148700360E62 /* ClanSearchController.swift */; };
 		92E45B251EAE149D00360E62 /* ClanInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E45B241EAE149D00360E62 /* ClanInfoController.swift */; };
 		92E45B271EAE17A900360E62 /* Clan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E45B261EAE17A900360E62 /* Clan.swift */; };
 		92F526F11E6B9476005A2E20 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F526F01E6B9476005A2E20 /* AboutController.swift */; };
-		92FBEEE71E912E1E00FD7E1A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92FBEEE61E912E1E00FD7E1A /* GoogleService-Info.plist */; };
 		92FD8D701E59B22300E7FADF /* ChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD8D6F1E59B22300E7FADF /* ChartsController.swift */; };
 		92FF85901E592ED9001BBCA1 /* PlayerCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF858F1E592ED9001BBCA1 /* PlayerCharts.swift */; };
 		92FF85921E594157001BBCA1 /* ExpectedValue.json in Resources */ = {isa = PBXBuildFile; fileRef = 92FF85911E594157001BBCA1 /* ExpectedValue.json */; };
@@ -94,13 +97,18 @@
 		06D13CAC2212DD18FD32AB49 /* Pods-WoWs Info.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoWs Info.release.xcconfig"; path = "Pods/Target Support Files/Pods-WoWs Info/Pods-WoWs Info.release.xcconfig"; sourceTree = "<group>"; };
 		3B0C461C5DD33F3D39731E2D /* Pods-WoWs Info.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoWs Info.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WoWs Info/Pods-WoWs Info.debug.xcconfig"; sourceTree = "<group>"; };
 		6759118B58D4B67B8E919C40 /* Pods_WoWs_Info.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WoWs_Info.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		920105B21EB180FA00E5F338 /* IntroController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroController.swift; sourceTree = "<group>"; };
+		920105B41EB1827B00E5F338 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		920105B71EB1892000E5F338 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		920E1C3D1E5EA30A00B43472 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		920E1C3F1E5EAC8B00B43472 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		920E1C401E5EB76300B43472 /* DonationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonationController.swift; sourceTree = "<group>"; };
 		920E1C481E5EC32A00B43472 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Settings.strings"; sourceTree = "<group>"; };
 		9210C0691E45B3D500270002 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		9210C06D1E45E30E00270002 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		9210C07D1E4609BA00270002 /* PersonalRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalRating.swift; sourceTree = "<group>"; };
+		92130AE31EB3003300B79DD5 /* UpgradeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradeCell.swift; sourceTree = "<group>"; };
+		92130AE51EB3006300B79DD5 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		92130AE71EB3092300B79DD5 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		9215CA3A1E5BF28100A7F465 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleToolboxForMac.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/GoogleToolboxForMac/GoogleToolboxForMac.framework"; sourceTree = "<group>"; };
 		9215CA401E5BF34800A7F465 /* Pods_WoWs_Info.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_WoWs_Info.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/Pods_WoWs_Info.framework"; sourceTree = "<group>"; };
 		9215CA481E5C119100A7F465 /* WebTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebTableController.swift; sourceTree = "<group>"; };
@@ -114,9 +122,12 @@
 		922D0E561E6295DE0056EDE6 /* ShipInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipInfoController.swift; sourceTree = "<group>"; };
 		923044AA1E7E1AA400DF20E2 /* Siren.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Siren.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/Siren/Siren.framework"; sourceTree = "<group>"; };
 		92330DEB1E77F54200A06FD7 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-		92330DED1E77FA1C00A06FD7 /* WoWsInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WoWsInfo.storyboard; sourceTree = "<group>"; };
+		92338F871EB4C4AF00054DAE /* DeveloperCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeveloperCell.swift; sourceTree = "<group>"; };
 		923FFB3D1E5950340034686C /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		92476A461E96025D0050F8A9 /* WikiDataCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiDataCell.swift; sourceTree = "<group>"; };
+		924B21E91EB36D950016A7C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Clan.storyboard; sourceTree = "<group>"; };
+		924B21EC1EB36D970016A7C8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Clan.strings"; sourceTree = "<group>"; };
+		924B21EE1EB36D980016A7C8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Clan.strings"; sourceTree = "<group>"; };
 		924BAAE11E4EAF720000B246 /* PlayerOnline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerOnline.swift; sourceTree = "<group>"; };
 		924BD2641E457EB300E15D04 /* ServerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerController.swift; sourceTree = "<group>"; };
 		924BD2661E457F6B00E15D04 /* DataManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManagement.swift; sourceTree = "<group>"; };
@@ -127,7 +138,6 @@
 		925BE5A71E502B9000DA6A1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SimpleStat.storyboard; sourceTree = "<group>"; };
 		925BE5A91E502C1900DA6A1A /* InternalWeb.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InternalWeb.storyboard; sourceTree = "<group>"; };
 		925BE5AC1E502D0000DA6A1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
-		925BE5AF1E50325200DA6A1A /* AdvancedStat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdvancedStat.storyboard; sourceTree = "<group>"; };
 		925BE5B11E5032AB00DA6A1A /* AdvancedInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedInfoController.swift; sourceTree = "<group>"; };
 		925C13971E7E21A600590E1B /* WoWs Info.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WoWs Info.entitlements"; sourceTree = "<group>"; };
 		9260D0461E960BF500BBCB03 /* WikiDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiDataController.swift; sourceTree = "<group>"; };
@@ -138,27 +148,33 @@
 		926528B81E41BD5600D1A685 /* PlayerInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerInfoController.swift; sourceTree = "<group>"; };
 		926528B91E41BD5600D1A685 /* PlayerInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerInformation.swift; sourceTree = "<group>"; };
 		926528BA1E41BD5600D1A685 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
-		926528BB1E41BD5600D1A685 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
-		926528BD1E41BD5600D1A685 /* WelcomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
+		926528BB1E41BD5600D1A685 /* InSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InSettingsController.swift; sourceTree = "<group>"; };
+		92755BE71ED94E2700D52B79 /* CacheCleaner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheCleaner.swift; sourceTree = "<group>"; };
 		927661041EA0676C00282732 /* IAPCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPCell.swift; sourceTree = "<group>"; };
-		9276610C1EA0887E00282732 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		9276610E1EA0888100282732 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		927AA8621EAEDAD600169B0A /* ClanSearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClanSearchCell.swift; sourceTree = "<group>"; };
 		92813BB61E47447C009AA9E8 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		929489081E61AB8800B471F2 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework"; sourceTree = "<group>"; };
+		9295B1CF1EBDEF3B008FE418 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FriendList.storyboard; sourceTree = "<group>"; };
+		9295B1D21EBDEF3D008FE418 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/FriendList.strings"; sourceTree = "<group>"; };
+		9295B1D41EBDEF40008FE418 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/FriendList.strings"; sourceTree = "<group>"; };
+		9295B1D61EBDF32D008FE418 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		9295B1D81EBDF40B008FE418 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AdvancedStat.storyboard; sourceTree = "<group>"; };
+		9295B1DB1EBDF40D008FE418 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AdvancedStat.strings"; sourceTree = "<group>"; };
+		9295B1DD1EBDF40E008FE418 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/AdvancedStat.strings"; sourceTree = "<group>"; };
+		9295B1DE1EBE077E008FE418 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		929928401E86132B0091A174 /* RecentData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentData.swift; sourceTree = "<group>"; };
 		929928421E8638A70091A174 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		929928441E865FA20091A174 /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		929928461E865FF60091A174 /* NewsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsController.swift; sourceTree = "<group>"; };
-		929928481E868DF10091A174 /* FriendList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FriendList.storyboard; sourceTree = "<group>"; };
 		9299284A1E86920F0091A174 /* FriendController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendController.swift; sourceTree = "<group>"; };
-		9299284C1E8692180091A174 /* TKController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKController.swift; sourceTree = "<group>"; };
-		9299284E1E86935C0091A174 /* ListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
 		929B0B461E618B45007E54EA /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		929B0B481E619B5B007E54EA /* Encyclopedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encyclopedia.swift; sourceTree = "<group>"; };
 		929B0B4A1E619EE3007E54EA /* Wiki.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Wiki.storyboard; sourceTree = "<group>"; };
 		929B0B4D1E61A022007E54EA /* AchievementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementCell.swift; sourceTree = "<group>"; };
 		929B0B4F1E61A1E1007E54EA /* AchievementController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementController.swift; sourceTree = "<group>"; };
+		929C426C1EB20E2600DD0F6A /* DashboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
+		92A76B3D1EB4401D00F369ED /* DonationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonationController.swift; sourceTree = "<group>"; };
 		92AAE8BF1E938511006DB929 /* WikiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiController.swift; sourceTree = "<group>"; };
 		92AAE8C11E938663006DB929 /* WikiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiCell.swift; sourceTree = "<group>"; };
 		92B768621E5E5A57009803C3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SimpleStat.strings"; sourceTree = "<group>"; };
@@ -184,14 +200,11 @@
 		92D9B4D51E55C6D600CFD46D /* RankTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankTableCell.swift; sourceTree = "<group>"; };
 		92D9B4D81E565C6E00CFD46D /* ShipController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipController.swift; sourceTree = "<group>"; };
 		92D9B4DA1E565C8A00CFD46D /* ShipTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipTableCell.swift; sourceTree = "<group>"; };
-		92E45B1B1EAE0F5200360E62 /* Clan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Clan.storyboard; sourceTree = "<group>"; };
 		92E45B1D1EAE13C200360E62 /* ClanCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClanCell.swift; sourceTree = "<group>"; };
 		92E45B1F1EAE13CC00360E62 /* MemberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberCell.swift; sourceTree = "<group>"; };
-		92E45B221EAE148700360E62 /* ClanSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClanSearchController.swift; sourceTree = "<group>"; };
 		92E45B241EAE149D00360E62 /* ClanInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClanInfoController.swift; sourceTree = "<group>"; };
 		92E45B261EAE17A900360E62 /* Clan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clan.swift; sourceTree = "<group>"; };
 		92F526F01E6B9476005A2E20 /* AboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
-		92FBEEE61E912E1E00FD7E1A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		92FD8D6F1E59B22300E7FADF /* ChartsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsController.swift; sourceTree = "<group>"; };
 		92FF858F1E592ED9001BBCA1 /* PlayerCharts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCharts.swift; sourceTree = "<group>"; };
 		92FF85911E594157001BBCA1 /* ExpectedValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ExpectedValue.json; sourceTree = "<group>"; };
@@ -208,7 +221,6 @@
 				9215CA3F1E5BF33D00A7F465 /* SwiftyJSON.framework in Frameworks */,
 				9226E33A1E5BF19F00593026 /* Charts.framework in Frameworks */,
 				9259C1CE1E57F88700F34CDC /* StoreKit.framework in Frameworks */,
-				2E212AE10551E33B03FE0311 /* Pods_WoWs_Info.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,12 +242,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		920105B61EB1890500E5F338 /* Tab Bar */ = {
+			isa = PBXGroup;
+			children = (
+				920105B71EB1892000E5F338 /* TabBarController.swift */,
+			);
+			name = "Tab Bar";
+			sourceTree = "<group>";
+		};
 		9210C0801E4609EF00270002 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9210C06D1E45E30E00270002 /* NavigationController.swift */,
+				929C426B1EB20E0200DD0F6A /* Dashboard */,
+				920105B61EB1890500E5F338 /* Tab Bar */,
 				92E45B211EAE147500360E62 /* Clan */,
 				92BF559C1E9FB54A00573F0A /* Review */,
-				9210C06D1E45E30E00270002 /* NavigationController.swift */,
 				9215CA461E5C0C7C00A7F465 /* Pro */,
 				9260D04E1E960C5800BBCB03 /* IAP */,
 				9260D0501E960C8300BBCB03 /* PlayerInfo */,
@@ -265,6 +287,7 @@
 				929B0B461E618B45007E54EA /* Language.swift */,
 				92634D101E540F10000CDCB4 /* ShipInformation.swift */,
 				929B0B481E619B5B007E54EA /* Encyclopedia.swift */,
+				92755BE71ED94E2700D52B79 /* CacheCleaner.swift */,
 			);
 			name = Functions;
 			sourceTree = "<group>";
@@ -286,7 +309,7 @@
 			children = (
 				92E2A65A1E697D8A0039486C /* Welcome */,
 				925BE5A91E502C1900DA6A1A /* InternalWeb.storyboard */,
-				925BE5AF1E50325200DA6A1A /* AdvancedStat.storyboard */,
+				9295B1D91EBDF40B008FE418 /* AdvancedStat.storyboard */,
 				92B768661E5E5D02009803C3 /* MoreInformation.storyboard */,
 			);
 			name = Pro;
@@ -322,7 +345,8 @@
 				92D9B4D71E55C87700CFD46D /* TableViewCell */,
 				9210C0801E4609EF00270002 /* ViewControllers */,
 				921EA6981E35F2FB0007C7FC /* AppDelegate.swift */,
-				92FBEEE61E912E1E00FD7E1A /* GoogleService-Info.plist */,
+				9295B1DE1EBE077E008FE418 /* GoogleService-Info.plist */,
+				920105B41EB1827B00E5F338 /* Reachability.swift */,
 				921EA6A41E35F2FB0007C7FC /* Info.plist */,
 				92B768871E5E6E34009803C3 /* Localizable.strings */,
 				92813BB61E47447C009AA9E8 /* GoogleMobileAds.framework */,
@@ -389,7 +413,8 @@
 		9260D04D1E960C4200BBCB03 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				926528BB1E41BD5600D1A685 /* SettingsController.swift */,
+				926528BB1E41BD5600D1A685 /* InSettingsController.swift */,
+				92130AE71EB3092300B79DD5 /* SettingsController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -398,7 +423,7 @@
 			isa = PBXGroup;
 			children = (
 				9259C1CB1E57BC4400F34CDC /* IAPController.swift */,
-				920E1C401E5EB76300B43472 /* DonationController.swift */,
+				92A76B3D1EB4401D00F369ED /* DonationController.swift */,
 			);
 			name = IAP;
 			sourceTree = "<group>";
@@ -406,7 +431,7 @@
 		9260D04F1E960C7400BBCB03 /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
-				926528BD1E41BD5600D1A685 /* WelcomeController.swift */,
+				920105B21EB180FA00E5F338 /* IntroController.swift */,
 			);
 			name = Welcome;
 			sourceTree = "<group>";
@@ -431,8 +456,6 @@
 			isa = PBXGroup;
 			children = (
 				9299284A1E86920F0091A174 /* FriendController.swift */,
-				9299284C1E8692180091A174 /* TKController.swift */,
-				9299284E1E86935C0091A174 /* ListController.swift */,
 			);
 			name = FriendAndTKList;
 			sourceTree = "<group>";
@@ -445,6 +468,14 @@
 				922D0E541E6295A20056EDE6 /* ShipCell.swift */,
 			);
 			name = CollectionCell;
+			sourceTree = "<group>";
+		};
+		929C426B1EB20E0200DD0F6A /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				929C426C1EB20E2600DD0F6A /* DashboardController.swift */,
+			);
+			name = Dashboard;
 			sourceTree = "<group>";
 		};
 		92BF559C1E9FB54A00573F0A /* Review */ = {
@@ -461,11 +492,14 @@
 				92D9B4D51E55C6D600CFD46D /* RankTableCell.swift */,
 				92D9B4DA1E565C8A00CFD46D /* ShipTableCell.swift */,
 				927661041EA0676C00282732 /* IAPCell.swift */,
+				92130AE31EB3003300B79DD5 /* UpgradeCell.swift */,
+				92130AE51EB3006300B79DD5 /* SettingsCell.swift */,
 				929928441E865FA20091A174 /* NewsCell.swift */,
 				92AAE8C11E938663006DB929 /* WikiCell.swift */,
 				92476A461E96025D0050F8A9 /* WikiDataCell.swift */,
 				92E45B1D1EAE13C200360E62 /* ClanCell.swift */,
 				92E45B1F1EAE13CC00360E62 /* MemberCell.swift */,
+				92338F871EB4C4AF00054DAE /* DeveloperCell.swift */,
 				927AA8621EAEDAD600169B0A /* ClanSearchCell.swift */,
 			);
 			name = TableViewCell;
@@ -488,13 +522,12 @@
 			isa = PBXGroup;
 			children = (
 				921EA69C1E35F2FB0007C7FC /* Main.storyboard */,
-				92330DED1E77FA1C00A06FD7 /* WoWsInfo.storyboard */,
 				92B7686D1E5E5DD6009803C3 /* ProVersion.storyboard */,
 				929B0B4A1E619EE3007E54EA /* Wiki.storyboard */,
-				929928481E868DF10091A174 /* FriendList.storyboard */,
+				9295B1D01EBDEF3B008FE418 /* FriendList.storyboard */,
 				92B768721E5E5DE1009803C3 /* UsefulWebsite.storyboard */,
 				925BE5AB1E502D0000DA6A1A /* Settings.storyboard */,
-				92E45B1B1EAE0F5200360E62 /* Clan.storyboard */,
+				924B21EA1EB36D950016A7C8 /* Clan.storyboard */,
 			);
 			name = Welcome;
 			sourceTree = "<group>";
@@ -502,7 +535,6 @@
 		92E45B211EAE147500360E62 /* Clan */ = {
 			isa = PBXGroup;
 			children = (
-				92E45B221EAE148700360E62 /* ClanSearchController.swift */,
 				92E45B241EAE149D00360E62 /* ClanInfoController.swift */,
 			);
 			name = Clan;
@@ -593,8 +625,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				929928491E868DF10091A174 /* FriendList.storyboard in Resources */,
-				925BE5B01E50325200DA6A1A /* AdvancedStat.storyboard in Resources */,
+				9295B1CE1EBDEF3B008FE418 /* FriendList.storyboard in Resources */,
+				9295B1D71EBDF40B008FE418 /* AdvancedStat.storyboard in Resources */,
 				925BE5A81E502B9000DA6A1A /* SimpleStat.storyboard in Resources */,
 				92B768641E5E5D02009803C3 /* MoreInformation.storyboard in Resources */,
 				921EA6A31E35F2FB0007C7FC /* LaunchScreen.storyboard in Resources */,
@@ -602,14 +634,13 @@
 				92FF85921E594157001BBCA1 /* ExpectedValue.json in Resources */,
 				92B768701E5E5DE1009803C3 /* UsefulWebsite.storyboard in Resources */,
 				925BE5AA1E502C1900DA6A1A /* InternalWeb.storyboard in Resources */,
-				92FBEEE71E912E1E00FD7E1A /* GoogleService-Info.plist in Resources */,
+				9295B1DF1EBE077E008FE418 /* GoogleService-Info.plist in Resources */,
 				92B768851E5E6E34009803C3 /* Localizable.strings in Resources */,
 				925636591E53F1CA0002E08A /* Assets.xcassets in Resources */,
 				925BE5AD1E502D0000DA6A1A /* Settings.storyboard in Resources */,
 				929B0B4B1E619EE3007E54EA /* Wiki.storyboard in Resources */,
-				92330DEE1E77FA1C00A06FD7 /* WoWsInfo.storyboard in Resources */,
 				92B7686B1E5E5DD6009803C3 /* ProVersion.storyboard in Resources */,
-				92E45B1C1EAE0F5200360E62 /* Clan.storyboard in Resources */,
+				924B21E81EB36D950016A7C8 /* Clan.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,29 +707,33 @@
 				92634D0B1E540E2C000CDCB4 /* RankInformation.swift in Sources */,
 				9299284B1E86920F0091A174 /* FriendController.swift in Sources */,
 				9260D0471E960BF500BBCB03 /* WikiDataController.swift in Sources */,
-				926528C31E41BD5600D1A685 /* WelcomeController.swift in Sources */,
 				92634D0F1E540EBE000CDCB4 /* ServerUrl.swift in Sources */,
-				92E45B231EAE148700360E62 /* ClanSearchController.swift in Sources */,
 				92330DEC1E77F54200A06FD7 /* HeaderView.swift in Sources */,
 				924BAAE21E4EAF720000B246 /* PlayerOnline.swift in Sources */,
+				920105B51EB1827B00E5F338 /* Reachability.swift in Sources */,
 				92AAE8C21E938663006DB929 /* WikiCell.swift in Sources */,
 				925B627D1E62D7680073FF56 /* ShipDetailController.swift in Sources */,
+				92A76B3E1EB4401D00F369ED /* DonationController.swift in Sources */,
 				929B0B501E61A1E1007E54EA /* AchievementController.swift in Sources */,
-				9299284F1E86935C0091A174 /* ListController.swift in Sources */,
 				92E45B201EAE13CC00360E62 /* MemberCell.swift in Sources */,
 				924BD2671E457F6B00E15D04 /* DataManagement.swift in Sources */,
+				92338F881EB4C4AF00054DAE /* DeveloperCell.swift in Sources */,
 				9215CA491E5C119100A7F465 /* WebTableController.swift in Sources */,
+				920105B31EB180FA00E5F338 /* IntroController.swift in Sources */,
 				9210C06A1E45B3D500270002 /* WebViewController.swift in Sources */,
 				9210C07E1E4609BA00270002 /* PersonalRating.swift in Sources */,
 				92E45B1E1EAE13C200360E62 /* ClanCell.swift in Sources */,
+				92130AE61EB3006300B79DD5 /* SettingsCell.swift in Sources */,
 				92D9B4D91E565C6E00CFD46D /* ShipController.swift in Sources */,
 				927AA8631EAEDAD600169B0A /* ClanSearchCell.swift in Sources */,
+				92130AE41EB3003300B79DD5 /* UpgradeCell.swift in Sources */,
 				92634D0D1E540E77000CDCB4 /* PlayerStat.swift in Sources */,
 				929928411E86132C0091A174 /* RecentData.swift in Sources */,
-				926528C11E41BD5600D1A685 /* SettingsController.swift in Sources */,
+				926528C11E41BD5600D1A685 /* InSettingsController.swift in Sources */,
 				929928431E8638A70091A174 /* News.swift in Sources */,
-				9299284D1E8692180091A174 /* TKController.swift in Sources */,
 				929B0B4E1E61A022007E54EA /* AchievementCell.swift in Sources */,
+				92755BE81ED94E2700D52B79 /* CacheCleaner.swift in Sources */,
+				920105B81EB1892000E5F338 /* TabBarController.swift in Sources */,
 				92FF85901E592ED9001BBCA1 /* PlayerCharts.swift in Sources */,
 				924BD2651E457EB300E15D04 /* ServerController.swift in Sources */,
 				92E45B251EAE149D00360E62 /* ClanInfoController.swift in Sources */,
@@ -709,6 +744,7 @@
 				929928471E865FF60091A174 /* NewsController.swift in Sources */,
 				92D9B4D41E55AF2400CFD46D /* RankController.swift in Sources */,
 				929B0B471E618B45007E54EA /* Language.swift in Sources */,
+				92130AE81EB3092300B79DD5 /* SettingsController.swift in Sources */,
 				925BE5B21E5032AB00DA6A1A /* AdvancedInfoController.swift in Sources */,
 				92FD8D701E59B22300E7FADF /* ChartsController.swift in Sources */,
 				929B0B491E619B5B007E54EA /* Encyclopedia.swift in Sources */,
@@ -716,9 +752,9 @@
 				926528BF1E41BD5600D1A685 /* PlayerInformation.swift in Sources */,
 				9259C1CC1E57BC4400F34CDC /* IAPController.swift in Sources */,
 				92D9B4DB1E565C8A00CFD46D /* ShipTableCell.swift in Sources */,
+				929C426D1EB20E2600DD0F6A /* DashboardController.swift in Sources */,
 				926528C01E41BD5600D1A685 /* SearchController.swift in Sources */,
 				929928451E865FA20091A174 /* NewsCell.swift in Sources */,
-				920E1C411E5EB76300B43472 /* DonationController.swift in Sources */,
 				922D0E551E6295A20056EDE6 /* ShipCell.swift in Sources */,
 				92D9B4D61E55C6D600CFD46D /* RankTableCell.swift in Sources */,
 				92D9B4D21E55AE3200CFD46D /* PlayerAccount.swift in Sources */,
@@ -735,8 +771,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				921EA69D1E35F2FB0007C7FC /* Base */,
-				9276610C1EA0887E00282732 /* zh-Hans */,
 				9276610E1EA0888100282732 /* zh-Hant */,
+				9295B1D61EBDF32D008FE418 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -749,6 +785,16 @@
 				92B768821E5E6144009803C3 /* zh-Hant */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		924B21EA1EB36D950016A7C8 /* Clan.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				924B21E91EB36D950016A7C8 /* Base */,
+				924B21EC1EB36D970016A7C8 /* zh-Hans */,
+				924B21EE1EB36D980016A7C8 /* zh-Hant */,
+			);
+			name = Clan.storyboard;
 			sourceTree = "<group>";
 		};
 		925BE5A61E502B9000DA6A1A /* SimpleStat.storyboard */ = {
@@ -769,6 +815,26 @@
 				920E1C481E5EC32A00B43472 /* zh-Hans */,
 			);
 			name = Settings.storyboard;
+			sourceTree = "<group>";
+		};
+		9295B1D01EBDEF3B008FE418 /* FriendList.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9295B1CF1EBDEF3B008FE418 /* Base */,
+				9295B1D21EBDEF3D008FE418 /* zh-Hans */,
+				9295B1D41EBDEF40008FE418 /* zh-Hant */,
+			);
+			name = FriendList.storyboard;
+			sourceTree = "<group>";
+		};
+		9295B1D91EBDF40B008FE418 /* AdvancedStat.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9295B1D81EBDF40B008FE418 /* Base */,
+				9295B1DB1EBDF40D008FE418 /* zh-Hans */,
+				9295B1DD1EBDF40E008FE418 /* zh-Hant */,
+			);
+			name = AdvancedStat.storyboard;
 			sourceTree = "<group>";
 		};
 		92B768661E5E5D02009803C3 /* MoreInformation.storyboard */ = {
@@ -925,7 +991,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yihengquan.WoWs-Info";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -944,7 +1010,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yihengquan.WoWs-Info";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

@@ -1,0 +1,9 @@
+
+/* Class = "UISegmentedControl"; aCG-tO-Asu.segmentTitles[0] = "Friends"; ObjectID = "aCG-tO-Asu"; */
+"aCG-tO-Asu.segmentTitles[0]" = "朋友";
+
+/* Class = "UISegmentedControl"; aCG-tO-Asu.segmentTitles[1] = "TK"; ObjectID = "aCG-tO-Asu"; */
+"aCG-tO-Asu.segmentTitles[1]" = "TK玩家";
+
+/* Class = "UISegmentedControl"; aCG-tO-Asu.segmentTitles[2] = "Me"; ObjectID = "aCG-tO-Asu"; */
+"aCG-tO-Asu.segmentTitles[2]" = "個人";

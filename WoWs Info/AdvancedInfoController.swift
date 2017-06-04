@@ -9,14 +9,12 @@
 import UIKit
 import AudioToolbox
 
-class AdvancedInfoController: UIViewController {
+class AdvancedInfoController: UITableViewController {
 
     var playerInfo = [String]()
+    @IBOutlet weak var clanNameLabel: UILabel!
     var serverIndex = 0
     var isPreview = false
-    @IBOutlet weak var number: UIImageView!
-    @IBOutlet weak var moreInfo: UIImageView!
-    @IBOutlet weak var screenshot: UIImageView!
     @IBOutlet weak var playerNameLabel: UILabel!
     @IBOutlet weak var levelAndPlaytimeLabel: UILabel!
     @IBOutlet weak var totalBattlesLabel: UILabel!
@@ -26,14 +24,15 @@ class AdvancedInfoController: UIViewController {
     @IBOutlet weak var averageDamageLabel: UILabel!
     @IBOutlet weak var killDeathRatioLabel: UILabel!
     @IBOutlet weak var mainBatteryHitRatioLabel: UILabel!
-    @IBOutlet weak var centerConstraint: NSLayoutConstraint!
-    @IBOutlet var statView: UIView!
     @IBOutlet weak var friendBtn: UIButton!
     @IBOutlet weak var tkBtn: UIButton!
     @IBOutlet weak var retryBtn: UIButton!
     var shipData: [[String]]!
+    var clanInfo: [String]!
+    var clanData = [String]()
     
     let username = UserDefaults.standard.string(forKey: DataManagement.DataName.UserName)!
+    let isPro = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
     
     @IBOutlet weak var setPlayerIDBtn: UIBarButtonItem!
     
@@ -44,18 +43,12 @@ class AdvancedInfoController: UIViewController {
         self.title  = playerInfo[1]
         playerNameLabel.text = playerInfo[0]
         
+        self.prLabel.text = ""
+        
         // Pass account id
         _ = PlayerAccount.init(ID: self.title!, Name: playerInfo[0])
         
-        self.loadPlayerData()
-        
-        // Just to prevent user playing with that button...
-        if username.range(of: playerInfo[1]) != nil {
-            setPlayerIDBtn.isEnabled = false
-        }
-        
-        // Move stat to center... To look better
-        centerConstraint.constant = (view.bounds.size.height - 406) / 4
+        setPlayerIDBtn.isEnabled = false
         
         // Get server index
         self.serverIndex = UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)
@@ -63,8 +56,8 @@ class AdvancedInfoController: UIViewController {
         // Check for friend or tk
         setupNameColour()
         
-        // If it is for review
-        if isPreview {
+        // If it is for review or not pro
+        if isPreview || !isPro{
             tkBtn.isHidden = true
             friendBtn.isHidden = true
             setPlayerIDBtn.isEnabled = false
@@ -72,33 +65,46 @@ class AdvancedInfoController: UIViewController {
         
         // Load data here
         PlayerShip(account: PlayerAccount.AccountID).getPlayerShipInfo()
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+            self.shipData = PlayerShip.playerShipInfo
+        })
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+            self.loadPlayerData()
+        })
+        
+        // Get Clan Info
+        PlayerClan().getClanList { (Data) in
+            DispatchQueue.main.async {
+                print("Clan Data: \(Data) \(Data.count)")
+                if Data.count > 0 {
+                    self.clanInfo = Data
+                    UIView.animate(withDuration: 0.5, animations: {
+                        self.clanNameLabel.alpha = 1
+                        self.clanNameLabel.text = self.clanInfo[1]
+                    })
+                    
+                    // Get Clan Info
+                    ClanSearch().getClanList(clan: Data[1], success: { (Clan) in
+                        self.clanData = Clan[0]
+                    })
+                }
+            }
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        shipData = PlayerShip.playerShipInfo
-        UIView.animate(withDuration: 0.5, delay: 1, options: .curveEaseIn, animations: {
-            self.moreInfo.alpha = 1
-        }, completion: nil)
-        
-        if shipData.count > 0 {
-            UIView.animate(withDuration: 0.5, delay: 1, options: .curveEaseIn, animations: {
-                self.prLabel.alpha = 1
-            }, completion: nil)
-            self.calAvgShipRating()
-        }
-    }
-    
-    override func viewWillDisappear(_ animated : Bool) {
-        super.viewWillDisappear(animated)
-        
-        if (self.isMovingFromParentViewController){
-            // Free it
+        if self.isMovingToParentViewController {
+            // Clear Data Here
+            print("Clearing")
+            shipData = [[String]]()
             PlayerShip.playerShipInfo = [[String]]()
         }
     }
@@ -109,11 +115,10 @@ class AdvancedInfoController: UIViewController {
             self.setLabelText(data: playerData)
         })
         
-    }
-    
-    @IBAction func gotoMoreInfo(_ sender: UITapGestureRecognizer) {
-        
-        performSegue(withIdentifier: "gotoMoreInfo", sender: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+            // Calculate PR after 1 seconds
+            self.calAvgShipRating()
+        })
         
     }
     
@@ -126,7 +131,6 @@ class AdvancedInfoController: UIViewController {
             
             for friend in friends {
                 if friend.contains(self.title!) {
-                    self.playerNameLabel.textColor = UIColor(red: 35/255, green: 135/255, blue: 1, alpha: 1.0)
                     hideFriendTKBtn()
                     hasFound = true
                     break
@@ -158,8 +162,6 @@ class AdvancedInfoController: UIViewController {
                 return
             } else if data[0] == "HIDDEN" {
                 self.levelAndPlaytimeLabel.text = NSLocalizedString("HIDDEN", comment: "Hidden Label")
-                self.moreInfo.isHidden = true
-                self.number.isHidden = true
             } else {
                 self.averageDamageLabel.text = data[PlayerStat.dataIndex.averageDamage]
                 self.averageExpLabel.text = data[PlayerStat.dataIndex.averageExp]
@@ -180,7 +182,6 @@ class AdvancedInfoController: UIViewController {
                     self.totalBattlesLabel.text = "\(data[PlayerStat.dataIndex.totalBattles]) (\(battlePerDay))"
                 } else {
                     self.totalBattlesLabel.text = String(format: "%.0f", totalBattles!)
-                    self.moreInfo.isHidden = true
                 }
             }
             
@@ -192,6 +193,10 @@ class AdvancedInfoController: UIViewController {
                 self.totalBattlesLabel.alpha = 1.0
                 self.averageExpLabel.alpha = 1.0
                 self.mainBatteryHitRatioLabel.alpha = 1.0
+                // Just to prevent user playing with that button...
+                if UserDefaults.standard.string(forKey: DataManagement.DataName.UserName)?.components(separatedBy: "|")[0] != self.playerNameLabel.text {
+                    self.setPlayerIDBtn.isEnabled = true
+                }
             })
         };
         
@@ -222,22 +227,11 @@ class AdvancedInfoController: UIViewController {
         
     }
     
-    @IBAction func visitNumber(_ sender: UITapGestureRecognizer) {
-        
-        // Open World of Warships number
-        let number = ServerUrl(serverIndex: serverIndex).getUrlForNumber(account: self.title!, name: playerNameLabel.text!)
-        performSegue(withIdentifier: "gotoWebView", sender: number)
-        
-    }
-    
     @IBAction func retryBtnPressed(_ sender: Any) {
         // Load data here
         PlayerShip(account: PlayerAccount.AccountID).getPlayerShipInfo()
+        calAvgShipRating()
         AudioServicesPlaySystemSound(1520)
-        moreInfo.alpha = 0
-        UIView.animate(withDuration: 0.5, delay: 1.5, options: .curveEaseIn, animations: {
-            self.moreInfo.alpha = 1
-        }, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -250,49 +244,47 @@ class AdvancedInfoController: UIViewController {
         // Go to WebView
         if segue.identifier == "gotoWebView" {
             let destination = segue.destination as! WebViewController
-            destination.url = sender as! String
+            // Open in WoWs Number
+            destination.url = ServerUrl(serverIndex: serverIndex).getUrlForNumber(account: self.title!, name: playerNameLabel.text!)
+        }
+        
+        // Go to Clan
+        if segue.identifier == "gotoClan" {
+            let destination = segue.destination as! ClanInfoController
+            destination.clanDataString = "\(clanData[ClanSearch.dataIndex.id]) | \(clanData[ClanSearch.dataIndex.memberCount]) | \(clanData[ClanSearch.dataIndex.name]) | \(clanData[ClanSearch.dataIndex.tag])"
         }
     }
- 
-    // Used to take a screenshot
-    @IBAction func takeScreenShot(_ sender: UITapGestureRecognizer) {
-     
-        // Hide number and today and screenshot
-        number.isHidden = true
-        moreInfo.isHidden = true
-        tkBtn.isHidden = true
-        friendBtn.isHidden = true
-        retryBtn.isHidden = true
-        self.screenshot.isHidden = true
-     
-        UIGraphicsBeginImageContextWithOptions(view.frame.size, true, 0.0)
-        view.layer.render(in: UIGraphicsGetCurrentContext()!)
-        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-     
-        UIImageWriteToSavedPhotosAlbum(screenshot!, nil, nil, nil)
-     
-        // show number and moreInfo
-        number.isHidden = false
-        moreInfo.isHidden = false
-        tkBtn.isHidden = false
-        friendBtn.isHidden = false
-        retryBtn.isHidden = false
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         
-        // Popup share button
-        let shareSheet  = UIAlertController.init(title: NSLocalizedString("SHARE_TITLE", comment: "Share title"), message: nil, preferredStyle: .actionSheet)
-        let share = UIAlertAction.init(title: NSLocalizedString("SHARE_MESSAGE", comment: "Share message"), style: .default) { (UIAlertAction) in
-            // Share with friends
-            let activityViewController = UIActivityViewController(activityItems: [(screenshot!)], applicationActivities: nil)
-            self.present(activityViewController, animated: true, completion: nil)
+        if isPreview { return true }
+        
+        if !isPro {
+            // Do not segue if it is not Pro
+            let pro = UIAlertController(title: NSLocalizedString("PRO_TITLE", comment: "Title"), message: NSLocalizedString("PRO_MESSAGE", comment: "Message"), preferredStyle: .alert)
+            pro.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(pro, animated: true, completion: nil)
+            
+            return false
         }
-        let cancel = UIAlertAction.init(title: NSLocalizedString("SHARE_CANCEL", comment: "Share cancel"), style: .default, handler: nil)
-        shareSheet.addAction(share)
-        shareSheet.addAction(cancel)
         
-        self.present(shareSheet, animated: true, completion: nil)
-        AudioServicesPlaySystemSound(1520)
+        if self.prLabel.text == "" { return false }
         
+        if identifier == "gotoClan" {
+            if clanData == [String]() || clanData[2] == "" {
+                // If player does not have a clan
+                return false
+            }
+        }
+        
+        if identifier == "gotoWebView" || identifier == "gotoMoreInfo" {
+            if self.totalBattlesLabel.text == "0" {
+                // Do not segue if they never player a battle
+                return false
+            }
+        }
+        
+        return true
     }
     
     // MARK: Button pressed
@@ -345,32 +337,44 @@ class AdvancedInfoController: UIViewController {
         
         var rating = 0.0
         
-        for ship in shipData {
-            actualDmg += Double(ship[PlayerShip.PlayerShipDataIndex.totalDamage])!
-            actualWins += Double(ship[PlayerShip.PlayerShipDataIndex.totalWins])!
-            actualFrags += Double(ship[PlayerShip.PlayerShipDataIndex.totalFrags])!
+        if shipData.count > 0 {
+            // Wont crash
+            for ship in shipData {
+                actualDmg += Double(ship[PlayerShip.PlayerShipDataIndex.totalDamage])!
+                actualWins += Double(ship[PlayerShip.PlayerShipDataIndex.totalWins])!
+                actualFrags += Double(ship[PlayerShip.PlayerShipDataIndex.totalFrags])!
+                
+                expectedDmg += Double(ShipRating.shipExpected["data"][ship[PlayerShip.PlayerShipDataIndex.id]]["average_damage_dealt"].doubleValue) * Double(ship[PlayerShip.PlayerShipDataIndex.battles])!
+                expectedWins += Double(ShipRating.shipExpected["data"][ship[PlayerShip.PlayerShipDataIndex.id]]["win_rate"].doubleValue) * Double(ship[PlayerShip.PlayerShipDataIndex.battles])! / 100
+                expectedFrags += Double(ShipRating.shipExpected["data"][ship[PlayerShip.PlayerShipDataIndex.id]]["average_frags"].doubleValue) * Double(ship[PlayerShip.PlayerShipDataIndex.battles])!
+            }
             
-            expectedDmg += Double(ShipRating.shipExpected["data"][ship[PlayerShip.PlayerShipDataIndex.id]]["average_damage_dealt"].doubleValue) * Double(ship[PlayerShip.PlayerShipDataIndex.battles])!
-            expectedWins += Double(ShipRating.shipExpected["data"][ship[PlayerShip.PlayerShipDataIndex.id]]["win_rate"].doubleValue) * Double(ship[PlayerShip.PlayerShipDataIndex.battles])! / 100
-            expectedFrags += Double(ShipRating.shipExpected["data"][ship[PlayerShip.PlayerShipDataIndex.id]]["average_frags"].doubleValue) * Double(ship[PlayerShip.PlayerShipDataIndex.battles])!
+            print(actualDmg,expectedDmg,"\n",actualWins,expectedWins,"\n", actualFrags,expectedFrags)
+            
+            let rDmg = actualDmg / expectedDmg
+            let rFrags = actualFrags / expectedFrags
+            let rWins = actualWins / expectedWins
+            
+            let nDmg = max(0.0, (rDmg - 0.4) / (1.0 - 0.4))
+            let nFrags = max(0.0, (rFrags - 0.1) / (1.0 - 0.1))
+            let nWins = max(0.0, (rWins - 0.7) / (1.0 - 0.7))
+            
+            rating = 700 * nDmg + 300 * nFrags + 150 * nWins
+            print("Rating: \(rating)")
+            
+            let index = PersonalRating.getPersonalRatingIndex(PR: rating)
+            
+            prLabel.text = PersonalRating.Comment[index]
+            prLabel.textColor = PersonalRating.ColorGroup[index]
+            UIView.animate(withDuration: 0.5) { 
+                self.prLabel.alpha = 1
+            }
+        } else {
+            prLabel.text = ">_<"
+            UIView.animate(withDuration: 0.5) {
+                self.prLabel.alpha = 1
+            }
         }
-        
-        print(actualDmg,expectedDmg,"\n",actualWins,expectedWins,"\n", actualFrags,expectedFrags)
-        
-        let rDmg = actualDmg / expectedDmg
-        let rFrags = actualFrags / expectedFrags
-        let rWins = actualWins / expectedWins
-        
-        let nDmg = max(0.0, (rDmg - 0.4) / (1.0 - 0.4))
-        let nFrags = max(0.0, (rFrags - 0.1) / (1.0 - 0.1))
-        let nWins = max(0.0, (rWins - 0.7) / (1.0 - 0.7))
-        
-        rating = 700 * nDmg + 300 * nFrags + 150 * nWins
-        print("Rating: \(rating)")
-        
-        let index = PersonalRating.getPersonalRatingIndex(PR: rating)
-        prLabel.text = PersonalRating.Comment[index]
-        prLabel.textColor = PersonalRating.ColorGroup[index]
     }
  
 }

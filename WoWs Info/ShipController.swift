@@ -273,9 +273,6 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = self.ShipTableView.dequeueReusableCell(withIdentifier: "ShipCell", for: indexPath) as! ShipTableCell
         cell.battlesLabel.text = targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.battles]
         cell.damageLabel.text = targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.averageDamage]
-        cell.xpLabel.text = targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.averageExp]
-        cell.hitRatioLabel.text = targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.hitRatio]
-        cell.killDeathLabel.text = targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.killDeathRatio]
         cell.winRateLabel.text = targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.winRate]
         
         // Setup tier name and type
@@ -288,15 +285,13 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.TierNameLabel.text = tierName
         
         let index = Int(targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.rating].components(separatedBy: "|")[1])!
-        cell.shipRating.text = PersonalRating.Comment[index]
-        cell.shipRating.textColor = PersonalRating.ColorGroup[index]
         
         // Set up a border colour
-        cell.contentView.layer.borderWidth = 1
+        cell.contentView.layer.borderWidth = 1.25
         cell.contentView.layer.cornerRadius = 10
         cell.contentView.layer.masksToBounds = true
         cell.layoutMargins = UIEdgeInsetsMake(10, 10, 10, 10)
-        cell.contentView.layer.borderColor = UIColor(red: CGFloat(85)/255, green: CGFloat(163)/255, blue: CGFloat(255)/255, alpha: 1.0).cgColor
+        cell.contentView.layer.borderColor = PersonalRating.ColorGroup[index].cgColor
         
         return cell
         

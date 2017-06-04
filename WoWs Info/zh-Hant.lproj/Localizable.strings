@@ -123,3 +123,37 @@
 "IAP_CHARTS" = "實用的圖表";
 
 "IAP_RANK" = "排位賽信息";
+
+"NO_INTERNET" = "無網絡";
+
+"WOWS_WIKI" = "戰艦世界圖鑑";
+
+"DASHBOARD_BAR" = "聯絡資訊";
+
+"WEB_SETTINGS" = "實用的網站";
+
+"APP_SETTINGS" = "分享給朋友";
+
+"DONATION_SETTINGS" = "支持開發者";
+
+"SETTINGS_SETTINGS" = "設置";
+
+"UPGRADE_SETTINGS" = "升級為專業版";
+
+"MEMBER_LIST" = "玩家列表";
+
+"DEV_LABEL" = "開發者";
+
+"PLAYER_SEGMENT" = "玩家";
+
+"CLAN_SEGMENT" = "工會";
+
+"PRO_TITLE" = "升級到專業版";
+
+"PRO_MESSAGE" = "非常抱歉，請升級到專業版來使用這個功能。";
+
+"IAP_FAILED" = "無法完成購買。";
+
+"WAIT_TITLE" = "請稍等...";
+
+"WAIT_MESSAGE" = "正在加載中";

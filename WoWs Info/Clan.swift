@@ -113,3 +113,49 @@ class ClanInfo {
     }
     
 }
+
+class PlayerClan {
+    
+    var clanAPI: String
+    var PlayerID: String
+    
+    struct dataIndex {
+        static let clan = 0
+        static let tag = 1
+    }
+    
+    init() {
+        // Get server string
+        let server = ServerUrl.Server[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)]
+        PlayerID = PlayerAccount.AccountID
+        clanAPI = "https://api.worldofwarships.\(server)/wows/clans/accountinfo/?application_id=***ApplicationID***&account_id=\(PlayerID)&extra=clan&fields=clan_id%2Cclan.tag"
+    }
+    
+    func getClanList(success: @escaping ([String]) -> ()) {
+        
+        let request = URLRequest(url: URL(string: clanAPI)!)
+        
+        // Get data
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if (error != nil) {
+                print("Error: \(error!)")
+            } else {
+                let dataJson = JSON(data!)
+                print("dataJson: \(dataJson)")
+                var clanInfo = [String]()
+                if dataJson["status"].stringValue == "ok" {
+                    // If data is valid
+                    let clanDatajson = dataJson["data"]
+                    // If there is a clan
+                    if clanDatajson[self.PlayerID] != JSON.null {
+                        clanInfo.append(clanDatajson[self.PlayerID]["clan_id"].stringValue)
+                        clanInfo.append(clanDatajson[self.PlayerID]["clan"]["tag"].stringValue)
+                    }
+                }
+                success(clanInfo)
+            }
+        }
+        task.resume()
+        
+    }
+}
