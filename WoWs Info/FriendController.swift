@@ -103,6 +103,23 @@ class FriendController: UIViewController, UITableViewDelegate, UITableViewDataSo
         }
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Remove from ist
+            let index  = modeSegment.selectedSegmentIndex
+            if index == 0 {
+                // Friend
+                friendList.remove(at: indexPath.row)
+                UserDefaults.standard.set(friendList, forKey: DataManagement.DataName.friend)
+            } else if index == 1 {
+                // TK
+                tkList.remove(at: indexPath.row)
+                UserDefaults.standard.set(tkList, forKey: DataManagement.DataName.tk)
+            }
+            self.friendTableView.reloadData()
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "gotoInfo" {
             let destination = segue.destination as! AdvancedInfoController
@@ -115,8 +132,6 @@ class FriendController: UIViewController, UITableViewDelegate, UITableViewDataSo
         if modeSegment.selectedSegmentIndex != 2 {
             self.friendTableView.reloadData()
         } else {
-            
-            
             // Move to friend list
             modeSegment.selectedSegmentIndex = 0
             self.friendTableView.reloadData()

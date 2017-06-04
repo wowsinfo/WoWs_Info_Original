@@ -48,10 +48,7 @@ class AdvancedInfoController: UITableViewController {
         // Pass account id
         _ = PlayerAccount.init(ID: self.title!, Name: playerInfo[0])
         
-        // Just to prevent user playing with that button...
-        if username.range(of: playerInfo[1]) != nil {
-            setPlayerIDBtn.isEnabled = false
-        }
+        setPlayerIDBtn.isEnabled = false
         
         // Get server index
         self.serverIndex = UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)
@@ -118,7 +115,7 @@ class AdvancedInfoController: UITableViewController {
             self.setLabelText(data: playerData)
         })
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
             // Calculate PR after 1 seconds
             self.calAvgShipRating()
         })
@@ -196,6 +193,10 @@ class AdvancedInfoController: UITableViewController {
                 self.totalBattlesLabel.alpha = 1.0
                 self.averageExpLabel.alpha = 1.0
                 self.mainBatteryHitRatioLabel.alpha = 1.0
+                // Just to prevent user playing with that button...
+                if UserDefaults.standard.string(forKey: DataManagement.DataName.UserName)?.components(separatedBy: "|")[0] != self.playerNameLabel.text {
+                    self.setPlayerIDBtn.isEnabled = true
+                }
             })
         };
         
@@ -270,7 +271,7 @@ class AdvancedInfoController: UITableViewController {
         if self.prLabel.text == "" { return false }
         
         if identifier == "gotoClan" {
-            if clanData[2] == "" {
+            if clanData == [String]() || clanData[2] == "" {
                 // If player does not have a clan
                 return false
             }

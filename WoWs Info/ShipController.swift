@@ -287,7 +287,7 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         let index = Int(targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.rating].components(separatedBy: "|")[1])!
         
         // Set up a border colour
-        cell.contentView.layer.borderWidth = 2
+        cell.contentView.layer.borderWidth = 1.25
         cell.contentView.layer.cornerRadius = 10
         cell.contentView.layer.masksToBounds = true
         cell.layoutMargins = UIEdgeInsetsMake(10, 10, 10, 10)

@@ -13,6 +13,7 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
 
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var IAPTable: UITableView!
+    var isReady = false
     
     let isProVersion = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
     let proIAP = "com.yihengquan.WoWsInfo.Pro"
@@ -83,13 +84,19 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
     @IBAction func purchaseBtnPressed(_ sender: UIButton) {
         
         // Make a request if user is not paid customer
-        if !isProVersion {
-            // Check if can make payment
-            print(productList)
-            for p in productList {
-                if p.productIdentifier == proIAP {
-                    self.product = p
-                    buyProduct()
+        if !isReady {
+            let pro = UIAlertController(title: NSLocalizedString("WAIT_TITLE", comment: "Title"), message: NSLocalizedString("WAIT_MESSAGE", comment: "Message"), preferredStyle: .alert)
+            pro.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(pro, animated: true, completion: nil)
+        } else {
+            if !isProVersion {
+                // Check if can make payment
+                print(productList)
+                for p in productList {
+                    if p.productIdentifier == proIAP {
+                        self.product = p
+                        buyProduct()
+                    }
                 }
             }
         }
@@ -123,6 +130,7 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
             formatter.numberStyle = .currency
             formatter.locale = p.priceLocale
             self.priceLabel.text = "\(formatter.string(from: p.price)!)"
+            isReady = true
             productList.append(p)
         }
         
@@ -149,9 +157,6 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
                 queue.finishTransaction(t)
             case .failed:
                 print("Failed")
-                let pro = UIAlertController(title: ">_<", message: NSLocalizedString("IAP_FAILED", comment: "Message"), preferredStyle: .alert)
-                pro.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.present(pro, animated: true, completion: nil)
                 queue.finishTransaction(t)
             default:
                 break

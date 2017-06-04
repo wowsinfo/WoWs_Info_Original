@@ -70,6 +70,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         application.registerUserNotificationSettings(notificationSettings)
         
+        // Remove cache
+        CacheCleaner.cleanCache()
+        
         return true
     }
 

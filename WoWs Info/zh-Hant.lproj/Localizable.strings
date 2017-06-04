@@ -153,3 +153,7 @@
 "PRO_MESSAGE" = "非常抱歉，請升級到專業版來使用這個功能。";
 
 "IAP_FAILED" = "無法完成購買。";
+
+"WAIT_TITLE" = "請稍等...";
+
+"WAIT_MESSAGE" = "正在加載中";
