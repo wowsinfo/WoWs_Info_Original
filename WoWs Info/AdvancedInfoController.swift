@@ -8,8 +8,9 @@
 
 import UIKit
 import AudioToolbox
+import SafariServices
 
-class AdvancedInfoController: UITableViewController {
+class AdvancedInfoController: UITableViewController, SFSafariViewControllerDelegate {
 
     var playerInfo = [String]()
     @IBOutlet weak var clanNameLabel: UILabel!
@@ -241,13 +242,6 @@ class AdvancedInfoController: UITableViewController {
         backItem.title = NSLocalizedString("BACK", comment: "Back button")
         navigationItem.backBarButtonItem = backItem
         
-        // Go to WebView
-        if segue.identifier == "gotoWebView" {
-            let destination = segue.destination as! WebViewController
-            // Open in WoWs Number
-            destination.url = ServerUrl(serverIndex: serverIndex).getUrlForNumber(account: self.title!, name: playerNameLabel.text!)
-        }
-        
         // Go to Clan
         if segue.identifier == "gotoClan" {
             let destination = segue.destination as! ClanInfoController
@@ -277,7 +271,7 @@ class AdvancedInfoController: UITableViewController {
             }
         }
         
-        if identifier == "gotoWebView" || identifier == "gotoMoreInfo" {
+        if identifier == "gotoMoreInfo" {
             if self.totalBattlesLabel.text == "0" {
                 // Do not segue if they never player a battle
                 return false
@@ -285,6 +279,27 @@ class AdvancedInfoController: UITableViewController {
         }
         
         return true
+    }
+    
+    // MARK: TableView
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        if cell?.tag == 99 {
+            // Go to number
+            let browser = SFSafariViewController(url: URL(string: ServerUrl(serverIndex: serverIndex).getUrlForNumber(account: self.title!, name: playerNameLabel.text!))!)
+            browser.modalPresentationStyle = .overFullScreen
+            browser.delegate = self
+            // Change status bar 
+            UIApplication.shared.statusBarStyle = .default
+            self.present(browser, animated: true, completion: nil)
+        }
+    }
+    
+    // MARK: Safari
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        // Change status bar
+        UIApplication.shared.statusBarStyle = .lightContent
+        controller.dismiss(animated: true, completion: nil)
     }
     
     // MARK: Button pressed
@@ -318,6 +333,7 @@ class AdvancedInfoController: UITableViewController {
         user.set(list, forKey: DataManagement.DataName.tk)
         
     }
+    
     
     func hideFriendTKBtn() {
         friendBtn.isHidden = true

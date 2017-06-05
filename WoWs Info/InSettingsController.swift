@@ -61,6 +61,10 @@ class InSettingsController : UITableViewController, MFMailComposeViewControllerD
         
     }
     
+    @IBAction func updateBtnPressed(_ sender: Any) {
+        
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // Change text to "Back"
