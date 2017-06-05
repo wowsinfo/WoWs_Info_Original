@@ -29,6 +29,7 @@ class DataManagement {
         static let hasPurchased = "hasPurchased"
         static let friend = "friend_list"
         static let tk = "team_killer"
+        static let theme = "theme"
     }
     
 }

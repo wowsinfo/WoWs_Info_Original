@@ -42,7 +42,7 @@ class InSettingsController : UITableViewController, MFMailComposeViewControllerD
         UserDefaults.standard.set(Int(limitSlider.value), forKey: DataManagement.DataName.SearchLimit)
         
     }
-    
+
     @IBAction func saveBtnPressed(_ sender: UIButton) {
         
         let name = username.text

@@ -10,9 +10,9 @@ import UIKit
 
 class SettingsController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    let imageSet = [#imageLiteral(resourceName: "Web"),#imageLiteral(resourceName: "AppStore"),#imageLiteral(resourceName: "Donation"),#imageLiteral(resourceName: "Settings")]
-    let wordSet = [NSLocalizedString("WEB_SETTINGS", comment: "Word for Web"), NSLocalizedString("APP_SETTINGS", comment: "Word for appstore"), NSLocalizedString("DONATION_SETTINGS", comment: "Word for donation"), NSLocalizedString("SETTINGS_SETTINGS", comment: "Word for settings")]
-    let segueSet = ["gotoProVersion", "gotoWeb", "gotoReview", "gotoDonate", "gotoSettings"]
+    let imageSet = [#imageLiteral(resourceName: "Web"),#imageLiteral(resourceName: "AppStore"),#imageLiteral(resourceName: "Donation"),#imageLiteral(resourceName: "Settings"), #imageLiteral(resourceName: "Icon")]
+    let wordSet = [NSLocalizedString("WEB_SETTINGS", comment: "Word for Web"), NSLocalizedString("APP_SETTINGS", comment: "Word for appstore"), NSLocalizedString("DONATION_SETTINGS", comment: "Word for donation"), NSLocalizedString("SETTINGS_SETTINGS", comment: "Word for settings"), "Theme"]
+    let segueSet = ["gotoProVersion", "gotoWeb", "gotoReview", "gotoDonate", "gotoSettings", "gotoTheme"]
     var isPro = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
     @IBOutlet weak var settingsTableView: UITableView!
     
@@ -30,11 +30,15 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationController?.navigationBar.topItem?.title = NSLocalizedString("SETTINGS_SETTINGS", comment: "Settings Title")
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         // If it is Pro
         isPro = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
+        // Update theme colour
+        let ThemeColour = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
+        self.navigationController?.navigationBar.barTintColor = ThemeColour
+        self.tabBarController?.tabBar.tintColor = ThemeColour
     }
 
     override func didReceiveMemoryWarning() {

@@ -28,8 +28,8 @@ class NewsController: UITableViewController, SFSafariViewControllerDelegate {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
         if newsData.count == 0 {
             News().getNews(success: { (data) in
@@ -44,6 +44,9 @@ class NewsController: UITableViewController, SFSafariViewControllerDelegate {
                     self.tableView.reloadRows(at: self.tableView.indexPathsForVisibleRows!, with: .automatic)
                 }
             })
+        } else {
+            self.tableView.reloadData()
+            self.tableView.reloadRows(at: self.tableView.indexPathsForVisibleRows!, with: .automatic)
         }
     }
 
@@ -65,7 +68,7 @@ class NewsController: UITableViewController, SFSafariViewControllerDelegate {
         
         // Headlines
         if indexPath.row == 0 {
-            cell.backgroundColor = UIColor.init(red: 112/255, green: 177/255, blue: 251/255, alpha: 1)
+            cell.backgroundColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
             cell.dateLabel.textColor = UIColor.white
             cell.titleLabel.textColor = UIColor.white
             

@@ -28,6 +28,7 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     @IBOutlet weak var friendBtn: UIButton!
     @IBOutlet weak var tkBtn: UIButton!
     @IBOutlet weak var retryBtn: UIButton!
+    @IBOutlet weak var DashboardCell: UITableViewCell!
     var shipData: [[String]]!
     var clanInfo: [String]!
     var clanData = [String]()
@@ -46,6 +47,9 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         
         self.prLabel.text = ""
         
+        // Setup dashboard colour
+        DashboardCell.backgroundColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
+        
         // Pass account id
         _ = PlayerAccount.init(ID: self.title!, Name: playerInfo[0])
         
@@ -58,7 +62,7 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         setupNameColour()
         
         // If it is for review or not pro
-        if isPreview || !isPro{
+        if !isPro || isPreview {
             tkBtn.isHidden = true
             friendBtn.isHidden = true
             setPlayerIDBtn.isEnabled = false
@@ -196,43 +200,13 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
                 self.mainBatteryHitRatioLabel.alpha = 1.0
                 // Just to prevent user playing with that button...
                 if UserDefaults.standard.string(forKey: DataManagement.DataName.UserName)?.components(separatedBy: "|")[0] != self.playerNameLabel.text {
-                    self.setPlayerIDBtn.isEnabled = true
+                    if self.isPro {
+                        self.setPlayerIDBtn.isEnabled = true
+                    }
                 }
             })
         };
         
-    }
-    
-    @IBAction func setPlayerID(_ sender: UIBarButtonItem) {
-        
-        let playerID = self.title!
-        let playerIDAndName = "\(playerNameLabel.text!)|\(playerID)|\(serverIndex)"
-        UserDefaults.standard.setValue(playerIDAndName, forKey: DataManagement.DataName.UserName)
-        
-        // Alert
-        var gamePerDay = totalBattlesLabel.text?.components(separatedBy: "(")[1]
-        gamePerDay = gamePerDay?.replacingOccurrences(of: ")", with: "")
-        
-        let alert: UIAlertController!
-        if Double(gamePerDay!)! >= 15 {
-            alert = UIAlertController(title: ">_<", message: NSLocalizedString("GAME_ISNOT_EVERYTHING", comment: "Remainder"), preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: NSLocalizedString("GAME_ISNOT_EVERYTHING_BTN", comment: "Remainder"), style: .default, handler: nil))
-        } else {
-            alert = UIAlertController(title: "^_^", message: NSLocalizedString("DASHBOARD_MESSAGE", comment: "Dashboard Message"), preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        }
-        
-        self.present(alert, animated: true, completion: nil)
-        
-        setPlayerIDBtn.isEnabled = false
-        
-    }
-    
-    @IBAction func retryBtnPressed(_ sender: Any) {
-        // Load data here
-        PlayerShip(account: PlayerAccount.AccountID).getPlayerShipInfo()
-        calAvgShipRating()
-        AudioServicesPlaySystemSound(1520)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -305,6 +279,38 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     }
     
     // MARK: Button pressed
+    @IBAction func setPlayerID(_ sender: UIBarButtonItem) {
+        
+        let playerID = self.title!
+        let playerIDAndName = "\(playerNameLabel.text!)|\(playerID)|\(serverIndex)"
+        UserDefaults.standard.setValue(playerIDAndName, forKey: DataManagement.DataName.UserName)
+        
+        // Alert
+        var gamePerDay = totalBattlesLabel.text?.components(separatedBy: "(")[1]
+        gamePerDay = gamePerDay?.replacingOccurrences(of: ")", with: "")
+        
+        let alert: UIAlertController!
+        if Double(gamePerDay!)! >= 15 {
+            alert = UIAlertController(title: ">_<", message: NSLocalizedString("GAME_ISNOT_EVERYTHING", comment: "Remainder"), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("GAME_ISNOT_EVERYTHING_BTN", comment: "Remainder"), style: .default, handler: nil))
+        } else {
+            alert = UIAlertController(title: "^_^", message: NSLocalizedString("DASHBOARD_MESSAGE", comment: "Dashboard Message"), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        }
+        
+        self.present(alert, animated: true, completion: nil)
+        
+        setPlayerIDBtn.isEnabled = false
+        
+    }
+    
+    @IBAction func retryBtnPressed(_ sender: Any) {
+        // Load data here
+        PlayerShip(account: PlayerAccount.AccountID).getPlayerShipInfo()
+        calAvgShipRating()
+        AudioServicesPlaySystemSound(1520)
+    }
+    
     @IBAction func friendbtnPressed(_ sender: UIButton) {
         hideFriendTKBtn()
         

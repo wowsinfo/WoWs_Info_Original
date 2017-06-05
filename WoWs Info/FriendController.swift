@@ -38,8 +38,8 @@ class FriendController: UIViewController, UITableViewDelegate, UITableViewDataSo
         super.didReceiveMemoryWarning()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         // Get data again
         let user = UserDefaults.standard
@@ -48,6 +48,9 @@ class FriendController: UIViewController, UITableViewDelegate, UITableViewDataSo
             tkList = user.object(forKey: DataManagement.DataName.tk) as! [String]
         }
         currPlayer = user.string(forKey: DataManagement.DataName.UserName)!
+        
+        // Update colour
+        modeSegment.tintColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
