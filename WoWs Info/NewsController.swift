@@ -41,6 +41,7 @@ class NewsController: UITableViewController, SFSafariViewControllerDelegate {
                         self.navigationController?.navigationBar.topItem?.title = ">_<"
                     }
                     self.tableView.reloadData()
+                    self.tableView.reloadRows(at: self.tableView.indexPathsForVisibleRows!, with: .automatic)
                 }
             })
         }
