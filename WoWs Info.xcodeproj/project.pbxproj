@@ -10,7 +10,6 @@
 		920105B31EB180FA00E5F338 /* IntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920105B21EB180FA00E5F338 /* IntroController.swift */; };
 		920105B51EB1827B00E5F338 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920105B41EB1827B00E5F338 /* Reachability.swift */; };
 		920105B81EB1892000E5F338 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920105B71EB1892000E5F338 /* TabBarController.swift */; };
-		9210C06A1E45B3D500270002 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210C0691E45B3D500270002 /* WebViewController.swift */; };
 		9210C06E1E45E30E00270002 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210C06D1E45E30E00270002 /* NavigationController.swift */; };
 		9210C07E1E4609BA00270002 /* PersonalRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210C07D1E4609BA00270002 /* PersonalRating.swift */; };
 		92130AE41EB3003300B79DD5 /* UpgradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92130AE31EB3003300B79DD5 /* UpgradeCell.swift */; };
@@ -39,7 +38,6 @@
 		9259C1CE1E57F88700F34CDC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9259C1CD1E57F88700F34CDC /* StoreKit.framework */; };
 		925B627D1E62D7680073FF56 /* ShipDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925B627C1E62D7680073FF56 /* ShipDetailController.swift */; };
 		925BE5A81E502B9000DA6A1A /* SimpleStat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925BE5A61E502B9000DA6A1A /* SimpleStat.storyboard */; };
-		925BE5AA1E502C1900DA6A1A /* InternalWeb.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925BE5A91E502C1900DA6A1A /* InternalWeb.storyboard */; };
 		925BE5AD1E502D0000DA6A1A /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925BE5AB1E502D0000DA6A1A /* Settings.storyboard */; };
 		925BE5B21E5032AB00DA6A1A /* AdvancedInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BE5B11E5032AB00DA6A1A /* AdvancedInfoController.swift */; };
 		9260D0471E960BF500BBCB03 /* WikiDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9260D0461E960BF500BBCB03 /* WikiDataController.swift */; };
@@ -103,7 +101,6 @@
 		920E1C3D1E5EA30A00B43472 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		920E1C3F1E5EAC8B00B43472 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		920E1C481E5EC32A00B43472 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Settings.strings"; sourceTree = "<group>"; };
-		9210C0691E45B3D500270002 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		9210C06D1E45E30E00270002 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		9210C07D1E4609BA00270002 /* PersonalRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalRating.swift; sourceTree = "<group>"; };
 		92130AE31EB3003300B79DD5 /* UpgradeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradeCell.swift; sourceTree = "<group>"; };
@@ -136,7 +133,6 @@
 		9259C1CD1E57F88700F34CDC /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		925B627C1E62D7680073FF56 /* ShipDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipDetailController.swift; sourceTree = "<group>"; };
 		925BE5A71E502B9000DA6A1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SimpleStat.storyboard; sourceTree = "<group>"; };
-		925BE5A91E502C1900DA6A1A /* InternalWeb.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InternalWeb.storyboard; sourceTree = "<group>"; };
 		925BE5AC1E502D0000DA6A1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		925BE5B11E5032AB00DA6A1A /* AdvancedInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedInfoController.swift; sourceTree = "<group>"; };
 		925C13971E7E21A600590E1B /* WoWs Info.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WoWs Info.entitlements"; sourceTree = "<group>"; };
@@ -308,7 +304,6 @@
 			isa = PBXGroup;
 			children = (
 				92E2A65A1E697D8A0039486C /* Welcome */,
-				925BE5A91E502C1900DA6A1A /* InternalWeb.storyboard */,
 				9295B1D91EBDF40B008FE418 /* AdvancedStat.storyboard */,
 				92B768661E5E5D02009803C3 /* MoreInformation.storyboard */,
 			);
@@ -381,7 +376,6 @@
 			isa = PBXGroup;
 			children = (
 				9215CA481E5C119100A7F465 /* WebTableController.swift */,
-				9210C0691E45B3D500270002 /* WebViewController.swift */,
 			);
 			name = Web;
 			sourceTree = "<group>";
@@ -633,7 +627,6 @@
 				921EA69E1E35F2FB0007C7FC /* Main.storyboard in Resources */,
 				92FF85921E594157001BBCA1 /* ExpectedValue.json in Resources */,
 				92B768701E5E5DE1009803C3 /* UsefulWebsite.storyboard in Resources */,
-				925BE5AA1E502C1900DA6A1A /* InternalWeb.storyboard in Resources */,
 				9295B1DF1EBE077E008FE418 /* GoogleService-Info.plist in Resources */,
 				92B768851E5E6E34009803C3 /* Localizable.strings in Resources */,
 				925636591E53F1CA0002E08A /* Assets.xcassets in Resources */,
@@ -720,7 +713,6 @@
 				92338F881EB4C4AF00054DAE /* DeveloperCell.swift in Sources */,
 				9215CA491E5C119100A7F465 /* WebTableController.swift in Sources */,
 				920105B31EB180FA00E5F338 /* IntroController.swift in Sources */,
-				9210C06A1E45B3D500270002 /* WebViewController.swift in Sources */,
 				9210C07E1E4609BA00270002 /* PersonalRating.swift in Sources */,
 				92E45B1E1EAE13C200360E62 /* ClanCell.swift in Sources */,
 				92130AE61EB3006300B79DD5 /* SettingsCell.swift in Sources */,

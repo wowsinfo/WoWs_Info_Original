@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SafariServices
 
-class NewsController: UITableViewController {
+class NewsController: UITableViewController, SFSafariViewControllerDelegate {
 
     var newsData = [[String]]()
     
@@ -82,20 +83,22 @@ class NewsController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         performSegue(withIdentifier: "gotoWebView", sender: newsData[indexPath.row][News.dataIndex.link])
+        let browser = SFSafariViewController(url: URL(string: newsData[indexPath.row][News.dataIndex.link])!)
+        browser.delegate = self
+        browser.modalPresentationStyle = .overFullScreen
+        // Change status bar
+        UIApplication.shared.statusBarStyle = .default
+        self.present(browser, animated: true, completion: nil)
+        
+        // Deselect cell
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Change text to "Back"
-        let backItem = UIBarButtonItem()
-        backItem.title = NSLocalizedString("BACK", comment: "Back button")
-        navigationItem.backBarButtonItem = backItem
-        
-        // Go to WebView
-        if segue.identifier == "gotoWebView" {
-            let destination = segue.destination as! WebViewController
-            destination.url = sender as! String
-        }
+    // MARK: Safari
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        // Change status bar
+        UIApplication.shared.statusBarStyle = .lightContent
+        controller.dismiss(animated: true, completion: nil)
     }
 
 }
