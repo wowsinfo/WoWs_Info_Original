@@ -18,9 +18,6 @@ class IntroController: UIViewController, GADInterstitialDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Load rating
-        ShipRating().loadExpctedJson()
-        
         // Get ship information
         Shipinformation().getShipInformation()
         
@@ -54,6 +51,15 @@ class IntroController: UIViewController, GADInterstitialDelegate {
             self.loadingIndicator.hidesWhenStopped = true
             
             if Reachability.isConnectedToNetwork() == true {
+                // Download data from wows-numbers.com
+                if !DataUpdater.hasData() {
+                    let success = DataUpdater.update()
+                    if !success {
+                        let error = UIAlertController.QuickMessage(title: "Error", message: "Fail to download ExpectedValue.json", cancel: "OK")
+                        self.present(error, animated: true, completion: nil)
+                    }
+                }
+                
                 // Show an ads
                 if !self.isPro {
                     if self.interstitial.isReady {

@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        FIRApp.configure()
+        FirebaseApp.configure()
         GADMobileAds.configure(withApplicationID: "ca-app-pub-5048098651344514~3226630788")
         
         // Change status bar color
