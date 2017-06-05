@@ -27,6 +27,9 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Load rating
+        ShipRating().loadExpctedJson()
+        
         // Setup Segmented controll
         let modeSegment = UISegmentedControl.init(items: [NSLocalizedString("PLAYER_SEGMENT", comment: "Player"), NSLocalizedString("CLAN_SEGMENT", comment: "Clan")])
         modeSegment.selectedSegmentIndex = 0
