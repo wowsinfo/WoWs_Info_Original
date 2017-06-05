@@ -30,6 +30,10 @@
 		92423B0E1E737F64006B538F /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929489081E61AB8800B471F2 /* SDWebImage.framework */; };
 		92457ADA1EE53B7500B5A120 /* DataUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92457AD91EE53B7500B5A120 /* DataUpdater.swift */; };
 		92457ADC1EE53EF300B5A120 /* UIAlertController+QuickMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92457ADB1EE53EF300B5A120 /* UIAlertController+QuickMessage.swift */; };
+		92457ADE1EE5475800B5A120 /* Theme.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92457ADD1EE5475800B5A120 /* Theme.storyboard */; };
+		92457AE11EE5489400B5A120 /* ThemeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92457AE01EE5489400B5A120 /* ThemeController.swift */; };
+		92457AE61EE5565600B5A120 /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92457AE51EE5565600B5A120 /* UIColor+RGB.swift */; };
+		92457AE81EE55F1700B5A120 /* UserDefaults+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92457AE71EE55F1700B5A120 /* UserDefaults+UIColor.swift */; };
 		92476A481E96025D0050F8A9 /* WikiDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92476A461E96025D0050F8A9 /* WikiDataCell.swift */; };
 		924B21E81EB36D950016A7C8 /* Clan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924B21EA1EB36D950016A7C8 /* Clan.storyboard */; };
 		924BAAE21E4EAF720000B246 /* PlayerOnline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924BAAE11E4EAF720000B246 /* PlayerOnline.swift */; };
@@ -125,6 +129,10 @@
 		923FFB3D1E5950340034686C /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		92457AD91EE53B7500B5A120 /* DataUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataUpdater.swift; sourceTree = "<group>"; };
 		92457ADB1EE53EF300B5A120 /* UIAlertController+QuickMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+QuickMessage.swift"; sourceTree = "<group>"; };
+		92457ADD1EE5475800B5A120 /* Theme.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Theme.storyboard; sourceTree = "<group>"; };
+		92457AE01EE5489400B5A120 /* ThemeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeController.swift; sourceTree = "<group>"; };
+		92457AE51EE5565600B5A120 /* UIColor+RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+RGB.swift"; sourceTree = "<group>"; };
+		92457AE71EE55F1700B5A120 /* UserDefaults+UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+UIColor.swift"; sourceTree = "<group>"; };
 		92476A461E96025D0050F8A9 /* WikiDataCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiDataCell.swift; sourceTree = "<group>"; };
 		924B21E91EB36D950016A7C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Clan.storyboard; sourceTree = "<group>"; };
 		924B21EC1EB36D970016A7C8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Clan.strings"; sourceTree = "<group>"; };
@@ -254,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				9210C06D1E45E30E00270002 /* NavigationController.swift */,
+				92457ADF1EE5487B00B5A120 /* Theme */,
 				929C426B1EB20E0200DD0F6A /* Dashboard */,
 				920105B61EB1890500E5F338 /* Tab Bar */,
 				92E45B211EAE147500360E62 /* Clan */,
@@ -289,7 +298,7 @@
 				929B0B481E619B5B007E54EA /* Encyclopedia.swift */,
 				92755BE71ED94E2700D52B79 /* CacheCleaner.swift */,
 				92457AD91EE53B7500B5A120 /* DataUpdater.swift */,
-				92457ADB1EE53EF300B5A120 /* UIAlertController+QuickMessage.swift */,
+				92457AE41EE5564300B5A120 /* Extensions */,
 			);
 			name = Functions;
 			sourceTree = "<group>";
@@ -312,6 +321,7 @@
 				92E2A65A1E697D8A0039486C /* Welcome */,
 				9295B1D91EBDF40B008FE418 /* AdvancedStat.storyboard */,
 				92B768661E5E5D02009803C3 /* MoreInformation.storyboard */,
+				92457ADD1EE5475800B5A120 /* Theme.storyboard */,
 			);
 			name = Pro;
 			sourceTree = "<group>";
@@ -352,6 +362,24 @@
 				92813BB61E47447C009AA9E8 /* GoogleMobileAds.framework */,
 			);
 			path = "WoWs Info";
+			sourceTree = "<group>";
+		};
+		92457ADF1EE5487B00B5A120 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				92457AE01EE5489400B5A120 /* ThemeController.swift */,
+			);
+			name = Theme;
+			sourceTree = "<group>";
+		};
+		92457AE41EE5564300B5A120 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				92457ADB1EE53EF300B5A120 /* UIAlertController+QuickMessage.swift */,
+				92457AE71EE55F1700B5A120 /* UserDefaults+UIColor.swift */,
+				92457AE51EE5565600B5A120 /* UIColor+RGB.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		925BE5AE1E502E2700DA6A1A /* Storyboard */ = {
@@ -634,6 +662,7 @@
 				9295B1DF1EBE077E008FE418 /* GoogleService-Info.plist in Resources */,
 				92B768851E5E6E34009803C3 /* Localizable.strings in Resources */,
 				925636591E53F1CA0002E08A /* Assets.xcassets in Resources */,
+				92457ADE1EE5475800B5A120 /* Theme.storyboard in Resources */,
 				925BE5AD1E502D0000DA6A1A /* Settings.storyboard in Resources */,
 				929B0B4B1E619EE3007E54EA /* Wiki.storyboard in Resources */,
 				92B7686B1E5E5DD6009803C3 /* ProVersion.storyboard in Resources */,
@@ -703,6 +732,7 @@
 				926528BE1E41BD5600D1A685 /* PlayerInfoController.swift in Sources */,
 				92634D0B1E540E2C000CDCB4 /* RankInformation.swift in Sources */,
 				9299284B1E86920F0091A174 /* FriendController.swift in Sources */,
+				92457AE11EE5489400B5A120 /* ThemeController.swift in Sources */,
 				9260D0471E960BF500BBCB03 /* WikiDataController.swift in Sources */,
 				92634D0F1E540EBE000CDCB4 /* ServerUrl.swift in Sources */,
 				92330DEC1E77F54200A06FD7 /* HeaderView.swift in Sources */,
@@ -719,7 +749,9 @@
 				920105B31EB180FA00E5F338 /* IntroController.swift in Sources */,
 				9210C07E1E4609BA00270002 /* PersonalRating.swift in Sources */,
 				92E45B1E1EAE13C200360E62 /* ClanCell.swift in Sources */,
+				92457AE61EE5565600B5A120 /* UIColor+RGB.swift in Sources */,
 				92130AE61EB3006300B79DD5 /* SettingsCell.swift in Sources */,
+				92457AE81EE55F1700B5A120 /* UserDefaults+UIColor.swift in Sources */,
 				92D9B4D91E565C6E00CFD46D /* ShipController.swift in Sources */,
 				927AA8631EAEDAD600169B0A /* ClanSearchCell.swift in Sources */,
 				92130AE41EB3003300B79DD5 /* UpgradeCell.swift in Sources */,

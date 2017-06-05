@@ -302,7 +302,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoU-7a-avU" userLabel="CentrePoint">
-                                                    <rect key="frame" x="169" y="33.5" width="5" height="0.0"/>
+                                                    <rect key="frame" x="168.5" y="33.5" width="5" height="0.0"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="5" id="mdC-CN-3Ea"/>
                                                     </constraints>
@@ -457,6 +457,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="DashboardCell" destination="5Qh-gy-ZHa" id="jGJ-7J-P4i"/>
                         <outlet property="averageDamageLabel" destination="opv-vX-a8O" id="IOO-jJ-46h"/>
                         <outlet property="averageExpLabel" destination="pps-Z0-Ee3" id="6ab-BF-gaq"/>
                         <outlet property="clanNameLabel" destination="oF8-Ub-lx8" id="W4O-yi-G8P"/>
@@ -480,7 +481,7 @@
         <!--Navigation Controller-->
         <scene sceneID="jlZ-0O-z1l">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ea9-Ks-chM" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ea9-Ks-chM" customClass="NavigationController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qef-XX-UJN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -493,7 +494,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7zX-TQ-7wh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="45.600000000000001" y="120.98950524737631"/>
+            <point key="canvasLocation" x="246" y="121"/>
         </scene>
     </scenes>
     <resources>

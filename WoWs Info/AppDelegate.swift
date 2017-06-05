@@ -41,6 +41,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         
+        // Setup theme
+        if UserDefaults.standard.object(forKey: DataManagement.DataName.theme) == nil {
+            UserDefaults.standard.set(UIColor.RGB(red: 85, green: 163, blue: 255), forKey: DataManagement.DataName.theme)
+        }
+        
         // Whether user purchases or not
         if UserDefaults.standard.object(forKey: DataManagement.DataName.hasPurchased) == nil {
             UserDefaults.standard.set(false, forKey: DataManagement.DataName.hasPurchased)
