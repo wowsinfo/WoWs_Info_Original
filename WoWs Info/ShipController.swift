@@ -258,6 +258,7 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Update table now
         DispatchQueue.main.async {
             self.ShipTableView.reloadData()
+            self.ShipTableView.reloadRows(at: self.ShipTableView.indexPathsForVisibleRows!, with: .automatic)
             self.calAvgShipRating()
         }
     }

@@ -43,7 +43,7 @@ class ClanInfoController: UITableViewController, SFSafariViewControllerDelegate 
                 self.clanInfo = Clan
                 print("Clan: \(Clan)")
                 self.tableView.reloadData()
-                self.tableView.reloadRows(at: self.tableView.indexPathsForVisibleRows!, with: .none)
+                self.tableView.reloadRows(at: self.tableView.indexPathsForVisibleRows!, with: .automatic)
             }
         }
     }

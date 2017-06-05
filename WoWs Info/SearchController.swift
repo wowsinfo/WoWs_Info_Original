@@ -90,7 +90,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         DispatchQueue.main.async {
             UIView.transition(with: self.view, duration: 0.25, options: .curveEaseIn, animations: {
                 self.usernameTableView.reloadData()
-                self.usernameTableView.reloadRows(at: self.usernameTableView.indexPathsForVisibleRows!, with: .none)
+                self.usernameTableView.reloadRows(at: self.usernameTableView.indexPathsForVisibleRows!, with: .automatic)
             })
         };
     }

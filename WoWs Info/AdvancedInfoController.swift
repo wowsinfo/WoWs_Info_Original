@@ -285,13 +285,15 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         if cell?.tag == 99 {
-            // Go to number
-            let browser = SFSafariViewController(url: URL(string: ServerUrl(serverIndex: serverIndex).getUrlForNumber(account: self.title!, name: playerNameLabel.text!))!)
-            browser.modalPresentationStyle = .overFullScreen
-            browser.delegate = self
-            // Change status bar 
-            UIApplication.shared.statusBarStyle = .default
-            self.present(browser, animated: true, completion: nil)
+            if isPro || isPreview {
+                // Go to number
+                let browser = SFSafariViewController(url: URL(string: ServerUrl(serverIndex: serverIndex).getUrlForNumber(account: self.title!, name: playerNameLabel.text!))!)
+                browser.modalPresentationStyle = .overFullScreen
+                browser.delegate = self
+                // Change status bar
+                UIApplication.shared.statusBarStyle = .default
+                self.present(browser, animated: true, completion: nil)
+            }
         }
     }
     
