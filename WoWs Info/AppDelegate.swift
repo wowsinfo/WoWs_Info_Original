@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        FIRApp.configure()
+        FirebaseApp.configure()
         GADMobileAds.configure(withApplicationID: "ca-app-pub-5048098651344514~3226630788")
         
         // Change status bar color
@@ -39,6 +39,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             defaults.set(true, forKey: DataManagement.DataName.IsThereAds)
             defaults.set(true, forKey: DataManagement.DataName.IsAdvancedUnlocked)
             
+        }
+        
+        // Setup theme
+        if UserDefaults.standard.object(forKey: DataManagement.DataName.theme) == nil {
+            UserDefaults.standard.set(UIColor.RGB(red: 85, green: 163, blue: 255), forKey: DataManagement.DataName.theme)
         }
         
         // Whether user purchases or not

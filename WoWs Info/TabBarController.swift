@@ -14,6 +14,8 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
         // Search
         self.selectedIndex = 2
+        // ThemeColour
+        self.tabBar.tintColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
     }
 
     override func didReceiveMemoryWarning() {

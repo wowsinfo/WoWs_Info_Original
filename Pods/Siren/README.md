@@ -1,4 +1,4 @@
-# Siren
+# Siren 🚨
 
 ### Notify users when a new version of your app is available and prompt them to upgrade.
 
@@ -40,9 +40,9 @@ If a new version is available, an alert can be presented to the user informing t
 - [x] Carthage Support
 - [x] Swift Package Manager Support
 - [x] Localized for 30+ languages (see [Localization](https://github.com/ArtSabintsev/Siren#localization))
-- [x] Pre-Update Device Compatibility Check (see [Device Compatibility](https://github.com/ArtSabintsev/Siren#device-compatibility)
+- [x] Pre-Update Device Compatibility Check (see [Device Compatibility](https://github.com/ArtSabintsev/Siren#device-compatibility))
 - [x] Three types of alerts (see [Screenshots](https://github.com/ArtSabintsev/Siren#screenshots))
-- [x] Optional delegate methods (see [Delegates (Optional)](https://github.com/ArtSabintsev/Siren#optional-delegate-and-delegate-methods)
+- [x] Optional delegate methods (see [Delegates (Optional)](https://github.com/ArtSabintsev/Siren#optional-delegate-and-delegate-methods))
 - [x] Unit Tests
 - [x] Documentation can be found at http://sabintsev.com/Siren.
 
@@ -50,7 +50,7 @@ If a new version is available, an alert can be presented to the user informing t
 - The **left picture** forces the user to update the app.
 - The **center picture** gives the user the option to update the app.
 - The **right picture** gives the user the option to skip the current update.
-- These options are controlled by the `SirenAlertType` enum.
+- These options are controlled by the `Siren.AlertType` enum.
 
 <img src="https://github.com/ArtSabintsev/Siren/blob/master/Assets/picForcedUpdate.png?raw=true" height="480"><img src="https://github.com/ArtSabintsev/Siren/blob/master/Assets/picOptionalUpdate.png?raw=true" height="480"><img src="https://github.com/ArtSabintsev/Siren/blob/master/Assets/picSkippedUpdate.png?raw=true" height="480">
 
@@ -104,15 +104,15 @@ func application(application: UIApplication, didFinishLaunchingWithOptions launc
 	  // Siren is a singleton
 	  let siren = Siren.shared
 
-	  // Optional: Defaults to .Option
-	  siren.alertType = <#SirenAlertType_Enum_Value#>
+	  // Optional: Defaults to .option
+	  siren.alertType = <#Siren.AlertType_Enum_Value#>
 
 	  // Optional: Set this variable if you would only like to show an alert if your app has been available on the store for a few days.
 	  // This default value is set to 1 to avoid this issue: https://github.com/ArtSabintsev/Siren#words-of-caution
 	  // To show the update immediately after Apple has updated their JSON, set this value to 0. Not recommended due to aforementioned reason in https://github.com/ArtSabintsev/Siren#words-of-caution.
 	  siren.showAlertAfterCurrentVersionHasBeenReleasedForDays = 3
 
-	  // Replace .Immediately with .Daily or .Weekly to specify a maximum daily or weekly frequency for version checks.
+	  // Replace .immediately with .daily or .weekly to specify a maximum daily or weekly frequency for version checks.
     siren.checkVersion(checkType: .immediately)
 
     return true
@@ -120,7 +120,7 @@ func application(application: UIApplication, didFinishLaunchingWithOptions launc
 
 func applicationDidBecomeActive(application: UIApplication) {
 	/*
-	    Perform daily (.Daily) or weekly (.Weekly) checks for new version of your app.
+	    Perform daily (.daily) or weekly (.weekly) checks for new version of your app.
 	    Useful if user returns to your app from the background after extended period of time.
     	 Place in applicationDidBecomeActive(_:).	*/
 
@@ -129,10 +129,10 @@ func applicationDidBecomeActive(application: UIApplication) {
 
 func applicationWillEnterForeground(application: UIApplication) {
    /*
-	    Useful if user returns to your app from the background after being sent to the
-	    App Store, but doesn't update their app before coming back to your app.
+      Useful if user returns to your app from the background after being sent to the
+      App Store, but doesn't update their app before coming back to your app.
 
-       ONLY USE WITH SirenAlertType.Force
+      ONLY USE WITH Siren.AlertType.immediately
    */
 
     Siren.shared.checkVersion(checkType: .immediately)
@@ -149,7 +149,7 @@ Some developers may want to display a less obtrusive custom interface, like a ba
 func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 	...
 	siren.delegate = self
-	siren.alertType = .None
+	siren.alertType = .none
 	...
 }
 
@@ -167,11 +167,11 @@ Siren will call the `sirenDidDetectNewVersionWithoutAlert(message: String)` dele
 If you would like to set a different type of alert for revision, patch, minor, and/or major updates, simply add one or all of the following *optional* lines to your setup *before* calling the `checkVersion()` method:
 
 ```swift
-	/* Siren defaults to SirenAlertType.Option for all updates */
-	siren.shared.revisionUpdateAlertType = <#SirenAlertType_Enum_Value#>
-	siren.shared.patchUpdateAlertType = <#SirenAlertType_Enum_Value#>
-	siren.shared.minorUpdateAlertType = <#SirenAlertType_Enum_Value#>
-	siren.shared.majorUpdateAlertType = <#SirenAlertType_Enum_Value#>
+	/* Siren defaults to Siren.AlertType.option for all updates */
+	siren.shared.revisionUpdateAlertType = <#Siren.AlertType_Enum_Value#>
+	siren.shared.patchUpdateAlertType = <#Siren.AlertType_Enum_Value#>
+	siren.shared.minorUpdateAlertType = <#Siren.AlertType_Enum_Value#>
+	siren.shared.majorUpdateAlertType = <#Siren.AlertType_Enum_Value#>
 ```
 
 ## Optional Delegate and Delegate Methods
@@ -179,7 +179,7 @@ Six delegate methods allow you to handle or track the user's behavior. Each meth
 
 ```	swift
 public protocol SirenDelegate: class {
-    func sirenDidShowUpdateDialog(alertType: SirenAlertType)   // User presented with update dialog
+    func sirenDidShowUpdateDialog(alertType: Siren.AlertType)   // User presented with update dialog
     func sirenUserDidLaunchAppStore()                          // User did click on button that launched App Store.app
     func sirenUserDidSkipVersion()                             // User did click on button that skips version update
     func sirenUserDidCancel()                                  // User did click on button that cancels update dialog
@@ -194,6 +194,8 @@ Siren is localized for
 - Armenian
 - Basque
 - Chinese (Simplified and Traditional)
+- Croatian
+- Czech
 - Danish
 - Dutch
 - English
@@ -212,13 +214,14 @@ Siren is localized for
 - Lithuanian
 - Malay
 - Norwegian (Bokmål)
+- Persian (Afghanistan, Iran, Persian)
 - Polish
 - Portuguese (Brazil and Portugal)
 - Russian
 - Serbian (Cyrillic and Latin)
 - Slovenian
-- Swedish
 - Spanish
+- Swedish
 - Thai
 - Turkish
 - Vietnamese
@@ -228,7 +231,7 @@ You may want the update dialog to *always* appear in a certain language, ignorin
 You can enable it like so:
 
 ```swift
-Siren.shared.forceLanguageLocalization = SirenLanguageType.<#SirenLanguageType_Enum_Value#>
+Siren.shared.forceLanguageLocalization = Siren.LanguageType.<#Siren.LanguageType_Enum_Value#>
 ```
 ## Device Compatibility
 If an app update is available, Siren checks to make sure that the version of iOS on the user's device is compatible with the one that is required by the app update. For example, if a user has iOS 9 installed on their device, but the app update requires iOS 10, an alert will not be shown. This takes care of the *false positive* case regarding app updating.
@@ -244,9 +247,7 @@ For your convenience, you may turn on debugging statements by setting `self.debu
 The App Store reviewer will **not** see the alert. The version in the App Store will always be older than the version being reviewed.
 
 ## Words of Caution
-Occasionally, the iTunes JSON will update faster than the App Store CDN, meaning the JSON may state that the new version of the app has been release, while no new binary is made available for download via the App Store. It is for this reason, I caution developers to not use the `Force` option unless you are controlling the `Force` option with a remote configuration file (e.g., enabling Siren remotely only after you have guaranteed that the app has propagated to the App Store).
-
-Also, in even rarer situations, the iTunes JSON may fluctuate between multiple versions of your app shortly after pushing out a new version. This is extremely rare, and has only been reported once in the five years that Siren and Harpy have been around.
+Occasionally, the iTunes JSON will update faster than the App Store CDN, meaning the JSON may state that the new version of the app has been release, while no new binary is made available for download via the App Store. It is for this reason that Siren will, by default, wait 24 hours after the JSON has been updated to prompt the user to update. To change the default setting, please modify the value of `showAlertAfterCurrentVersionHasBeenReleasedForDays`.
 
 ## Ports
 - **Objective-C (iOS)**

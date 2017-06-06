@@ -42,7 +42,7 @@ class WikiController: UITableViewController {
         } else {
             performSegue(withIdentifier: identifier[indexPath.row], sender: nil)
         }
-        tableView.reloadData()
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -8,8 +8,9 @@
 
 import UIKit
 import AudioToolbox
+import SafariServices
 
-class AdvancedInfoController: UITableViewController {
+class AdvancedInfoController: UITableViewController, SFSafariViewControllerDelegate {
 
     var playerInfo = [String]()
     @IBOutlet weak var clanNameLabel: UILabel!
@@ -27,6 +28,7 @@ class AdvancedInfoController: UITableViewController {
     @IBOutlet weak var friendBtn: UIButton!
     @IBOutlet weak var tkBtn: UIButton!
     @IBOutlet weak var retryBtn: UIButton!
+    @IBOutlet weak var DashboardCell: UITableViewCell!
     var shipData: [[String]]!
     var clanInfo: [String]!
     var clanData = [String]()
@@ -45,6 +47,9 @@ class AdvancedInfoController: UITableViewController {
         
         self.prLabel.text = ""
         
+        // Setup dashboard colour
+        DashboardCell.backgroundColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
+        
         // Pass account id
         _ = PlayerAccount.init(ID: self.title!, Name: playerInfo[0])
         
@@ -57,7 +62,7 @@ class AdvancedInfoController: UITableViewController {
         setupNameColour()
         
         // If it is for review or not pro
-        if isPreview || !isPro{
+        if !isPro || isPreview {
             tkBtn.isHidden = true
             friendBtn.isHidden = true
             setPlayerIDBtn.isEnabled = false
@@ -195,13 +200,85 @@ class AdvancedInfoController: UITableViewController {
                 self.mainBatteryHitRatioLabel.alpha = 1.0
                 // Just to prevent user playing with that button...
                 if UserDefaults.standard.string(forKey: DataManagement.DataName.UserName)?.components(separatedBy: "|")[0] != self.playerNameLabel.text {
-                    self.setPlayerIDBtn.isEnabled = true
+                    if self.isPro {
+                        self.setPlayerIDBtn.isEnabled = true
+                    }
                 }
             })
         };
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // Change text to "Back"
+        let backItem = UIBarButtonItem()
+        backItem.title = NSLocalizedString("BACK", comment: "Back button")
+        navigationItem.backBarButtonItem = backItem
+        
+        // Go to Clan
+        if segue.identifier == "gotoClan" {
+            let destination = segue.destination as! ClanInfoController
+            destination.clanDataString = "\(clanData[ClanSearch.dataIndex.id]) | \(clanData[ClanSearch.dataIndex.memberCount]) | \(clanData[ClanSearch.dataIndex.name]) | \(clanData[ClanSearch.dataIndex.tag])"
+        }
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        
+        if isPreview { return true }
+        
+        if !isPro {
+            // Do not segue if it is not Pro
+            let pro = UIAlertController(title: NSLocalizedString("PRO_TITLE", comment: "Title"), message: NSLocalizedString("PRO_MESSAGE", comment: "Message"), preferredStyle: .alert)
+            pro.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(pro, animated: true, completion: nil)
+            
+            return false
+        }
+        
+        if self.prLabel.text == "" { return false }
+        
+        if identifier == "gotoClan" {
+            if clanData == [String]() || clanData[2] == "" {
+                // If player does not have a clan
+                return false
+            }
+        }
+        
+        if identifier == "gotoMoreInfo" {
+            if self.totalBattlesLabel.text == "0" {
+                // Do not segue if they never player a battle
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    // MARK: TableView
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        if cell?.tag == 99 {
+            if isPro || isPreview {
+                // Go to number
+                let browser = SFSafariViewController(url: URL(string: ServerUrl(serverIndex: serverIndex).getUrlForNumber(account: self.title!, name: playerNameLabel.text!))!)
+                browser.modalPresentationStyle = .overFullScreen
+                browser.delegate = self
+                // Change status bar
+                UIApplication.shared.statusBarStyle = .default
+                self.present(browser, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    // MARK: Safari
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        // Change status bar
+        UIApplication.shared.statusBarStyle = .lightContent
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: Button pressed
     @IBAction func setPlayerID(_ sender: UIBarButtonItem) {
         
         let playerID = self.title!
@@ -234,60 +311,6 @@ class AdvancedInfoController: UITableViewController {
         AudioServicesPlaySystemSound(1520)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        // Change text to "Back"
-        let backItem = UIBarButtonItem()
-        backItem.title = NSLocalizedString("BACK", comment: "Back button")
-        navigationItem.backBarButtonItem = backItem
-        
-        // Go to WebView
-        if segue.identifier == "gotoWebView" {
-            let destination = segue.destination as! WebViewController
-            // Open in WoWs Number
-            destination.url = ServerUrl(serverIndex: serverIndex).getUrlForNumber(account: self.title!, name: playerNameLabel.text!)
-        }
-        
-        // Go to Clan
-        if segue.identifier == "gotoClan" {
-            let destination = segue.destination as! ClanInfoController
-            destination.clanDataString = "\(clanData[ClanSearch.dataIndex.id]) | \(clanData[ClanSearch.dataIndex.memberCount]) | \(clanData[ClanSearch.dataIndex.name]) | \(clanData[ClanSearch.dataIndex.tag])"
-        }
-    }
-    
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        
-        if isPreview { return true }
-        
-        if !isPro {
-            // Do not segue if it is not Pro
-            let pro = UIAlertController(title: NSLocalizedString("PRO_TITLE", comment: "Title"), message: NSLocalizedString("PRO_MESSAGE", comment: "Message"), preferredStyle: .alert)
-            pro.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(pro, animated: true, completion: nil)
-            
-            return false
-        }
-        
-        if self.prLabel.text == "" { return false }
-        
-        if identifier == "gotoClan" {
-            if clanData == [String]() || clanData[2] == "" {
-                // If player does not have a clan
-                return false
-            }
-        }
-        
-        if identifier == "gotoWebView" || identifier == "gotoMoreInfo" {
-            if self.totalBattlesLabel.text == "0" {
-                // Do not segue if they never player a battle
-                return false
-            }
-        }
-        
-        return true
-    }
-    
-    // MARK: Button pressed
     @IBAction func friendbtnPressed(_ sender: UIButton) {
         hideFriendTKBtn()
         
@@ -318,6 +341,7 @@ class AdvancedInfoController: UITableViewController {
         user.set(list, forKey: DataManagement.DataName.tk)
         
     }
+    
     
     func hideFriendTKBtn() {
         friendBtn.isHidden = true

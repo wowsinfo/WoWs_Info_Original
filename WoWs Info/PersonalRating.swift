@@ -93,8 +93,9 @@ class ShipRating {
     }
     
     func loadExpctedJson() {
-        let path = Bundle.main.path(forResource: "ExpectedValue", ofType: "json")
-        let jsonData = NSData(contentsOfFile:path!)
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! as NSURL
+        let pathUrl = path.appendingPathComponent("ExpectedValue.json")!
+        let jsonData = NSData(contentsOfFile:pathUrl.path)
         ShipRating.shipExpected = JSON(data: jsonData! as Data)
     }
     

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zCY-jZ-ewq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zCY-jZ-ewq">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -23,10 +23,10 @@
                             <tableViewSection headerTitle="Player" footerTitle="Please press the + button after searching yourself. This is for pro version only." id="H2H-zT-vAK">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="mD4-t5-8fp">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mD4-t5-8fp" id="g94-OU-nvI">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Player ID" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XKc-2W-qHR">
@@ -52,7 +52,7 @@
                                         <rect key="frame" x="0.0" y="191" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Iv7-u7-iM4" id="Cua-Xy-pSl">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="3" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="qEe-KB-iw5">
@@ -106,10 +106,40 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection footerTitle="Please update expected value once a while. Data provided by wows-numbers.com" id="Dml-Yl-lU5">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ud5-2Q-9wp">
+                                        <rect key="frame" x="0.0" y="399" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ud5-2Q-9wp" id="TXh-lQ-IU0">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DfM-gu-Ntu">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <state key="normal" title="Update Expected Value">
+                                                        <color key="titleColor" red="0.99607843139999996" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="updateBtnPressed:" destination="tg5-wx-23p" eventType="touchUpInside" id="D0U-uK-I4D"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="DfM-gu-Ntu" firstAttribute="leading" secondItem="TXh-lQ-IU0" secondAttribute="leading" id="4S0-N5-Cf9"/>
+                                                <constraint firstAttribute="bottom" secondItem="DfM-gu-Ntu" secondAttribute="bottom" id="ObO-Mn-O94"/>
+                                                <constraint firstItem="DfM-gu-Ntu" firstAttribute="top" secondItem="TXh-lQ-IU0" secondAttribute="top" id="Q9o-uV-pEd"/>
+                                                <constraint firstAttribute="trailing" secondItem="DfM-gu-Ntu" secondAttribute="trailing" id="Wx0-uc-q82"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection footerTitle="World of Warships is trademark of Wargaming.net" id="Pfo-Qj-sK2">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" showsReorderControl="YES" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="EAj-AG-vfz" style="IBUITableViewCellStyleDefault" id="Haw-bA-uIF">
-                                        <rect key="frame" x="0.0" y="399" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="507" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Haw-bA-uIF" id="wN4-Pw-frp">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
@@ -129,7 +159,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Ee9-my-k8f" imageView="fHS-Yq-gGz" style="IBUITableViewCellStyleDefault" id="xCw-SO-8u2">
-                                        <rect key="frame" x="0.0" y="443" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="551" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xCw-SO-8u2" id="Dml-cu-GGI">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
@@ -165,6 +195,7 @@
                     <connections>
                         <outlet property="limitSlider" destination="qEe-KB-iw5" id="YcW-dt-byW"/>
                         <outlet property="silderCountLabel" destination="8zT-Wo-wFI" id="d9X-cb-msm"/>
+                        <outlet property="updateBtn" destination="DfM-gu-Ntu" id="JK3-nN-0Ip"/>
                         <outlet property="username" destination="XKc-2W-qHR" id="KUC-w0-tfd"/>
                     </connections>
                 </tableViewController>
@@ -203,7 +234,7 @@
                                     <outletCollection property="gestureRecognizers" destination="VJy-Ja-jGk" appends="YES" id="4si-6j-o4d"/>
                                 </connections>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.1.7 Ω" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6j1-au-PL7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.2.1 Φ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6j1-au-PL7">
                                 <rect key="frame" x="16" y="405" width="343" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
