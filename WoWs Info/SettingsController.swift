@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
-class SettingsController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SettingsController: UIViewController, UITableViewDelegate, UITableViewDataSource, GADBannerViewDelegate {
 
+    @IBOutlet weak var bannerView: GADBannerView!
     let imageSet = [#imageLiteral(resourceName: "Web"),#imageLiteral(resourceName: "AppStore"),#imageLiteral(resourceName: "Donation"),#imageLiteral(resourceName: "Settings"), #imageLiteral(resourceName: "Icon")]
     let wordSet = [NSLocalizedString("WEB_SETTINGS", comment: "Word for Web"), NSLocalizedString("APP_SETTINGS", comment: "Word for appstore"), NSLocalizedString("DONATION_SETTINGS", comment: "Word for donation"), NSLocalizedString("SETTINGS_SETTINGS", comment: "Word for settings"), "Theme"]
     let segueSet = ["gotoProVersion", "gotoWeb", "gotoReview", "gotoDonate", "gotoSettings", "gotoTheme"]
@@ -18,6 +20,22 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Whether ads should be shown
+        if UserDefaults.standard.bool(forKey: DataManagement.DataName.hasPurchased) {
+            // Remove it
+            bannerView.removeFromSuperview()
+            bannerView.frame.size.height = 0
+        } else {
+            // Load ads
+            bannerView.adSize = kGADAdSizeSmartBannerPortrait
+            bannerView.adUnitID = "ca-app-pub-5048098651344514/4703363983"
+            bannerView.rootViewController = self
+            bannerView.delegate = self
+            let request = GADRequest()
+            request.testDevices = [kGADSimulatorID]
+            bannerView.load(request)
+        }
         
         // Setup tableview
         settingsTableView.delegate = self
@@ -43,6 +61,13 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: ADS
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        // Remove it
+        bannerView.removeFromSuperview()
+        bannerView.frame.size.height = 0
     }
     
     // MARK: UITableView
