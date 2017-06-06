@@ -10,7 +10,6 @@
 		920105B31EB180FA00E5F338 /* IntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920105B21EB180FA00E5F338 /* IntroController.swift */; };
 		920105B51EB1827B00E5F338 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920105B41EB1827B00E5F338 /* Reachability.swift */; };
 		920105B81EB1892000E5F338 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920105B71EB1892000E5F338 /* TabBarController.swift */; };
-		9210C06A1E45B3D500270002 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210C0691E45B3D500270002 /* WebViewController.swift */; };
 		9210C06E1E45E30E00270002 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210C06D1E45E30E00270002 /* NavigationController.swift */; };
 		9210C07E1E4609BA00270002 /* PersonalRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210C07D1E4609BA00270002 /* PersonalRating.swift */; };
 		92130AE41EB3003300B79DD5 /* UpgradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92130AE31EB3003300B79DD5 /* UpgradeCell.swift */; };
@@ -29,6 +28,12 @@
 		92330DEC1E77F54200A06FD7 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92330DEB1E77F54200A06FD7 /* HeaderView.swift */; };
 		92338F881EB4C4AF00054DAE /* DeveloperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92338F871EB4C4AF00054DAE /* DeveloperCell.swift */; };
 		92423B0E1E737F64006B538F /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929489081E61AB8800B471F2 /* SDWebImage.framework */; };
+		92457ADA1EE53B7500B5A120 /* DataUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92457AD91EE53B7500B5A120 /* DataUpdater.swift */; };
+		92457ADC1EE53EF300B5A120 /* UIAlertController+QuickMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92457ADB1EE53EF300B5A120 /* UIAlertController+QuickMessage.swift */; };
+		92457ADE1EE5475800B5A120 /* Theme.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92457ADD1EE5475800B5A120 /* Theme.storyboard */; };
+		92457AE11EE5489400B5A120 /* ThemeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92457AE01EE5489400B5A120 /* ThemeController.swift */; };
+		92457AE61EE5565600B5A120 /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92457AE51EE5565600B5A120 /* UIColor+RGB.swift */; };
+		92457AE81EE55F1700B5A120 /* UserDefaults+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92457AE71EE55F1700B5A120 /* UserDefaults+UIColor.swift */; };
 		92476A481E96025D0050F8A9 /* WikiDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92476A461E96025D0050F8A9 /* WikiDataCell.swift */; };
 		924B21E81EB36D950016A7C8 /* Clan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924B21EA1EB36D950016A7C8 /* Clan.storyboard */; };
 		924BAAE21E4EAF720000B246 /* PlayerOnline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924BAAE11E4EAF720000B246 /* PlayerOnline.swift */; };
@@ -39,7 +44,6 @@
 		9259C1CE1E57F88700F34CDC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9259C1CD1E57F88700F34CDC /* StoreKit.framework */; };
 		925B627D1E62D7680073FF56 /* ShipDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925B627C1E62D7680073FF56 /* ShipDetailController.swift */; };
 		925BE5A81E502B9000DA6A1A /* SimpleStat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925BE5A61E502B9000DA6A1A /* SimpleStat.storyboard */; };
-		925BE5AA1E502C1900DA6A1A /* InternalWeb.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925BE5A91E502C1900DA6A1A /* InternalWeb.storyboard */; };
 		925BE5AD1E502D0000DA6A1A /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925BE5AB1E502D0000DA6A1A /* Settings.storyboard */; };
 		925BE5B21E5032AB00DA6A1A /* AdvancedInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BE5B11E5032AB00DA6A1A /* AdvancedInfoController.swift */; };
 		9260D0471E960BF500BBCB03 /* WikiDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9260D0461E960BF500BBCB03 /* WikiDataController.swift */; };
@@ -90,7 +94,7 @@
 		92F526F11E6B9476005A2E20 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F526F01E6B9476005A2E20 /* AboutController.swift */; };
 		92FD8D701E59B22300E7FADF /* ChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD8D6F1E59B22300E7FADF /* ChartsController.swift */; };
 		92FF85901E592ED9001BBCA1 /* PlayerCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF858F1E592ED9001BBCA1 /* PlayerCharts.swift */; };
-		92FF85921E594157001BBCA1 /* ExpectedValue.json in Resources */ = {isa = PBXBuildFile; fileRef = 92FF85911E594157001BBCA1 /* ExpectedValue.json */; };
+		EA44BFEECC6189C90457D101 /* Pods_WoWs_Info.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6759118B58D4B67B8E919C40 /* Pods_WoWs_Info.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,7 +107,6 @@
 		920E1C3D1E5EA30A00B43472 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		920E1C3F1E5EAC8B00B43472 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		920E1C481E5EC32A00B43472 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Settings.strings"; sourceTree = "<group>"; };
-		9210C0691E45B3D500270002 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		9210C06D1E45E30E00270002 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		9210C07D1E4609BA00270002 /* PersonalRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalRating.swift; sourceTree = "<group>"; };
 		92130AE31EB3003300B79DD5 /* UpgradeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradeCell.swift; sourceTree = "<group>"; };
@@ -124,6 +127,12 @@
 		92330DEB1E77F54200A06FD7 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		92338F871EB4C4AF00054DAE /* DeveloperCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeveloperCell.swift; sourceTree = "<group>"; };
 		923FFB3D1E5950340034686C /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
+		92457AD91EE53B7500B5A120 /* DataUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataUpdater.swift; sourceTree = "<group>"; };
+		92457ADB1EE53EF300B5A120 /* UIAlertController+QuickMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+QuickMessage.swift"; sourceTree = "<group>"; };
+		92457ADD1EE5475800B5A120 /* Theme.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Theme.storyboard; sourceTree = "<group>"; };
+		92457AE01EE5489400B5A120 /* ThemeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeController.swift; sourceTree = "<group>"; };
+		92457AE51EE5565600B5A120 /* UIColor+RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+RGB.swift"; sourceTree = "<group>"; };
+		92457AE71EE55F1700B5A120 /* UserDefaults+UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+UIColor.swift"; sourceTree = "<group>"; };
 		92476A461E96025D0050F8A9 /* WikiDataCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiDataCell.swift; sourceTree = "<group>"; };
 		924B21E91EB36D950016A7C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Clan.storyboard; sourceTree = "<group>"; };
 		924B21EC1EB36D970016A7C8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Clan.strings"; sourceTree = "<group>"; };
@@ -136,7 +145,6 @@
 		9259C1CD1E57F88700F34CDC /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		925B627C1E62D7680073FF56 /* ShipDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipDetailController.swift; sourceTree = "<group>"; };
 		925BE5A71E502B9000DA6A1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SimpleStat.storyboard; sourceTree = "<group>"; };
-		925BE5A91E502C1900DA6A1A /* InternalWeb.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InternalWeb.storyboard; sourceTree = "<group>"; };
 		925BE5AC1E502D0000DA6A1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		925BE5B11E5032AB00DA6A1A /* AdvancedInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedInfoController.swift; sourceTree = "<group>"; };
 		925C13971E7E21A600590E1B /* WoWs Info.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WoWs Info.entitlements"; sourceTree = "<group>"; };
@@ -207,7 +215,6 @@
 		92F526F01E6B9476005A2E20 /* AboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
 		92FD8D6F1E59B22300E7FADF /* ChartsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsController.swift; sourceTree = "<group>"; };
 		92FF858F1E592ED9001BBCA1 /* PlayerCharts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCharts.swift; sourceTree = "<group>"; };
-		92FF85911E594157001BBCA1 /* ExpectedValue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ExpectedValue.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +228,7 @@
 				9215CA3F1E5BF33D00A7F465 /* SwiftyJSON.framework in Frameworks */,
 				9226E33A1E5BF19F00593026 /* Charts.framework in Frameworks */,
 				9259C1CE1E57F88700F34CDC /* StoreKit.framework in Frameworks */,
+				EA44BFEECC6189C90457D101 /* Pods_WoWs_Info.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				9210C06D1E45E30E00270002 /* NavigationController.swift */,
+				92457ADF1EE5487B00B5A120 /* Theme */,
 				929C426B1EB20E0200DD0F6A /* Dashboard */,
 				920105B61EB1890500E5F338 /* Tab Bar */,
 				92E45B211EAE147500360E62 /* Clan */,
@@ -288,6 +297,8 @@
 				92634D101E540F10000CDCB4 /* ShipInformation.swift */,
 				929B0B481E619B5B007E54EA /* Encyclopedia.swift */,
 				92755BE71ED94E2700D52B79 /* CacheCleaner.swift */,
+				92457AD91EE53B7500B5A120 /* DataUpdater.swift */,
+				92457AE41EE5564300B5A120 /* Extensions */,
 			);
 			name = Functions;
 			sourceTree = "<group>";
@@ -308,9 +319,9 @@
 			isa = PBXGroup;
 			children = (
 				92E2A65A1E697D8A0039486C /* Welcome */,
-				925BE5A91E502C1900DA6A1A /* InternalWeb.storyboard */,
 				9295B1D91EBDF40B008FE418 /* AdvancedStat.storyboard */,
 				92B768661E5E5D02009803C3 /* MoreInformation.storyboard */,
+				92457ADD1EE5475800B5A120 /* Theme.storyboard */,
 			);
 			name = Pro;
 			sourceTree = "<group>";
@@ -338,7 +349,6 @@
 			children = (
 				925C13971E7E21A600590E1B /* WoWs Info.entitlements */,
 				925636581E53F1CA0002E08A /* Assets.xcassets */,
-				92FF85911E594157001BBCA1 /* ExpectedValue.json */,
 				9210C0811E460A0900270002 /* Functions */,
 				925BE5AE1E502E2700DA6A1A /* Storyboard */,
 				929B0B4C1E619FF3007E54EA /* CollectionCell */,
@@ -352,6 +362,24 @@
 				92813BB61E47447C009AA9E8 /* GoogleMobileAds.framework */,
 			);
 			path = "WoWs Info";
+			sourceTree = "<group>";
+		};
+		92457ADF1EE5487B00B5A120 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				92457AE01EE5489400B5A120 /* ThemeController.swift */,
+			);
+			name = Theme;
+			sourceTree = "<group>";
+		};
+		92457AE41EE5564300B5A120 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				92457ADB1EE53EF300B5A120 /* UIAlertController+QuickMessage.swift */,
+				92457AE71EE55F1700B5A120 /* UserDefaults+UIColor.swift */,
+				92457AE51EE5565600B5A120 /* UIColor+RGB.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		925BE5AE1E502E2700DA6A1A /* Storyboard */ = {
@@ -381,7 +409,6 @@
 			isa = PBXGroup;
 			children = (
 				9215CA481E5C119100A7F465 /* WebTableController.swift */,
-				9210C0691E45B3D500270002 /* WebViewController.swift */,
 			);
 			name = Web;
 			sourceTree = "<group>";
@@ -631,12 +658,11 @@
 				92B768641E5E5D02009803C3 /* MoreInformation.storyboard in Resources */,
 				921EA6A31E35F2FB0007C7FC /* LaunchScreen.storyboard in Resources */,
 				921EA69E1E35F2FB0007C7FC /* Main.storyboard in Resources */,
-				92FF85921E594157001BBCA1 /* ExpectedValue.json in Resources */,
 				92B768701E5E5DE1009803C3 /* UsefulWebsite.storyboard in Resources */,
-				925BE5AA1E502C1900DA6A1A /* InternalWeb.storyboard in Resources */,
 				9295B1DF1EBE077E008FE418 /* GoogleService-Info.plist in Resources */,
 				92B768851E5E6E34009803C3 /* Localizable.strings in Resources */,
 				925636591E53F1CA0002E08A /* Assets.xcassets in Resources */,
+				92457ADE1EE5475800B5A120 /* Theme.storyboard in Resources */,
 				925BE5AD1E502D0000DA6A1A /* Settings.storyboard in Resources */,
 				929B0B4B1E619EE3007E54EA /* Wiki.storyboard in Resources */,
 				92B7686B1E5E5DD6009803C3 /* ProVersion.storyboard in Resources */,
@@ -706,6 +732,7 @@
 				926528BE1E41BD5600D1A685 /* PlayerInfoController.swift in Sources */,
 				92634D0B1E540E2C000CDCB4 /* RankInformation.swift in Sources */,
 				9299284B1E86920F0091A174 /* FriendController.swift in Sources */,
+				92457AE11EE5489400B5A120 /* ThemeController.swift in Sources */,
 				9260D0471E960BF500BBCB03 /* WikiDataController.swift in Sources */,
 				92634D0F1E540EBE000CDCB4 /* ServerUrl.swift in Sources */,
 				92330DEC1E77F54200A06FD7 /* HeaderView.swift in Sources */,
@@ -720,10 +747,11 @@
 				92338F881EB4C4AF00054DAE /* DeveloperCell.swift in Sources */,
 				9215CA491E5C119100A7F465 /* WebTableController.swift in Sources */,
 				920105B31EB180FA00E5F338 /* IntroController.swift in Sources */,
-				9210C06A1E45B3D500270002 /* WebViewController.swift in Sources */,
 				9210C07E1E4609BA00270002 /* PersonalRating.swift in Sources */,
 				92E45B1E1EAE13C200360E62 /* ClanCell.swift in Sources */,
+				92457AE61EE5565600B5A120 /* UIColor+RGB.swift in Sources */,
 				92130AE61EB3006300B79DD5 /* SettingsCell.swift in Sources */,
+				92457AE81EE55F1700B5A120 /* UserDefaults+UIColor.swift in Sources */,
 				92D9B4D91E565C6E00CFD46D /* ShipController.swift in Sources */,
 				927AA8631EAEDAD600169B0A /* ClanSearchCell.swift in Sources */,
 				92130AE41EB3003300B79DD5 /* UpgradeCell.swift in Sources */,
@@ -732,6 +760,7 @@
 				926528C11E41BD5600D1A685 /* InSettingsController.swift in Sources */,
 				929928431E8638A70091A174 /* News.swift in Sources */,
 				929B0B4E1E61A022007E54EA /* AchievementCell.swift in Sources */,
+				92457ADC1EE53EF300B5A120 /* UIAlertController+QuickMessage.swift in Sources */,
 				92755BE81ED94E2700D52B79 /* CacheCleaner.swift in Sources */,
 				920105B81EB1892000E5F338 /* TabBarController.swift in Sources */,
 				92FF85901E592ED9001BBCA1 /* PlayerCharts.swift in Sources */,
@@ -743,6 +772,7 @@
 				92BF559E1E9FB57000573F0A /* ReviewController.swift in Sources */,
 				929928471E865FF60091A174 /* NewsController.swift in Sources */,
 				92D9B4D41E55AF2400CFD46D /* RankController.swift in Sources */,
+				92457ADA1EE53B7500B5A120 /* DataUpdater.swift in Sources */,
 				929B0B471E618B45007E54EA /* Language.swift in Sources */,
 				92130AE81EB3092300B79DD5 /* SettingsController.swift in Sources */,
 				925BE5B21E5032AB00DA6A1A /* AdvancedInfoController.swift in Sources */,

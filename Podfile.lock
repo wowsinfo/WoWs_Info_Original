@@ -2,40 +2,41 @@ PODS:
   - Charts (3.0.2):
     - Charts/Core (= 3.0.2)
   - Charts/Core (3.0.2)
-  - Firebase/AdMob (3.16.0):
+  - Firebase/AdMob (4.0.0):
     - Firebase/Core
-    - Google-Mobile-Ads-SDK (= 7.19.1)
-  - Firebase/Core (3.16.0):
-    - FirebaseAnalytics (= 3.8.0)
-    - FirebaseCore (= 3.6.0)
-  - Firebase/Messaging (3.16.0):
+    - Google-Mobile-Ads-SDK (= 7.20.0)
+  - Firebase/Core (4.0.0):
+    - FirebaseAnalytics (= 4.0.0)
+    - FirebaseCore (= 4.0.0)
+  - Firebase/Messaging (4.0.0):
     - Firebase/Core
-    - FirebaseMessaging (= 1.2.3)
-  - FirebaseAnalytics (3.8.0):
-    - FirebaseCore (~> 3.6)
-    - FirebaseInstanceID (~> 1.0)
+    - FirebaseMessaging (= 2.0.0)
+  - FirebaseAnalytics (4.0.0):
+    - FirebaseCore (~> 4.0)
+    - FirebaseInstanceID (~> 2.0)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseCore (3.6.0):
+  - FirebaseCore (4.0.0):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseInstanceID (1.0.10):
-    - FirebaseCore (~> 3.6)
-  - FirebaseMessaging (1.2.3):
-    - FirebaseAnalytics (~> 3.8)
-    - FirebaseInstanceID (~> 1.0)
+  - FirebaseInstanceID (2.0.0):
+    - FirebaseCore (~> 4.0)
+  - FirebaseMessaging (2.0.0):
+    - FirebaseAnalytics (~> 4.0)
+    - FirebaseCore (~> 4.0)
+    - FirebaseInstanceID (~> 2.0)
     - GoogleToolboxForMac/Logger (~> 2.1)
     - Protobuf (~> 3.1)
-  - Google-Mobile-Ads-SDK (7.19.1)
+  - Google-Mobile-Ads-SDK (7.20.0)
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/Logger (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - Kanna (2.2.1)
-  - Protobuf (3.2.1)
+  - Protobuf (3.3.0)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
-  - Siren (2.0.1)
+  - Siren (2.0.4)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
@@ -50,17 +51,17 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
-  Firebase: 21bf4a89d3f01bfbe11adc3a5d934a4a3d3a5fd6
-  FirebaseAnalytics: 920e46455f27b0a52a80907a6d9b73ee4bd1c635
-  FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
-  FirebaseInstanceID: b9eedd6846fb5e1f0f7279e1deaa7a7e4cf8392e
-  FirebaseMessaging: 753d05a925e9eb8eadd09a0ffc9b808578b72fac
-  Google-Mobile-Ads-SDK: 43ac87810e4961f5093024d3525bfe022f956da3
+  Firebase: 284eea779b73fdff309791817da7c68bff8dd572
+  FirebaseAnalytics: 6f08e746f7d66f5452931bc2e822b5df9c66b64a
+  FirebaseCore: 85ad466044c2f013cdb167f85d426d15b128114a
+  FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
+  FirebaseMessaging: 227406c05b0dc9290702d2e9f18ab5528f0c2cf2
+  Google-Mobile-Ads-SDK: 168312cdc167fa22746d4ea8e839fc4825dd2966
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   Kanna: 182789ab065e8f9a6ccc2a74ce6283d3401c0c4a
-  Protobuf: 2ccbaf193f6c65adc67745453ca0c13234c32796
+  Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
-  Siren: 1ecf01040a56b6b417e7b754cf3fecea7c159c1c
+  Siren: d950610045b6c9794602f0fdf924dda54fbd9528
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
 PODFILE CHECKSUM: a5d26ecbb910dc475cc38018861a153b5b11d3bd

@@ -8,12 +8,14 @@
 
 import UIKit
 import MessageUI
+import Kanna
 
 class InSettingsController : UITableViewController, MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var silderCountLabel: UILabel!
     @IBOutlet weak var limitSlider: UISlider!
+    @IBOutlet weak var updateBtn: UIButton!
  
     let isProVersion = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
     
@@ -40,7 +42,7 @@ class InSettingsController : UITableViewController, MFMailComposeViewControllerD
         UserDefaults.standard.set(Int(limitSlider.value), forKey: DataManagement.DataName.SearchLimit)
         
     }
-    
+
     @IBAction func saveBtnPressed(_ sender: UIButton) {
         
         let name = username.text
@@ -59,6 +61,17 @@ class InSettingsController : UITableViewController, MFMailComposeViewControllerD
         let value = Int(limitSlider.value)
         silderCountLabel.text = "\(value)"
         
+    }
+    
+    @IBAction func updateBtnPressed(_ sender: Any) {
+        if DataUpdater.update() {
+            let success = UIAlertController.QuickMessage(title: "Success", message: "ExpectedValue.json is up to date", cancel: "OK")
+            self.present(success, animated: true, completion: nil)
+            updateBtn.isEnabled = false
+        } else {
+            let fail = UIAlertController.QuickMessage(title: "Error", message: "Fail to update ExpectedValue.json", cancel: "OK")
+            self.present(fail, animated: true, completion: nil)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

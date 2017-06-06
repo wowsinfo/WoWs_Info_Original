@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SafariServices
 
-class ClanInfoController: UITableViewController {
+class ClanInfoController: UITableViewController, SFSafariViewControllerDelegate {
 
     var clanDataString: String!
     var clanTag: String!
@@ -42,6 +43,7 @@ class ClanInfoController: UITableViewController {
                 self.clanInfo = Clan
                 print("Clan: \(Clan)")
                 self.tableView.reloadData()
+                self.tableView.reloadRows(at: self.tableView.indexPathsForVisibleRows!, with: .automatic)
             }
         }
     }
@@ -50,8 +52,7 @@ class ClanInfoController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
 
-    // MARK: - Table view data source
-
+    // MARK: TableView
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -68,7 +69,7 @@ class ClanInfoController: UITableViewController {
             cell.clanDescription.text = clanInfo[0][ClanInfo.dataIndex.description]
             cell.leaderName.text = clanInfo[0][ClanInfo.dataIndex.leader]
             cell.memberCountLabel.text = "\(NSLocalizedString("MEMBER_LIST", comment: "Member List")) (\(self.clanMember!))"
-            cell.backgroundColor = UIColor.init(red: 112/255, green: 177/255, blue: 251/255, alpha: 1)
+            cell.backgroundColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
             return cell
         } else {
             // Member list
@@ -89,6 +90,35 @@ class ClanInfoController: UITableViewController {
                 self.present(pro, animated: true, completion: nil)
             }
         }
+    }
+    
+    // MARK: Button Pressed
+    @IBAction func visitNumberBtnPressed(_ sender: Any) {
+        if UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked) == true {
+            // Pro Only
+            let browswer = SFSafariViewController(url: URL(string: getClanUrlForNumber())!)
+            browswer.modalPresentationStyle = .overFullScreen
+            browswer.delegate = self
+            // Change Status bar
+            UIApplication.shared.statusBarStyle = .default
+            self.present(browswer, animated: true, completion: nil)
+        } else {
+            let pro = UIAlertController(title: NSLocalizedString("PRO_TITLE", comment: "Title"), message: NSLocalizedString("PRO_MESSAGE", comment: "Message"), preferredStyle: .alert)
+            pro.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(pro, animated: true, completion: nil)
+        }
+    }
+    
+    // MARK: Safari
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        // Change status bar
+        UIApplication.shared.statusBarStyle = .lightContent
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func getClanUrlForNumber() -> String {
+        let prefix = ServerUrl.NumberDomain[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)]
+        return "http://\(prefix)wows-numbers.com/clan/\(clanID!),\(clanTag!)/"
     }
 
     // MARK: - Navigation

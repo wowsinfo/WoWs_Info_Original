@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SafariServices
 
-class NewsController: UITableViewController {
+class NewsController: UITableViewController, SFSafariViewControllerDelegate {
 
     var newsData = [[String]]()
     
@@ -27,8 +28,8 @@ class NewsController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
         if newsData.count == 0 {
             News().getNews(success: { (data) in
@@ -40,8 +41,12 @@ class NewsController: UITableViewController {
                         self.navigationController?.navigationBar.topItem?.title = ">_<"
                     }
                     self.tableView.reloadData()
+                    self.tableView.reloadRows(at: self.tableView.indexPathsForVisibleRows!, with: .automatic)
                 }
             })
+        } else {
+            self.tableView.reloadData()
+            self.tableView.reloadRows(at: self.tableView.indexPathsForVisibleRows!, with: .automatic)
         }
     }
 
@@ -63,7 +68,7 @@ class NewsController: UITableViewController {
         
         // Headlines
         if indexPath.row == 0 {
-            cell.backgroundColor = UIColor.init(red: 112/255, green: 177/255, blue: 251/255, alpha: 1)
+            cell.backgroundColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
             cell.dateLabel.textColor = UIColor.white
             cell.titleLabel.textColor = UIColor.white
             
@@ -82,20 +87,22 @@ class NewsController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         performSegue(withIdentifier: "gotoWebView", sender: newsData[indexPath.row][News.dataIndex.link])
+        let browser = SFSafariViewController(url: URL(string: newsData[indexPath.row][News.dataIndex.link])!)
+        browser.delegate = self
+        browser.modalPresentationStyle = .overFullScreen
+        // Change status bar
+        UIApplication.shared.statusBarStyle = .default
+        self.present(browser, animated: true, completion: nil)
+        
+        // Deselect cell
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Change text to "Back"
-        let backItem = UIBarButtonItem()
-        backItem.title = NSLocalizedString("BACK", comment: "Back button")
-        navigationItem.backBarButtonItem = backItem
-        
-        // Go to WebView
-        if segue.identifier == "gotoWebView" {
-            let destination = segue.destination as! WebViewController
-            destination.url = sender as! String
-        }
+    // MARK: Safari
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        // Change status bar
+        UIApplication.shared.statusBarStyle = .lightContent
+        controller.dismiss(animated: true, completion: nil)
     }
 
 }

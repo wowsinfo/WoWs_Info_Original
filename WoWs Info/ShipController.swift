@@ -36,7 +36,6 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         DispatchQueue.main.async {
             self.targetShips = PlayerShip.playerShipInfo
             self.ShipTableView.reloadData()
-            
             self.loadingIndicator.isHidden = true
             self.loadingView.isHidden = true
             self.calAvgShipRating()
