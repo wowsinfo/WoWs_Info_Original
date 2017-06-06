@@ -48,6 +48,11 @@ class WikiDataController: UITableViewController {
                 break
         }
         
+        if dataString.count == 0 {
+            // Quit if there is not data
+            _ = self.navigationController?.popToRootViewController(animated: true)
+        }
+        
         self.title = "\(dataString.count)"
         
     }

@@ -51,11 +51,11 @@ class InSettingsController : UITableViewController, MFMailComposeViewControllerD
     // MARK: Button pressed
     @IBAction func updateBtnPressed(_ sender: Any) {
         if DataUpdater.update() {
-            let success = UIAlertController.QuickMessage(title: "Success", message: "ExpectedValue.json is up to date", cancel: "OK")
+            let success = UIAlertController.QuickMessage(title: "UPDATE_SUCCESS".localised(), message: "UPDATE_MESSAGE_MESSAGE".localised(), cancel: "OK")
             self.present(success, animated: true, completion: nil)
             updateBtn.isEnabled = false
         } else {
-            let fail = UIAlertController.QuickMessage(title: "Error", message: "Fail to update ExpectedValue.json", cancel: "OK")
+            let fail = UIAlertController.QuickMessage(title: "UPDATE_FAIL".localised(), message: "UPDATE_FAIL_MESSAGE".localised(), cancel: "OK")
             self.present(fail, animated: true, completion: nil)
         }
     }

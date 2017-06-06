@@ -13,7 +13,7 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet weak var bannerView: GADBannerView!
     let imageSet = [#imageLiteral(resourceName: "Web"),#imageLiteral(resourceName: "AppStore"),#imageLiteral(resourceName: "Donation"),#imageLiteral(resourceName: "Settings"), #imageLiteral(resourceName: "Icon")]
-    let wordSet = [NSLocalizedString("WEB_SETTINGS", comment: "Word for Web"), NSLocalizedString("APP_SETTINGS", comment: "Word for appstore"), NSLocalizedString("DONATION_SETTINGS", comment: "Word for donation"), NSLocalizedString("SETTINGS_SETTINGS", comment: "Word for settings"), "Theme"]
+    let wordSet = ["WEB_SETTINGS".localised(), "APP_SETTINGS".localised(), "DONATION_SETTINGS".localised(), "SETTINGS_SETTINGS".localised(), "THEME_SETTINGS".localised()]
     let segueSet = ["gotoProVersion", "gotoWeb", "gotoReview", "gotoDonate", "gotoSettings", "gotoTheme"]
     var isPro = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
     @IBOutlet weak var settingsTableView: UITableView!

@@ -140,6 +140,8 @@
 
 "UPGRADE_SETTINGS" = "升级为专业版";
 
+"THEME_SETTINGS" = "主题";
+
 "MEMBER_LIST" = "玩家列表";
 
 "DEV_LABEL" = "开发者";
@@ -177,3 +179,11 @@
 "LANGUAGE_TITLE" = ">_<";
 
 "LANGUAGE_MESSAGE" = "语言选择";
+
+"UPDATE_SUCCESS" = "成功";
+
+"UPDATE_FAIL" = "失败";
+
+"UPDATE_SUCCESS_MESSAGE" = "数据已更新";
+
+"UPDATE_FAIL_MESSAGE" = "无法更新数据";

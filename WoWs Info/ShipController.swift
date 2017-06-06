@@ -231,6 +231,7 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Cancel button
         sortOption.addAction(UIAlertAction(title: "SHARE_CANCEL".localised(), style: .cancel, handler: nil))
         self.present(sortOption, animated: true)
+        AudioServicesPlaySystemSound(1520)
     }
     
     @IBAction func ddBtnPressed(_ sender: Any) {
