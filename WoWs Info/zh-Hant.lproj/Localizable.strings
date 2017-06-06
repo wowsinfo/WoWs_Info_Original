@@ -157,3 +157,17 @@
 "WAIT_TITLE" = "請稍等...";
 
 "WAIT_MESSAGE" = "正在加載中";
+
+"SORT_BY_BATTLE" = "場數";
+
+"SORT_BY_WINRATE" = "勝率";
+
+"SORT_BY_EXP" = "經驗";
+
+"SORT_BY_HITRATIO" = "主炮命中率";
+
+"SORT_BY_KILLDEATH" = "殺死比";
+
+"SORT_BY_DAMAGE" = "傷害";
+
+"SORT_TITLE" = "排序";

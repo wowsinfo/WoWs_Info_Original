@@ -68,6 +68,10 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
             setPlayerIDBtn.isEnabled = false
         }
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         // Load data here
         PlayerShip(account: PlayerAccount.AccountID).getPlayerShipInfo()
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
@@ -96,15 +100,14 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
                 }
             }
         }
-        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         if self.isMovingToParentViewController {
             // Clear Data Here
@@ -119,12 +122,8 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         PlayerStat().getDataFromAPI(account: playerInfo[1], success: {playerData in
             self.setLabelText(data: playerData)
         })
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
-            // Calculate PR after 1 seconds
-            self.calAvgShipRating()
-        })
-        
+        // Calculate personal rating
+        self.calAvgShipRating()
     }
     
     func setupNameColour() {
@@ -315,11 +314,9 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         hideFriendTKBtn()
         
         let user = UserDefaults.standard
-        if user.object(forKey: DataManagement.DataName.friend) == nil {
-            user.set(["HenryQuan|2011774448|3"], forKey: DataManagement.DataName.friend)
-        }
-        
+        // Read list
         let text = "\(self.playerNameLabel.text!)|\(self.title!)|\(user.integer(forKey: DataManagement.DataName.Server))"
+        // I am already added
         if text != "HenryQuan|2011774448|3" {
             var list = user.object(forKey: DataManagement.DataName.friend) as! [String]
             list.append(text)
@@ -332,14 +329,10 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         hideFriendTKBtn()
         
         let user = UserDefaults.standard
-        if UserDefaults.standard.object(forKey: DataManagement.DataName.tk) == nil {
-            UserDefaults.standard.set([String](), forKey: DataManagement.DataName.tk)
-        }
-        
+        // Read list
         var list = user.object(forKey: DataManagement.DataName.tk) as! [String]
         list.append("\(self.playerNameLabel.text!)|\(self.title!)|\(user.integer(forKey: DataManagement.DataName.Server))")
         user.set(list, forKey: DataManagement.DataName.tk)
-        
     }
     
     

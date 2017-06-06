@@ -157,3 +157,17 @@
 "WAIT_TITLE" = "Please wait...";
 
 "WAIT_MESSAGE" = "IAP will be ready shortly.";
+
+"SORT_BY_BATTLE" = "Battles";
+
+"SORT_BY_WINRATE" = "Win rate";
+
+"SORT_BY_EXP" = "Exp";
+
+"SORT_BY_HITRATIO" = "Hit ratio";
+
+"SORT_BY_KILLDEATH" = "Kill/Death ratio";
+
+"SORT_BY_DAMAGE" = "Damage";
+
+"SORT_TITLE" = "Sorting";

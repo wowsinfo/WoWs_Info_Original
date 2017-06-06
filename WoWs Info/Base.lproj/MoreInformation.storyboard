@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xGc-MT-paI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xGc-MT-paI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -286,7 +286,7 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="203"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="P8f-Wb-edW" id="QVi-Aj-x8B">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="203"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="202.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Season" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVb-1X-zme">
@@ -424,7 +424,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="106"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8gO-pk-b5k" id="M8q-7C-zVo">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="106"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="105.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Og-8A-8vF">
@@ -607,7 +607,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter tier or name" textAlignment="center" minimumFontSize="9" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="oFj-de-ubT">
-                                <rect key="frame" x="16" y="60" width="303" height="30"/>
+                                <rect key="frame" x="49" y="60" width="270" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet"/>
@@ -623,9 +623,23 @@
                                     <action selector="resetBtnPressed:" destination="ldK-N4-tVS" eventType="touchUpInside" id="vEf-A2-O5f"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3yb-9I-aHo">
+                                <rect key="frame" x="9" y="59" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="Tyk-vn-GcX"/>
+                                    <constraint firstAttribute="height" constant="32" id="ehO-Fm-iDp"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="jag-dD-j8s"/>
+                                    <constraint firstAttribute="width" constant="32" id="pgZ-pT-aQY"/>
+                                </constraints>
+                                <state key="normal" image="Server"/>
+                                <connections>
+                                    <action selector="sortBtnPressed:" destination="ldK-N4-tVS" eventType="touchUpInside" id="Fpd-Oj-Ak8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="3yb-9I-aHo" firstAttribute="top" secondItem="nkG-y5-672" secondAttribute="bottom" constant="7" id="5nq-kT-a8s"/>
                             <constraint firstAttribute="trailing" secondItem="z6m-AA-Og9" secondAttribute="trailing" id="BqT-R2-mon"/>
                             <constraint firstItem="nkG-y5-672" firstAttribute="top" secondItem="nAG-1x-xsV" secondAttribute="bottom" constant="8" id="Ckg-1J-uMR"/>
                             <constraint firstItem="nkG-y5-672" firstAttribute="trailing" secondItem="K4M-G1-GG8" secondAttribute="trailingMargin" id="DpD-fT-YUA"/>
@@ -633,10 +647,11 @@
                             <constraint firstItem="nkG-y5-672" firstAttribute="leading" secondItem="K4M-G1-GG8" secondAttribute="leadingMargin" id="FTY-93-Oxv"/>
                             <constraint firstItem="NmY-VA-FYU" firstAttribute="trailing" secondItem="K4M-G1-GG8" secondAttribute="trailingMargin" id="GVn-sO-Td8"/>
                             <constraint firstItem="S5N-C0-1dZ" firstAttribute="top" secondItem="Rwz-Q3-xex" secondAttribute="bottom" id="Gpv-u0-Bf7"/>
+                            <constraint firstItem="3yb-9I-aHo" firstAttribute="leading" secondItem="K4M-G1-GG8" secondAttribute="leading" constant="9" id="KAZ-yY-3eK"/>
                             <constraint firstItem="S5N-C0-1dZ" firstAttribute="top" secondItem="z6m-AA-Og9" secondAttribute="bottom" id="MDz-qS-I44"/>
                             <constraint firstItem="87D-GU-cFY" firstAttribute="leading" secondItem="K4M-G1-GG8" secondAttribute="leading" id="PSd-qK-y0W"/>
                             <constraint firstItem="irG-pA-dHv" firstAttribute="centerY" secondItem="K4M-G1-GG8" secondAttribute="centerY" id="Vzd-Ng-ANb"/>
-                            <constraint firstItem="oFj-de-ubT" firstAttribute="leading" secondItem="K4M-G1-GG8" secondAttribute="leadingMargin" id="Who-HS-h5N"/>
+                            <constraint firstItem="oFj-de-ubT" firstAttribute="leading" secondItem="3yb-9I-aHo" secondAttribute="trailing" constant="8" id="ZMm-wl-qo2"/>
                             <constraint firstItem="oFj-de-ubT" firstAttribute="top" secondItem="nkG-y5-672" secondAttribute="bottom" constant="8" id="Zrp-PQ-qDD"/>
                             <constraint firstItem="irG-pA-dHv" firstAttribute="centerX" secondItem="K4M-G1-GG8" secondAttribute="centerX" id="h1I-R8-oMx"/>
                             <constraint firstItem="87D-GU-cFY" firstAttribute="top" secondItem="oFj-de-ubT" secondAttribute="bottom" constant="8" id="iPU-SV-8Fa"/>
@@ -987,6 +1002,7 @@
         <image name="RankImage" width="128" height="128"/>
         <image name="Retry" width="256" height="256"/>
         <image name="Screenshot" width="128" height="128"/>
+        <image name="Server" width="256" height="256"/>
         <image name="Ships" width="25" height="26"/>
         <image name="WinRate" width="92" height="105"/>
     </resources>

@@ -184,6 +184,55 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     // MARK: Btn Pressed
+    @IBAction func sortBtnPressed(_ sender: Any) {
+        let sortOption = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
+        sortOption.addAction(UIAlertAction(title: "SORT_BY_BATTLE".localised(), style: .default, handler: { _ in
+            // Sort by battle
+            let battle = PlayerShip.PlayerShipDataIndex.battles
+            self.targetShips.sort(by: {Int($0[battle])! > Int($1[battle])!})
+            // Reload data
+            self.ShipTableView.reloadData()
+        }))
+        sortOption.addAction(UIAlertAction(title: "SORT_BY_WINRATE".localised(), style: .default, handler: { _ in
+            // Sort by win rate
+            let winrate = PlayerShip.PlayerShipDataIndex.winRate
+            self.targetShips.sort(by: {(Double($0[winrate].replacingOccurrences(of: "%", with: ""))! > Double($1[winrate].replacingOccurrences(of: "%", with: ""))!)})
+            // Reload data
+            self.ShipTableView.reloadData()
+        }))
+        sortOption.addAction(UIAlertAction(title: "SORT_BY_EXP".localised(), style: .default, handler: { _ in
+            // Sort by exp
+            let exp = PlayerShip.PlayerShipDataIndex.averageExp
+            self.targetShips.sort(by: {Int($0[exp])! > Int($1[exp])!})
+            // Reload data
+            self.ShipTableView.reloadData()
+        }))
+        sortOption.addAction(UIAlertAction(title: "SORT_BY_DAMAGE".localised(), style: .default, handler: { _ in
+            // Sort by damage
+            let damage = PlayerShip.PlayerShipDataIndex.averageDamage
+            self.targetShips.sort(by: {Int($0[damage])! > Int($1[damage])!})
+            // Reload data
+            self.ShipTableView.reloadData()
+        }))
+        sortOption.addAction(UIAlertAction(title: "SORT_BY_KILLDEATH".localised(), style: .default, handler: { _ in
+            // Sort by kill death ratio
+            let killdeath = PlayerShip.PlayerShipDataIndex.killDeathRatio
+            self.targetShips.sort(by: {(Double($0[killdeath].replacingOccurrences(of: "%", with: ""))! > Double($1[killdeath].replacingOccurrences(of: "%", with: ""))!)})
+            // Reload data
+            self.ShipTableView.reloadData()
+        }))
+        sortOption.addAction(UIAlertAction(title: "SORT_BY_HITRATIO".localised(), style: .default, handler: { _ in
+            // Sort by hit ratio
+            let hitRatio = PlayerShip.PlayerShipDataIndex.hitRatio
+            self.targetShips.sort(by: {(Double($0[hitRatio].replacingOccurrences(of: "%", with: ""))! > Double($1[hitRatio].replacingOccurrences(of: "%", with: ""))!)})
+            // Reload data
+            self.ShipTableView.reloadData()
+        }))
+        // Cancel button
+        sortOption.addAction(UIAlertAction(title: "SHARE_CANCEL".localised(), style: .cancel, handler: nil))
+        self.present(sortOption, animated: true)
+    }
+    
     @IBAction func ddBtnPressed(_ sender: Any) {
         AudioServicesPlaySystemSound(1520)
         // Clean it
