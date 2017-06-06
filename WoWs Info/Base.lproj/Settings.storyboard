@@ -58,7 +58,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="server selection" id="W7P-uJ-Bu6">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Uoz-PZ-Uht" style="IBUITableViewCellStyleDefault" id="IvV-Uo-AJo">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Uoz-PZ-Uht" style="IBUITableViewCellStyleDefault" id="IvV-Uo-AJo">
                                         <rect key="frame" x="0.0" y="183.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IvV-Uo-AJo" id="mOS-PB-pav">
@@ -82,7 +82,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Language" id="9uK-zc-Hhg">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" showsReorderControl="YES" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="jti-zi-5Oi" style="IBUITableViewCellStyleDefault" id="jls-1O-zYs">
+                                    <tableViewCell clipsSubviews="YES" tag="100" contentMode="scaleToFill" selectionStyle="default" showsReorderControl="YES" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="jti-zi-5Oi" style="IBUITableViewCellStyleDefault" id="jls-1O-zYs">
                                         <rect key="frame" x="0.0" y="283.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jls-1O-zYs" id="xne-Lc-sYt">
@@ -99,7 +99,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" showsReorderControl="YES" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="rYm-BF-cCk" style="IBUITableViewCellStyleDefault" id="QgT-EE-VMY">
+                                    <tableViewCell clipsSubviews="YES" tag="101" contentMode="scaleToFill" selectionStyle="default" showsReorderControl="YES" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="rYm-BF-cCk" style="IBUITableViewCellStyleDefault" id="QgT-EE-VMY">
                                         <rect key="frame" x="0.0" y="327.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QgT-EE-VMY" id="pEa-ec-eBI">
@@ -150,7 +150,7 @@
                             </tableViewSection>
                             <tableViewSection footerTitle="World of Warships is trademark of Wargaming.net" id="Pfo-Qj-sK2">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" showsReorderControl="YES" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="EAj-AG-vfz" style="IBUITableViewCellStyleDefault" id="Haw-bA-uIF">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" showsReorderControl="YES" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="EAj-AG-vfz" style="IBUITableViewCellStyleDefault" id="Haw-bA-uIF">
                                         <rect key="frame" x="0.0" y="515.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Haw-bA-uIF" id="wN4-Pw-frp">
@@ -170,7 +170,7 @@
                                             <segue destination="McY-cc-V9e" kind="show" id="Qhx-kZ-UzJ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Ee9-my-k8f" imageView="fHS-Yq-gGz" style="IBUITableViewCellStyleDefault" id="xCw-SO-8u2">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Ee9-my-k8f" imageView="fHS-Yq-gGz" style="IBUITableViewCellStyleDefault" id="xCw-SO-8u2">
                                         <rect key="frame" x="0.0" y="559.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xCw-SO-8u2" id="Dml-cu-GGI">
