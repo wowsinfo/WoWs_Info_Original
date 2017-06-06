@@ -69,7 +69,7 @@ class ClanInfoController: UITableViewController, SFSafariViewControllerDelegate 
             cell.clanDescription.text = clanInfo[0][ClanInfo.dataIndex.description]
             cell.leaderName.text = clanInfo[0][ClanInfo.dataIndex.leader]
             cell.memberCountLabel.text = "\(NSLocalizedString("MEMBER_LIST", comment: "Member List")) (\(self.clanMember!))"
-            cell.backgroundColor = UIColor.init(red: 112/255, green: 177/255, blue: 251/255, alpha: 1)
+            cell.backgroundColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
             return cell
         } else {
             // Member list

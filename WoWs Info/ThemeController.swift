@@ -14,8 +14,11 @@ class ThemeController: UICollectionViewController {
     let ColourGroup = [UIColor.RGB(red: 85, green: 163, blue: 255),
                        UIColor.RGB(red: 242, green: 71, blue: 56),
                        UIColor.RGB(red: 163, green: 107, blue: 242),
+                       UIColor.RGB(red: 57, green: 57, blue: 62),
                        UIColor.RGB(red: 242, green: 145, blue: 61),
                        UIColor.RGB(red: 171, green: 119, blue: 84),
+                       UIColor.RGB(red: 109, green: 116, blue: 242),
+                       UIColor.RGB(red: 10, green: 86, blue: 143),
                        UIColor.RGB(red: 63, green: 145, blue: 76),
                        UIColor.RGB(red: 191, green: 86, blue: 135),
                        UIColor.RGB(red: 43, green: 105, blue: 80)]
@@ -28,7 +31,7 @@ class ThemeController: UICollectionViewController {
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
         layout.itemSize = CGSize(width: view.frame.size.width / 4, height: view.frame.size.width / 4)
         layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 5
+        layout.minimumLineSpacing = 1
         ColourCollectionView.collectionViewLayout = layout
     }
 
