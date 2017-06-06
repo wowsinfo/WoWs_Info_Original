@@ -71,32 +71,35 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // Load data here
-        PlayerShip(account: PlayerAccount.AccountID).getPlayerShipInfo()
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-            self.shipData = PlayerShip.playerShipInfo
-        })
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-            self.loadPlayerData()
-        })
-        
-        // Get Clan Info
-        PlayerClan().getClanList { (Data) in
-            DispatchQueue.main.async {
-                print("Clan Data: \(Data) \(Data.count)")
-                if Data.count > 0 {
-                    self.clanInfo = Data
-                    UIView.animate(withDuration: 0.5, animations: {
-                        self.clanNameLabel.alpha = 1
-                        self.clanNameLabel.text = self.clanInfo[1]
-                    })
-                    
-                    // Get Clan Info
-                    ClanSearch().getClanList(clan: Data[1], success: { (Clan) in
-                        self.clanData = Clan[0]
-                    })
+        // Prevent unnecessary request
+        if self.isMovingToParentViewController {
+            super.viewWillAppear(animated)
+            // Load data here
+            PlayerShip(account: PlayerAccount.AccountID).getPlayerShipInfo()
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                self.shipData = PlayerShip.playerShipInfo
+            })
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                self.loadPlayerData()
+            })
+            
+            // Get Clan Info
+            PlayerClan().getClanList { (Data) in
+                DispatchQueue.main.async {
+                    print("Clan Data: \(Data) \(Data.count)")
+                    if Data.count > 0 {
+                        self.clanInfo = Data
+                        UIView.animate(withDuration: 0.5, animations: {
+                            self.clanNameLabel.alpha = 1
+                            self.clanNameLabel.text = self.clanInfo[1]
+                        })
+                        
+                        // Get Clan Info
+                        ClanSearch().getClanList(clan: Data[1], success: { (Clan) in
+                            self.clanData = Clan[0]
+                        })
+                    }
                 }
             }
         }
