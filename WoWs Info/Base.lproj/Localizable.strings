@@ -140,6 +140,8 @@
 
 "UPGRADE_SETTINGS" = "Upgrade to Pro";
 
+"THEME_SETTINGS" = "Theme";
+
 "MEMBER_LIST" = "Member List";
 
 "DEV_LABEL" = "Developer";
@@ -177,3 +179,11 @@
 "LANGUAGE_TITLE" = ">_<";
 
 "LANGUAGE_MESSAGE" = "Language Selection";
+
+"UPDATE_SUCCESS" = "Success";
+
+"UPDATE_FAIL" = "Error";
+
+"UPDATE_SUCCESS_MESSAGE" = "ExpectedValue.json is up to date";
+
+"UPDATE_FAIL_MESSAGE" = "Fail to update ExpectedValue.json";
