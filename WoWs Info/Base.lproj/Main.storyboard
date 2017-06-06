@@ -19,7 +19,7 @@
                         <viewControllerLayoutGuide type="top" id="GvI-as-rlb"/>
                         <viewControllerLayoutGuide type="bottom" id="BmQ-RH-8OK"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Iww-n1-qrk">
+                    <view key="view" userInteractionEnabled="NO" contentMode="scaleToFill" id="Iww-n1-qrk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -34,6 +34,7 @@
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.33728533983230591" green="0.63926470279693604" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="h5A-PM-rDz" firstAttribute="centerY" secondItem="Iww-n1-qrk" secondAttribute="centerY" id="4XS-j6-Hly"/>
                             <constraint firstItem="r0L-BN-JdH" firstAttribute="centerX" secondItem="Iww-n1-qrk" secondAttribute="centerX" id="OjX-Ub-6oz"/>
@@ -41,6 +42,9 @@
                             <constraint firstItem="r0L-BN-JdH" firstAttribute="top" secondItem="h5A-PM-rDz" secondAttribute="bottom" constant="8" id="X6R-dz-dbu"/>
                             <constraint firstItem="h5A-PM-rDz" firstAttribute="centerX" secondItem="Iww-n1-qrk" secondAttribute="centerX" id="zjb-Nn-QjB"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="XVy-Zh-HT4" appends="YES" id="fAV-U6-sD3"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="kQg-eW-Xwu"/>
                     <connections>
@@ -49,6 +53,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hu4-tp-OZa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="XVy-Zh-HT4" userLabel="ViewClicked">
+                    <connections>
+                        <action selector="retryLoading:" destination="yXk-XQ-L7l" id="hI2-kk-WIa"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3868" y="-1733.8830584707648"/>
         </scene>

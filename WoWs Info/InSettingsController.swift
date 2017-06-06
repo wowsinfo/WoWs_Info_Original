@@ -12,7 +12,6 @@ import Kanna
 
 class InSettingsController : UITableViewController, MFMailComposeViewControllerDelegate {
     
-    @IBOutlet weak var username: UITextField!
     @IBOutlet weak var silderCountLabel: UILabel!
     @IBOutlet weak var limitSlider: UISlider!
     @IBOutlet weak var updateBtn: UIButton!
@@ -27,9 +26,6 @@ class InSettingsController : UITableViewController, MFMailComposeViewControllerD
         silderCountLabel.text = "\(limit)"
         limitSlider.setValue(Float(limit), animated: true)
         
-        let name = UserDefaults.standard.string(forKey: DataManagement.DataName.UserName)
-        username.text = name
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -40,19 +36,6 @@ class InSettingsController : UITableViewController, MFMailComposeViewControllerD
         
         super.viewWillAppear(true)
         UserDefaults.standard.set(Int(limitSlider.value), forKey: DataManagement.DataName.SearchLimit)
-        
-    }
-
-    @IBAction func saveBtnPressed(_ sender: UIButton) {
-        
-        let name = username.text
-        let validName = name?.replacingOccurrences(of: " ", with: "")
-        
-        if validName != "" {
-            UserDefaults.standard.set(validName, forKey: DataManagement.DataName.UserName)
-        }
-
-        username.resignFirstResponder()
         
     }
     
@@ -78,7 +61,7 @@ class InSettingsController : UITableViewController, MFMailComposeViewControllerD
         
         // Change text to "Back"
         let backItem = UIBarButtonItem()
-        backItem.title = NSLocalizedString("BACK", comment: "Back label")
+        backItem.title = "BACK".localised()
         navigationItem.backBarButtonItem = backItem
         
     }
