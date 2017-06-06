@@ -171,3 +171,9 @@
 "SORT_BY_DAMAGE" = "傷害";
 
 "SORT_TITLE" = "排序";
+
+"LANGUAGE_AUTO" = "自動";
+
+"LANGUAGE_TITLE" = ">_<";
+
+"LANGUAGE_MESSAGE" = "語言選擇";

@@ -25,7 +25,7 @@ class Achievements {
     init() {
         // Setup achievementsAPI
         let server = ServerUrl.Server[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)]
-        achievementsAPI = "https://api.worldofwarships." + server + "/wows/encyclopedia/achievements/?application_id=***ApplicationID***&fields=battle.name%2Cbattle.hidden%2Cbattle.description%2Cbattle.image%2Cbattle.image_inactive" + Language.getLanguageString()
+        achievementsAPI = "https://api.worldofwarships." + server + "/wows/encyclopedia/achievements/?application_id=***ApplicationID***&fields=battle.name%2Cbattle.hidden%2Cbattle.description%2Cbattle.image%2Cbattle.image_inactive" + Language.getLanguageString(Mode: Language.Index.API)
     }
     
     func getAchievementJson() {
@@ -79,7 +79,7 @@ class Ships {
     init(shipID: String) {
         ship_id = shipID
         let server = ServerUrl.Server[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)]
-        shipsAPI = "https://api.worldofwarships." + server + "/wows/encyclopedia/ships/?application_id=***ApplicationID***&ship_id=" + shipID + "&fields=default_profile.torpedoes.torpedo_speed%2Cdefault_profile.torpedoes.visibility_dist%2Cdefault_profile.torpedoes.max_damage%2Cdefault_profile.torpedoes.distance%2Cdefault_profile.torpedoes.reload_time%2Cdefault_profile.torpedoes.torpedo_name%2Cdefault_profile.mobility%2Cdefault_profile.concealment.detect_distance_by_plane%2Cdefault_profile.concealment.detect_distance_by_ship%2Cdefault_profile.artillery.slots.name%2Cdefault_profile.artillery.slots.guns%2Cdefault_profile.artillery.slots.barrels%2Cdefault_profile.artillery.distance%2Cdefault_profile.artillery.shot_delay%2Cdefault_profile.artillery.shells.bullet_speed%2Cdefault_profile.artillery.shells.burn_probability%2Cdefault_profile.artillery.shells.damage%2Cdefault_profile.artillery.shells.name%2Cdefault_profile.armour.flood_prob%2Cdefault_profile.armour.health%2Cis_premium%2Cdefault_profile.battle_level_range_max%2Cdefault_profile.battle_level_range_min%2Cnation%2Cdescription%2Cprice_credit%2Cprice_gold%2Ctype" + Language.getLanguageString()
+        shipsAPI = "https://api.worldofwarships." + server + "/wows/encyclopedia/ships/?application_id=***ApplicationID***&ship_id=" + shipID + "&fields=default_profile.torpedoes.torpedo_speed%2Cdefault_profile.torpedoes.visibility_dist%2Cdefault_profile.torpedoes.max_damage%2Cdefault_profile.torpedoes.distance%2Cdefault_profile.torpedoes.reload_time%2Cdefault_profile.torpedoes.torpedo_name%2Cdefault_profile.mobility%2Cdefault_profile.concealment.detect_distance_by_plane%2Cdefault_profile.concealment.detect_distance_by_ship%2Cdefault_profile.artillery.slots.name%2Cdefault_profile.artillery.slots.guns%2Cdefault_profile.artillery.slots.barrels%2Cdefault_profile.artillery.distance%2Cdefault_profile.artillery.shot_delay%2Cdefault_profile.artillery.shells.bullet_speed%2Cdefault_profile.artillery.shells.burn_probability%2Cdefault_profile.artillery.shells.damage%2Cdefault_profile.artillery.shells.name%2Cdefault_profile.armour.flood_prob%2Cdefault_profile.armour.health%2Cis_premium%2Cdefault_profile.battle_level_range_max%2Cdefault_profile.battle_level_range_min%2Cnation%2Cdescription%2Cprice_credit%2Cprice_gold%2Ctype" + Language.getLanguageString(Mode: Language.Index.API)
     }
     
     func getShipJson(success: @escaping (JSON) -> ()) {
@@ -131,7 +131,7 @@ class Upgrade {
     init() {
         // Setup achievementsAPI
         let server = ServerUrl.Server[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)]
-        upgradeAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/consumables/?application_id=***ApplicationID***&type=Modernization&fields=profile.description%2Cdescription%2Cprice_credit%2Cname%2Cimage" + Language.getLanguageString()
+        upgradeAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/consumables/?application_id=***ApplicationID***&type=Modernization&fields=profile.description%2Cdescription%2Cprice_credit%2Cname%2Cimage" + Language.getLanguageString(Mode: Language.Index.API)
     }
     
     func getUpgradeJson() {
@@ -180,7 +180,7 @@ class Flag {
     
     init() {
         let server = ServerUrl.Server[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)]
-        flagAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/consumables/?application_id=***ApplicationID***&type=Flags&fields=profile.description%2Cdescription%2Cprice_gold%2Cname%2Cimage" + Language.getLanguageString()
+        flagAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/consumables/?application_id=***ApplicationID***&type=Flags&fields=profile.description%2Cdescription%2Cprice_gold%2Cname%2Cimage" + Language.getLanguageString(Mode: Language.Index.API)
     }
     
     
@@ -234,7 +234,7 @@ class Camouflage {
     init() {
         // Setup achievementsAPI
         let server = ServerUrl.Server[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)]
-        camouflageAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/consumables/?application_id=***ApplicationID***\(Language.getLanguageString())&fields=profile.description%2Cdescription%2Cprice_credit%2Cname%2Cimage%2Ctype%2Cprice_gold"
+        camouflageAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/consumables/?application_id=***ApplicationID***\(Language.getLanguageString(Mode: Language.Index.API))&fields=profile.description%2Cdescription%2Cprice_credit%2Cname%2Cimage%2Ctype%2Cprice_gold"
     }
     
     func getCamouflageJson() {
@@ -289,7 +289,7 @@ class CommanderSkill {
     init() {
         // Setup achievementsAPI
         let server = ServerUrl.Server[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)]
-        commanderSkillAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/crewskills/?application_id=***ApplicationID***&fields=icon%2Cname%2Ctier%2Cperks.description%2Cperks.perk_id" + Language.getLanguageString()
+        commanderSkillAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/crewskills/?application_id=***ApplicationID***&fields=icon%2Cname%2Ctier%2Cperks.description%2Cperks.perk_id" + Language.getLanguageString(Mode: Language.Index.API)
     }
     
     func getCommanderSkillJson() {

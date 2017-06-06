@@ -44,6 +44,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             user.set(["HenryQuan|2011774448|3"], forKey: DataManagement.DataName.friend)
         }
         
+        // Setup languages
+        if user.object(forKey: DataManagement.DataName.APILanguage) == nil {
+            // Auto by default
+            user.set(0, forKey: DataManagement.DataName.APILanguage)
+            user.set(0, forKey: DataManagement.DataName.NewsLanague)
+        }
+        
         if user.object(forKey: DataManagement.DataName.tk) == nil {
             // Empty list
             user.set([String](), forKey: DataManagement.DataName.tk)

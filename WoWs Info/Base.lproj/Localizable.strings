@@ -171,3 +171,9 @@
 "SORT_BY_DAMAGE" = "Damage";
 
 "SORT_TITLE" = "Sorting";
+
+"LANGUAGE_AUTO" = "Auto";
+
+"LANGUAGE_TITLE" = ">_<";
+
+"LANGUAGE_MESSAGE" = "Language Selection";

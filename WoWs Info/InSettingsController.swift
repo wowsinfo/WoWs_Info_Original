@@ -26,6 +26,8 @@ class InSettingsController : UITableViewController, MFMailComposeViewControllerD
         silderCountLabel.text = "\(limit)"
         limitSlider.setValue(Float(limit), animated: true)
         
+        self.tableView.delegate = self
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,6 +48,7 @@ class InSettingsController : UITableViewController, MFMailComposeViewControllerD
         
     }
     
+    // MARK: Button pressed
     @IBAction func updateBtnPressed(_ sender: Any) {
         if DataUpdater.update() {
             let success = UIAlertController.QuickMessage(title: "Success", message: "ExpectedValue.json is up to date", cancel: "OK")
@@ -54,6 +57,49 @@ class InSettingsController : UITableViewController, MFMailComposeViewControllerD
         } else {
             let fail = UIAlertController.QuickMessage(title: "Error", message: "Fail to update ExpectedValue.json", cancel: "OK")
             self.present(fail, animated: true, completion: nil)
+        }
+    }
+    
+    // MARK: TableView
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Deselect cell
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if let cell = tableView.cellForRow(at: indexPath) {
+            let tag = cell.tag
+            if tag >= 100 && tag <= 101 {
+                print("Language Selection")
+                // Choose Language
+                let language = UIAlertController(title: "LANGUAGE_MESSAGE".localised(), message: "", preferredStyle: .alert)
+                if tag == 100 {
+                    language.message = "API"
+                } else {
+                    language.message = "NEWS".localised()
+                }
+                
+                language.addAction(UIAlertAction(title: "LANGUAGE_AUTO".localised(), style: .default, handler: { (_) in
+                    self.setLanguage(tag: tag, index: Language.Index.auto)
+                }))
+                language.addAction(UIAlertAction(title: "简体中文", style: .default, handler: { (_) in
+                    self.setLanguage(tag: tag, index: Language.Index.sChinese)
+                }))
+                language.addAction(UIAlertAction(title: "繁體中文".localised(), style: .default, handler: { (_) in
+                    self.setLanguage(tag: tag, index: Language.Index.tChinese)
+                }))
+                language.addAction(UIAlertAction(title: "English".localised(), style: .default, handler: { (_) in
+                    self.setLanguage(tag: tag, index: Language.Index.English)
+                }))
+                language.addAction(UIAlertAction(title: "SHARE_CANCEL".localised(), style: .cancel, handler: nil))
+                self.present(language, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func setLanguage(tag: Int, index: Int) {
+        if tag == 100 {
+            UserDefaults.standard.set(index, forKey: DataManagement.DataName.APILanguage)
+        } else if tag == 101 {
+            UserDefaults.standard.set(index, forKey: DataManagement.DataName.NewsLanague)
         }
     }
     
