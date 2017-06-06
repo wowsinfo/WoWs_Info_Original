@@ -7,15 +7,19 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 // Lol, that's lots of delegates and data sources
-class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, GADBannerViewDelegate {
 
+    @IBOutlet weak var showAdsConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bannerView: GADBannerView!
+    
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var usernameTableView: UITableView!
     @IBOutlet weak var pickerView: UIView!
     @IBOutlet weak var serverPicker: UIPickerView!
-
+    
     var playerInfo = [[String]]()
     var selectedInfo = [String]()
     var searchLimit = 0
@@ -26,6 +30,22 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Whether ads should be shown
+        if UserDefaults.standard.bool(forKey: DataManagement.DataName.hasPurchased) {
+            // Adjust constraint
+            showAdsConstraint.constant -= 50
+            bannerView.removeFromSuperview()
+        } else {
+            // Load ads
+            bannerView.adSize = kGADAdSizeSmartBannerPortrait
+            bannerView.adUnitID = "ca-app-pub-5048098651344514/4703363983"
+            bannerView.rootViewController = self
+            bannerView.delegate = self
+            let request = GADRequest()
+            request.testDevices = [kGADSimulatorID]
+            bannerView.load(request)
+        }
         
         // Load rating
         ShipRating().loadExpctedJson()
@@ -74,6 +94,13 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     func getServerName() {
         server = UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)
         username.placeholder = NSLocalizedString("SERVER", comment: "Server label") + " : \(ServerUrl.ServerName[server])"
+    }
+    
+    // MARK: ADS
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        // Adjust constraint
+        showAdsConstraint.constant -= 50
+        bannerView.removeFromSuperview()
     }
     
     // MARK: segmentedControl pressed
@@ -127,7 +154,6 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
                 }
             }
         }
-        
         
     }
     
