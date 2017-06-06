@@ -24,43 +24,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Change status bar color
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
         
+        let user = UserDefaults.standard
         // Prepare for userdefaults
-        if UserDefaults.standard.object(forKey: DataManagement.DataName.FirstLaunch) == nil {
+        if user.object(forKey: DataManagement.DataName.FirstLaunch) == nil {
             
             print("First Launch!")
-            
-            let defaults = UserDefaults.standard
-            defaults.set(true, forKey: DataManagement.DataName.FirstLaunch)
-            defaults.set(3, forKey: DataManagement.DataName.Server)
-            defaults.set(15, forKey: DataManagement.DataName.SearchLimit)
-            defaults.set(">_<", forKey: DataManagement.DataName.UserName)
+            user.set(true, forKey: DataManagement.DataName.FirstLaunch)
+            user.set(3, forKey: DataManagement.DataName.Server)
+            user.set(15, forKey: DataManagement.DataName.SearchLimit)
+            user.set(">_<", forKey: DataManagement.DataName.UserName)
             // For future updates
-            // CHANGE THIS IN THE FUTURE
-            defaults.set(true, forKey: DataManagement.DataName.IsThereAds)
-            defaults.set(true, forKey: DataManagement.DataName.IsAdvancedUnlocked)
-            
+            user.set(true, forKey: DataManagement.DataName.IsThereAds)
+            user.set(true, forKey: DataManagement.DataName.IsAdvancedUnlocked)
+        }
+        
+        // Setup tk and friend list
+        if user.object(forKey: DataManagement.DataName.friend) == nil{
+            // I am your friend
+            user.set(["HenryQuan|2011774448|3"], forKey: DataManagement.DataName.friend)
+        }
+        
+        if user.object(forKey: DataManagement.DataName.tk) == nil {
+            // Empty list
+            user.set([String](), forKey: DataManagement.DataName.tk)
         }
         
         // Setup theme
-        if UserDefaults.standard.object(forKey: DataManagement.DataName.theme) == nil {
-            UserDefaults.standard.set(UIColor.RGB(red: 85, green: 163, blue: 255), forKey: DataManagement.DataName.theme)
+        if user.object(forKey: DataManagement.DataName.theme) == nil {
+            user.set(UIColor.RGB(red: 85, green: 163, blue: 255), forKey: DataManagement.DataName.theme)
         }
         
         // Whether user purchases or not
-        if UserDefaults.standard.object(forKey: DataManagement.DataName.hasPurchased) == nil {
-            UserDefaults.standard.set(false, forKey: DataManagement.DataName.hasPurchased)
-            UserDefaults.standard.set(false, forKey: DataManagement.DataName.IsThereAds)
-            UserDefaults.standard.set(false, forKey: DataManagement.DataName.IsAdvancedUnlocked)
+        if user.object(forKey: DataManagement.DataName.hasPurchased) == nil {
+            user.set(false, forKey: DataManagement.DataName.hasPurchased)
+            user.set(false, forKey: DataManagement.DataName.IsThereAds)
+            user.set(false, forKey: DataManagement.DataName.IsAdvancedUnlocked)
         }
         
-        if UserDefaults.standard.bool(forKey: DataManagement.DataName.hasPurchased) == false {
-            UserDefaults.standard.set(false, forKey: DataManagement.DataName.IsThereAds)
-            UserDefaults.standard.set(false, forKey: DataManagement.DataName.IsAdvancedUnlocked)
+        // A little guard...
+        if user.bool(forKey: DataManagement.DataName.hasPurchased) == false {
+            user.set(false, forKey: DataManagement.DataName.IsThereAds)
+            user.set(false, forKey: DataManagement.DataName.IsAdvancedUnlocked)
         }
         
         // Reset name
-        if !UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked) {
-            UserDefaults.standard.set(">_<", forKey: DataManagement.DataName.UserName)
+        if !user.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked) {
+            user.set(">_<", forKey: DataManagement.DataName.UserName)
         }
         
         // Setup siren
