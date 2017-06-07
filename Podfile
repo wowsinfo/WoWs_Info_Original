@@ -13,6 +13,6 @@ pod 'SwiftyJSON'
 pod 'Charts'
 pod 'SDWebImage'
 pod 'Siren'
-pod 'Kanna'
+pod 'Kanna', '~> 2.2.1'
 
 end

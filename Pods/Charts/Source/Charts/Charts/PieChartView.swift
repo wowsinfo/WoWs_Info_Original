@@ -394,9 +394,9 @@ open class PieChartView: PieRadarChartViewBase
                 
                 attrString = NSMutableAttributedString(string: newValue!)
                 attrString?.setAttributes([
-                    NSAttributedStringKey.foregroundColor: NSUIColor.black,
-                    NSAttributedStringKey.font: NSUIFont.systemFont(ofSize: 12.0),
-                    NSAttributedStringKey.paragraphStyle: paragraphStyle
+                    NSForegroundColorAttributeName: NSUIColor.black,
+                    NSFontAttributeName: NSUIFont.systemFont(ofSize: 12.0),
+                    NSParagraphStyleAttributeName: paragraphStyle
                     ], range: NSMakeRange(0, attrString!.length))
             }
             self.centerAttributedText = attrString

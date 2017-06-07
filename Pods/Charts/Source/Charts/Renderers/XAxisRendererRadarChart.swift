@@ -64,7 +64,7 @@ open class XAxisRendererRadarChart: XAxisRenderer
                       formattedLabel: label,
                       x: p.x,
                       y: p.y - xAxis.labelRotatedHeight / 2.0,
-                      attributes: [NSAttributedStringKey.font.rawValue: labelFont, NSAttributedStringKey.foregroundColor.rawValue: labelTextColor],
+                      attributes: [NSFontAttributeName: labelFont, NSForegroundColorAttributeName: labelTextColor],
                       anchor: drawLabelAnchor,
                       angleRadians: labelRotationAngleRadians)
         }

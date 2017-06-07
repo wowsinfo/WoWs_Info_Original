@@ -104,7 +104,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     // MARK: segmentedControl pressed
-    @objc func segmentedControlValueChanged(segment: UISegmentedControl) {
+    func segmentedControlValueChanged(segment: UISegmentedControl) {
         // Clean text
         username.text = ""
         playerInfo = [[String]]()
@@ -125,7 +125,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         };
     }
     
-    @objc func loadDataIntoTableview() {
+    func loadDataIntoTableview() {
         
         playerInfo.removeAll()
         self.refreshTabelView()
@@ -241,7 +241,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         let cell = UITableViewCell()
         // Change to a better font
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 20.0, weight: UIFont.Weight.light)
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 20.0, weight: UIFontWeightLight)
         
         if modeIndex == 0 {
             // Player
