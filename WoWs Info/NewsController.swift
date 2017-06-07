@@ -97,15 +97,15 @@ class NewsController: UITableViewController, SFSafariViewControllerDelegate, GAD
             cell.dateLabel.textColor = UIColor.white
             cell.titleLabel.textColor = UIColor.white
             
-            cell.titleLabel.font = UIFont.systemFont(ofSize: 26, weight: UIFontWeightMedium)
-            cell.dateLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFontWeightLight)
+            cell.titleLabel.font = UIFont.systemFont(ofSize: 26, weight: UIFont.Weight.medium)
+            cell.dateLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.light)
         } else {
             cell.backgroundColor = UIColor.white
             cell.dateLabel.textColor = UIColor.black
             cell.titleLabel.textColor = UIColor.black
             
-            cell.titleLabel.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightMedium)
-            cell.dateLabel.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightLight)
+            cell.titleLabel.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.medium)
+            cell.dateLabel.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.light)
         }
         
         return cell
