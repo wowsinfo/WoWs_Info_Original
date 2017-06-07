@@ -98,7 +98,8 @@ class FriendController: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // UserDefaults.standard.set(Int(friendList[indexPath.row].components(separatedBy: "|")[2]), forKey: DataManagement.DataName.Server)
+        // Change server index
+        UserDefaults.standard.set(Int(friendList[indexPath.row].components(separatedBy: "|")[2]), forKey: DataManagement.DataName.Server)
         if modeSegment.selectedSegmentIndex == 0 {
             performSegue(withIdentifier: "gotoInfo", sender: friendList[indexPath.row])
         } else if modeSegment.selectedSegmentIndex == 1 {

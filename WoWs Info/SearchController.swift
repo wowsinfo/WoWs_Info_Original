@@ -79,8 +79,8 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         super.didReceiveMemoryWarning()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         // Clean text
         username.text = ""
@@ -89,6 +89,9 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
 
         // Reload search limit
         searchLimit = UserDefaults.standard.integer(forKey: DataManagement.DataName.SearchLimit)
+        
+        // Reload server
+        getServerName()
     }
     
     func getServerName() {
