@@ -84,7 +84,7 @@ class FriendController: UIViewController, UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         // Better font
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 20.0, weight: UIFont.Weight.light)
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 20.0, weight: UIFontWeightLight)
         
         if modeSegment.selectedSegmentIndex == 0 {
             // Friend

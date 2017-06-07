@@ -75,7 +75,7 @@ class ShipDetailController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @objc func takeScreenshot() {
+    func takeScreenshot() {
         
         // Take a screenshot of a page
         DispatchQueue.main.async {
