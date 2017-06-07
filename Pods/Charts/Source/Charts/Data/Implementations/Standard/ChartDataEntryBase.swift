@@ -14,10 +14,10 @@ import Foundation
 open class ChartDataEntryBase: NSObject
 {
     /// the y value
-    open var y = Double(0.0)
+    @objc open var y = Double(0.0)
     
     /// optional spot for additional data this Entry represents
-    open var data: AnyObject?
+    @objc open var data: AnyObject?
     
     /// optional icon image
     open var icon: NSUIImage?

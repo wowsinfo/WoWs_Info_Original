@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yXk-XQ-L7l">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yXk-XQ-L7l">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -169,7 +170,6 @@
                         <outlet property="usernameTableView" destination="VgM-Q6-Uua" id="P3k-7e-LGI"/>
                         <segue destination="8kY-wV-AgS" kind="show" identifier="gotoClanInfo" id="dRr-7z-Boq"/>
                         <segue destination="9hs-2S-Jmn" kind="show" identifier="gotoAdvancedDetails" id="TFL-TH-CBw"/>
-                        <segue destination="UBr-mN-kDI" kind="show" identifier="gotoDetails" id="iMB-Vq-HrT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gLM-Q2-hOf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -193,16 +193,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QWM-FG-c2M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7101" y="-2492"/>
-        </scene>
-        <!--PlayerInfoController-->
-        <scene sceneID="rg8-cH-5bh">
-            <objects>
-                <viewControllerPlaceholder storyboardName="SimpleStat" referencedIdentifier="PlayerInfoController" id="UBr-mN-kDI" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="s3O-bV-16Q"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pgl-KA-g2r" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="7073" y="-2349"/>
         </scene>
         <!--Settings Controller-->
         <scene sceneID="k1k-e3-gcw">
@@ -556,7 +546,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VLV-Lx-fnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8305" y="-1041"/>
+            <point key="canvasLocation" x="8305" y="-925"/>
         </scene>
         <!--WebsiteViewController-->
         <scene sceneID="HMK-dI-6fQ">
@@ -610,7 +600,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you very much" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3p-id-wq6">
-                                <rect key="frame" x="16" y="577" width="343" height="21"/>
+                                <rect key="frame" x="16" y="626" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
