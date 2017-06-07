@@ -396,5 +396,5 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
             }
         }
     }
- 
+    
 }
