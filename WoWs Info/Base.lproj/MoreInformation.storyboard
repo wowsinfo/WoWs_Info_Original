@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xGc-MT-paI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xGc-MT-paI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -394,6 +395,9 @@
                             <outlet property="delegate" destination="w3z-iF-IPh" id="nA0-05-lAx"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="" image="Rank" id="pKI-kJ-lUw">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="J62-0k-SCc"/>
                     <connections>
                         <outlet property="RankTableView" destination="hjc-d1-Xo3" id="YEY-rX-RLY"/>
@@ -402,7 +406,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tzi-27-HAV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2680.8000000000002" y="-210.04497751124438"/>
+            <point key="canvasLocation" x="1927" y="-107"/>
         </scene>
         <!--Ship Controller-->
         <scene sceneID="nbR-eZ-L0o">
@@ -693,7 +697,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Screenshot" translatesAutoresizingMaskIntoConstraints="NO" id="5X6-DK-Tuy">
-                                <rect key="frame" x="163.5" y="562" width="48" height="48"/>
+                                <rect key="frame" x="163.5" y="611" width="48" height="48"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="5X6-DK-Tuy" secondAttribute="height" multiplier="1:1" id="QMv-IS-nlY"/>
@@ -837,7 +841,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WoWs Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ljc-WB-Sys">
-                                <rect key="frame" x="8" y="589" width="110" height="21"/>
+                                <rect key="frame" x="8" y="638" width="110" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="110" id="4hx-0C-P78"/>
                                     <constraint firstAttribute="height" constant="21" id="bxW-iH-LDj"/>
@@ -953,37 +957,12 @@
                     <connections>
                         <segue destination="ldK-N4-tVS" kind="relationship" relationship="viewControllers" id="Dau-qN-wSk"/>
                         <segue destination="SZv-iy-TSS" kind="relationship" relationship="viewControllers" id="7Hb-8n-24p"/>
-                        <segue destination="9x6-Y7-Lns" kind="relationship" relationship="viewControllers" id="pHa-l0-yQX"/>
+                        <segue destination="w3z-iF-IPh" kind="relationship" relationship="viewControllers" id="2Ot-Dh-EoJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LHZ-3A-btM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="149.59999999999999" y="138.98050974512745"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="qHU-hy-kaa">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9x6-Y7-Lns" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Rank" id="hQ8-AB-pZy">
-                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
-                    </tabBarItem>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VZv-Bk-nEH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="reU-Us-cuK">
-                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="w3z-iF-IPh" kind="relationship" relationship="rootViewController" id="1lm-fs-FTL"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aow-mK-c0v" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1904.8" y="-212.74362818590706"/>
         </scene>
     </scenes>
     <resources>
