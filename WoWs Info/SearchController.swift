@@ -58,8 +58,8 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         // Border
         modeSegment.layer.borderWidth = 1.0
         modeSegment.layer.borderColor = UIColor.white.cgColor
-        // Full size
-        modeSegment.frame.size.width = self.view.frame.width
+        // 3 / 4 size
+        modeSegment.frame.size.width = self.view.frame.width / 4 * 3
         modeSegment.selectedSegmentIndex = 0
         modeSegment.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
         self.navigationItem.titleView = modeSegment
