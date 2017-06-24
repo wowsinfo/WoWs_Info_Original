@@ -51,7 +51,7 @@ class InSettingsController : UITableViewController, MFMailComposeViewControllerD
     // MARK: Button pressed
     @IBAction func updateBtnPressed(_ sender: Any) {
         if DataUpdater.update() {
-            let success = UIAlertController.QuickMessage(title: "UPDATE_SUCCESS".localised(), message: "UPDATE_MESSAGE_MESSAGE".localised(), cancel: "OK")
+            let success = UIAlertController.QuickMessage(title: "UPDATE_SUCCESS".localised(), message: "UPDATE_SUCCESS_MESSAGE".localised(), cancel: "OK")
             self.present(success, animated: true, completion: nil)
             updateBtn.isEnabled = false
         } else {

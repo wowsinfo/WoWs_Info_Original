@@ -32,6 +32,13 @@ class FriendController: UIViewController, UITableViewDelegate, UITableViewDataSo
         friendTableView.delegate = self
         friendTableView.dataSource = self
         friendTableView.separatorColor = UIColor.clear
+        
+        // Round button for a perfect radius
+        modeSegment.layer.cornerRadius = modeSegment.frame.height / 2
+        modeSegment.layer.masksToBounds = true
+        // Border
+        modeSegment.layer.borderWidth = 1.0
+        modeSegment.layer.borderColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)?.cgColor
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +58,7 @@ class FriendController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         // Update colour
         modeSegment.tintColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
+        modeSegment.layer.borderColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)?.cgColor
     }
     
     override func viewDidDisappear(_ animated: Bool) {

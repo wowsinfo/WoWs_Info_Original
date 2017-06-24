@@ -52,6 +52,14 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         // Setup Segmented controll
         let modeSegment = UISegmentedControl.init(items: [NSLocalizedString("PLAYER_SEGMENT", comment: "Player"), NSLocalizedString("CLAN_SEGMENT", comment: "Clan")])
+        // Round button for a perfect radius
+        modeSegment.layer.cornerRadius = modeSegment.frame.height / 2
+        modeSegment.layer.masksToBounds = true
+        // Border
+        modeSegment.layer.borderWidth = 1.0
+        modeSegment.layer.borderColor = UIColor.white.cgColor
+        // Full size
+        modeSegment.frame.size.width = self.view.frame.width
         modeSegment.selectedSegmentIndex = 0
         modeSegment.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
         self.navigationItem.titleView = modeSegment
