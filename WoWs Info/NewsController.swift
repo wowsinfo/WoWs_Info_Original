@@ -52,17 +52,23 @@ class NewsController: UITableViewController, SFSafariViewControllerDelegate, GAD
         if newsData.count == 0 {
             News().getNews(success: { (data) in
                 DispatchQueue.main.async {
-                    self.newsData = data
+                 self.newsData = data
                     if self.newsData.count > 0 {
                         self.navigationController?.navigationBar.topItem?.title = NSLocalizedString("NEWS", comment: "News label")
                     } else {
                         self.navigationController?.navigationBar.topItem?.title = ">_<"
                     }
+                    // Change view background colour to theme colour
+                    self.tableView.backgroundColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
+                    // Reload data for animation
                     self.tableView.reloadData()
                     self.tableView.reloadRows(at: self.tableView.indexPathsForVisibleRows!, with: .automatic)
                 }
             })
         } else {
+            // Change view background colour to theme colour
+            self.tableView.backgroundColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
+            // Reload data for animation
             self.tableView.reloadData()
             self.tableView.reloadRows(at: self.tableView.indexPathsForVisibleRows!, with: .automatic)
         }
