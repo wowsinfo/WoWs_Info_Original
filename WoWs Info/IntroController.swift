@@ -18,6 +18,7 @@ class IntroController: UIViewController, GADInterstitialDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
         // Setup Ads
         if !isPro {
             interstitial = GADInterstitial(adUnitID: "ca-app-pub-5048098651344514/7499671184")

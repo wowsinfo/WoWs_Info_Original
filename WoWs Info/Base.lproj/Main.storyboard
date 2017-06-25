@@ -24,7 +24,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="h5A-PM-rDz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Theme" translatesAutoresizingMaskIntoConstraints="NO" id="h5A-PM-rDz">
                                 <rect key="frame" x="123" y="269" width="128" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="h5A-PM-rDz" secondAttribute="height" multiplier="1:1" id="etz-ZQ-DxX"/>
@@ -34,7 +34,7 @@
                                 <rect key="frame" x="169" y="405" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" red="0.33728533983230591" green="0.63926470279693604" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="h5A-PM-rDz" firstAttribute="centerY" secondItem="Iww-n1-qrk" secondAttribute="centerY" id="4XS-j6-Hly"/>
@@ -755,9 +755,9 @@
     </scenes>
     <resources>
         <image name="Henry" width="320" height="320"/>
-        <image name="Icon" width="1024" height="1024"/>
         <image name="News" width="30" height="30"/>
         <image name="Server" width="256" height="256"/>
+        <image name="Theme" width="205" height="205"/>
         <image name="WikiBar" width="30" height="30"/>
     </resources>
 </document>
