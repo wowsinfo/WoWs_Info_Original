@@ -70,7 +70,6 @@
 		929B0B4E1E61A022007E54EA /* AchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B4D1E61A022007E54EA /* AchievementCell.swift */; };
 		929B0B501E61A1E1007E54EA /* AchievementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B4F1E61A1E1007E54EA /* AchievementController.swift */; };
 		929C426D1EB20E2600DD0F6A /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929C426C1EB20E2600DD0F6A /* DashboardController.swift */; };
-		92A76B3E1EB4401D00F369ED /* DonationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A76B3D1EB4401D00F369ED /* DonationController.swift */; };
 		92AAE8C01E938511006DB929 /* WikiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AAE8BF1E938511006DB929 /* WikiController.swift */; };
 		92AAE8C21E938663006DB929 /* WikiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AAE8C11E938663006DB929 /* WikiCell.swift */; };
 		92B768641E5E5D02009803C3 /* MoreInformation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B768661E5E5D02009803C3 /* MoreInformation.storyboard */; };
@@ -178,7 +177,6 @@
 		929B0B4D1E61A022007E54EA /* AchievementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementCell.swift; sourceTree = "<group>"; };
 		929B0B4F1E61A1E1007E54EA /* AchievementController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementController.swift; sourceTree = "<group>"; };
 		929C426C1EB20E2600DD0F6A /* DashboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
-		92A76B3D1EB4401D00F369ED /* DonationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonationController.swift; sourceTree = "<group>"; };
 		92AAE8BF1E938511006DB929 /* WikiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiController.swift; sourceTree = "<group>"; };
 		92AAE8C11E938663006DB929 /* WikiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiCell.swift; sourceTree = "<group>"; };
 		92B768631E5E5A58009803C3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -442,7 +440,6 @@
 			isa = PBXGroup;
 			children = (
 				9259C1CB1E57BC4400F34CDC /* IAPController.swift */,
-				92A76B3D1EB4401D00F369ED /* DonationController.swift */,
 			);
 			name = IAP;
 			sourceTree = "<group>";
@@ -755,7 +752,6 @@
 				920105B51EB1827B00E5F338 /* Reachability.swift in Sources */,
 				92AAE8C21E938663006DB929 /* WikiCell.swift in Sources */,
 				925B627D1E62D7680073FF56 /* ShipDetailController.swift in Sources */,
-				92A76B3E1EB4401D00F369ED /* DonationController.swift in Sources */,
 				929B0B501E61A1E1007E54EA /* AchievementController.swift in Sources */,
 				92E45B201EAE13CC00360E62 /* MemberCell.swift in Sources */,
 				924BD2671E457F6B00E15D04 /* DataManagement.swift in Sources */,
