@@ -62,6 +62,8 @@ class ClanInfoController: UITableViewController, SFSafariViewControllerDelegate 
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let theme = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
+        tableView.backgroundColor = theme
         if indexPath.row == 0 {
             // First cell is gonna be  ClanCell
             let cell = tableView.dequeueReusableCell(withIdentifier: "ClanCell", for: indexPath) as! ClanCell
@@ -69,7 +71,7 @@ class ClanInfoController: UITableViewController, SFSafariViewControllerDelegate 
             cell.clanDescription.text = clanInfo[0][ClanInfo.dataIndex.description]
             cell.leaderName.text = clanInfo[0][ClanInfo.dataIndex.leader]
             cell.memberCountLabel.text = "\(NSLocalizedString("MEMBER_LIST", comment: "Member List")) (\(self.clanMember!))"
-            cell.backgroundColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
+            cell.backgroundColor = theme
             return cell
         } else {
             // Member list
