@@ -25,7 +25,8 @@ class AchievementController: UICollectionViewController {
         // Make it fit on all devices
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
-        layout.itemSize = CGSize(width: view.frame.size.width/3, height: view.frame.size.width/3)
+        let divider = CGFloat(Int(self.view.frame.width / 100) + 1)
+        layout.itemSize = CGSize(width: self.view.frame.width / divider, height: self.view.frame.width / divider)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         collectionView!.collectionViewLayout = layout
@@ -36,7 +37,15 @@ class AchievementController: UICollectionViewController {
             _ = self.navigationController?.popToRootViewController(animated: true)
         }
         
+        // Check for rotation
+        NotificationCenter.default.addObserver(self, selector: #selector(orientation), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        
         self.title = "\(achievement.count)"
+    }
+    
+    // Update collection view
+    func orientation() {
+        self.achievementCollection.frame.size = self.view.frame.size
     }
 
     override func didReceiveMemoryWarning() {
