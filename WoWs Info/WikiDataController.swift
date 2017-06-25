@@ -23,7 +23,6 @@ class WikiDataController: UITableViewController {
         super.viewDidLoad()
         
         // Automatic resizing
-        self.tableView.separatorColor = UIColor.clear
         self.tableView.estimatedRowHeight = 200.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
