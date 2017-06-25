@@ -12,9 +12,9 @@ import GoogleMobileAds
 class SettingsController: UIViewController, UITableViewDelegate, UITableViewDataSource, GADBannerViewDelegate {
 
     @IBOutlet weak var bannerView: GADBannerView!
-    let imageSet = [#imageLiteral(resourceName: "Web"),#imageLiteral(resourceName: "AppStore"),#imageLiteral(resourceName: "Donation"),#imageLiteral(resourceName: "Settings"), #imageLiteral(resourceName: "Icon")]
-    let wordSet = ["WEB_SETTINGS".localised(), "APP_SETTINGS".localised(), "DONATION_SETTINGS".localised(), "SETTINGS_SETTINGS".localised(), "THEME_SETTINGS".localised()]
-    let segueSet = ["gotoProVersion", "gotoWeb", "gotoReview", "gotoDonate", "gotoSettings", "gotoTheme"]
+    let imageSet = [#imageLiteral(resourceName: "Web"),#imageLiteral(resourceName: "AppStore"),#imageLiteral(resourceName: "Settings"), #imageLiteral(resourceName: "Icon")]
+    let wordSet = ["WEB_SETTINGS".localised(), "APP_SETTINGS".localised(), "SETTINGS_SETTINGS".localised(), "THEME_SETTINGS".localised()]
+    let segueSet = ["gotoProVersion", "gotoWeb", "gotoReview", "gotoSettings", "gotoTheme"]
     var isPro = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
     @IBOutlet weak var settingsTableView: UITableView!
     
