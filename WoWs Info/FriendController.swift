@@ -93,6 +93,8 @@ class FriendController: UIViewController, UITableViewDelegate, UITableViewDataSo
         let cell = UITableViewCell()
         // Better font
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20.0, weight: UIFontWeightLight)
+        // Show indicator
+        cell.accessoryType = .disclosureIndicator
         
         if modeSegment.selectedSegmentIndex == 0 {
             // Friend

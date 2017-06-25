@@ -16,7 +16,6 @@ class WikiController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.separatorColor = UIColor.clear
         self.navigationController?.navigationBar.topItem?.title = NSLocalizedString("WOWS_WIKI", comment: "Wiki Title")
     }
 
@@ -30,6 +29,10 @@ class WikiController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WikiCell", for: indexPath) as! WikiCell
+        // Corner radius for image
+        cell.wikiImage.layer.cornerRadius = cell.wikiImage.frame.width / 5
+        cell.wikiImage.layer.masksToBounds = true
+        
         cell.wikiTextLabel.text = name[indexPath.row]
         cell.wikiImage.image = iconImage[indexPath.row]
         

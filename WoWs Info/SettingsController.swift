@@ -89,6 +89,8 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
             if indexPath.row != imageSet.count {
                 // Setting cell
                 let cell = settingsTableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsCell
+                cell.logoImage.layer.cornerRadius = cell.logoImage.frame.width / 5
+                cell.logoImage.layer.masksToBounds = true
                 cell.logoImage.image = imageSet[index]
                 cell.nameLabel.text = wordSet[index]
                 return cell
@@ -107,6 +109,8 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
             } else if indexPath.row != imageSet.count + 1{
                 let cell = settingsTableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsCell
                 cell.logoImage.image = imageSet[index - 1]
+                cell.logoImage.layer.cornerRadius = cell.logoImage.frame.width / 5
+                cell.logoImage.layer.masksToBounds = true
                 cell.nameLabel.text = wordSet[index - 1]
                 return cell
             } else {

@@ -253,6 +253,8 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         let cell = UITableViewCell()
         // Change to a better font
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20.0, weight: UIFontWeightLight)
+        // Show indicator
+        cell.accessoryType = .disclosureIndicator
         
         if modeIndex == 0 {
             // Player
