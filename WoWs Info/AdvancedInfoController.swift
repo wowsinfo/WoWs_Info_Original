@@ -40,6 +40,8 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        shipData = [[String]]()
+        PlayerShip.playerShipInfo = [[String]]()
 
         // Load player id into title
         self.title  = playerInfo[1]
@@ -107,17 +109,6 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if self.isMovingToParentViewController {
-            // Clear Data Here
-            print("Clearing")
-            shipData = [[String]]()
-            PlayerShip.playerShipInfo = [[String]]()
-        }
     }
     
     func loadPlayerData() {
