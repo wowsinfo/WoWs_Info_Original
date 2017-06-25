@@ -28,7 +28,8 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
         // Make it fit on all devices
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
-        layout.itemSize = CGSize(width: view.frame.size.width/2, height: view.frame.size.width/2)
+        let divider = CGFloat(Int(self.view.frame.width / 150) + 1)
+        layout.itemSize = CGSize(width: self.view.frame.width / divider, height: self.view.frame.width / divider)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         shipCollection.collectionViewLayout = layout
@@ -134,6 +135,7 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
             
             // Update table now
             DispatchQueue.main.async {
+                self.title = "\(self.ships.count)"
                 self.shipCollection.reloadData()
             }
         }
@@ -192,6 +194,7 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
             // Update table now
             DispatchQueue.main.async {
                 self.shipCollection.reloadData()
+                self.title = "\(self.ships.count)"
             }
         }
         AudioServicesPlaySystemSound(1520)
@@ -211,6 +214,7 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
             // Update table now
             DispatchQueue.main.async {
                 self.shipCollection.reloadData()
+                self.title = "\(self.ships.count)"
             }
         }
         AudioServicesPlaySystemSound(1520)
@@ -230,6 +234,7 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
             // Update table now
             DispatchQueue.main.async {
                 self.shipCollection.reloadData()
+                self.title = "\(self.ships.count)"
             }
         }
         AudioServicesPlaySystemSound(1520)
