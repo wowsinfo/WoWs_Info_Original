@@ -38,9 +38,11 @@ class ShipScreenshotController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Does not allow landscape
-        let value = UIInterfaceOrientation.portrait.rawValue
-        UIDevice.current.setValue(value, forKey: "orientation")
+        // Does not allow landscape for iPhone
+        if UIDevice.current.userInterfaceIdiom != .pad {
+            let value = UIInterfaceOrientation.portrait.rawValue
+            UIDevice.current.setValue(value, forKey: "orientation")
+        }
 
         print(shipID)
         nameLabel.text = PlayerAccount.AccountName

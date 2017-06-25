@@ -422,7 +422,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="106" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="87D-GU-cFY">
-                                <rect key="frame" x="0.0" y="98" width="375" height="464"/>
+                                <rect key="frame" x="0.0" y="98" width="375" height="468"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ShipCell" rowHeight="106" id="8gO-pk-b5k" customClass="ShipTableCell" customModule="WoWs_Info" customModuleProvider="target">
@@ -580,32 +580,32 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWD-oZ-qi6">
-                                <rect key="frame" x="99" y="570" width="44" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="99" y="574" width="44" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <state key="normal" title="Button" image="Cruiser"/>
                                 <connections>
                                     <action selector="caBtnPressed:" destination="ldK-N4-tVS" eventType="touchUpInside" id="mOh-am-ZvT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2f-BX-1E8">
-                                <rect key="frame" x="9" y="566" width="28" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="9" y="570" width="28" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <state key="normal" title="Button" image="Destroyer"/>
                                 <connections>
                                     <action selector="ddBtnPressed:" destination="ldK-N4-tVS" eventType="touchUpInside" id="N8B-Tx-Xao"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01g-5S-c0r">
-                                <rect key="frame" x="214" y="570" width="44" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="214" y="574" width="44" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <state key="normal" title="Button" image="Battleship"/>
                                 <connections>
                                     <action selector="bbBtnPressed:" destination="ldK-N4-tVS" eventType="touchUpInside" id="Nef-tk-Iwf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GwM-EX-V9P">
-                                <rect key="frame" x="320" y="570" width="44" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="320" y="574" width="44" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <state key="normal" title="Button" image="Aircraft Carrier"/>
                                 <connections>
                                     <action selector="cvBtnPressed:" destination="ldK-N4-tVS" eventType="touchUpInside" id="QQh-6A-EqM"/>
@@ -663,7 +663,7 @@
                             <constraint firstItem="Rwz-Q3-xex" firstAttribute="leading" secondItem="K4M-G1-GG8" secondAttribute="leading" id="lnF-4N-K72"/>
                             <constraint firstItem="irG-pA-dHv" firstAttribute="leading" secondItem="K4M-G1-GG8" secondAttribute="leading" id="o1f-yd-Uht"/>
                             <constraint firstItem="NmY-VA-FYU" firstAttribute="top" secondItem="nkG-y5-672" secondAttribute="bottom" constant="7" id="sc1-C6-GqY"/>
-                            <constraint firstItem="Rwz-Q3-xex" firstAttribute="top" secondItem="87D-GU-cFY" secondAttribute="bottom" constant="35" id="tmA-vf-s2E"/>
+                            <constraint firstItem="Rwz-Q3-xex" firstAttribute="top" secondItem="87D-GU-cFY" secondAttribute="bottom" constant="31" id="tmA-vf-s2E"/>
                             <constraint firstAttribute="trailing" secondItem="87D-GU-cFY" secondAttribute="trailing" id="upj-lF-UGF"/>
                             <constraint firstAttribute="trailing" secondItem="irG-pA-dHv" secondAttribute="trailing" id="utz-iA-J6W"/>
                         </constraints>
