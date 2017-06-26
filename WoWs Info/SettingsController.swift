@@ -57,6 +57,8 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
         let ThemeColour = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
         self.navigationController?.navigationBar.barTintColor = ThemeColour
         self.tabBarController?.tabBar.tintColor = ThemeColour
+        // Reload tableview
+        self.settingsTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -104,7 +106,9 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
             // Free version
             if index == 0 {
                 let cell = settingsTableView.dequeueReusableCell(withIdentifier: "UpgradeCell", for: indexPath) as! UpgradeCell
+                // Update text colour as well
                 cell.proLabel.text = NSLocalizedString("UPGRADE_SETTINGS", comment: "Upgrade to Pro")
+                cell.proLabel.textColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
                 return cell
             } else if indexPath.row != imageSet.count + 1{
                 let cell = settingsTableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsCell

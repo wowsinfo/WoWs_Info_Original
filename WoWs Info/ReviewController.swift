@@ -31,7 +31,7 @@ class ReviewController: UIViewController, MFMailComposeViewControllerDelegate {
     }
     
     func roundBtn(btn: UIButton) {
-        btn.layer.cornerRadius = 5.0
+        btn.layer.cornerRadius = btn.frame.height / 2
     }
     
     @IBAction func shareBtnPressed(_ sender: Any) {
