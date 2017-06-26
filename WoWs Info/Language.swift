@@ -22,6 +22,17 @@ class Language {
     static func getLanguageString(Mode: Int) -> String {
         
         var language = NSLocale.preferredLanguages[0].lowercased()
+        var temp = language.components(separatedBy: "-")
+        if temp.count == 1 { language = temp[0] } // Valid string
+        else {
+            // Remove unnessary string
+            language = ""
+            for i in 0..<temp.count - 1 {
+                language += temp[i]
+            }
+        }
+        
+        // This should work now
         print("Current language is \(language)")
         
         // Wargaming has different chinese string
@@ -29,9 +40,9 @@ class Language {
             case "cs", "de", "en", "es", "fr", "ja", "pl", "ru", "th", "tr", "pt-br", "es-mx", "ko":
                 // All valid
                 break
-            case let L where L.contains("zh-hans"):
+            case "zh-hans":
                 language = "zh-cn"
-            case let L where L.contains("zh-hant"):
+            case "zh-hant":
                 language = "zh-tw"
             default:
                 // Otherwise, set it to English
