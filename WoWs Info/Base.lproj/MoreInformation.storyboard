@@ -948,7 +948,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="TRl-lW-bAG">
             <objects>
-                <tabBarController storyboardIdentifier="MoreInformationController" automaticallyAdjustsScrollViewInsets="NO" id="xGc-MT-paI" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MoreInformationController" automaticallyAdjustsScrollViewInsets="NO" id="xGc-MT-paI" customClass="TabBarController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="VUP-5c-AgI">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
