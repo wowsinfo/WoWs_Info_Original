@@ -27,7 +27,7 @@ class WebTableController: UITableViewController, SFSafariViewControllerDelegate 
         super.viewWillAppear(animated)
         serverIndex = UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)
         let language = Language.getLanguageString(Mode: 0).replacingOccurrences(of: "&language=", with: "")
-        website = ["https://worldofwarships.\(ServerUrl.Server[serverIndex])/", "http://wiki.wargaming.net/\(language)/World_of_Warships", "https://\(ServerUrl.TodayDomain[serverIndex]).warships.today/", "http://\(ServerUrl.NumberDomain[serverIndex])wows-numbers.com/", "http://maplesyrup.sweet.coocan.jp/wows/ranking/", "http://maplesyrup.sweet.coocan.jp/wows/ranking/20170422/\(ServerUrl.TodayDomain[serverIndex])_2month/ranking_clan.html", "https://sea-group.org//", "http://aslain.com/index.php?/topic/2020-06301-aslains-wows-modpack-installer-wpicture-preview/", "https://github.com/HenryQuan/WOWS_TrainingRoom", "https://github.com/HenryQuan/WoWs_Real"]
+        website = ["https://worldofwarships.\(ServerUrl.Server[serverIndex])/", "http://wiki.wargaming.net/\(language)/World_of_Warships", "https://\(ServerUrl.TodayDomain[serverIndex]).warships.today/", "http://\(ServerUrl.NumberDomain[serverIndex])wows-numbers.com/", "http://maplesyrup.sweet.coocan.jp/wows/ranking/", "http://maplesyrup.sweet.coocan.jp/wows/ranking/20170422/\(ServerUrl.TodayDomain[serverIndex])_2month/ranking_clan.html", "https://sea-group.org//", "http://aslain.com/index.php?/topic/2020-06301-aslains-wows-modpack-installer-wpicture-preview/", "https://github.com/HenryQuan/WOWS_TrainingRoom", "https://github.com/HenryQuan/WoWs_Real", "https://github.com/HenryQuan/WoWs_Info_IOS"]
     }
     
     

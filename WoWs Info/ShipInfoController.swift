@@ -17,6 +17,7 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var resetBtn: UIButton!
     var allInfo = [[String]]()
     var ships = [[String]]()
+    let tierSymbol = ["I","II","III","IV","V","VI","VII","VIII","IX","X"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,6 +103,7 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
         ships = allInfo
         DispatchQueue.main.async {
             self.shipCollection.reloadData()
+            self.title = "\(self.ships.count)"
         }
         
         AudioServicesPlaySystemSound(1520)
@@ -180,6 +182,7 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
             // Update table now
             DispatchQueue.main.async {
                 self.shipCollection.reloadData()
+                self.title = "\(self.ships.count)"
             }
         }
         
