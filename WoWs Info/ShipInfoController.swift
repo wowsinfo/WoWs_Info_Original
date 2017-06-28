@@ -158,11 +158,11 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
         
         if segue.identifier == "gotoShipDetail" {
             let destination = segue.destination as! ShipDetailController
-            destination.shipID = ships[sender as! Int][Ships.dataIndex.shipID]
+            /*destination.shipID = ships[sender as! Int][Ships.dataIndex.shipID]
             destination.imageURL = ships[sender as! Int][Ships.dataIndex.image]
             destination.shipName = ships[sender as! Int][Ships.dataIndex.name]
             destination.shipType = ships[sender as! Int][Ships.dataIndex.type]
-            destination.shipTier = ships[sender as! Int][Ships.dataIndex.tier]
+            destination.shipTier = ships[sender as! Int][Ships.dataIndex.tier]*/
         }
         
     }

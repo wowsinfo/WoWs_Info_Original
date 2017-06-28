@@ -15,10 +15,19 @@ class ShipDetailController: UITableViewController {
     
     override func viewDidLoad() {
          super.viewDidLoad()
+        
+        // Add a button to visit official wiki
+        let wiki = UIBarButtonItem(image: #imageLiteral(resourceName: "Wiki"), style: .plain, target: nil, action: #selector(visitWiki))
+        self.navigationItem.rightBarButtonItem = wiki
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: Wiki Btn
+    func visitWiki() {
+        
     }
     
 }
