@@ -54,10 +54,6 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func screenshotPressed(_ sender: UITapGestureRecognizer) {
-        print("Hello")
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         // Remove keyboard
@@ -325,8 +321,11 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         print(indexPath.row)
         let cell = self.ShipTableView.dequeueReusableCell(withIdentifier: "ShipCell", for: indexPath) as! ShipTableCell
         cell.battlesLabel.text = targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.battles]
+        cell.battlesLabel.textColor = Theme.getCurrTheme()
         cell.damageLabel.text = targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.averageDamage]
+        cell.damageLabel.textColor = Theme.getCurrTheme()
         cell.winRateLabel.text = targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.winRate]
+        cell.winRateLabel.textColor = Theme.getCurrTheme()
         
         // Setup tier name and type
         let name = targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.name]

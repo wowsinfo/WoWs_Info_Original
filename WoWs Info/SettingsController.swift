@@ -12,7 +12,7 @@ import GoogleMobileAds
 class SettingsController: UIViewController, UITableViewDelegate, UITableViewDataSource, GADBannerViewDelegate {
 
     @IBOutlet weak var bannerView: GADBannerView!
-    let imageSet = [#imageLiteral(resourceName: "Web"),#imageLiteral(resourceName: "AppStore"),#imageLiteral(resourceName: "Settings"), #imageLiteral(resourceName: "Icon")]
+    let imageSet = [#imageLiteral(resourceName: "Web"),#imageLiteral(resourceName: "AppStore"),#imageLiteral(resourceName: "Settings"), #imageLiteral(resourceName: "Theme")]
     let wordSet = ["WEB_SETTINGS".localised(), "APP_SETTINGS".localised(), "SETTINGS_SETTINGS".localised(), "THEME_SETTINGS".localised()]
     let segueSet = ["gotoProVersion", "gotoWeb", "gotoReview", "gotoSettings", "gotoTheme"]
     var isPro = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
@@ -93,7 +93,14 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
                 let cell = settingsTableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsCell
                 cell.logoImage.layer.cornerRadius = cell.logoImage.frame.width / 5
                 cell.logoImage.layer.masksToBounds = true
-                cell.logoImage.image = imageSet[index]
+                
+                // Change theme for theme
+                let icon = imageSet[index]
+                if icon == #imageLiteral(resourceName: "Theme") { // <-- It is a white icon...
+                    cell.logoImage.backgroundColor = Theme.getCurrTheme()
+                }
+                
+                cell.logoImage.image = icon
                 cell.nameLabel.text = wordSet[index]
                 return cell
             } else {
@@ -112,7 +119,14 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
                 return cell
             } else if indexPath.row != imageSet.count + 1{
                 let cell = settingsTableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsCell
-                cell.logoImage.image = imageSet[index - 1]
+                
+                // Change theme for theme
+                let icon = imageSet[index]
+                if icon == #imageLiteral(resourceName: "Theme") { // <-- It is a white icon...
+                    cell.logoImage.backgroundColor = Theme.getCurrTheme()
+                }
+                
+                cell.logoImage.image = icon
                 cell.logoImage.layer.cornerRadius = cell.logoImage.frame.width / 5
                 cell.logoImage.layer.masksToBounds = true
                 cell.nameLabel.text = wordSet[index - 1]

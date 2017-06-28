@@ -67,6 +67,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dashboardBtn" destination="Rhz-gi-irn" id="L99-iF-2eH"/>
                         <outlet property="friendTableView" destination="9j0-xh-rD5" id="tZM-fl-iqX"/>
                         <outlet property="modeSegment" destination="aCG-tO-Asu" id="0ci-10-suK"/>
                         <segue destination="uRB-b3-NAT" kind="show" identifier="gotoInfo" id="9lm-VG-dB4"/>
