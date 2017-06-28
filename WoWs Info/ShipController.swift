@@ -17,6 +17,8 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var ShipTableView: UITableView!
     @IBOutlet weak var filterTextField: UITextField!
+    @IBOutlet weak var sortBtn: UIButton!
+    @IBOutlet weak var resetBtn: UIButton!
     var targetShips = [[String]]()
     let tierSymbol = ["I","II","III","IV","V","VI","VII","VIII","IX","X"]
     
@@ -47,6 +49,15 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.tabBarController?.tabBar.isUserInteractionEnabled = true
         }
         
+        // Setup Theme
+        setupBtn(btn: sortBtn)
+        setupBtn(btn: resetBtn)
+    }
+    
+    func setupBtn(btn: UIButton) {
+        btn.backgroundColor = Theme.getCurrTheme()
+        btn.layer.cornerRadius = btn.frame.width / 5
+        btn.layer.masksToBounds = true
     }
 
     override func didReceiveMemoryWarning() {

@@ -221,6 +221,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="resetBtn" destination="8XJ-T2-k8Z" id="SXj-ht-glY"/>
                         <outlet property="searchTextField" destination="6V9-Pk-7Bx" id="L97-pf-Me3"/>
                         <outlet property="shipCollection" destination="alW-3g-l7k" id="7Jd-p9-Yy6"/>
                         <segue destination="Kn5-P6-pX6" kind="show" identifier="gotoShipDetail" id="K92-MR-fII"/>
