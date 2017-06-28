@@ -15,7 +15,7 @@ class NavigationController : UINavigationController {
         super.viewDidLoad()
         
         let appearance = UINavigationBar.appearance()
-        appearance.barTintColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
+        appearance.barTintColor = Theme.getCurrTheme()
         appearance.tintColor = UIColor.white
         appearance.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         

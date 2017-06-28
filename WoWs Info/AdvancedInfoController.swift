@@ -50,7 +50,7 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         self.prLabel.text = ""
         
         // Setup dashboard colour
-        DashboardCell.backgroundColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
+        DashboardCell.backgroundColor = Theme.getCurrTheme()
         
         // Pass account id
         _ = PlayerAccount.init(ID: self.title!, Name: playerInfo[0])

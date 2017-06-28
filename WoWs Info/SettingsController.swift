@@ -54,7 +54,7 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
         // If it is Pro
         isPro = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
         // Update theme colour
-        let ThemeColour = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
+        let ThemeColour = Theme.getCurrTheme()
         self.navigationController?.navigationBar.barTintColor = ThemeColour
         self.tabBarController?.tabBar.tintColor = ThemeColour
         // Reload tableview
@@ -108,7 +108,7 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
                 let cell = settingsTableView.dequeueReusableCell(withIdentifier: "UpgradeCell", for: indexPath) as! UpgradeCell
                 // Update text colour as well
                 cell.proLabel.text = NSLocalizedString("UPGRADE_SETTINGS", comment: "Upgrade to Pro")
-                cell.proLabel.textColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
+                cell.proLabel.textColor = Theme.getCurrTheme()
                 return cell
             } else if indexPath.row != imageSet.count + 1{
                 let cell = settingsTableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsCell
