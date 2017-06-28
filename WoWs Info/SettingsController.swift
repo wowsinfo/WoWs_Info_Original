@@ -121,7 +121,7 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
                 let cell = settingsTableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsCell
                 
                 // Change theme for theme
-                let icon = imageSet[index]
+                let icon = imageSet[index - 1]
                 if icon == #imageLiteral(resourceName: "Theme") { // <-- It is a white icon...
                     cell.logoImage.backgroundColor = Theme.getCurrTheme()
                 }
@@ -155,6 +155,8 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: Button pressed
     @IBAction func shareBtnPressed(_ sender: Any) {
         let share = UIActivityViewController.init(activityItems: [URL(string: "https://itunes.apple.com/app/id1202750166")!], applicationActivities: nil)
+        share.popoverPresentationController?.sourceView = self.view
+        share.modalPresentationStyle = .overFullScreen
         self.present(share, animated: true, completion: nil)
     }
 
