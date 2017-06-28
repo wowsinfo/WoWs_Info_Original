@@ -65,6 +65,7 @@ class Achievements {
 
 class Ships {
     
+    var moduleAPI: String!
     var shipsAPI: String!
     var ship_id: String!
     
