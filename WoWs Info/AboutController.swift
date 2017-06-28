@@ -10,8 +10,14 @@ import UIKit
 
 class AboutController: UIViewController {
 
+    @IBOutlet weak var themeImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Setup theme
+        themeImage.backgroundColor = Theme.getCurrTheme()
+        themeImage.layer.cornerRadius = themeImage.frame.width / 5
+        themeImage.layer.masksToBounds = true
     }
 
     override func didReceiveMemoryWarning() {
