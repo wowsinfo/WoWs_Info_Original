@@ -1040,6 +1040,36 @@
                     </tableView>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1570"/>
+                    <connections>
+                        <outlet property="APDamageLabel" destination="35C-BV-K6a" id="Sap-J9-X1J"/>
+                        <outlet property="APSpeedLabel" destination="ACW-Zq-0BY" id="JiI-Kr-yss"/>
+                        <outlet property="HEDamageLabel" destination="ZuO-x1-ZlA" id="ogJ-nw-AAp"/>
+                        <outlet property="HESpeedLabel" destination="gQi-dk-QtW" id="qSx-xs-0JT"/>
+                        <outlet property="battleRangeLabel" destination="3Bh-nD-thq" id="QDR-gs-5jX"/>
+                        <outlet property="detectionByPlaneLabel" destination="p25-Om-bCq" id="ER8-aI-2wY"/>
+                        <outlet property="detectionByShipLabel" destination="Qh6-zw-ce3" id="Nel-o9-waG"/>
+                        <outlet property="fireDistanceLabel" destination="Sw1-Gb-RB7" id="SsD-Kv-gcC"/>
+                        <outlet property="fireLabel" destination="5DA-xL-M5W" id="Cm6-W5-dCO"/>
+                        <outlet property="floodProtectionLabel" destination="1vF-pJ-EKX" id="g82-rD-2bV"/>
+                        <outlet property="gunLabel" destination="3SG-10-oRd" id="hiG-01-Bdf"/>
+                        <outlet property="gunNameLabel" destination="cV9-NU-w8i" id="D35-bm-FIh"/>
+                        <outlet property="healthLabel" destination="dtC-vH-aKz" id="aAn-y4-Py0"/>
+                        <outlet property="mobilityLabel" destination="DHd-na-TSY" id="vzk-jp-LWh"/>
+                        <outlet property="moneyLabel" destination="7Wi-xz-Fjs" id="X5m-Db-igz"/>
+                        <outlet property="moneyTypeImage" destination="yGu-WS-zmx" id="UXZ-Zb-39b"/>
+                        <outlet property="shipDescription" destination="d9v-vC-Aug" id="SsO-1b-DGE"/>
+                        <outlet property="shipImage" destination="oMe-7M-s7P" id="NMe-5V-GrK"/>
+                        <outlet property="shipNameLabel" destination="xTd-Ce-KLa" id="hAA-Q7-k8X"/>
+                        <outlet property="shipTierLabel" destination="ZUJ-Ww-TYH" id="SCa-0G-vog"/>
+                        <outlet property="shipTypeImage" destination="RLm-81-J9A" id="euh-Q3-N7O"/>
+                        <outlet property="shotDelayLabel" destination="XaV-v5-Xx9" id="DJf-1s-PIj"/>
+                        <outlet property="torpDamageLabel" destination="YtE-kX-RG9" id="13B-fv-pA6"/>
+                        <outlet property="torpDecectionLabel" destination="bmA-wk-4Gd" id="wXa-Iu-f3g"/>
+                        <outlet property="torpDistanceLabel" destination="p3e-g1-Gdx" id="dT6-ng-yFw"/>
+                        <outlet property="torpNameLabel" destination="S3D-Uz-aei" id="JzN-E2-kpF"/>
+                        <outlet property="torpReloadLabel" destination="wYw-aq-lOn" id="lAq-2q-yFU"/>
+                        <outlet property="torpSpeedLabel" destination="lGS-xi-cqx" id="NER-pW-fbv"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vc4-9Y-9u8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

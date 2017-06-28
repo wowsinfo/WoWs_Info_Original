@@ -10,15 +10,61 @@ import UIKit
 import SDWebImage
 import AudioToolbox
 import SwiftyJSON
+import SafariServices
 
-class ShipDetailController: UITableViewController {
+class ShipDetailController: UITableViewController, SFSafariViewControllerDelegate {
+    
+    // Constant
+    var shipID: String!
+    var imageURL: String!
+    var shipType: String!
+    var shipName: String!
+    var shipTier: String!
+    
+    // Buttons
+    
+    // Labels
+    @IBOutlet weak var moneyTypeImage: UIImageView!
+    @IBOutlet weak var moneyLabel: UILabel!
+    @IBOutlet weak var shipTypeImage: UIImageView!
+    @IBOutlet weak var shipImage: UIImageView!
+    @IBOutlet weak var shipNameLabel: UILabel!
+    @IBOutlet weak var shipTierLabel: UILabel!
+    @IBOutlet weak var shipDescription: UILabel!
+    @IBOutlet weak var healthLabel: UILabel!
+    @IBOutlet weak var floodProtectionLabel: UILabel!
+    @IBOutlet weak var shotDelayLabel: UILabel!
+    @IBOutlet weak var gunLabel: UILabel!
+    @IBOutlet weak var gunNameLabel: UILabel!
+    @IBOutlet weak var fireLabel: UILabel!
+    @IBOutlet weak var APDamageLabel: UILabel!
+    @IBOutlet weak var APSpeedLabel: UILabel!
+    @IBOutlet weak var HEDamageLabel: UILabel!
+    @IBOutlet weak var HESpeedLabel: UILabel!
+    @IBOutlet weak var fireDistanceLabel: UILabel!
+    @IBOutlet weak var detectionByPlaneLabel: UILabel!
+    @IBOutlet weak var detectionByShipLabel: UILabel!
+    @IBOutlet weak var battleRangeLabel: UILabel!
+    @IBOutlet weak var torpNameLabel: UILabel!
+    @IBOutlet weak var torpDamageLabel: UILabel!
+    @IBOutlet weak var torpReloadLabel: UILabel!
+    @IBOutlet weak var torpDistanceLabel: UILabel!
+    @IBOutlet weak var torpSpeedLabel: UILabel!
+    @IBOutlet weak var torpDecectionLabel: UILabel!
+    @IBOutlet weak var mobilityLabel: UILabel!
     
     override func viewDidLoad() {
          super.viewDidLoad()
         
         // Add a button to visit official wiki
-        let wiki = UIBarButtonItem(image: #imageLiteral(resourceName: "Wiki"), style: .plain, target: nil, action: #selector(visitWiki))
+        let wiki = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(visitWiki))
         self.navigationItem.rightBarButtonItem = wiki
+        
+        // Setup basic information
+        self.title = shipID
+        self.shipImage.sd_setImage(with: URL(string: imageURL)!)
+        self.shipTypeImage.image = Shipinformation.getImageWithType(type: shipType)
+        self.shipNameLabel.text = shipName
     }
     
     override func didReceiveMemoryWarning() {
@@ -27,49 +73,32 @@ class ShipDetailController: UITableViewController {
     
     // MARK: Wiki Btn
     func visitWiki() {
-        
+        // Remove weird symbols
+        let wikiShipName = "http://wiki.wargaming.net/en/Ship:\(String(describing: shipName.replacingOccurrences(of: " ", with: "_").addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!))"
+        print(wikiShipName)
+        // Try to make it a Url
+        if let name = URL(string: wikiShipName) {
+            let wiki = SFSafariViewController(url: name)
+            wiki.modalPresentationStyle = .overFullScreen
+            UIApplication.shared.statusBarStyle = .default
+            self.present(wiki, animated: true, completion: nil)
+        }
+    }
+    
+    // MARK: Safari
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        // CHange status bar colour back
+        UIApplication.shared.statusBarStyle = .lightContent
+        controller.dismiss(animated: true, completion: nil)
     }
     
 }
 
 /*
- var shipID: String!
- var imageURL: String!
- var shipType: String!
- var shipName: String!
- var shipTier: String!
  @IBOutlet weak var armourTopConstraint: NSLayoutConstraint!
  @IBOutlet weak var scrollView: UIScrollView!
  @IBOutlet weak var scrollviewView: UIView!
- @IBOutlet weak var moneyTypeImage: UIImageView!
- @IBOutlet weak var moneyLabel: UILabel!
  
- @IBOutlet weak var shipTypeImage: UIImageView!
- @IBOutlet weak var shipImage: UIImageView!
- @IBOutlet weak var shipNameLabel: UILabel!
- @IBOutlet weak var shipTierLabel: UILabel!
- @IBOutlet weak var shipDescription: UITextView!
- @IBOutlet weak var healthLabel: UILabel!
- @IBOutlet weak var floodProtectionLabel: UILabel!
- @IBOutlet weak var shotDelayLabel: UILabel!
- @IBOutlet weak var gunLabel: UILabel!
- @IBOutlet weak var gunNameLabel: UILabel!
- @IBOutlet weak var fireLabel: UILabel!
- @IBOutlet weak var APDamageLabel: UILabel!
- @IBOutlet weak var APSpeedLabel: UILabel!
- @IBOutlet weak var HEDamageLabel: UILabel!
- @IBOutlet weak var HESpeedLabel: UILabel!
- @IBOutlet weak var fireDistanceLabel: UILabel!
- @IBOutlet weak var detectionByPlaneLabel: UILabel!
- @IBOutlet weak var detectionByShipLabel: UILabel!
- @IBOutlet weak var battleRangeLabel: UILabel!
- @IBOutlet weak var torpNameLabel: UILabel!
- @IBOutlet weak var torpDamageLabel: UILabel!
- @IBOutlet weak var torpReloadLabel: UILabel!
- @IBOutlet weak var torpDistanceLabel: UILabel!
- @IBOutlet weak var torpSpeedLabel: UILabel!
- @IBOutlet weak var torpDecectionLabel: UILabel!
- @IBOutlet weak var mobilityLabel: UILabel!
  
  
  override func viewDidLoad() {
@@ -79,11 +108,6 @@ class ShipDetailController: UITableViewController {
  screenshotBtn = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(takeScreenshot))
  screenshotBtn.isEnabled = false
  self.navigationItem.rightBarButtonItem = screenshotBtn
- 
- self.title = shipID
- self.shipImage.sd_setImage(with: URL(string: imageURL)!)
- self.shipTypeImage.image = Shipinformation.getImageWithType(type: shipType)
- self.shipNameLabel.text = shipName
  
  // Show all data
  self.loadData()
