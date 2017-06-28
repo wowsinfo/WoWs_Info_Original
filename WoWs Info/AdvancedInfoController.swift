@@ -62,6 +62,9 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         
         // Check for friend or tk
         setupNameColour()
+        // Setup theme colour
+        setupBtn(btn: friendBtn)
+        setupBtn(btn: tkBtn)
         
         // If it is for review or not pro
         if !isPro || isPreview {
@@ -142,7 +145,7 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
                     let tks = user.object(forKey: DataManagement.DataName.tk) as! [String]
                     for tk in tks {
                         if tk.contains(self.title!) {
-                            self.playerNameLabel.textColor = UIColor(red: 230/255, green: 106/255, blue: 1, alpha: 1.0)
+                            // Remove pink colour for theme
                             hideFriendTKBtn()
                             break
                         }
@@ -253,6 +256,12 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         }
         
         return true
+    }
+    
+    // MARK: Helper Function
+    func setupBtn(btn: UIButton) {
+        btn.layer.cornerRadius = btn.frame.width / 2
+        btn.layer.masksToBounds = true
     }
     
     // MARK: TableView
