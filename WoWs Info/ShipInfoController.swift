@@ -14,6 +14,7 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
 
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var shipCollection: UICollectionView!
+    @IBOutlet weak var resetBtn: UIButton!
     var allInfo = [[String]]()
     var ships = [[String]]()
     
@@ -42,6 +43,11 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
         }
         
         self.title = "\(allInfo.count)"
+        
+        // Setup theme
+        resetBtn.backgroundColor = Theme.getCurrTheme()
+        resetBtn.layer.cornerRadius = resetBtn.frame.width / 5
+        resetBtn.layer.masksToBounds = true
     }
 
     override func didReceiveMemoryWarning() {

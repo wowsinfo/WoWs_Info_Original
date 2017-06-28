@@ -677,7 +677,9 @@
                         <outlet property="filterTextField" destination="oFj-de-ubT" id="6YS-c8-3m3"/>
                         <outlet property="loadingIndicator" destination="dqO-9d-WdN" id="C9S-Yb-KmQ"/>
                         <outlet property="loadingView" destination="irG-pA-dHv" id="1EQ-AM-VtV"/>
+                        <outlet property="resetBtn" destination="NmY-VA-FYU" id="03G-qg-vgo"/>
                         <outlet property="shipCountLabel" destination="z6m-AA-Og9" id="ubg-Jz-zLQ"/>
+                        <outlet property="sortBtn" destination="3yb-9I-aHo" id="ehx-6Q-Q8s"/>
                         <segue destination="0hF-dC-UY2" kind="show" identifier="gotoShipDetail" id="30c-Rc-85X"/>
                     </connections>
                 </viewController>
