@@ -236,7 +236,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="NIA-zQ-IRJ">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Theme" translatesAutoresizingMaskIntoConstraints="NO" id="NIA-zQ-IRJ">
                                 <rect key="frame" x="123" y="269" width="128" height="128"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -267,6 +267,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="About" id="MAO-TF-fAJ"/>
+                    <connections>
+                        <outlet property="themeImage" destination="NIA-zQ-IRJ" id="mZI-XU-aMw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zEg-zY-h6R" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="VJy-Ja-jGk" userLabel="gotoTwitter">
@@ -452,6 +455,6 @@ Licensed under the MIT License</string>
         </scene>
     </scenes>
     <resources>
-        <image name="Icon" width="1024" height="1024"/>
+        <image name="Theme" width="205" height="205"/>
     </resources>
 </document>
