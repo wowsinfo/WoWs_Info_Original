@@ -239,7 +239,7 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
             return false
         }
         
-        if self.prLabel.text == "" { return false }
+        if self.totalBattlesLabel.text == "" { return false }
         
         if identifier == "gotoClan" {
             if clanData == [String]() || clanData[2] == "" {
