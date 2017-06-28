@@ -59,7 +59,7 @@ class NewsController: UITableViewController, SFSafariViewControllerDelegate, GAD
                         self.navigationController?.navigationBar.topItem?.title = ">_<"
                     }
                     // Change view background colour to theme colour
-                    self.tableView.backgroundColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
+                    self.tableView.backgroundColor = Theme.getCurrTheme()
                     // Reload data for animation
                     self.tableView.reloadData()
                     self.tableView.reloadRows(at: self.tableView.indexPathsForVisibleRows!, with: .automatic)
@@ -67,7 +67,7 @@ class NewsController: UITableViewController, SFSafariViewControllerDelegate, GAD
             })
         } else {
             // Change view background colour to theme colour
-            self.tableView.backgroundColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
+            self.tableView.backgroundColor = Theme.getCurrTheme()
             // Reload data for animation
             self.tableView.reloadData()
             self.tableView.reloadRows(at: self.tableView.indexPathsForVisibleRows!, with: .automatic)
@@ -99,7 +99,7 @@ class NewsController: UITableViewController, SFSafariViewControllerDelegate, GAD
         
         // Headlines
         if indexPath.row == 0 {
-            cell.backgroundColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
+            cell.backgroundColor = Theme.getCurrTheme()
             cell.dateLabel.textColor = UIColor.white
             cell.titleLabel.textColor = UIColor.white
             

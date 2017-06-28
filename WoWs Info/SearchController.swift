@@ -19,6 +19,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBOutlet weak var usernameTableView: UITableView!
     @IBOutlet weak var pickerView: UIView!
     @IBOutlet weak var serverPicker: UIPickerView!
+    @IBOutlet weak var serverSelectionBtn: UIButton!
     
     var playerInfo = [[String]]()
     var selectedInfo = [String]()
@@ -75,6 +76,9 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         // Textfield setup
         username.delegate = self
+        
+        // Change theme for serverSelectionbtn
+        serverSelectionBtn.tintColor = Theme.getCurrTheme()
 
         // Vary from 10 - 100
         searchLimit = UserDefaults.standard.integer(forKey: DataManagement.DataName.SearchLimit)

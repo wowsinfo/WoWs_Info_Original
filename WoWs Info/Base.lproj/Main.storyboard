@@ -165,6 +165,7 @@
                         <outlet property="bannerView" destination="eBL-yl-n35" id="Ojm-Uq-6Hc"/>
                         <outlet property="pickerView" destination="4qV-6A-8sF" id="KLP-Xz-aiE"/>
                         <outlet property="serverPicker" destination="Ez0-mS-4DK" id="Ptd-xS-S3o"/>
+                        <outlet property="serverSelectionBtn" destination="tQd-hj-Ixs" id="JHh-06-g9w"/>
                         <outlet property="showAdsConstraint" destination="AoO-23-RTf" id="MHW-Nq-bbt"/>
                         <outlet property="username" destination="URk-Oe-6ZG" id="WsA-cK-Nt3"/>
                         <outlet property="usernameTableView" destination="VgM-Q6-Uua" id="P3k-7e-LGI"/>
@@ -754,7 +755,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Henry" width="320" height="320"/>
+        <image name="Henry" width="256" height="256"/>
         <image name="News" width="30" height="30"/>
         <image name="Server" width="256" height="256"/>
         <image name="Theme" width="205" height="205"/>

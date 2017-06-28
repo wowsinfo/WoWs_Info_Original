@@ -62,7 +62,7 @@ class ClanInfoController: UITableViewController, SFSafariViewControllerDelegate 
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let theme = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
+        let theme = Theme.getCurrTheme()
         tableView.backgroundColor = theme
         if indexPath.row == 0 {
             // First cell is gonna be  ClanCell

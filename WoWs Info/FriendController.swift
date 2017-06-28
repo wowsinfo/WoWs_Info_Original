@@ -38,7 +38,7 @@ class FriendController: UIViewController, UITableViewDelegate, UITableViewDataSo
         modeSegment.layer.masksToBounds = true
         // Border
         modeSegment.layer.borderWidth = 1.0
-        modeSegment.layer.borderColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)?.cgColor
+        modeSegment.layer.borderColor = Theme.getCurrTheme().cgColor
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,8 +57,8 @@ class FriendController: UIViewController, UITableViewDelegate, UITableViewDataSo
         currPlayer = user.string(forKey: DataManagement.DataName.UserName)!
         
         // Update colour
-        modeSegment.tintColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
-        modeSegment.layer.borderColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)?.cgColor
+        modeSegment.tintColor = Theme.getCurrTheme()
+        modeSegment.layer.borderColor = Theme.getCurrTheme().cgColor
     }
     
     override func viewDidDisappear(_ animated: Bool) {

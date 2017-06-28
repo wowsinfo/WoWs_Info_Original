@@ -23,6 +23,10 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Update theme colour
+        self.tabBarController?.tabBar.tintColor = Theme.getCurrTheme()
+        
+        // Setup tableview
         ShipTableView.delegate = self
         ShipTableView.dataSource = self
         ShipTableView.separatorColor = UIColor.clear
