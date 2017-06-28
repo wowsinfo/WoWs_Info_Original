@@ -76,9 +76,6 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         // Textfield setup
         username.delegate = self
-        
-        // Change theme for serverSelectionbtn
-        serverSelectionBtn.tintColor = Theme.getCurrTheme()
 
         // Vary from 10 - 100
         searchLimit = UserDefaults.standard.integer(forKey: DataManagement.DataName.SearchLimit)
@@ -93,6 +90,11 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // Change theme for serverSelectionbtn
+        serverSelectionBtn.backgroundColor = Theme.getCurrTheme()
+        serverSelectionBtn.layer.cornerRadius = serverSelectionBtn.frame.width / 5
+        serverSelectionBtn.layer.masksToBounds = true
         
         // Clean text
         username.text = ""

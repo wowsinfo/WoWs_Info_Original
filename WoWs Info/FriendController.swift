@@ -12,6 +12,8 @@ class FriendController: UIViewController, UITableViewDelegate, UITableViewDataSo
 
     @IBOutlet weak var friendTableView: UITableView!
     @IBOutlet weak var modeSegment: UISegmentedControl!
+    @IBOutlet weak var dashboardBtn: UIButton!
+    
     var friendList = [String]()
     var tkList = [String]()
     var currPlayer = ""
@@ -59,6 +61,9 @@ class FriendController: UIViewController, UITableViewDelegate, UITableViewDataSo
         // Update colour
         modeSegment.tintColor = Theme.getCurrTheme()
         modeSegment.layer.borderColor = Theme.getCurrTheme().cgColor
+        dashboardBtn.backgroundColor = Theme.getCurrTheme()
+        dashboardBtn.layer.cornerRadius = dashboardBtn.frame.width / 2
+        dashboardBtn.layer.masksToBounds = true
     }
     
     override func viewDidDisappear(_ animated: Bool) {

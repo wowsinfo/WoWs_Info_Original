@@ -95,6 +95,7 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
                         UIView.animate(withDuration: 0.5, animations: {
                             self.clanNameLabel.alpha = 1
                             self.clanNameLabel.text = self.clanInfo[1]
+                            self.clanNameLabel.textColor = Theme.getCurrTheme()
                         })
                         
                         // Get Clan Info
@@ -162,10 +163,15 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
                 self.levelAndPlaytimeLabel.text = NSLocalizedString("HIDDEN", comment: "Hidden Label")
             } else {
                 self.averageDamageLabel.text = data[PlayerStat.dataIndex.averageDamage]
+                self.averageDamageLabel.textColor = Theme.getCurrTheme()
                 self.averageExpLabel.text = data[PlayerStat.dataIndex.averageExp]
+                self.averageExpLabel.textColor = Theme.getCurrTheme()
                 self.killDeathRatioLabel.text = data[PlayerStat.dataIndex.killDeathRatio]
+                self.killDeathRatioLabel.textColor = Theme.getCurrTheme()
                 self.mainBatteryHitRatioLabel.text = data[PlayerStat.dataIndex.hitRatio]
+                self.mainBatteryHitRatioLabel.textColor = Theme.getCurrTheme()
                 self.winRateLabel.text = data[PlayerStat.dataIndex.winRate]
+                self.winRateLabel.textColor = Theme.getCurrTheme()
                 
                 let level = data[PlayerStat.dataIndex.servicelevel]
                 let playtime = data[PlayerStat.dataIndex.playTime]
@@ -181,6 +187,7 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
                 } else {
                     self.totalBattlesLabel.text = String(format: "%.0f", totalBattles!)
                 }
+                self.totalBattlesLabel.textColor = Theme.getCurrTheme()
             }
             
             UIView.animate(withDuration: 0.5, animations: {

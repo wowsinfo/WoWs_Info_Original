@@ -12,7 +12,7 @@ class WikiController: UITableViewController {
 
     let name = [NSLocalizedString("ACHIEVEMENT", comment: "Achievement"), NSLocalizedString("WARSHIPS", comment: "Warships"), NSLocalizedString("UPGRADES", comment: "Upgrades"), NSLocalizedString("FLAGS", comment: "Flags"), NSLocalizedString("CAMOUFLAGE", comment: "Camouflage"), NSLocalizedString("COMMANDER_SKILL", comment: "CommanderSkill")]
     let identifier = ["gotoAchievement", "gotoWarships", "gotoWikiData"]
-    let iconImage = [#imageLiteral(resourceName: "AchievementIcon"), #imageLiteral(resourceName: "Icon"),#imageLiteral(resourceName: "UpgradesIcon"), #imageLiteral(resourceName: "FlagsIcon"), #imageLiteral(resourceName: "CamouflageIcon"), #imageLiteral(resourceName: "CommanderSkillIcon")]
+    let iconImage = [#imageLiteral(resourceName: "AchievementIcon"), #imageLiteral(resourceName: "Theme"), #imageLiteral(resourceName: "UpgradesIcon"), #imageLiteral(resourceName: "FlagsIcon"), #imageLiteral(resourceName: "CamouflageIcon"), #imageLiteral(resourceName: "CommanderSkillIcon")]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +33,14 @@ class WikiController: UITableViewController {
         cell.wikiImage.layer.cornerRadius = cell.wikiImage.frame.width / 5
         cell.wikiImage.layer.masksToBounds = true
         
+        // Change theme for warship
+        let icon = iconImage[indexPath.row]
+        if icon == #imageLiteral(resourceName: "Theme") { // <-- It is a white icon...
+            cell.wikiImage.backgroundColor = Theme.getCurrTheme()
+        }
+        
         cell.wikiTextLabel.text = name[indexPath.row]
-        cell.wikiImage.image = iconImage[indexPath.row]
+        cell.wikiImage.image = icon
         
         return cell
     }
