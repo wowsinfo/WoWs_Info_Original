@@ -23,6 +23,7 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
     
     // Buttons
     
+    
     // Labels
     @IBOutlet weak var moneyTypeImage: UIImageView!
     @IBOutlet weak var moneyLabel: UILabel!
@@ -65,6 +66,11 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
         self.shipImage.sd_setImage(with: URL(string: imageURL)!)
         self.shipTypeImage.image = Shipinformation.getImageWithType(type: shipType)
         self.shipNameLabel.text = shipName
+        self.shipDescription.text = "Henry is awesome\nHenry is awesome\nHenry is awesome\nHenry is awesome\nHenry is awesome\nHenry is awesome\nHenry is awesome\nHenry is awesome\nHenry is awesome\nHenry is awesome\nHenry is awesome\nHenry is awesome\nHenry is awesome\nHenry is awesome\nHenry is awesome\n"
+        
+        // Setup TableView
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 1570
     }
     
     override func didReceiveMemoryWarning() {
@@ -90,6 +96,15 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
         // CHange status bar colour back
         UIApplication.shared.statusBarStyle = .lightContent
         controller.dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: TableView
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
     
 }

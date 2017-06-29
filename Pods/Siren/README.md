@@ -17,6 +17,7 @@
 - [Device Compatibility](https://github.com/ArtSabintsev/Siren#device-compatibility)
 - [Testing Siren](https://github.com/ArtSabintsev/Siren#testing-siren)
 - [App Store Review & Submissions](https://github.com/ArtSabintsev/Siren#app-store-submissions)
+- [Phrased Releases](https://github.com/ArtSabintsev/Siren#phased-releases)
 - [Words of Caution](https://github.com/ArtSabintsev/Siren#words-of-caution)
 - [Ports](https://github.com/ArtSabintsev/Siren#ports)
 - [Attribution](https://github.com/ArtSabintsev/Siren#created-and-maintained-by)
@@ -63,27 +64,30 @@ For Swift 3 support:
 pod 'Siren'
 ```
 
-For Swift 2.3 support:
+For Swift 4 support:
 ```ruby
-pod 'Siren', :git => 'https://github.com/ArtSabintsev/Siren.git', :branch => 'swift2.3'
+pod 'Siren', :git => 'https://github.com/ArtSabintsev/Siren.git', :branch => 'swift4'
 ```
 
-For Swift 2.2 support:
+For Swift 2.3 support:
 ```ruby
-pod 'Siren', '0.9.5'
+pod 'Siren', :git => 'https://github.com/ArtSabintsev/Siren.git', :branch => 'swift2.3' 
 ```
 
 ### Carthage
 For Swift 3 support:
 
-``` swift
+```swift
 github "ArtSabintsev/Siren"
 ```
 
-For Swift 2.3 support:
+For Swift 4 support:
+```swift
+github "ArtSabintsev/Siren", "swift4"
+```
 
-``` swift
-github "ArtSabintsev/Siren" "swift2.3"
+```ruby
+github "ArtSabintsev/Siren", "swift2.3"
 ```
 
 ### Swift Package Manager
@@ -224,6 +228,7 @@ Siren is localized for
 - Swedish
 - Thai
 - Turkish
+- Urdu
 - Vietnamese
 
 You may want the update dialog to *always* appear in a certain language, ignoring iOS's language setting (e.g. apps released in a specific country).
@@ -245,6 +250,9 @@ For your convenience, you may turn on debugging statements by setting `self.debu
 
 ## App Store Submissions
 The App Store reviewer will **not** see the alert. The version in the App Store will always be older than the version being reviewed.
+
+## Phased Releases
+In 2017, Apple announced the [ability to rollout app updates gradually (a.k.a. Phased Releases)](https://itunespartner.apple.com/en/apps/faq/Managing%20Your%20Apps_Submission%20Process). Siren will continue to work as it has in the past, presenting an update modal to _all_ users. If you opt-in to a phased rollout for a specific version, you will need to remotely disable Siren until the rollout is done.
 
 ## Words of Caution
 Occasionally, the iTunes JSON will update faster than the App Store CDN, meaning the JSON may state that the new version of the app has been release, while no new binary is made available for download via the App Store. It is for this reason that Siren will, by default, wait 24 hours after the JSON has been updated to prompt the user to update. To change the default setting, please modify the value of `showAlertAfterCurrentVersionHasBeenReleasedForDays`.
