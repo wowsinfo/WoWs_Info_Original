@@ -36,13 +36,13 @@ class WikiController: UITableViewController {
         cell.wikiImage.layer.masksToBounds = true
         
         // Change theme for warship
-        let icon = iconImage[indexPath.row]
-        if icon == #imageLiteral(resourceName: "Theme") { // <-- It is a white icon...
+        let index = indexPath.row
+        if index == 1 { // <-- It is a white icon...
             cell.wikiImage.backgroundColor = Theme.getCurrTheme()
         }
         
         cell.wikiTextLabel.text = name[indexPath.row]
-        cell.wikiImage.image = icon
+        cell.wikiImage.image = iconImage[index]
         
         return cell
     }
