@@ -14,26 +14,49 @@ import SafariServices
 
 class ShipDetailController: UITableViewController, SFSafariViewControllerDelegate {
     
-    // Constant
+    // MARK: Constant
     var shipID: String!
     var imageURL: String!
     var shipType: String!
     var shipName: String!
     var shipTier: String!
     
-    // Buttons
+    // MARK: Buttons
+    @IBOutlet weak var hullBtn: UIButton!
+    @IBOutlet weak var engineBtn: UIButton!
+    @IBOutlet weak var torpBtn: UIButton!
+    @IBOutlet weak var fireControlBtn: UIButton!
+    @IBOutlet weak var artilleryBtn: UIButton!
+    @IBOutlet weak var flightControlBtn: UIButton!
+    
+    // MARK: Process bar and its value
+    @IBOutlet weak var survivabilityBar: UIProgressView!
+    @IBOutlet weak var artilleryBar: UIProgressView!
+    @IBOutlet weak var torpedoesBar: UIProgressView!
+    @IBOutlet weak var AABar: UIProgressView!
+    @IBOutlet weak var maneuverbilityBar: UIProgressView!
+    @IBOutlet weak var concealmentBar: UIProgressView!
+    @IBOutlet weak var aircraftBar: UIProgressView!
+    @IBOutlet weak var survivabilityLabel: UILabel!
+    @IBOutlet weak var artilleryLabel: UILabel!
+    @IBOutlet weak var torpedoesLabel: UILabel!
+    @IBOutlet weak var AALabel: UILabel!
+    @IBOutlet weak var maneuverbilityLabel: UILabel!
+    @IBOutlet weak var concealmentLabel: UILabel!
+    @IBOutlet weak var aircraftLabel: UILabel!
     
     
-    // Labels
+    // MARK: Ship
     @IBOutlet weak var moneyTypeImage: UIImageView!
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var shipTypeImage: UIImageView!
     @IBOutlet weak var shipImage: UIImageView!
     @IBOutlet weak var shipNameLabel: UILabel!
     @IBOutlet weak var shipTierLabel: UILabel!
-    @IBOutlet weak var shipDescription: UILabel!
+    // MARK: Armour
     @IBOutlet weak var healthLabel: UILabel!
     @IBOutlet weak var floodProtectionLabel: UILabel!
+    // MARK: Artillery
     @IBOutlet weak var shotDelayLabel: UILabel!
     @IBOutlet weak var gunLabel: UILabel!
     @IBOutlet weak var gunNameLabel: UILabel!
@@ -43,16 +66,25 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
     @IBOutlet weak var HEDamageLabel: UILabel!
     @IBOutlet weak var HESpeedLabel: UILabel!
     @IBOutlet weak var fireDistanceLabel: UILabel!
+    // MARK: Detection
     @IBOutlet weak var detectionByPlaneLabel: UILabel!
     @IBOutlet weak var detectionByShipLabel: UILabel!
+    // MARK: Battle Range
     @IBOutlet weak var battleRangeLabel: UILabel!
+    // MARK: Torpodoes
+    @IBOutlet weak var torpLabel: UILabel!
     @IBOutlet weak var torpNameLabel: UILabel!
     @IBOutlet weak var torpDamageLabel: UILabel!
     @IBOutlet weak var torpReloadLabel: UILabel!
     @IBOutlet weak var torpDistanceLabel: UILabel!
     @IBOutlet weak var torpSpeedLabel: UILabel!
     @IBOutlet weak var torpDecectionLabel: UILabel!
+    // MARK: Mobility
     @IBOutlet weak var mobilityLabel: UILabel!
+    // MARK: Anti Aricraft
+    @IBOutlet weak var antiAircraftLabel: UILabel!
+    // MARK: Aircraft
+    @IBOutlet weak var flightLabel: UILabel!
     
     override func viewDidLoad() {
          super.viewDidLoad()
@@ -66,11 +98,10 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
         self.shipImage.sd_setImage(with: URL(string: imageURL)!)
         self.shipTypeImage.image = Shipinformation.getImageWithType(type: shipType)
         self.shipNameLabel.text = shipName
-        self.shipDescription.text = "Henry is awesome\nHenry is awesome\nHenry is awesome\nHenry is awesome\nHenry is awesome\nHenry is awesome\nHenry is awesome\nHenry is awesome\nHenry is awesome\nHenry is awesome\nHenry is awesome\nHenry is awesome\nHenry is awesome\nHenry is awesome\nHenry is awesome\n"
         
         // Setup TableView
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 1570
+        self.tableView.estimatedRowHeight = 1560
     }
     
     override func didReceiveMemoryWarning() {
@@ -96,15 +127,6 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
         // CHange status bar colour back
         UIApplication.shared.statusBarStyle = .lightContent
         controller.dismiss(animated: true, completion: nil)
-    }
-    
-    // MARK: TableView
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
     }
     
 }
