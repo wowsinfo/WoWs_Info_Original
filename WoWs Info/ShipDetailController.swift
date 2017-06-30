@@ -138,6 +138,7 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
     func setupTheme() {
         // I hope there wont be any crazy combinations
         shuffleColour()
+        
         // Setup Colour
         setupBackground(view: moduleColour, index: 0)
         setupBackground(view: statusColour, index: 1)
@@ -149,6 +150,14 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
         setupBackground(view: mobilityColour, index: 7)
         setupBackground(view: concealmentColour, index: 8)
         setupBackground(view: flightColour, index: 9)
+        
+        // Setup Buttons
+        setupBtn(btn: hullBtn)
+        setupBtn(btn: torpBtn)
+        setupBtn(btn: engineBtn)
+        setupBtn(btn: artilleryBtn)
+        setupBtn(btn: fireControlBtn)
+        setupBtn(btn: flightControlBtn)
     }
     
     func shuffleColour() {
@@ -168,6 +177,11 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
         // Corner Radius
         view.layer.cornerRadius = 10.0
         view.layer.masksToBounds = true
+    }
+    
+    func setupBtn(btn: UIButton) {
+        btn.layer.borderWidth = 1.5
+        btn.layer.borderColor = UIColor.white.cgColor
     }
     
     // MARK: Wiki Btn
