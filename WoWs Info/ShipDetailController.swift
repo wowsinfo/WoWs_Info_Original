@@ -21,6 +21,24 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
     var shipName: String!
     var shipTier: String!
     
+    var ColourGroup = [ UIColor.RGB(red: 85, green: 163, blue: 255), // Blue
+                        UIColor.RGB(red: 10, green: 86, blue: 143),
+                        
+                        UIColor.RGB(red: 255, green: 109, blue: 107), // Red
+                        UIColor.RGB(red: 191, green: 86, blue: 135),
+                        
+                        UIColor.RGB(red: 44, green: 204, blue: 114), // Green
+                        UIColor.RGB(red: 43, green: 105, blue: 80),
+                        
+                        UIColor.RGB(red: 163, green: 107, blue: 242),// Purple
+                        UIColor.RGB(red: 109, green: 116, blue: 242),
+                        
+                        UIColor.RGB(red: 171, green: 119, blue: 84), // Brown
+        
+                        UIColor.RGB(red: 254, green: 152, blue: 58), // Orange
+                        
+                        UIColor.RGB(red: 57, green: 57, blue: 62) ] // Black
+                    
     // MARK: Buttons
     @IBOutlet weak var hullBtn: UIButton!
     @IBOutlet weak var engineBtn: UIButton!
@@ -28,6 +46,7 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
     @IBOutlet weak var fireControlBtn: UIButton!
     @IBOutlet weak var artilleryBtn: UIButton!
     @IBOutlet weak var flightControlBtn: UIButton!
+    @IBOutlet weak var moduleColour: UIImageView!
     
     // MARK: Process bar and its value
     @IBOutlet weak var survivabilityBar: UIProgressView!
@@ -44,7 +63,7 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
     @IBOutlet weak var maneuverbilityLabel: UILabel!
     @IBOutlet weak var concealmentLabel: UILabel!
     @IBOutlet weak var aircraftLabel: UILabel!
-    
+    @IBOutlet weak var statusColour: UIImageView!
     
     // MARK: Ship
     @IBOutlet weak var moneyTypeImage: UIImageView!
@@ -56,6 +75,7 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
     // MARK: Armour
     @IBOutlet weak var healthLabel: UILabel!
     @IBOutlet weak var floodProtectionLabel: UILabel!
+    @IBOutlet weak var armourColour: UIImageView!
     // MARK: Artillery
     @IBOutlet weak var shotDelayLabel: UILabel!
     @IBOutlet weak var gunLabel: UILabel!
@@ -66,11 +86,14 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
     @IBOutlet weak var HEDamageLabel: UILabel!
     @IBOutlet weak var HESpeedLabel: UILabel!
     @IBOutlet weak var fireDistanceLabel: UILabel!
-    // MARK: Detection
+    @IBOutlet weak var artilleryColour: UIImageView!
+    // MARK: Concealment
     @IBOutlet weak var detectionByPlaneLabel: UILabel!
     @IBOutlet weak var detectionByShipLabel: UILabel!
+    @IBOutlet weak var concealmentColour: UIImageView!
     // MARK: Battle Range
     @IBOutlet weak var battleRangeLabel: UILabel!
+    @IBOutlet weak var battleRangeColour: UIImageView!
     // MARK: Torpodoes
     @IBOutlet weak var torpLabel: UILabel!
     @IBOutlet weak var torpNameLabel: UILabel!
@@ -79,12 +102,16 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
     @IBOutlet weak var torpDistanceLabel: UILabel!
     @IBOutlet weak var torpSpeedLabel: UILabel!
     @IBOutlet weak var torpDecectionLabel: UILabel!
+    @IBOutlet weak var torpedoesColour: UIImageView!
     // MARK: Mobility
     @IBOutlet weak var mobilityLabel: UILabel!
+    @IBOutlet weak var mobilityColour: UIImageView!
     // MARK: Anti Aricraft
     @IBOutlet weak var antiAircraftLabel: UILabel!
+    @IBOutlet weak var antiAircraftColour: UIImageView!
     // MARK: Aircraft
     @IBOutlet weak var flightLabel: UILabel!
+    @IBOutlet weak var flightColour: UIImageView!
     
     override func viewDidLoad() {
          super.viewDidLoad()
@@ -99,13 +126,48 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
         self.shipTypeImage.image = Shipinformation.getImageWithType(type: shipType)
         self.shipNameLabel.text = shipName
         
-        // Setup TableView
-        self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 1560
+        // Setup Theme
+        setupTheme()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: Theme
+    func setupTheme() {
+        // I hope there wont be any crazy combinations
+        shuffleColour()
+        // Setup Colour
+        setupBackground(view: moduleColour, index: 0)
+        setupBackground(view: statusColour, index: 1)
+        setupBackground(view: armourColour, index: 2)
+        setupBackground(view: artilleryColour, index: 3)
+        setupBackground(view: torpedoesColour, index: 4)
+        setupBackground(view: antiAircraftColour, index: 5)
+        setupBackground(view: battleRangeColour, index: 6)
+        setupBackground(view: mobilityColour, index: 7)
+        setupBackground(view: concealmentColour, index: 8)
+        setupBackground(view: flightColour, index: 9)
+    }
+    
+    func shuffleColour() {
+        // Randomise theme colour
+        for i in 0 ..< 11 {
+            let number = Int(arc4random() % 11)
+            // Swap them
+            let temp = ColourGroup[number]
+            ColourGroup[number] = ColourGroup[i]
+            ColourGroup[i] = temp
+        }
+    }
+    
+    func setupBackground(view: UIImageView, index: Int) {
+        // Backgroun colour
+        view.backgroundColor = ColourGroup[index]
+        // Corner Radius
+        view.layer.cornerRadius = 10.0
+        view.layer.masksToBounds = true
     }
     
     // MARK: Wiki Btn
