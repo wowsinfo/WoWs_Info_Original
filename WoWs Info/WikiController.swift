@@ -20,6 +20,10 @@ class WikiController: UITableViewController {
         self.tableView.separatorColor = UIColor.clear
         self.navigationController?.navigationBar.topItem?.title = NSLocalizedString("WOWS_WIKI", comment: "Wiki Title")
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
