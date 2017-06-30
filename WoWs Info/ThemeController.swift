@@ -25,6 +25,8 @@ class ThemeController: UICollectionViewController {
                        UIColor.RGB(red: 44, green: 204, blue: 114),
                        UIColor.RGB(red: 43, green: 105, blue: 80),
                        
+                       UIColor.RGB(red: 45, green: 255, blue: 255), // Cyan
+                       
                        UIColor.RGB(red: 163, green: 107, blue: 242),// Purple
                        UIColor.RGB(red: 194, green: 122, blue: 210),
                        UIColor.RGB(red: 109, green: 116, blue: 242),
