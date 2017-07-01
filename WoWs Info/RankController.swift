@@ -11,7 +11,6 @@ import UIKit
 class RankController: UITableViewController {
     
     @IBOutlet var RankTableView: UITableView!
-    @IBOutlet weak var noInfoLabel: UILabel!
     var rankInfo = [[String]]()
     
     override func viewDidLoad() {
@@ -19,25 +18,21 @@ class RankController: UITableViewController {
         
         RankTableView.delegate = self
         RankTableView.dataSource = self
+        self.title = "WEB_LOADING".localised()
         
         // Hide separator line
         RankTableView.separatorColor = UIColor.clear
         
-        let rank = RankInformation(ID: PlayerAccount.AccountID)
-        rank.getRankInformation { rank in
-            DispatchQueue.main.async {
-                self.rankInfo = rank
-                // Remove message and reload data
-                if self.rankInfo.count > 0 {
-                    UIView.animate(withDuration: 0.5, animations: { 
-                        self.noInfoLabel.alpha = 0
-                    })
-                    
-                    UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveEaseIn, animations: { 
-                        self.RankTableView.reloadData()
-                    }, completion: nil)
-                }
-            }
+        self.rankInfo = RankInformation.RankData
+        // Remove message and reload data
+        if self.rankInfo.count > 0 {
+            self.title = ""
+            
+            UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveEaseIn, animations: { 
+                self.RankTableView.reloadData()
+            }, completion: nil)
+        } else {
+            self.title = ">_<"
         }
     }
 
@@ -53,13 +48,17 @@ class RankController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = self.RankTableView.dequeueReusableCell(withIdentifier: "RankCell", for: indexPath) as! RankTableCell
+        let theme = Theme.getCurrTheme()
         
         cell.battlesLabel.text = rankInfo[indexPath.row][RankInformation.RankDataIndex.battles]
+        cell.battlesLabel.textColor = theme
         cell.winRateLabel.text = rankInfo[indexPath.row][RankInformation.RankDataIndex.winRate]
+        cell.winRateLabel.textColor = theme
         
         let currentRank = rankInfo[indexPath.row][RankInformation.RankDataIndex.currentRank]
         let maxRank = rankInfo[indexPath.row][RankInformation.RankDataIndex.maxRank]
         cell.rankLabel.text = currentRank + " (\(maxRank))"
+        cell.rankLabel.textColor = theme
         
         cell.seasonLabel.text = NSLocalizedString("SEASON", comment: "Season label") + " \(rankInfo[indexPath.row][RankInformation.RankDataIndex.season])"
         
@@ -67,7 +66,7 @@ class RankController: UITableViewController {
         cell.contentView.layer.borderWidth = 1
         cell.contentView.layer.cornerRadius = 10
         cell.contentView.layer.masksToBounds = true
-        cell.contentView.layer.borderColor = UIColor(red: CGFloat(85)/255, green: CGFloat(163)/255, blue: CGFloat(255)/255, alpha: 1.0).cgColor
+        cell.contentView.layer.borderColor = theme.cgColor
         cell.layoutMargins = UIEdgeInsetsMake(10, 10, 10, 10)
         
         return cell

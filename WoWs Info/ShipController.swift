@@ -52,6 +52,11 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Setup Theme
         setupBtn(btn: sortBtn)
         setupBtn(btn: resetBtn)
+        
+        // Check if there is ship
+        if shipCountLabel.text == "0" {
+            _ = self.navigationController?.popViewController(animated: true)
+        }
     }
     
     func setupBtn(btn: UIButton) {

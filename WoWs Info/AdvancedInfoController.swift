@@ -49,8 +49,10 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         
         self.prLabel.text = ""
         
-        // Setup dashboard colour
-        DashboardCell.backgroundColor = Theme.getCurrTheme()
+        // Setup theme
+        let theme = Theme.getCurrTheme()
+        DashboardCell.backgroundColor = theme
+        retryBtn.backgroundColor = theme
         
         // Pass account id
         _ = PlayerAccount.init(ID: self.title!, Name: playerInfo[0])
@@ -71,6 +73,12 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
             tkBtn.isHidden = true
             friendBtn.isHidden = true
             setPlayerIDBtn.isEnabled = false
+        }
+        
+        // Load Rank
+        let rank = RankInformation(ID: PlayerAccount.AccountID)
+        rank.getRankInformation { rank in
+            RankInformation.RankData = rank
         }
         
     }
@@ -178,7 +186,11 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
                 
                 let level = data[PlayerStat.dataIndex.servicelevel]
                 let playtime = data[PlayerStat.dataIndex.playTime]
-                let levelAndPlayTime = NSLocalizedString("LEVEL", comment: "Level label") + ": \(level) | \(playtime) " + NSLocalizedString("DAYS", comment: "Days label")
+                var levelAndPlayTime = "\(playtime) \("DAYS".localised()) | \("LEVEL".localised()) \(level)"
+                // Add rank if there is one
+                if RankInformation.RankData.count > 0 {
+                    levelAndPlayTime += " | ⭐️\(RankInformation.RankData[0][RankInformation.RankDataIndex.currentRank])"
+                }
                 self.levelAndPlaytimeLabel.text = levelAndPlayTime
                 
                 let totalBattles = Double(data[PlayerStat.dataIndex.totalBattles])
@@ -193,7 +205,7 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
                 self.totalBattlesLabel.textColor = Theme.getCurrTheme()
             }
             
-            UIView.animate(withDuration: 0.5, animations: {
+            UIView.animate(withDuration: 0.3, animations: {
                 self.levelAndPlaytimeLabel.alpha = 1.0
                 self.winRateLabel.alpha = 1.0
                 self.averageDamageLabel.alpha = 1.0
@@ -391,8 +403,11 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
             
             let index = PersonalRating.getPersonalRatingIndex(PR: rating)
             
-            prLabel.text = PersonalRating.Comment[index]
-            prLabel.textColor = PersonalRating.ColorGroup[index]
+            DispatchQueue.main.async {
+                self.prLabel.text = PersonalRating.Comment[index]
+                self.prLabel.textColor = PersonalRating.ColorGroup[index]
+            }
+            
             UIView.animate(withDuration: 0.5) { 
                 self.prLabel.alpha = 1
             }
