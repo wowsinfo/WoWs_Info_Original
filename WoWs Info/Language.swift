@@ -28,7 +28,7 @@ class Language {
         
         // Wargaming has different chinese string
         switch language {
-            case "cs", "de", "en", "es", "fr", "ja", "pl", "ru", "th", "tr", "pt-br", "es-mx", "ko":
+            case "cs", "de", "en", "es", "fr", "ja", "pl", "ru", "th", "tr", "pt", "es", "ko":
                 // All valid
                 break
             case "zh":

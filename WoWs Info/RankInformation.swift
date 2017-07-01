@@ -14,6 +14,7 @@ class RankInformation{
     var AccountID = ""
     let server = ServerUrl.Server[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)]
     var RankAPI = ""
+    static var RankData = [[String]]()
     
     struct RankDataIndex {
         static let battles = 0

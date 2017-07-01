@@ -23,6 +23,7 @@
 		921EA69E1E35F2FB0007C7FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 921EA69C1E35F2FB0007C7FC /* Main.storyboard */; };
 		921EA6A31E35F2FB0007C7FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 921EA6A11E35F2FB0007C7FC /* LaunchScreen.storyboard */; };
 		9226E33A1E5BF19F00593026 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9226E3391E5BF19F00593026 /* Charts.framework */; };
+		922AD1171F07B71B003E509C /* LicenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922AD1161F07B71B003E509C /* LicenceController.swift */; };
 		922D0E551E6295A20056EDE6 /* ShipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D0E541E6295A20056EDE6 /* ShipCell.swift */; };
 		922D0E571E6295DE0056EDE6 /* ShipInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D0E561E6295DE0056EDE6 /* ShipInfoController.swift */; };
 		923044AB1E7E1AA400DF20E2 /* Siren.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923044AA1E7E1AA400DF20E2 /* Siren.framework */; };
@@ -119,6 +120,7 @@
 		921EA6A21E35F2FB0007C7FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		921EA6A41E35F2FB0007C7FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9226E3391E5BF19F00593026 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/Charts/Charts.framework"; sourceTree = "<group>"; };
+		922AD1161F07B71B003E509C /* LicenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LicenceController.swift; sourceTree = "<group>"; };
 		922D0E541E6295A20056EDE6 /* ShipCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipCell.swift; sourceTree = "<group>"; };
 		922D0E561E6295DE0056EDE6 /* ShipInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipInfoController.swift; sourceTree = "<group>"; };
 		923044AA1E7E1AA400DF20E2 /* Siren.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Siren.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/Siren/Siren.framework"; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				9260D04D1E960C4200BBCB03 /* Settings */,
 				9260D04F1E960C7400BBCB03 /* Welcome */,
 				9260D0511E960C8A00BBCB03 /* Server */,
+				922AD1151F07B6F5003E509C /* Licence */,
 				929928501E8693770091A174 /* FriendAndTKList */,
 			);
 			name = ViewControllers;
@@ -356,6 +359,14 @@
 				92813BB61E47447C009AA9E8 /* GoogleMobileAds.framework */,
 			);
 			path = "WoWs Info";
+			sourceTree = "<group>";
+		};
+		922AD1151F07B6F5003E509C /* Licence */ = {
+			isa = PBXGroup;
+			children = (
+				922AD1161F07B71B003E509C /* LicenceController.swift */,
+			);
+			name = Licence;
 			sourceTree = "<group>";
 		};
 		92457ADF1EE5487B00B5A120 /* Theme */ = {
@@ -781,6 +792,7 @@
 				92E45B251EAE149D00360E62 /* ClanInfoController.swift in Sources */,
 				92D414AB1E6AA5EF00E8C8AF /* ShipScreenshotController.swift in Sources */,
 				92476A481E96025D0050F8A9 /* WikiDataCell.swift in Sources */,
+				922AD1171F07B71B003E509C /* LicenceController.swift in Sources */,
 				921EA6991E35F2FB0007C7FC /* AppDelegate.swift in Sources */,
 				92BF559E1E9FB57000573F0A /* ReviewController.swift in Sources */,
 				929928471E865FF60091A174 /* NewsController.swift in Sources */,

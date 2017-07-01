@@ -28,7 +28,7 @@
         <!--Advanced Info Controller-->
         <scene sceneID="dJo-lu-8cg">
             <objects>
-                <tableViewController storyboardIdentifier="AdvancedInfoController" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="Mrs-Sh-x2v" customClass="AdvancedInfoController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AdvancedInfoController" hidesBottomBarWhenPushed="YES" id="Mrs-Sh-x2v" customClass="AdvancedInfoController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="QLE-Wt-FYH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -96,7 +96,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Theme" translatesAutoresizingMaskIntoConstraints="NO" id="Hsc-9A-1ft">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Theme" translatesAutoresizingMaskIntoConstraints="NO" id="Hsc-9A-1ft">
                                                     <rect key="frame" x="155" y="8" width="64" height="64"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="64" id="bpZ-fU-ytZ"/>
@@ -314,7 +314,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoU-7a-avU" userLabel="CentrePoint">
-                                                    <rect key="frame" x="169" y="33.5" width="5" height="0.0"/>
+                                                    <rect key="frame" x="168.5" y="33.5" width="5" height="0.0"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="5" id="mdC-CN-3Ea"/>
                                                     </constraints>
@@ -440,7 +440,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xff-At-fqW">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                                     <state key="normal" title="Update Data">
-                                                        <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="retryBtnPressed:" destination="Mrs-Sh-x2v" eventType="touchUpInside" id="ms2-Ju-QqJ"/>

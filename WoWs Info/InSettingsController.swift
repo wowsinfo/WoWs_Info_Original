@@ -19,7 +19,6 @@ class InSettingsController : UITableViewController, MFMailComposeViewControllerD
     let isProVersion = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         
         let limit = UserDefaults.standard.integer(forKey: DataManagement.DataName.SearchLimit)
@@ -28,6 +27,9 @@ class InSettingsController : UITableViewController, MFMailComposeViewControllerD
         
         self.tableView.delegate = self
         
+        // Setup Theme
+        limitSlider.tintColor = Theme.getCurrTheme()
+        updateBtn.backgroundColor = Theme.getCurrTheme()
     }
     
     override func didReceiveMemoryWarning() {
@@ -35,17 +37,13 @@ class InSettingsController : UITableViewController, MFMailComposeViewControllerD
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        
         super.viewWillAppear(true)
         UserDefaults.standard.set(Int(limitSlider.value), forKey: DataManagement.DataName.SearchLimit)
-        
     }
     
     @IBAction func sliderValueChanged(_ sender: Any) {
-        
         let value = Int(limitSlider.value)
         silderCountLabel.text = "\(value)"
-        
     }
     
     // MARK: Button pressed
