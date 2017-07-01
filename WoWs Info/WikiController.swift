@@ -43,6 +43,8 @@ class WikiController: UITableViewController {
         let index = indexPath.row
         if index == 1 { // <-- It is a white icon...
             cell.wikiImage.backgroundColor = Theme.getCurrTheme()
+        } else {
+            cell.wikiImage.backgroundColor = UIColor.clear
         }
         
         cell.wikiTextLabel.text = name[indexPath.row]

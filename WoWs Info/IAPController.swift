@@ -13,6 +13,9 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
 
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var IAPTable: UITableView!
+    @IBOutlet weak var previewBtn: UIButton!
+    @IBOutlet weak var purchaseBtn: UIButton!
+    @IBOutlet weak var restoreBtn: UIButton!
     var isReady = false
     
     let isProVersion = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
@@ -39,10 +42,25 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
             print("Preparing for purchase")
         }
         
+        // Setup Theme
+        setupTheme()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: Theme
+    func setupTheme() {
+        setupBtn(btn: previewBtn)
+        setupBtn(btn: purchaseBtn)
+        setupBtn(btn: restoreBtn)
+    }
+    
+    func setupBtn(btn: UIButton) {
+        btn.backgroundColor = Theme.getCurrTheme()
+        btn.layer.cornerRadius = btn.frame.height / 2
+        btn.layer.masksToBounds = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -174,6 +192,13 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
         let cell = IAPTable.dequeueReusableCell(withIdentifier: "IAPCell", for: indexPath) as! IAPCell
         cell.descriptionLabel.text = descriptionString[indexPath.row]
         cell.iconImage.image = iconImage[indexPath.row]
+        if indexPath.row == 1 {
+            cell.iconImage.backgroundColor = Theme.getCurrTheme()
+            cell.layer.cornerRadius = cell.frame.width / 5
+            cell.layer.masksToBounds = true
+        } else {
+            cell.iconImage.backgroundColor = UIColor.clear
+        }
         return cell
     }
     
