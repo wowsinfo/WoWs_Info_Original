@@ -194,7 +194,7 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
         cell.iconImage.image = iconImage[indexPath.row]
         if indexPath.row == 1 {
             cell.iconImage.backgroundColor = Theme.getCurrTheme()
-            cell.layer.cornerRadius = cell.frame.width / 5
+            cell.layer.cornerRadius = cell.iconImage.frame.width / 5
             cell.layer.masksToBounds = true
         } else {
             cell.iconImage.backgroundColor = UIColor.clear
