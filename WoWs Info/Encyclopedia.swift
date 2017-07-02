@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyJSON
 
+// MARK: Achievements
 class Achievements {
     
     var achievementsAPI: String!
@@ -63,6 +64,7 @@ class Achievements {
     
 }
 
+// MARKS: Ships
 class Ships {
     
     var moduleAPI: String!
