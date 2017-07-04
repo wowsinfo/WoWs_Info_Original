@@ -22,7 +22,8 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
     var shipTier: String!
     var descriptionText: String!
     var nationText: String!
-    var moduleTree: [[String]]!
+    var moduleTree: [[[String]]]!
+    var currModule = [String].init(repeating: "", count: 6)
     
     var ColourGroup = [ UIColor.RGB(red: 85, green: 163, blue: 255), // Blue
                         UIColor.RGB(red: 10, green: 86, blue: 143),
@@ -148,7 +149,7 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
                 }
                 
                 // Battle range
-                self.battleRangeLabel.text = "\(ship["default_profile"]["battle_level_range_min"].stringValue) - \(ship["default_profile"]["battle_level_range_max"].stringValue)"
+                self.battleRangeLabel.text = "\(ship["default_profile"]["battle_level_range_min"]) - \(ship["default_profile"]["battle_level_range_max"])"
             }
         }
     }
@@ -168,10 +169,184 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
         
         // Setup Theme
         setupTheme()
+        // Load Default Data (All Empty)
+        updateModule()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: Button Pressed
+    @IBAction func moduleBtnPressed(_ sender: UIButton) {
+        // Differentiate Buttons by tag (Tag also indicates type)
+        let index = sender.tag
+        let count = moduleTree[index].count
+        if count > 1 {
+            let moduleSelection = UIAlertController(title: "", message: "", preferredStyle: .alert)
+            
+            for i in 0 ..< moduleTree[index].count {
+                // Index 0 is name
+                moduleSelection.addAction(UIAlertAction(title: moduleTree[index][i][0], style: .default, handler: { (Action) in
+                    // Index 1 is ID
+                    self.currModule[index] = self.moduleTree[index][i][1]
+                    UIView.animate(withDuration: 0.5, animations: { 
+                        self.labelControl(state: 0)
+                    })
+                    self.updateModule()
+                }))
+            }
+            self.present(moduleSelection, animated: true, completion: nil)
+        }
+    }
+    
+    // MARK: Update Data
+    func updateModule() {
+        Ships(shipID: shipID).getUpdatedInformation(hull: currModule[0], engine: currModule[1], torpedoes: currModule[2], fireControl: currModule[3], artillery: currModule[4], flightControl: currModule[5]) { (ship) in
+            DispatchQueue.main.async {
+                // Detailed Information
+                self.healthLabel.text = ship["armour"]["health"].stringValue
+                self.floodProtectionLabel.text = "\(ship["armour"]["flood_prob"])%"
+                
+                // If this ship has guns
+                if ship["artillery"] != JSON.null {
+                    self.shotDelayLabel.text = "\(String(format: "%.2f", 60 / ship["artillery"]["gun_rate"].doubleValue)) s"
+                    self.gunNameLabel.text = ship["artillery"]["slots"]["0"]["name"].stringValue
+                    
+                    // Update Gun
+                    var gunText = ""
+                    for gun in ship["artillery"]["slots"] {
+                        gunText += "\(gun.1["guns"]) x \(gun.1["barrels"])"
+                        if Int(gun.0) != ship["artillery"]["slots"].count - 1 {
+                            gunText += " | "
+                        }
+                    }
+                    self.gunLabel.text = gunText
+                    
+                    // If this ship have AP
+                    if ship["artillery"]["shells"]["AP"] != JSON.null {
+                        self.APDamageLabel.text = ship["artillery"]["shells"]["AP"]["damage"].stringValue
+                        self.APSpeedLabel.text = "\(ship["artillery"]["shells"]["AP"]["bullet_speed"]) m/s"
+                    }
+                    
+                    // If this ship have HE
+                    if ship["artillery"]["shells"]["HE"] != JSON.null {
+                        self.HEDamageLabel.text = ship["artillery"]["shells"]["HE"]["damage"].stringValue
+                        self.fireLabel.text = "🔥\(ship["artillery"]["shells"]["HE"]["burn_probability"])%"
+                        self.HESpeedLabel.text = "\(ship["artillery"]["shells"]["HE"]["bullet_speed"]) m/s"
+                    }
+                    self.fireDistanceLabel.text = String(format: "%0.2f", ship["artillery"]["distance"].doubleValue) + " km"
+                }
+                
+                self.detectionByPlaneLabel.text = "\(ship["concealment"]["detect_distance_by_plane"]) km"
+                self.detectionByShipLabel.text = "\(String(format: "%.1f", ship["concealment"]["detect_distance_by_ship"].doubleValue)) km"
+                
+                // If this ship have torp
+                if ship["torpedoes"] != JSON.null {
+                    self.torpNameLabel.text = ship["torpedoes"]["torpedo_name"].stringValue
+                    self.torpReloadLabel.text = "\(ship["torpedoes"]["reload_time"]) s"
+                    self.torpSpeedLabel.text = "\(ship["torpedoes"]["torpedo_speed"]) knot"
+                    self.torpDamageLabel.text = ship["torpedoes"]["max_damage"].stringValue
+                    self.torpDecectionLabel.text = "\(ship["torpedoes"]["visibility_dist"]) km"
+                    self.torpDistanceLabel.text = "\(ship["torpedoes"]["distance"]) km"
+                    
+                    // Update Torpedoes
+                    var torpText = ""
+                    for torp in ship["torpedoes"]["slots"] {
+                        torpText += "\(torp.1["guns"]) x \(torp.1["barrels"])"
+                        if Int(torp.0) != ship["torpedoes"]["slots"].count - 1 {
+                            torpText += " | "
+                        }
+                    }
+                    self.torpLabel.text = torpText
+                }
+                
+                self.mobilityLabel.text = "\(ship["mobility"]["max_speed"]) knot | \(ship["mobility"]["turning_radius"]) m | \(ship["mobility"]["rudder_time"]) s"
+                
+                // Update Status Label
+                self.survivabilityLabel.text = ship["armour"]["total"].stringValue
+                self.artilleryLabel.text = ship["weaponry"]["artillery"].stringValue
+                self.torpedoesLabel.text = ship["weaponry"]["torpedoes"].stringValue
+                self.AALabel.text = ship["weaponry"]["anti_aircraft"].stringValue
+                self.maneuverbilityLabel.text = ship["mobility"]["total"].stringValue
+                self.concealmentLabel.text = ship["concealment"]["total"].stringValue
+                self.aircraftLabel.text = ship["weaponry"]["aircraft"].stringValue
+                
+                // Update Status Bar
+                self.survivabilityBar.progress = Float(ship["armour"]["total"].doubleValue / 100)
+                self.artilleryBar.progress = Float(ship["weaponry"]["artillery"].doubleValue / 100)
+                self.torpedoesBar.progress = Float(ship["weaponry"]["torpedoes"].doubleValue / 100)
+                self.AABar.progress = Float(ship["weaponry"]["anti_aircraft"].doubleValue / 100)
+                self.maneuverbilityBar.progress = Float(ship["mobility"]["total"].doubleValue / 100)
+                self.concealmentBar.progress = Float(ship["concealment"]["total"].doubleValue / 100)
+                self.aircraftBar.progress = Float(ship["weaponry"]["aircraft"].doubleValue / 100)
+                
+                // If this is a cv
+                if ship["flight_control"] != JSON.null {
+                    self.flightLabel.text = "\(ship["hull"]["planes_amount"]) (\(ship["flight_control"]["fighter_squadrons"]) - \(ship["flight_control"]["torpedo_squadrons"]) - \(ship["flight_control"]["bomber_squadrons"]))"
+                }
+                
+                // Update AA
+                var AAText = ""
+                for AA in ship["anti_aircraft"]["slots"] {
+                    AAText += "\(AA.1["distance"]) km  |  \(String(format: "%3d", AA.1["caliber"].intValue)) mm  |  \(String(format: "%3d", AA.1["avg_damage"].intValue))"
+                    if Int(AA.0) != ship["anti_aircraft"]["slots"].count - 1 {
+                        AAText += "\n"
+                    }
+                }
+                self.antiAircraftLabel.text = AAText
+                
+                // Update label alpha
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.labelControl(state: 1.0)
+                })
+            }
+        }
+    }
+    
+    func labelControl(state: CGFloat) {
+        // Change Alpha
+        survivabilityBar.alpha = state
+        artilleryBar.alpha = state
+        torpedoesBar.alpha = state
+        AABar.alpha = state
+        maneuverbilityBar.alpha = state
+        concealmentBar.alpha = state
+        artilleryBar.alpha = state
+        moneyTypeImage.alpha = state
+        survivabilityLabel.alpha = state
+        artilleryLabel.alpha = state
+        torpedoesLabel.alpha = state
+        AALabel.alpha = state
+        maneuverbilityLabel.alpha = state
+        concealmentLabel.alpha = state
+        moneyLabel.alpha = state
+        shipTierLabel.alpha = state
+        healthLabel.alpha = state
+        floodProtectionLabel.alpha = state
+        aircraftLabel.alpha = state
+        shotDelayLabel.alpha = state
+        gunLabel.alpha = state
+        gunNameLabel.alpha = state
+        fireLabel.alpha = state
+        APDamageLabel.alpha = state
+        APSpeedLabel.alpha = state
+        HEDamageLabel.alpha = state
+        HESpeedLabel.alpha = state
+        fireDistanceLabel.alpha = state
+        detectionByPlaneLabel.alpha = state
+        detectionByShipLabel.alpha = state
+        battleRangeLabel.alpha = state
+        torpLabel.alpha = state
+        torpNameLabel.alpha = state
+        torpDamageLabel.alpha = state
+        torpReloadLabel.alpha = state
+        torpDistanceLabel.alpha = state
+        torpSpeedLabel.alpha = state
+        torpDecectionLabel.alpha = state
+        mobilityLabel.alpha = state
+        antiAircraftLabel.alpha = state
+        flightLabel.alpha = state
     }
     
     // MARK: Theme
@@ -250,7 +425,6 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
         let description = UIAlertController.QuickMessage(title: "\(shipName!) (\(nationText!))", message: descriptionText, cancel: "OK")
         self.present(description, animated: true, completion: nil)
     }
-    
     
 }
 
