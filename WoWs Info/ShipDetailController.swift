@@ -15,6 +15,9 @@ import SafariServices
 class ShipDetailController: UITableViewController, SFSafariViewControllerDelegate {
     
     // MARK: variables
+    @IBOutlet weak var screenshotBtn: UIButton!
+    @IBOutlet weak var ShipDataCell: UITableViewCell!
+    
     var shipID: String!
     var imageURL: String!
     var shipType: String!
@@ -190,6 +193,16 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
     }
     
     // MARK: Button Pressed
+    @IBAction func screenshotBtn(_ sender: Any) {
+        screenshotBtn.isHidden = true
+        UIGraphicsBeginImageContextWithOptions(ShipDataCell.frame.size, true, 0.0)
+        ShipDataCell.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        UIImageWriteToSavedPhotosAlbum(screenshot!, nil, nil, nil)
+    }
+    
     @IBAction func moduleBtnPressed(_ sender: UIButton) {
         // Differentiate Buttons by tag (Tag also indicates type)
         let index = sender.tag
@@ -321,6 +334,7 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
     
     func labelControl(state: CGFloat) {
         // Change Alpha
+        screenshotBtn.alpha = state
         survivabilityBar.alpha = state
         artilleryBar.alpha = state
         torpedoesBar.alpha = state
