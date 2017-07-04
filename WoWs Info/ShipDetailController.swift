@@ -125,6 +125,8 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
             DispatchQueue.main.async {
                 // Module tree for this ship
                 self.moduleTree = Ships.getModuleTree(data: ship)
+                // Setup Button
+                self.setupBtn()
                 
                 // Some information that never changes
                 self.descriptionText = ship["description"].stringValue
@@ -177,14 +179,24 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
         super.didReceiveMemoryWarning()
     }
     
+    // MARK: Setup Button
+    func setupBtn() {
+        self.hullBtn.setTitle("Hull (\(self.moduleTree[0].count))", for: .normal)
+        self.engineBtn.setTitle("Engine (\(self.moduleTree[1].count))", for: .normal)
+        self.torpBtn.setTitle("Torpedo (\(self.moduleTree[2].count))", for: .normal)
+        self.fireControlBtn.setTitle("Fire Control (\(self.moduleTree[3].count))", for: .normal)
+        self.artilleryBtn.setTitle("Artillery (\(self.moduleTree[4].count))", for: .normal)
+        self.flightControlBtn.setTitle("Flight Control (\(self.moduleTree[5].count))", for: .normal)
+    }
+    
     // MARK: Button Pressed
     @IBAction func moduleBtnPressed(_ sender: UIButton) {
         // Differentiate Buttons by tag (Tag also indicates type)
         let index = sender.tag
         let count = moduleTree[index].count
+        // Well, you could not change it if it only has one module
         if count > 1 {
             let moduleSelection = UIAlertController(title: "", message: "", preferredStyle: .alert)
-            
             for i in 0 ..< moduleTree[index].count {
                 // Index 0 is name
                 moduleSelection.addAction(UIAlertAction(title: moduleTree[index][i][0], style: .default, handler: { (Action) in
@@ -196,6 +208,8 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
                     self.updateModule()
                 }))
             }
+            // Cancel button
+            moduleSelection.addAction(UIAlertAction(title: "SHARE_CANCEL".localised(), style: .cancel, handler: nil))
             self.present(moduleSelection, animated: true, completion: nil)
         }
     }
@@ -289,11 +303,12 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
                 // Update AA
                 var AAText = ""
                 for AA in ship["anti_aircraft"]["slots"] {
-                    AAText += "\(AA.1["distance"]) km  |  \(String(format: "%3d", AA.1["caliber"].intValue)) mm  |  \(String(format: "%3d", AA.1["avg_damage"].intValue))"
+                    AAText += "\(String(format: "%2d", AA.1["distance"].intValue)) km  |  \(String(format: "%3d", AA.1["caliber"].intValue)) mm  |  \(String(format: "%3d", AA.1["avg_damage"].intValue))"
                     if Int(AA.0) != ship["anti_aircraft"]["slots"].count - 1 {
                         AAText += "\n"
                     }
                 }
+                print(AAText)
                 self.antiAircraftLabel.text = AAText
                 
                 // Update label alpha
@@ -427,169 +442,3 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
     }
     
 }
-
-/*
- @IBOutlet weak var armourTopConstraint: NSLayoutConstraint!
- @IBOutlet weak var scrollView: UIScrollView!
- @IBOutlet weak var scrollviewView: UIView!
- 
- 
- 
- override func viewDidLoad() {
- super.viewDidLoad()
- 
- // Load a button in Navigation bar
- screenshotBtn = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(takeScreenshot))
- screenshotBtn.isEnabled = false
- self.navigationItem.rightBarButtonItem = screenshotBtn
- 
- // Show all data
- self.loadData()
- }
- 
- override func didReceiveMemoryWarning() {
- super.didReceiveMemoryWarning()
- // Dispose of any resources that can be recreated.
- }
- 
- func takeScreenshot() {
- 
- // Take a screenshot of a page
- DispatchQueue.main.async {
- // Scroll to top
- self.shipDescription.setContentOffset(CGPoint.zero, animated: true)
- self.scrollView.setContentOffset(CGPoint.zero, animated: false)
- }
- 
- UIView.animate(withDuration: 0.5, delay: 2, options: .curveEaseIn, animations: {
- UIGraphicsBeginImageContextWithOptions(self.scrollView.contentSize, true, UIScreen.main.scale)
- self.scrollviewView.layer.render(in: UIGraphicsGetCurrentContext()!)
- let screenshot = UIGraphicsGetImageFromCurrentImageContext()
- UIGraphicsEndImageContext()
- 
- UIImageWriteToSavedPhotosAlbum(screenshot!, nil, nil, nil)
- }, completion: nil)
- 
- AudioServicesPlaySystemSound(1520)
- self.screenshotBtn.isEnabled = false
- 
- }
- 
- func loadData() {
- Ships(shipID: shipID).getShipJson { (ship) in
- DispatchQueue.main.async {
- print(ship)
- let isPrenium = ship["is_premium"].boolValue
- 
- // Ship Tier
- let tierSymbol = ["I","II","III","IV","V","VI","VII","VIII","IX","X"]
- var tierLabel = "Tier " + tierSymbol[Int(self.shipTier)! - 1]
- if  isPrenium {
- tierLabel += " " + NSLocalizedString("PRENIUM_SHIP", comment: "Prenium ship label")
- }
- self.shipTierLabel.text = tierLabel
- 
- // Ship Price
- if isPrenium {
- self.moneyTypeImage.image = #imageLiteral(resourceName: "Gold")
- self.moneyLabel.text = ship["price_gold"].stringValue
- } else {
- self.moneyTypeImage.image = #imageLiteral(resourceName: "Silver")
- self.moneyLabel.text = ship["price_credit"].stringValue
- }
- 
- // Detailed Information
- self.healthLabel.text = ship["default_profile"]["armour"]["health"].stringValue
- self.floodProtectionLabel.text = "\(ship["default_profile"]["armour"]["flood_prob"].stringValue)%"
- 
- // If this ship has guns
- if ship["default_profile"]["artillery"] != JSON.null {
- self.shotDelayLabel.text = "\(ship["default_profile"]["artillery"]["shot_delay"].stringValue) s"
- self.gunNameLabel.text = ship["default_profile"]["artillery"]["slots"]["0"]["name"].stringValue
- self.gunLabel.text = "\(ship["default_profile"]["artillery"]["slots"]["0"]["guns"].stringValue) x \(ship["default_profile"]["artillery"]["slots"]["0"]["barrels"].stringValue)"
- 
- // If this ship have AP
- if ship["default_profile"]["artillery"]["shells"]["AP"] != JSON.null {
- self.APDamageLabel.text = ship["default_profile"]["artillery"]["shells"]["AP"]["damage"].stringValue
- self.APSpeedLabel.text = "\(ship["default_profile"]["artillery"]["shells"]["AP"]["bullet_speed"].stringValue) m/s"
- }
- 
- // If this ship have HE
- if ship["default_profile"]["artillery"]["shells"]["HE"] != JSON.null {
- self.HEDamageLabel.text = ship["default_profile"]["artillery"]["shells"]["HE"]["damage"].stringValue
- self.fireLabel.text = "🔥\(ship["default_profile"]["artillery"]["shells"]["HE"]["burn_probability"].stringValue)%"
- self.HESpeedLabel.text = "\(ship["default_profile"]["artillery"]["shells"]["HE"]["bullet_speed"].stringValue) m/s"
- }
- self.fireDistanceLabel.text = String(format: "%0.2f", ship["default_profile"]["artillery"]["distance"].doubleValue) + " km"
- }
- 
- self.detectionByPlaneLabel.text = "\(ship["default_profile"]["concealment"]["detect_distance_by_plane"].stringValue) km"
- self.detectionByShipLabel.text = "\(ship["default_profile"]["concealment"]["detect_distance_by_ship"].stringValue) km"
- 
- self.battleRangeLabel.text = "\(ship["default_profile"]["battle_level_range_min"].stringValue) - \(ship["default_profile"]["battle_level_range_max"].stringValue)"
- 
- // If this ship have torp
- if ship["default_profile"]["torpedoes"] != JSON.null {
- self.torpNameLabel.text = ship["default_profile"]["torpedoes"]["torpedo_name"].stringValue
- self.torpReloadLabel.text = "\(ship["default_profile"]["torpedoes"]["reload_time"].stringValue) s"
- self.torpSpeedLabel.text = "\(ship["default_profile"]["torpedoes"]["torpedo_speed"].stringValue) knot"
- self.torpDamageLabel.text = ship["default_profile"]["torpedoes"]["max_damage"].stringValue
- self.torpDecectionLabel.text = "\(ship["default_profile"]["torpedoes"]["visibility_dist"].stringValue) km"
- self.torpDistanceLabel.text = "\(ship["default_profile"]["torpedoes"]["distance"].stringValue) km"
- }
- 
- self.mobilityLabel.text = "\(ship["default_profile"]["mobility"]["max_speed"].stringValue) knot | \(ship["default_profile"]["mobility"]["turning_radius"].stringValue) m"
- 
- // Ship description
- self.shipDescription.text = ship["description"].stringValue
- DispatchQueue.main.async {
- self.shipDescription.setContentOffset(CGPoint.zero, animated: true)
- }
- 
- // Animation
- UIView.animate(withDuration: 0.3, animations: {
- self.shipTierLabel.alpha = 1.0
- self.moneyLabel.alpha = 1.0
- self.moneyTypeImage.alpha = 1.0
- })
- 
- UIView.animate(withDuration: 0.5, delay: 0.3, options: .curveEaseIn, animations: {
- self.shipDescription.alpha = 1.0
- }, completion: nil)
- 
- UIView.animate(withDuration: 1.0, delay: 0.5, options: .curveEaseIn, animations: {
- self.healthLabel.alpha = 1.0
- self.floodProtectionLabel.alpha = 1.0
- 
- self.shotDelayLabel.alpha = 1.0
- self.gunNameLabel.alpha = 1.0
- self.gunLabel.alpha = 1.0
- self.APDamageLabel.alpha = 1.0
- self.APSpeedLabel.alpha = 1.0
- self.HEDamageLabel.alpha = 1.0
- self.fireLabel.alpha = 1.0
- self.HESpeedLabel.alpha = 1.0
- self.fireDistanceLabel.alpha = 1.0
- 
- self.detectionByPlaneLabel.alpha = 1.0
- self.detectionByShipLabel.alpha = 1.0
- 
- self.battleRangeLabel.alpha = 1.0
- 
- self.torpNameLabel.alpha = 1.0
- self.torpReloadLabel.alpha = 1.0
- self.torpSpeedLabel.alpha = 1.0
- self.torpDamageLabel.alpha = 1.0
- self.torpDecectionLabel.alpha = 1.0
- self.torpDistanceLabel.alpha = 1.0
- 
- self.mobilityLabel.alpha = 1.0
- 
- // You could now take a screen shot
- self.screenshotBtn.isEnabled = true
- }, completion: nil)
- }
- }
- 
- }
-*/
