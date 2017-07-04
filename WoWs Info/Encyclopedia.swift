@@ -70,6 +70,7 @@ class Ships {
     var moduleAPI: String!
     var shipsAPI: String!
     var ship_id: String!
+    let server = ServerUrl.Server[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)]
     
     struct dataIndex {
         static let name = 0
@@ -79,10 +80,55 @@ class Ships {
         static let type = 4
     }
     
+    struct moduleIndex {
+        static let hull = 0
+        static let engine = 1
+        static let torpedoes = 2
+        static let fireControl = 3
+        static let artillery = 4
+        static let flightControl = 5
+    }
+    
     init(shipID: String) {
         ship_id = shipID
-        let server = ServerUrl.Server[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)]
-        shipsAPI = "https://api.worldofwarships." + server + "/wows/encyclopedia/ships/?application_id=***ApplicationID***&ship_id=" + shipID + "&fields=default_profile.torpedoes.torpedo_speed%2Cdefault_profile.torpedoes.visibility_dist%2Cdefault_profile.torpedoes.max_damage%2Cdefault_profile.torpedoes.distance%2Cdefault_profile.torpedoes.reload_time%2Cdefault_profile.torpedoes.torpedo_name%2Cdefault_profile.mobility%2Cdefault_profile.concealment.detect_distance_by_plane%2Cdefault_profile.concealment.detect_distance_by_ship%2Cdefault_profile.artillery.slots.name%2Cdefault_profile.artillery.slots.guns%2Cdefault_profile.artillery.slots.barrels%2Cdefault_profile.artillery.distance%2Cdefault_profile.artillery.shot_delay%2Cdefault_profile.artillery.shells.bullet_speed%2Cdefault_profile.artillery.shells.burn_probability%2Cdefault_profile.artillery.shells.damage%2Cdefault_profile.artillery.shells.name%2Cdefault_profile.armour.flood_prob%2Cdefault_profile.armour.health%2Cis_premium%2Cdefault_profile.battle_level_range_max%2Cdefault_profile.battle_level_range_min%2Cnation%2Cdescription%2Cprice_credit%2Cprice_gold%2Ctype" + Language.getLanguageString(Mode: Language.Index.API)
+        // Get Module API and load basic information
+        moduleAPI = "https://api.worldofwarships." + server + "/wows/encyclopedia/ships/?application_id=***ApplicationID***&ship_id=" + shipID + "&fields=is_premium%2Cdefault_profile.battle_level_range_max%2Cdefault_profile.battle_level_range_min%2Cnation%2Cdescription%2Cprice_credit%2Cprice_gold%2Ctype%2Cmodules_tree" + Language.getLanguageString(Mode: Language.Index.API)
+        print(moduleAPI)
+    }
+    
+    // Get default information and module tree for future use
+    func getBasicInformation(success: @escaping (JSON) -> ()) {
+        let request = URLRequest(url: URL(string: moduleAPI)!)
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if error != nil {
+                print("Error: \(error!)")
+            } else {
+                let dataJson = JSON(data!)
+                if dataJson["status"].stringValue == "ok" {
+                    success(dataJson["data"][self.ship_id])
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    // Get module tree from Basic Information
+    static func getModuleTree(data: JSON) -> [[String]] {
+        var moduleData = [[String]]()
+        /*let data = data["modules_tree"]
+        // Get all module and sort them by module index
+        for module in data {
+            switch module.1["type"].stringValue:
+            case "Hull":
+            case "Engine":
+            default: break
+        }*/
+        return moduleData
+    }
+    
+    func getUpdatedInformation(hull: String, engine: String, torpedoes: String, fireControl: String, artillery: String, flightControl: String, success: @escaping ([[String]]) -> ()) {
+        // This is the ship parameter
+        moduleAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/shipprofile/?application_id=***ApplicationID***&ship_id=\(ship_id)&artillery_id=\(artillery)&engine_id=\(engine)&fire_control_id=\(fireControl)8&torpedoes_id=\(torpedoes)&hull_id=\(hull)&flight_control_id=\(flightControl)" + Language.getLanguageString(Mode: Language.Index.API)
     }
     
     func getShipJson(success: @escaping (JSON) -> ()) {

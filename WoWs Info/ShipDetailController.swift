@@ -14,12 +14,15 @@ import SafariServices
 
 class ShipDetailController: UITableViewController, SFSafariViewControllerDelegate {
     
-    // MARK: Constant
+    // MARK: variables
     var shipID: String!
     var imageURL: String!
     var shipType: String!
     var shipName: String!
     var shipTier: String!
+    var descriptionText: String!
+    var nationText: String!
+    var moduleTree: [[String]]!
     
     var ColourGroup = [ UIColor.RGB(red: 85, green: 163, blue: 255), // Blue
                         UIColor.RGB(red: 10, green: 86, blue: 143),
@@ -113,6 +116,43 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
     @IBOutlet weak var flightLabel: UILabel!
     @IBOutlet weak var flightColour: UIImageView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Load module tree and some other basic information
+        print("Getting Module Tree")
+        Ships(shipID: shipID).getBasicInformation { (ship) in
+            DispatchQueue.main.async {
+                // Module tree for this ship
+                self.moduleTree = Ships.getModuleTree(data: ship)
+                
+                // Some information that never changes
+                self.descriptionText = ship["description"].stringValue
+                self.nationText = ship["nation"].stringValue.uppercased()
+                let isPrenium = ship["is_premium"].boolValue
+                
+                // Ship Tier
+                let tierSymbol = ["I","II","III","IV","V","VI","VII","VIII","IX","X"]
+                var tierLabel = "Tier " + tierSymbol[Int(self.shipTier)! - 1]
+                if isPrenium {
+                    tierLabel += " " + NSLocalizedString("PRENIUM_SHIP", comment: "Prenium ship label")
+                }
+                self.shipTierLabel.text = tierLabel
+                
+                // Ship Price
+                if isPrenium {
+                    self.moneyTypeImage.image = #imageLiteral(resourceName: "Gold")
+                    self.moneyLabel.text = ship["price_gold"].stringValue
+                } else {
+                    self.moneyTypeImage.image = #imageLiteral(resourceName: "Silver")
+                    self.moneyLabel.text = ship["price_credit"].stringValue
+                }
+                
+                // Battle range
+                self.battleRangeLabel.text = "\(ship["default_profile"]["battle_level_range_min"].stringValue) - \(ship["default_profile"]["battle_level_range_max"].stringValue)"
+            }
+        }
+    }
+    
     override func viewDidLoad() {
          super.viewDidLoad()
         
@@ -204,6 +244,13 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
         UIApplication.shared.statusBarStyle = .lightContent
         controller.dismiss(animated: true, completion: nil)
     }
+    
+    // MARK: Description
+    @IBAction func showDescriptionPressed(_ sender: Any) {
+        let description = UIAlertController.QuickMessage(title: "\(shipName!) (\(nationText!))", message: descriptionText, cancel: "OK")
+        self.present(description, animated: true, completion: nil)
+    }
+    
     
 }
 
