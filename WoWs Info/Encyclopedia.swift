@@ -93,7 +93,6 @@ class Ships {
         ship_id = shipID
         // Get Module API and load basic information
         moduleAPI = "https://api.worldofwarships." + server + "/wows/encyclopedia/ships/?application_id=***ApplicationID***&ship_id=" + shipID + "&fields=is_premium%2Cdefault_profile.battle_level_range_max%2Cdefault_profile.battle_level_range_min%2Cnation%2Cdescription%2Cprice_credit%2Cprice_gold%2Ctype%2Cmodules_tree" + Language.getLanguageString(Mode: Language.Index.API)
-        print(moduleAPI)
     }
     
     // Get default information and module tree for future use
@@ -113,22 +112,53 @@ class Ships {
     }
     
     // Get module tree from Basic Information
-    static func getModuleTree(data: JSON) -> [[String]] {
-        var moduleData = [[String]]()
-        /*let data = data["modules_tree"]
+    static func getModuleTree(data: JSON) -> [[[String]]] {
+        // Six data only
+        var moduleData = [[[String]]].init(repeating: [[String]](), count: 6)
+        let data = data["modules_tree"]
         // Get all module and sort them by module index
+        var index = 0
         for module in data {
-            switch module.1["type"].stringValue:
-            case "Hull":
-            case "Engine":
-            default: break
-        }*/
+            // Get its type
+            switch module.1["type"].stringValue {
+            case "Hull": index = 0
+            case "Engine": index = 1
+            case "Torpedoes": index = 2
+            case "Suo": index = 3
+            case "Artillery": index = 4
+            case "FlightControl": index = 5
+            default: continue // Does not care about other types
+            }
+            
+            // Name, ID and module string
+            moduleData[index].append([module.1["name"].stringValue, module.0, module.1["module_id_str"].stringValue])
+        }
+        
+        for i in 0..<moduleData.count {
+            // Index 2 is module_id_str
+            moduleData[i].sort(by: {$0[2] < $1[2]})
+        }
+        
         return moduleData
     }
     
-    func getUpdatedInformation(hull: String, engine: String, torpedoes: String, fireControl: String, artillery: String, flightControl: String, success: @escaping ([[String]]) -> ()) {
+    func getUpdatedInformation(hull: String, engine: String, torpedoes: String, fireControl: String, artillery: String, flightControl: String, success: @escaping (JSON) -> ()) {
         // This is the ship parameter
-        moduleAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/shipprofile/?application_id=***ApplicationID***&ship_id=\(ship_id)&artillery_id=\(artillery)&engine_id=\(engine)&fire_control_id=\(fireControl)8&torpedoes_id=\(torpedoes)&hull_id=\(hull)&flight_control_id=\(flightControl)" + Language.getLanguageString(Mode: Language.Index.API)
+        moduleAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/shipprofile/?application_id=***ApplicationID***&ship_id=\(ship_id!)&artillery_id=\(artillery)&engine_id=\(engine)&fire_control_id=\(fireControl)&torpedoes_id=\(torpedoes)&hull_id=\(hull)&flight_control_id=\(flightControl)&fields=-atbas%2C-dive_bomber%2C-fighters%2C-torpedo_bomber" + Language.getLanguageString(Mode: Language.Index.API)
+        print(moduleAPI)
+        
+        let request = URLRequest(url: URL(string: moduleAPI)!)
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if error != nil {
+                print("Error: \(error!)")
+            } else {
+                let dataJson = JSON(data!)
+                if dataJson["status"].stringValue == "ok" {
+                    success(dataJson["data"][self.ship_id])
+                }
+            }
+        }
+        task.resume()
     }
     
     func getShipJson(success: @escaping (JSON) -> ()) {
