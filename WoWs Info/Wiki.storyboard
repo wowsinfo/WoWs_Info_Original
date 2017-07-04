@@ -235,7 +235,7 @@
             <objects>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="Kn5-P6-pX6" customClass="ShipDetailController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="383" sectionHeaderHeight="28" sectionFooterHeight="28" id="m8b-rF-MWC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1700"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
@@ -1030,8 +1030,6 @@
                             <outlet property="delegate" destination="Kn5-P6-pX6" id="2j0-iI-LpU"/>
                         </connections>
                     </tableView>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="1700"/>
                     <connections>
                         <outlet property="AABar" destination="5PM-p9-DDJ" id="P0E-BT-xhU"/>
                         <outlet property="AALabel" destination="Fyy-ya-A2A" id="MA9-IE-37x"/>
@@ -1095,9 +1093,13 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vc4-9Y-9u8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="3hU-z9-46s" userLabel="Show Description"/>
+                <tapGestureRecognizer id="3hU-z9-46s" userLabel="Show Description">
+                    <connections>
+                        <action selector="showDescriptionPressed:" destination="Kn5-P6-pX6" id="u9o-41-vHn"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3653.5" y="81"/>
+            <point key="canvasLocation" x="2743" y="447"/>
         </scene>
         <!--Achievement Controller-->
         <scene sceneID="UC3-Si-48N">
