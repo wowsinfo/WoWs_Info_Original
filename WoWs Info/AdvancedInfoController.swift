@@ -328,7 +328,9 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     @IBAction func retryBtnPressed(_ sender: Any) {
         // Load data here
         PlayerShip(account: PlayerAccount.AccountID).getPlayerShipInfo()
-        calAvgShipRating()
+        DispatchQueue.main.async {
+            self.calAvgShipRating()
+        }
         AudioServicesPlaySystemSound(1520)
     }
     

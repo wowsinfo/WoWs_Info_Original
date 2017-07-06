@@ -71,8 +71,6 @@ class WikiController: UITableViewController {
                     }))
                     share.addAction(UIAlertAction(title: "SHARE_CANCEL".localised(), style: .cancel, handler: nil))
                     self.present(share, animated: true, completion: nil)
-                } else {
-                    performSegue(withIdentifier: "gotoWarships", sender: nil)
                 }
             }
             performSegue(withIdentifier: identifier[indexPath.row], sender: nil)

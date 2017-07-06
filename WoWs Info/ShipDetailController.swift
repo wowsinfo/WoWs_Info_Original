@@ -25,7 +25,7 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
     var shipTier: String!
     var descriptionText: String!
     var nationText: String!
-    var moduleTree: [[[String]]]!
+    var moduleTree = [[[String]]]()
     var currModule = [String].init(repeating: "", count: 6)
     
     var ColourGroup = [ UIColor.RGB(red: 85, green: 163, blue: 255), // Blue
@@ -204,6 +204,8 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
     }
     
     @IBAction func moduleBtnPressed(_ sender: UIButton) {
+        // If there is no module, do nothing
+        if self.moduleTree.count == 0 { return }
         // Differentiate Buttons by tag (Tag also indicates type)
         let index = sender.tag
         let count = moduleTree[index].count
