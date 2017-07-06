@@ -89,11 +89,13 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
             super.viewWillAppear(animated)
             // Load data here
             PlayerShip(account: PlayerAccount.AccountID).getPlayerShipInfo()
-            DispatchQueue.main.async {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
                 self.shipData = PlayerShip.playerShipInfo
-                // Load data
+            })
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
                 self.loadPlayerData()
-            }
+            })
             
             // Get Clan Info
             PlayerClan().getClanList { (Data) in
@@ -122,11 +124,12 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     }
     
     func loadPlayerData() {
+
         PlayerStat().getDataFromAPI(account: playerInfo[1], success: {playerData in
             self.setLabelText(data: playerData)
-            // Calculate rating
-            self.calAvgShipRating(Data: self.shipData)
         })
+        // Calculate personal rating
+        self.calAvgShipRating()
     }
     
     func setupNameColour() {
@@ -325,11 +328,9 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     @IBAction func retryBtnPressed(_ sender: Any) {
         // Load data here
         PlayerShip(account: PlayerAccount.AccountID).getPlayerShipInfo()
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-            print("Loading data")
-            self.shipData = PlayerShip.playerShipInfo
-            self.calAvgShipRating(Data: self.shipData)
-        })
+        DispatchQueue.main.async {
+            self.calAvgShipRating()
+        }
         AudioServicesPlaySystemSound(1520)
     }
     
@@ -365,7 +366,7 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         tkBtn.setTitleColor(UIColor.darkText, for: .normal)
     }
     
-    func calAvgShipRating(Data: [[String]]) {
+    func calAvgShipRating() {
         
         var actualDmg = 0.0
         var actualWins = 0.0
@@ -377,38 +378,46 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         
         var rating = 0.0
         
-        for ship in Data {
-            actualDmg += Double(ship[PlayerShip.PlayerShipDataIndex.totalDamage])!
-            actualWins += Double(ship[PlayerShip.PlayerShipDataIndex.totalWins])!
-            actualFrags += Double(ship[PlayerShip.PlayerShipDataIndex.totalFrags])!
+        if shipData.count > 0 {
+            // Wont crash
+            for ship in shipData {
+                actualDmg += Double(ship[PlayerShip.PlayerShipDataIndex.totalDamage])!
+                actualWins += Double(ship[PlayerShip.PlayerShipDataIndex.totalWins])!
+                actualFrags += Double(ship[PlayerShip.PlayerShipDataIndex.totalFrags])!
+                
+                expectedDmg += Double(ShipRating.shipExpected["data"][ship[PlayerShip.PlayerShipDataIndex.id]]["average_damage_dealt"].doubleValue) * Double(ship[PlayerShip.PlayerShipDataIndex.battles])!
+                expectedWins += Double(ShipRating.shipExpected["data"][ship[PlayerShip.PlayerShipDataIndex.id]]["win_rate"].doubleValue) * Double(ship[PlayerShip.PlayerShipDataIndex.battles])! / 100
+                expectedFrags += Double(ShipRating.shipExpected["data"][ship[PlayerShip.PlayerShipDataIndex.id]]["average_frags"].doubleValue) * Double(ship[PlayerShip.PlayerShipDataIndex.battles])!
+            }
             
-            expectedDmg += Double(ShipRating.shipExpected["data"][ship[PlayerShip.PlayerShipDataIndex.id]]["average_damage_dealt"].doubleValue) * Double(ship[PlayerShip.PlayerShipDataIndex.battles])!
-            expectedWins += Double(ShipRating.shipExpected["data"][ship[PlayerShip.PlayerShipDataIndex.id]]["win_rate"].doubleValue) * Double(ship[PlayerShip.PlayerShipDataIndex.battles])! / 100
-            expectedFrags += Double(ShipRating.shipExpected["data"][ship[PlayerShip.PlayerShipDataIndex.id]]["average_frags"].doubleValue) * Double(ship[PlayerShip.PlayerShipDataIndex.battles])!
-        }
-        
-        print(actualDmg,expectedDmg,"\n",actualWins,expectedWins,"\n", actualFrags,expectedFrags)
-        
-        let rDmg = actualDmg / expectedDmg
-        let rFrags = actualFrags / expectedFrags
-        let rWins = actualWins / expectedWins
-        
-        let nDmg = max(0.0, (rDmg - 0.4) / (1.0 - 0.4))
-        let nFrags = max(0.0, (rFrags - 0.1) / (1.0 - 0.1))
-        let nWins = max(0.0, (rWins - 0.7) / (1.0 - 0.7))
-        
-        rating = 700 * nDmg + 300 * nFrags + 150 * nWins
-        print("Rating: \(rating)")
-        
-        let index = PersonalRating.getPersonalRatingIndex(PR: rating)
-        
-        DispatchQueue.main.async {
-            self.prLabel.text = PersonalRating.Comment[index]
-            self.prLabel.textColor = PersonalRating.ColorGroup[index]
-        }
-        
-        UIView.animate(withDuration: 0.5) { 
-            self.prLabel.alpha = 1
+            print(actualDmg,expectedDmg,"\n",actualWins,expectedWins,"\n", actualFrags,expectedFrags)
+            
+            let rDmg = actualDmg / expectedDmg
+            let rFrags = actualFrags / expectedFrags
+            let rWins = actualWins / expectedWins
+            
+            let nDmg = max(0.0, (rDmg - 0.4) / (1.0 - 0.4))
+            let nFrags = max(0.0, (rFrags - 0.1) / (1.0 - 0.1))
+            let nWins = max(0.0, (rWins - 0.7) / (1.0 - 0.7))
+            
+            rating = 700 * nDmg + 300 * nFrags + 150 * nWins
+            print("Rating: \(rating)")
+            
+            let index = PersonalRating.getPersonalRatingIndex(PR: rating)
+            
+            DispatchQueue.main.async {
+                self.prLabel.text = PersonalRating.Comment[index]
+                self.prLabel.textColor = PersonalRating.ColorGroup[index]
+            }
+            
+            UIView.animate(withDuration: 0.5) { 
+                self.prLabel.alpha = 1
+            }
+        } else {
+            prLabel.text = ">_<"
+            UIView.animate(withDuration: 0.5) {
+                self.prLabel.alpha = 1
+            }
         }
     }
     
