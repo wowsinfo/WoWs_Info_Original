@@ -90,6 +90,11 @@ class InSettingsController : UITableViewController, MFMailComposeViewControllerD
                 language.addAction(UIAlertAction(title: "SHARE_CANCEL".localised(), style: .cancel, handler: nil))
                 self.present(language, animated: true, completion: nil)
             }
+            if tag == 99 {
+                // Clean Cache
+                CacheCleaner.cleanCache()
+            }
+            
         }
     }
     

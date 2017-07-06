@@ -91,9 +91,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         application.registerUserNotificationSettings(notificationSettings)
         
-        // Remove cache
-        CacheCleaner.cleanCache()
-        
         return true
     }
 
@@ -122,9 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
-        
-        print(userInfo)
-        
+        print(userInfo) 
     }
     
     @available(iOS 9.0, *)
