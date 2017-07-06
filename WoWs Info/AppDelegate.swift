@@ -1,4 +1,4 @@
-//
+                        //
 //  AppDelegate.swift
 //  WoWs Info
 //
@@ -42,8 +42,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if user.object(forKey: DataManagement.DataName.friend) == nil{
             // I am your friend
             user.set(["HenryQuan|2011774448|3"], forKey: DataManagement.DataName.friend)
+            user.set([String](), forKey: DataManagement.DataName.tk)
         }
         
+        // Setup languages
+        if user.object(forKey: DataManagement.DataName.APILanguage) == nil {
+            // Auto by default
+            user.set(0, forKey: DataManagement.DataName.APILanguage)
+            user.set(0, forKey: DataManagement.DataName.NewsLanague)
+        }
+        
+        // In case a user does not have tk
         if user.object(forKey: DataManagement.DataName.tk) == nil {
             // Empty list
             user.set([String](), forKey: DataManagement.DataName.tk)
@@ -72,6 +81,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             user.set(">_<", forKey: DataManagement.DataName.UserName)
         }
         
+        // Setup Review and Share
+        if user.object(forKey: DataManagement.DataName.didReview) == nil {
+            user.set(false, forKey: DataManagement.DataName.didReview)
+            user.set(false, forKey: DataManagement.DataName.didShare)
+        }
+        
+        if user.bool(forKey: DataManagement.DataName.hasPurchased) {
+            // This is pro version, unlocked
+            user.set(true, forKey: DataManagement.DataName.didReview)
+            user.set(true, forKey: DataManagement.DataName.didShare)
+        }
+        
+        // Setup Github
+        if user.object(forKey: DataManagement.DataName.gotoGithub) == nil {
+            user.set(false, forKey: DataManagement.DataName.gotoGithub)
+        }
+        
         // Setup siren
         let siren = Siren.shared
         siren.alertType = .option
@@ -84,8 +110,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         application.registerUserNotificationSettings(notificationSettings)
         
-        // Remove cache
-        CacheCleaner.cleanCache()
+        // Shortcuts
+        let news = UIApplicationShortcutItem(type: "com.yihengquan.WoWs-Info.News", localizedTitle: "NEWS".localised(), localizedSubtitle: "", icon: UIApplicationShortcutIcon.init(templateImageName: "News"), userInfo: nil)
+        let wiki = UIApplicationShortcutItem(type: "com.yihengquan.WoWs-Info.Wiki", localizedTitle: "WIKI".localised(), localizedSubtitle: "", icon: UIApplicationShortcutIcon.init(templateImageName: "WikiBar"), userInfo: nil)
+        let search = UIApplicationShortcutItem(type: "com.yihengquan.WoWs-Info.Search", localizedTitle: "SEARCH".localised(), localizedSubtitle: "", icon: UIApplicationShortcutIcon.init(type: UIApplicationShortcutIconType.search), userInfo: nil)
+        let contact = UIApplicationShortcutItem(type: "com.yihengquan.WoWs-Info.Contact", localizedTitle: "CONTACT".localised(), localizedSubtitle: "", icon: UIApplicationShortcutIcon.init(templateImageName: "Dashboard"), userInfo: nil)
+        UIApplication.shared.shortcutItems = [news, wiki, search, contact]
+        
         
         return true
     }
@@ -115,20 +146,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
-        
-        print(userInfo)
-        
+        print(userInfo) 
     }
     
     @available(iOS 9.0, *)
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         // Go to search
-        /*if shortcutItem.type == "com.yihengquan.WoWs-Info.Search" {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let welcome = storyboard.instantiateViewController(withIdentifier: "WelcomeNavigation")
-            self.window?.rootViewController = welcome
-            self.window?.rootViewController?.performSegue(withIdentifier: "gotoSearch", sender: nil)
-        }*/
+        switch shortcutItem.type {
+        case "com.yihengquan.WoWs-Info.News":
+            TabBarController.index = 0
+        case "com.yihengquan.WoWs-Info.Wiki":
+            TabBarController.index = 1
+        case "com.yihengquan.WoWs-Info.Search":
+            TabBarController.index = 2
+        case "com.yihengquan.WoWs-Info.Contact":
+            TabBarController.index = 3
+        default: break
+        }
     }
 
 }

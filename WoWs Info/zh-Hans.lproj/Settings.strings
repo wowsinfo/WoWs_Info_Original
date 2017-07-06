@@ -11,6 +11,18 @@
 /* Class = "UILabel"; text = "Version 1.1"; ObjectID = "6j1-au-PL7"; */
 "6j1-au-PL7.text" = "版本 1.2.1 Φ";
 
+"Dml-Yl-lU5.footerTitle" = "请不定期更新数据，数据由wows-number.com提供";
+
+"9uK-zc-Hhg.headerTitle" = "语言";
+
+"DfM-gu-Ntu.normalTitle" = "更新数据";
+
+"WoO-Jo-DfP.text" = "清理缓存";
+
+"jti-zi-5Oi.text" = "API语言";
+
+"rYm-BF-cCk.text" = "最新消息语言";
+
 /* Class = "UILabel"; text = "What's new?"; ObjectID = "8Zf-qR-p13"; */
 "8Zf-qR-p13.text" = "历史版本";
 
@@ -72,7 +84,7 @@
 "XKc-2W-qHR.placeholder" = "玩家ID";
 
 /* Class = "UILabel"; text = "HenryQuan 2017"; ObjectID = "cW3-Vy-RgV"; */
-"cW3-Vy-RgV.text" = "HenryQuan 2017";
+"cW3-Vy-RgV.text" = "Yiheng Quan 2017";
 
 /* Class = "UILabel"; text = "Russia"; ObjectID = "eSM-Oi-RRc"; */
 "eSM-Oi-RRc.text" = "俄罗斯服务器";

@@ -7,15 +7,20 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 // Lol, that's lots of delegates and data sources
-class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, GADBannerViewDelegate {
 
+    @IBOutlet weak var showAdsConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bannerView: GADBannerView!
+    
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var usernameTableView: UITableView!
     @IBOutlet weak var pickerView: UIView!
     @IBOutlet weak var serverPicker: UIPickerView!
-
+    @IBOutlet weak var serverSelectionBtn: UIButton!
+    
     var playerInfo = [[String]]()
     var selectedInfo = [String]()
     var searchLimit = 0
@@ -27,11 +32,35 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Whether ads should be shown
+        if UserDefaults.standard.bool(forKey: DataManagement.DataName.hasPurchased) {
+            // Adjust constraint
+            showAdsConstraint.constant -= 50
+            bannerView.removeFromSuperview()
+        } else {
+            // Load ads
+            bannerView.adSize = kGADAdSizeSmartBannerPortrait
+            bannerView.adUnitID = "ca-app-pub-5048098651344514/4703363983"
+            bannerView.rootViewController = self
+            bannerView.delegate = self
+            let request = GADRequest()
+            request.testDevices = [kGADSimulatorID]
+            bannerView.load(request)
+        }
+        
         // Load rating
         ShipRating().loadExpctedJson()
         
         // Setup Segmented controll
         let modeSegment = UISegmentedControl.init(items: [NSLocalizedString("PLAYER_SEGMENT", comment: "Player"), NSLocalizedString("CLAN_SEGMENT", comment: "Clan")])
+        // Round button for a perfect radius
+        modeSegment.layer.cornerRadius = modeSegment.frame.height / 2
+        modeSegment.layer.masksToBounds = true
+        // Border
+        modeSegment.layer.borderWidth = 1.0
+        modeSegment.layer.borderColor = UIColor.white.cgColor
+        // 3 / 4 size
+        modeSegment.frame.size.width = self.view.frame.width / 4 * 3
         modeSegment.selectedSegmentIndex = 0
         modeSegment.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
         self.navigationItem.titleView = modeSegment
@@ -59,8 +88,13 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         super.didReceiveMemoryWarning()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Change theme for serverSelectionbtn
+        serverSelectionBtn.backgroundColor = Theme.getCurrTheme()
+        serverSelectionBtn.layer.cornerRadius = serverSelectionBtn.frame.width / 5
+        serverSelectionBtn.layer.masksToBounds = true
         
         // Clean text
         username.text = ""
@@ -69,11 +103,21 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
 
         // Reload search limit
         searchLimit = UserDefaults.standard.integer(forKey: DataManagement.DataName.SearchLimit)
+        
+        // Reload server
+        getServerName()
     }
     
     func getServerName() {
         server = UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)
         username.placeholder = NSLocalizedString("SERVER", comment: "Server label") + " : \(ServerUrl.ServerName[server])"
+    }
+    
+    // MARK: ADS
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        // Adjust constraint
+        showAdsConstraint.constant -= 50
+        bannerView.removeFromSuperview()
     }
     
     // MARK: segmentedControl pressed
@@ -127,7 +171,6 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
                 }
             }
         }
-        
         
     }
     
@@ -216,6 +259,8 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         let cell = UITableViewCell()
         // Change to a better font
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20.0, weight: UIFontWeightLight)
+        // Show indicator
+        cell.accessoryType = .disclosureIndicator
         
         if modeIndex == 0 {
             // Player

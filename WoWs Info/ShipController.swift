@@ -17,12 +17,18 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var ShipTableView: UITableView!
     @IBOutlet weak var filterTextField: UITextField!
+    @IBOutlet weak var sortBtn: UIButton!
+    @IBOutlet weak var resetBtn: UIButton!
     var targetShips = [[String]]()
     let tierSymbol = ["I","II","III","IV","V","VI","VII","VIII","IX","X"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Update theme colour
+        self.tabBarController?.tabBar.tintColor = Theme.getCurrTheme()
+        
+        // Setup tableview
         ShipTableView.delegate = self
         ShipTableView.dataSource = self
         ShipTableView.separatorColor = UIColor.clear
@@ -31,7 +37,7 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         // Get recent info
         RecentData(account: PlayerAccount.AccountID).getRecentData()
-        self.tabBarController?.tabBar.isUserInteractionEnabled = false
+        self.tabBarItem.isEnabled = false
         
         DispatchQueue.main.async {
             self.targetShips = PlayerShip.playerShipInfo
@@ -40,18 +46,23 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.loadingView.isHidden = true
             self.calAvgShipRating()
             
-            self.tabBarController?.tabBar.isUserInteractionEnabled = true
+            self.tabBarItem.isEnabled = true
         }
         
+        // Setup Theme
+        setupBtn(btn: sortBtn)
+        setupBtn(btn: resetBtn)
+    }
+    
+    func setupBtn(btn: UIButton) {
+        btn.backgroundColor = Theme.getCurrTheme()
+        btn.layer.cornerRadius = btn.frame.width / 5
+        btn.layer.masksToBounds = true
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func screenshotPressed(_ sender: UITapGestureRecognizer) {
-        print("Hello")
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -231,6 +242,7 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Cancel button
         sortOption.addAction(UIAlertAction(title: "SHARE_CANCEL".localised(), style: .cancel, handler: nil))
         self.present(sortOption, animated: true)
+        AudioServicesPlaySystemSound(1520)
     }
     
     @IBAction func ddBtnPressed(_ sender: Any) {
@@ -320,8 +332,11 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         print(indexPath.row)
         let cell = self.ShipTableView.dequeueReusableCell(withIdentifier: "ShipCell", for: indexPath) as! ShipTableCell
         cell.battlesLabel.text = targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.battles]
+        cell.battlesLabel.textColor = Theme.getCurrTheme()
         cell.damageLabel.text = targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.averageDamage]
+        cell.damageLabel.textColor = Theme.getCurrTheme()
         cell.winRateLabel.text = targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.winRate]
+        cell.winRateLabel.textColor = Theme.getCurrTheme()
         
         // Setup tier name and type
         let name = targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.name]

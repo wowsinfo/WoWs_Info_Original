@@ -140,6 +140,8 @@
 
 "UPGRADE_SETTINGS" = "升级为专业版";
 
+"THEME_SETTINGS" = "主题";
+
 "MEMBER_LIST" = "玩家列表";
 
 "DEV_LABEL" = "开发者";
@@ -171,3 +173,31 @@
 "SORT_BY_DAMAGE" = "伤害";
 
 "SORT_TITLE" = "排序";
+
+"LANGUAGE_AUTO" = "自动";
+
+"LANGUAGE_TITLE" = ">_<";
+
+"LANGUAGE_MESSAGE" = "语言选择";
+
+"UPDATE_SUCCESS" = "成功";
+
+"UPDATE_FAIL" = "失败";
+
+"UPDATE_SUCCESS_MESSAGE" = "数据已更新";
+
+"UPDATE_FAIL_MESSAGE" = "无法更新数据";
+
+"WIKI" = "百科";
+
+"SEARCH" = "搜索";
+
+"DASHBOARD" = "个人";
+
+"THEME_TITLE" = "评价WoWs Info?";
+
+"THEME_MESSAGE" = "如果您给我们一个评价，主题可以免费解锁";
+
+"SHARE_TITLE" = "图鉴已加强";
+
+"SHARE_MESSAGE" = "如果您可以分享给自己的好友，更多的人可以更加方便地查询战舰信息";

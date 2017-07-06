@@ -12,6 +12,8 @@ class FriendController: UIViewController, UITableViewDelegate, UITableViewDataSo
 
     @IBOutlet weak var friendTableView: UITableView!
     @IBOutlet weak var modeSegment: UISegmentedControl!
+    @IBOutlet weak var dashboardBtn: UIButton!
+    
     var friendList = [String]()
     var tkList = [String]()
     var currPlayer = ""
@@ -32,6 +34,13 @@ class FriendController: UIViewController, UITableViewDelegate, UITableViewDataSo
         friendTableView.delegate = self
         friendTableView.dataSource = self
         friendTableView.separatorColor = UIColor.clear
+        
+        // Round button for a perfect radius
+        modeSegment.layer.cornerRadius = modeSegment.frame.height / 2
+        modeSegment.layer.masksToBounds = true
+        // Border
+        modeSegment.layer.borderWidth = 1.0
+        modeSegment.layer.borderColor = Theme.getCurrTheme().cgColor
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,7 +59,11 @@ class FriendController: UIViewController, UITableViewDelegate, UITableViewDataSo
         currPlayer = user.string(forKey: DataManagement.DataName.UserName)!
         
         // Update colour
-        modeSegment.tintColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
+        modeSegment.tintColor = Theme.getCurrTheme()
+        modeSegment.layer.borderColor = Theme.getCurrTheme().cgColor
+        dashboardBtn.backgroundColor = Theme.getCurrTheme()
+        dashboardBtn.layer.cornerRadius = dashboardBtn.frame.width / 2
+        dashboardBtn.layer.masksToBounds = true
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -65,6 +78,9 @@ class FriendController: UIViewController, UITableViewDelegate, UITableViewDataSo
             pro.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(pro, animated: true, completion: nil)
         } else if currPlayer != ">_<" {
+            // Update server index
+            let server = UserDefaults.standard.string(forKey: DataManagement.DataName.UserName)?.components(separatedBy: "|").last!
+            UserDefaults.standard.set(Int(server!), forKey: DataManagement.DataName.Server)
             // Go to dashboard
             performSegue(withIdentifier: "gotoInfo", sender: currPlayer)
         }
@@ -85,6 +101,8 @@ class FriendController: UIViewController, UITableViewDelegate, UITableViewDataSo
         let cell = UITableViewCell()
         // Better font
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20.0, weight: UIFontWeightLight)
+        // Show indicator
+        cell.accessoryType = .disclosureIndicator
         
         if modeSegment.selectedSegmentIndex == 0 {
             // Friend
@@ -98,7 +116,8 @@ class FriendController: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // UserDefaults.standard.set(Int(friendList[indexPath.row].components(separatedBy: "|")[2]), forKey: DataManagement.DataName.Server)
+        // Change server index
+        UserDefaults.standard.set(Int(friendList[indexPath.row].components(separatedBy: "|")[2]), forKey: DataManagement.DataName.Server)
         if modeSegment.selectedSegmentIndex == 0 {
             performSegue(withIdentifier: "gotoInfo", sender: friendList[indexPath.row])
         } else if modeSegment.selectedSegmentIndex == 1 {
