@@ -140,6 +140,8 @@
 
 "UPGRADE_SETTINGS" = "Upgrade to Pro";
 
+"THEME_SETTINGS" = "Theme";
+
 "MEMBER_LIST" = "Member List";
 
 "DEV_LABEL" = "Developer";
@@ -171,3 +173,31 @@
 "SORT_BY_DAMAGE" = "Damage";
 
 "SORT_TITLE" = "Sorting";
+
+"LANGUAGE_AUTO" = "Auto";
+
+"LANGUAGE_TITLE" = ">_<";
+
+"LANGUAGE_MESSAGE" = "Language Selection";
+
+"UPDATE_SUCCESS" = "Success";
+
+"UPDATE_FAIL" = "Error";
+
+"UPDATE_SUCCESS_MESSAGE" = "ExpectedValue.json is up to date";
+
+"UPDATE_FAIL_MESSAGE" = "Fail to update ExpectedValue.json";
+
+"WIKI" = "Wiki";
+
+"SEARCH" = "Search";
+
+"DASHBOARD" = "Dashboard";
+
+"THEME_TITLE" = "Rate WoWs Info?";
+
+"THEME_MESSAGE" = "Theme could be unlocked for free if you could rate WoWs Info.";
+
+"SHARE_TITLE" = "Ship Gallery is greatly improved";
+
+"SHARE_MESSAGE" = "Would you like to share with your friends so that more people could check ship information more conveniently?";

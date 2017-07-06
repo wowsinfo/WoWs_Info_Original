@@ -8,13 +8,31 @@
 
 import UIKit
 import SafariServices
+import GoogleMobileAds
 
-class NewsController: UITableViewController, SFSafariViewControllerDelegate {
+class NewsController: UITableViewController, SFSafariViewControllerDelegate, GADBannerViewDelegate {
 
     var newsData = [[String]]()
+    @IBOutlet weak var bannerView: GADBannerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Whether ads should be shown
+        if UserDefaults.standard.bool(forKey: DataManagement.DataName.hasPurchased) {
+            // Remove it
+            bannerView.removeFromSuperview()
+            bannerView.frame.size.height = 0
+        } else {
+            // Load ads
+            bannerView.adSize = kGADAdSizeSmartBannerPortrait
+            bannerView.adUnitID = "ca-app-pub-5048098651344514/4703363983"
+            bannerView.rootViewController = self
+            bannerView.delegate = self
+            let request = GADRequest()
+            request.testDevices = [kGADSimulatorID]
+            bannerView.load(request)
+        }
         
         // Automatic row height and remove separator line
         self.tableView.separatorColor = UIColor.clear
@@ -34,20 +52,33 @@ class NewsController: UITableViewController, SFSafariViewControllerDelegate {
         if newsData.count == 0 {
             News().getNews(success: { (data) in
                 DispatchQueue.main.async {
-                    self.newsData = data
+                 self.newsData = data
                     if self.newsData.count > 0 {
                         self.navigationController?.navigationBar.topItem?.title = NSLocalizedString("NEWS", comment: "News label")
                     } else {
                         self.navigationController?.navigationBar.topItem?.title = ">_<"
                     }
+                    // Change view background colour to theme colour
+                    self.tableView.backgroundColor = Theme.getCurrTheme()
+                    // Reload data for animation
                     self.tableView.reloadData()
                     self.tableView.reloadRows(at: self.tableView.indexPathsForVisibleRows!, with: .automatic)
                 }
             })
         } else {
+            // Change view background colour to theme colour
+            self.tableView.backgroundColor = Theme.getCurrTheme()
+            // Reload data for animation
             self.tableView.reloadData()
             self.tableView.reloadRows(at: self.tableView.indexPathsForVisibleRows!, with: .automatic)
         }
+    }
+    
+    // MARK: ADS
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        // Remove it
+        bannerView.removeFromSuperview()
+        bannerView.frame.size.height = 0
     }
 
     // MARK: - Table view data source
@@ -68,7 +99,7 @@ class NewsController: UITableViewController, SFSafariViewControllerDelegate {
         
         // Headlines
         if indexPath.row == 0 {
-            cell.backgroundColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
+            cell.backgroundColor = Theme.getCurrTheme()
             cell.dateLabel.textColor = UIColor.white
             cell.titleLabel.textColor = UIColor.white
             

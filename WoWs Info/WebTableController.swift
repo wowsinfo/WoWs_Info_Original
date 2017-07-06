@@ -11,8 +11,8 @@ import SafariServices
 
 class WebTableController: UITableViewController, SFSafariViewControllerDelegate {
 
-    
-    let website = ["https://worldofwarships.com/", "http://wiki.wargaming.net/en/World_of_Warships", "https://warships.today/", "http://wows-numbers.com/", "http://maplesyrup.sweet.coocan.jp/wows/ranking/", "http://maplesyrup.sweet.coocan.jp/wows/ranking/20170422/asia_2month/ranking_clan.html", "https://sea-group.org//", "http://aslain.com/index.php?/topic/2020-06301-aslains-wows-modpack-installer-wpicture-preview/", "https://github.com/HenryQuan/WOWS_TrainingRoom", "https://github.com/HenryQuan/WoWs_Real"]
+    var serverIndex = 0
+    var website = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +22,14 @@ class WebTableController: UITableViewController, SFSafariViewControllerDelegate 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        serverIndex = UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)
+        let language = Language.getLanguageString(Mode: 0).replacingOccurrences(of: "&language=", with: "")
+        website = ["https://worldofwarships.\(ServerUrl.Server[serverIndex])/", "http://wiki.wargaming.net/\(language)/World_of_Warships", "https://\(ServerUrl.TodayDomain[serverIndex]).warships.today/", "http://\(ServerUrl.NumberDomain[serverIndex])wows-numbers.com/", "http://maplesyrup.sweet.coocan.jp/wows/ranking/", "http://maplesyrup.sweet.coocan.jp/wows/ranking/20170422/\(ServerUrl.TodayDomain[serverIndex])_2month/ranking_clan.html", "https://sea-group.org//", "http://aslain.com/index.php?/topic/2020-06301-aslains-wows-modpack-installer-wpicture-preview/", "https://github.com/HenryQuan/WOWS_TrainingRoom", "https://github.com/HenryQuan/WoWs_Real", "https://github.com/HenryQuan/WoWs_Info_IOS"]
+    }
+    
     
     func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
         // CHange it back

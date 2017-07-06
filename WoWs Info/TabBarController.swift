@@ -9,13 +9,15 @@
 import UIKit
 
 class TabBarController: UITabBarController {
+    
+    static var index = 2
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Search
-        self.selectedIndex = 2
+        self.selectedIndex = TabBarController.index
         // ThemeColour
-        self.tabBar.tintColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
+        self.tabBar.tintColor = Theme.getCurrTheme()
     }
 
     override func didReceiveMemoryWarning() {

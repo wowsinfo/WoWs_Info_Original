@@ -30,6 +30,11 @@ class DataManagement {
         static let friend = "friend_list"
         static let tk = "team_killer"
         static let theme = "theme"
+        static let APILanguage = "api_language"
+        static let NewsLanague = "news_language"
+        static let didReview = "review"
+        static let didShare = "share"
+        static let gotoGithub = "github"
     }
     
 }

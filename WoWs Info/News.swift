@@ -38,7 +38,7 @@ class News {
     }
     
     func getCurrLang() -> String {
-        var language = Language.getLanguageString().replacingOccurrences(of: "&language=", with: "")
+        var language = Language.getLanguageString(Mode: Language.Index.News).replacingOccurrences(of: "&language=", with: "")
         if language == "zh-cn" {
             language = "zh-tw"
         }

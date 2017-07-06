@@ -23,7 +23,6 @@ class WikiDataController: UITableViewController {
         super.viewDidLoad()
         
         // Automatic resizing
-        self.tableView.separatorColor = UIColor.clear
         self.tableView.estimatedRowHeight = 200.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
@@ -48,8 +47,12 @@ class WikiDataController: UITableViewController {
                 break
         }
         
-        self.title = "\(dataString.count)"
+        if dataString.count == 0 {
+            // Quit if there is not data
+            _ = self.navigationController?.popToRootViewController(animated: true)
+        }
         
+        self.title = "\(dataString.count)"
     }
 
     override func didReceiveMemoryWarning() {

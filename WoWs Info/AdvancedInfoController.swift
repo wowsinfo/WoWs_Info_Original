@@ -40,6 +40,8 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        shipData = [[String]]()
+        PlayerShip.playerShipInfo = [[String]]()
 
         // Load player id into title
         self.title  = playerInfo[1]
@@ -47,8 +49,10 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         
         self.prLabel.text = ""
         
-        // Setup dashboard colour
-        DashboardCell.backgroundColor = UserDefaults.standard.color(forKey: DataManagement.DataName.theme)
+        // Setup theme
+        let theme = Theme.getCurrTheme()
+        DashboardCell.backgroundColor = theme
+        retryBtn.backgroundColor = theme
         
         // Pass account id
         _ = PlayerAccount.init(ID: self.title!, Name: playerInfo[0])
@@ -60,6 +64,9 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         
         // Check for friend or tk
         setupNameColour()
+        // Setup theme colour
+        setupBtn(btn: friendBtn)
+        setupBtn(btn: tkBtn)
         
         // If it is for review or not pro
         if !isPro || isPreview {
@@ -68,35 +75,45 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
             setPlayerIDBtn.isEnabled = false
         }
         
+        // Load Rank
+        let rank = RankInformation(ID: PlayerAccount.AccountID)
+        rank.getRankInformation { rank in
+            RankInformation.RankData = rank
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // Load data here
-        PlayerShip(account: PlayerAccount.AccountID).getPlayerShipInfo()
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-            self.shipData = PlayerShip.playerShipInfo
-        })
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-            self.loadPlayerData()
-        })
-        
-        // Get Clan Info
-        PlayerClan().getClanList { (Data) in
-            DispatchQueue.main.async {
-                print("Clan Data: \(Data) \(Data.count)")
-                if Data.count > 0 {
-                    self.clanInfo = Data
-                    UIView.animate(withDuration: 0.5, animations: {
-                        self.clanNameLabel.alpha = 1
-                        self.clanNameLabel.text = self.clanInfo[1]
-                    })
-                    
-                    // Get Clan Info
-                    ClanSearch().getClanList(clan: Data[1], success: { (Clan) in
-                        self.clanData = Clan[0]
-                    })
+        // Prevent unnecessary request
+        if self.isMovingToParentViewController {
+            super.viewWillAppear(animated)
+            // Load data here
+            PlayerShip(account: PlayerAccount.AccountID).getPlayerShipInfo()
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                self.shipData = PlayerShip.playerShipInfo
+            })
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                self.loadPlayerData()
+            })
+            
+            // Get Clan Info
+            PlayerClan().getClanList { (Data) in
+                DispatchQueue.main.async {
+                    print("Clan Data: \(Data) \(Data.count)")
+                    if Data.count > 0 {
+                        self.clanInfo = Data
+                        UIView.animate(withDuration: 0.5, animations: {
+                            self.clanNameLabel.alpha = 1
+                            self.clanNameLabel.text = self.clanInfo[1]
+                            self.clanNameLabel.textColor = Theme.getCurrTheme()
+                        })
+                        
+                        // Get Clan Info
+                        ClanSearch().getClanList(clan: Data[1], success: { (Clan) in
+                            self.clanData = Clan[0]
+                        })
+                    }
                 }
             }
         }
@@ -104,17 +121,6 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if self.isMovingToParentViewController {
-            // Clear Data Here
-            print("Clearing")
-            shipData = [[String]]()
-            PlayerShip.playerShipInfo = [[String]]()
-        }
     }
     
     func loadPlayerData() {
@@ -147,7 +153,7 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
                     let tks = user.object(forKey: DataManagement.DataName.tk) as! [String]
                     for tk in tks {
                         if tk.contains(self.title!) {
-                            self.playerNameLabel.textColor = UIColor(red: 230/255, green: 106/255, blue: 1, alpha: 1.0)
+                            // Remove pink colour for theme
                             hideFriendTKBtn()
                             break
                         }
@@ -168,14 +174,23 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
                 self.levelAndPlaytimeLabel.text = NSLocalizedString("HIDDEN", comment: "Hidden Label")
             } else {
                 self.averageDamageLabel.text = data[PlayerStat.dataIndex.averageDamage]
+                self.averageDamageLabel.textColor = Theme.getCurrTheme()
                 self.averageExpLabel.text = data[PlayerStat.dataIndex.averageExp]
+                self.averageExpLabel.textColor = Theme.getCurrTheme()
                 self.killDeathRatioLabel.text = data[PlayerStat.dataIndex.killDeathRatio]
+                self.killDeathRatioLabel.textColor = Theme.getCurrTheme()
                 self.mainBatteryHitRatioLabel.text = data[PlayerStat.dataIndex.hitRatio]
+                self.mainBatteryHitRatioLabel.textColor = Theme.getCurrTheme()
                 self.winRateLabel.text = data[PlayerStat.dataIndex.winRate]
+                self.winRateLabel.textColor = Theme.getCurrTheme()
                 
                 let level = data[PlayerStat.dataIndex.servicelevel]
                 let playtime = data[PlayerStat.dataIndex.playTime]
-                let levelAndPlayTime = NSLocalizedString("LEVEL", comment: "Level label") + ": \(level) | \(playtime) " + NSLocalizedString("DAYS", comment: "Days label")
+                var levelAndPlayTime = "\(playtime) \("DAYS".localised()) | \("LEVEL".localised()) \(level)"
+                // Add rank if there is one
+                if RankInformation.RankData.count > 0 {
+                    levelAndPlayTime += " | ⭐️\(RankInformation.RankData[0][RankInformation.RankDataIndex.currentRank])"
+                }
                 self.levelAndPlaytimeLabel.text = levelAndPlayTime
                 
                 let totalBattles = Double(data[PlayerStat.dataIndex.totalBattles])
@@ -187,9 +202,10 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
                 } else {
                     self.totalBattlesLabel.text = String(format: "%.0f", totalBattles!)
                 }
+                self.totalBattlesLabel.textColor = Theme.getCurrTheme()
             }
             
-            UIView.animate(withDuration: 0.5, animations: {
+            UIView.animate(withDuration: 0.3, animations: {
                 self.levelAndPlaytimeLabel.alpha = 1.0
                 self.winRateLabel.alpha = 1.0
                 self.averageDamageLabel.alpha = 1.0
@@ -235,7 +251,7 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
             return false
         }
         
-        if self.prLabel.text == "" { return false }
+        if self.totalBattlesLabel.text == "" { return false }
         
         if identifier == "gotoClan" {
             if clanData == [String]() || clanData[2] == "" {
@@ -252,6 +268,12 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         }
         
         return true
+    }
+    
+    // MARK: Helper Function
+    func setupBtn(btn: UIButton) {
+        btn.layer.cornerRadius = btn.frame.width / 2
+        btn.layer.masksToBounds = true
     }
     
     // MARK: TableView
@@ -306,7 +328,9 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     @IBAction func retryBtnPressed(_ sender: Any) {
         // Load data here
         PlayerShip(account: PlayerAccount.AccountID).getPlayerShipInfo()
-        calAvgShipRating()
+        DispatchQueue.main.async {
+            self.calAvgShipRating()
+        }
         AudioServicesPlaySystemSound(1520)
     }
     
@@ -381,8 +405,11 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
             
             let index = PersonalRating.getPersonalRatingIndex(PR: rating)
             
-            prLabel.text = PersonalRating.Comment[index]
-            prLabel.textColor = PersonalRating.ColorGroup[index]
+            DispatchQueue.main.async {
+                self.prLabel.text = PersonalRating.Comment[index]
+                self.prLabel.textColor = PersonalRating.ColorGroup[index]
+            }
+            
             UIView.animate(withDuration: 0.5) { 
                 self.prLabel.alpha = 1
             }
@@ -393,5 +420,5 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
             }
         }
     }
- 
+    
 }

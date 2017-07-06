@@ -10,19 +10,22 @@ import UIKit
 
 class AboutController: UIViewController {
 
+    @IBOutlet weak var themeImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        // Setup theme
+        themeImage.backgroundColor = Theme.getCurrTheme()
+        themeImage.layer.cornerRadius = themeImage.frame.width / 5
+        themeImage.layer.masksToBounds = true
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func gotoTwitter(_ sender: UITapGestureRecognizer) {
-        // Go to my twitter account
-        UIApplication.shared.openURL(URL(string: "https://twitter.com/Yiheng_Quan")!)
+        // Source code
+        UIApplication.shared.openURL(URL(string: "https://github.com/HenryQuan/WoWs_Info_IOS")!)
     }
 }
