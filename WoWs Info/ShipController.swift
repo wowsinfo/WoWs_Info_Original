@@ -37,7 +37,7 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         // Get recent info
         RecentData(account: PlayerAccount.AccountID).getRecentData()
-        self.tabBarController?.tabBar.isUserInteractionEnabled = false
+        self.tabBarItem.isEnabled = false
         
         DispatchQueue.main.async {
             self.targetShips = PlayerShip.playerShipInfo
@@ -46,17 +46,12 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.loadingView.isHidden = true
             self.calAvgShipRating()
             
-            self.tabBarController?.tabBar.isUserInteractionEnabled = true
+            self.tabBarItem.isEnabled = true
         }
         
         // Setup Theme
         setupBtn(btn: sortBtn)
         setupBtn(btn: resetBtn)
-        
-        // Check if there is ship
-        if shipCountLabel.text == "0" {
-            _ = self.navigationController?.popViewController(animated: true)
-        }
     }
     
     func setupBtn(btn: UIButton) {
