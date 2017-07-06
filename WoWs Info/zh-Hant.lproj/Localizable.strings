@@ -126,7 +126,7 @@
 
 "NO_INTERNET" = "無網絡";
 
-"WOWS_WIKI" = "戰艦世界圖鑑";
+"WOWS_WIKI" = "戰艦世界圖鑒";
 
 "DASHBOARD_BAR" = "聯絡資訊";
 
@@ -187,3 +187,17 @@
 "UPDATE_SUCCESS_MESSAGE" = "數據已更新";
 
 "UPDATE_FAIL_MESSAGE" = "無法更新數據";
+
+"WIKI" = "百科";
+
+"SEARCH" = "搜索";
+
+"DASHBOARD" = "個人";
+
+"THEME_TITLE" = "評價WoWs Info?";
+
+"THEME_MESSAGE" = "如果您給我們一個評價，主題可以免費解鎖";
+
+"SHARE_TITLE" = "圖鑒已加強";
+
+"SHARE_MESSAGE" = "如果您可以分享給自己的好友，更多的人可以更加方便地查詢戰艦信息";

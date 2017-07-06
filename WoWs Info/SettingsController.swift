@@ -141,13 +141,30 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let index = indexPath.row
         if isPro {
-            if indexPath.row != imageSet.count {
-                performSegue(withIdentifier: segueSet[indexPath.row + 1], sender: nil)
+            if index != imageSet.count {
+                performSegue(withIdentifier: segueSet[index + 1], sender: nil)
             }
         } else {
-            if indexPath.row != imageSet.count + 1 {
-                performSegue(withIdentifier: segueSet[indexPath.row], sender: nil)
+            if index != imageSet.count + 1 {
+                if segueSet[index] == "gotoTheme" {
+                    if !UserDefaults.standard.bool(forKey: DataManagement.DataName.didReview) {
+                        // Ask User to rate this app
+                        let rate = UIAlertController(title: "THEME_TITLE".localised(), message: "THEME_MESSAGE".localised(), preferredStyle: .alert)
+                        rate.addAction(UIAlertAction(title: "OK", style: .default, handler: { (Review) in
+                            UIApplication.shared.openURL(URL(string: "https://itunes.apple.com/app/id1202750166")!)
+                            // Well, you dont really need to review though                                                                                                                                                                                                                                                                                                                                               
+                            UserDefaults.standard.set(true, forKey: DataManagement.DataName.didReview)
+                        }))
+                        rate.addAction(UIAlertAction(title: "SHARE_CANCEL".localised(), style: .cancel, handler: nil))
+                        self.present(rate, animated: true, completion: nil)
+                    } else {
+                        performSegue(withIdentifier: "gotoTheme", sender: nil)
+                    }
+                } else {
+                    performSegue(withIdentifier: segueSet[index], sender: nil)
+                }
             }
         }
     }

@@ -53,7 +53,6 @@ class WikiDataController: UITableViewController {
         }
         
         self.title = "\(dataString.count)"
-        
     }
 
     override func didReceiveMemoryWarning() {
