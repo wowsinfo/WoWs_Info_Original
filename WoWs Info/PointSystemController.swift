@@ -35,7 +35,7 @@ class PointSystemController: UIViewController {
         
         // Setup pointlabel
         pointLabel.backgroundColor = Theme.getCurrTheme()
-        pointLabel.layer.cornerRadius = view.frame.width * 0.1
+        pointLabel.layer.cornerRadius = pointLabel.frame.width / 2
         pointLabel.layer.masksToBounds = true
     }
     
