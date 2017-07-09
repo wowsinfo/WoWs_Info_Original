@@ -20,6 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         GADMobileAds.configure(withApplicationID: "ca-app-pub-5048098651344514~3226630788")
+        // Setup Rewarded Video
+        let request = GADRequest()
+        request.testDevices = [kGADSimulatorID]
+        GADRewardBasedVideoAd.sharedInstance().load(request, withAdUnitID: "ca-app-pub-5048098651344514/5135812781")
         
         // Change status bar color
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent

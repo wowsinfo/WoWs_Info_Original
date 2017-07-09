@@ -196,7 +196,7 @@
 
 "THEME_TITLE" = "Rate WoWs Info?";
 
-"THEME_MESSAGE" = "Theme could be unlocked for free if you could rate WoWs Info.\nYou could also receive 30 points.";
+"THEME_MESSAGE" = "Theme could be unlocked for free if you could rate WoWs Info.\nYou could also receive 40 points.";
 
 "SHARE_TITLE" = "Ship Gallery is greatly improved";
 
@@ -209,3 +209,7 @@
 "POINT_SYSTEM" = "Points";
 
 "POINT_MESSAGE" = "Points have been added.";
+
+"NO_ENOUGH_POINT_TITLE" = "You do not have enough points";
+
+"NO_ENOUGH_POINT_MESSAGE" = "Please get more points by clicking on Ads in More -> Points";

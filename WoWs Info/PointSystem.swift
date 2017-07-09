@@ -11,6 +11,7 @@ import UIKit
 class PointSystem: NSObject {
     
     var index = 0
+    var pointToRemove = 0
     
     struct DataIndex {
         static let AD = 0
@@ -22,15 +23,44 @@ class PointSystem: NSObject {
         self.index = index
     }
     
+    init(pointToRemove: Int) {
+        self.pointToRemove = pointToRemove
+    }
+    
+    // MARK: Add / Remove Pints
     func addPoint() {
         if isPro() { return }
         // Add point
+        switch index {
+        case 0: break
+        case 1:
+            if hasReview() { return }
+        case 2:
+            if hasShare() { return }
+        default: return
+        }
+        
         let currPoint = PointSystem.getCurrPoint()
         UserDefaults.standard.set(currPoint + getAmoutFromIndex(index: self.index), forKey: DataManagement.DataName.pointSystem)
     }
     
+    func removePoint() {
+        if isPro() { return }
+        let currPoint = PointSystem.getCurrPoint()
+        UserDefaults.standard.set(currPoint - pointToRemove, forKey: DataManagement.DataName.pointSystem)
+    }
+    
+    // MARK: Helper Functions
     func isPro() -> Bool {
         return UserDefaults.standard.bool(forKey: DataManagement.DataName.hasPurchased)
+    }
+    
+    func hasReview() -> Bool {
+        return UserDefaults.standard.bool(forKey: DataManagement.DataName.didReview)
+    }
+    
+    func hasShare() -> Bool {
+        return UserDefaults.standard.bool(forKey: DataManagement.DataName.didShare)
     }
     
     static func getCurrPoint() -> Int {
@@ -39,8 +69,8 @@ class PointSystem: NSObject {
     
     func getAmoutFromIndex(index: Int) -> Int {
         switch index {
-        case 0: return 3
-        case 1: return 30
+        case 0: return 5
+        case 1: return 40
         case 2: return 50
         default: return 0
         }

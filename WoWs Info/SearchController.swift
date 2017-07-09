@@ -10,7 +10,7 @@ import UIKit
 import GoogleMobileAds
 
 // Lol, that's lots of delegates and data sources
-class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, GADBannerViewDelegate {
+class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, GADBannerViewDelegate, GADRewardBasedVideoAdDelegate {
 
     @IBOutlet weak var showAdsConstraint: NSLayoutConstraint!
     @IBOutlet weak var bannerView: GADBannerView!
@@ -117,6 +117,14 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         // Reload server
         getServerName()
+        
+        // Check if user needs to watch a video ads
+        if PointSystem.getCurrPoint() < 1 {
+            GADRewardBasedVideoAd.sharedInstance().delegate = self
+            if GADRewardBasedVideoAd.sharedInstance().isReady {
+                GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
+            }
+        }
     }
     
     func getServerName() {
@@ -129,6 +137,11 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         // Adjust constraint
         showAdsConstraint.constant -= 50
         bannerView.removeFromSuperview()
+    }
+    
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didRewardUserWith reward: GADAdReward) {
+        // Add 3 points
+        PointSystem(index: PointSystem.DataIndex.AD).addPoint()
     }
     
     // MARK: segmentedControl pressed
