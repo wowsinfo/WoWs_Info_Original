@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yXk-XQ-L7l">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yXk-XQ-L7l">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -347,6 +346,7 @@
                         <segue destination="9AB-8i-A0J" kind="show" identifier="gotoReview" id="DQA-Zt-VEf"/>
                         <segue destination="7pX-da-rLG" kind="show" identifier="gotoWeb" id="UmF-iT-4H0"/>
                         <segue destination="VEn-QO-Eck" kind="show" identifier="gotoTheme" id="5Ae-Z5-61Q"/>
+                        <segue destination="LKi-nb-kQV" kind="show" identifier="gotoPoint" id="wQX-VX-61T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iNB-RQ-zdn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -579,6 +579,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aCh-bf-KDn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7688" y="-1602"/>
+        </scene>
+        <!--PointSystemController-->
+        <scene sceneID="Clo-m2-Seo">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PointSystem" referencedIdentifier="PointSystemController" id="LKi-nb-kQV" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vEa-5Z-LhS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7713" y="-1539"/>
         </scene>
         <!--News Controller-->
         <scene sceneID="M1r-lJ-GmA">

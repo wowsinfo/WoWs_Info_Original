@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="97h-nA-Roj">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Point System Controller-->
+        <scene sceneID="cV0-2h-C3n">
+            <objects>
+                <viewController storyboardIdentifier="PointSystemController" hidesBottomBarWhenPushed="YES" id="97h-nA-Roj" customClass="PointSystemController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9If-wH-vkv"/>
+                        <viewControllerLayoutGuide type="bottom" id="8dy-uf-Kqn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KwO-Ws-odE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9999" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFZ-xi-RVz">
+                                <rect key="frame" x="112" y="131" width="150" height="150"/>
+                                <color key="backgroundColor" red="0.0022613033824027129" green="0.62529507392693162" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bFZ-xi-RVz" secondAttribute="height" multiplier="1:1" id="NZd-pC-5EJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="50"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omF-Mo-jJH">
+                                <rect key="frame" x="66" y="313" width="244" height="40"/>
+                                <color key="backgroundColor" red="0.0022613033824027129" green="0.62529507392693162" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Watch an AD (+3)">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mrT-nI-KJR">
+                                <rect key="frame" x="66" y="361" width="244" height="40"/>
+                                <color key="backgroundColor" red="0.0022613033819999999" green="0.62529507390000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Write a review (+30)">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RdP-e6-XrK">
+                                <rect key="frame" x="65.5" y="409" width="244" height="40"/>
+                                <color key="backgroundColor" red="0.0022613033819999999" green="0.62529507390000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Share with friends (+50)">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bFZ-xi-RVz" firstAttribute="centerX" secondItem="KwO-Ws-odE" secondAttribute="centerX" id="5Wt-Vy-49o"/>
+                            <constraint firstItem="omF-Mo-jJH" firstAttribute="centerY" secondItem="KwO-Ws-odE" secondAttribute="centerY" id="66l-ki-WZU"/>
+                            <constraint firstItem="mrT-nI-KJR" firstAttribute="width" secondItem="KwO-Ws-odE" secondAttribute="width" multiplier="0.65" id="ANy-IJ-ge1"/>
+                            <constraint firstItem="RdP-e6-XrK" firstAttribute="width" secondItem="KwO-Ws-odE" secondAttribute="width" multiplier="0.65" id="B6F-sY-HoH"/>
+                            <constraint firstItem="mrT-nI-KJR" firstAttribute="centerX" secondItem="KwO-Ws-odE" secondAttribute="centerX" id="Nfu-1E-ARJ"/>
+                            <constraint firstItem="omF-Mo-jJH" firstAttribute="height" secondItem="KwO-Ws-odE" secondAttribute="height" multiplier="0.06" id="NhC-lj-vMW"/>
+                            <constraint firstItem="omF-Mo-jJH" firstAttribute="top" secondItem="bFZ-xi-RVz" secondAttribute="bottom" constant="32" id="Wb1-9j-VDM"/>
+                            <constraint firstItem="mrT-nI-KJR" firstAttribute="top" secondItem="omF-Mo-jJH" secondAttribute="bottom" constant="8" id="k4n-F2-aUa"/>
+                            <constraint firstItem="RdP-e6-XrK" firstAttribute="height" secondItem="KwO-Ws-odE" secondAttribute="height" multiplier="0.06" id="k5F-aR-coo"/>
+                            <constraint firstItem="mrT-nI-KJR" firstAttribute="height" secondItem="KwO-Ws-odE" secondAttribute="height" multiplier="0.06" id="mDb-rn-izn"/>
+                            <constraint firstItem="omF-Mo-jJH" firstAttribute="centerX" secondItem="KwO-Ws-odE" secondAttribute="centerX" id="maf-lK-lvY"/>
+                            <constraint firstItem="RdP-e6-XrK" firstAttribute="top" secondItem="mrT-nI-KJR" secondAttribute="bottom" constant="8" id="oiv-CH-P2R"/>
+                            <constraint firstItem="bFZ-xi-RVz" firstAttribute="width" secondItem="KwO-Ws-odE" secondAttribute="width" multiplier="0.4" id="t3h-uW-dfY"/>
+                            <constraint firstItem="omF-Mo-jJH" firstAttribute="width" secondItem="KwO-Ws-odE" secondAttribute="width" multiplier="0.65" id="v8t-UY-PH6"/>
+                            <constraint firstItem="RdP-e6-XrK" firstAttribute="centerX" secondItem="KwO-Ws-odE" secondAttribute="centerX" id="zuU-hn-lHF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="adBtn" destination="omF-Mo-jJH" id="Y12-3p-U65"/>
+                        <outlet property="pointLabel" destination="bFZ-xi-RVz" id="Nu0-WM-zwQ"/>
+                        <outlet property="reviewBtn" destination="mrT-nI-KJR" id="9qF-c4-RnH"/>
+                        <outlet property="shareBtn" destination="RdP-e6-XrK" id="vAc-w0-ff0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZSF-Ra-aiu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-144.80000000000001" y="-16.641679160419791"/>
+        </scene>
+    </scenes>
+</document>

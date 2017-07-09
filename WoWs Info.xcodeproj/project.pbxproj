@@ -86,6 +86,8 @@
 		92D9B4D91E565C6E00CFD46D /* ShipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4D81E565C6E00CFD46D /* ShipController.swift */; };
 		92D9B4DB1E565C8A00CFD46D /* ShipTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4DA1E565C8A00CFD46D /* ShipTableCell.swift */; };
 		92E125931EE676D700D7769A /* String+Localised.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E125921EE676D700D7769A /* String+Localised.swift */; };
+		92E40C4F1F11C888004A085A /* PointSystem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E40C4E1F11C888004A085A /* PointSystem.storyboard */; };
+		92E40C521F11CB8E004A085A /* PointSystemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E40C511F11CB8E004A085A /* PointSystemController.swift */; };
 		92E45B1E1EAE13C200360E62 /* ClanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E45B1D1EAE13C200360E62 /* ClanCell.swift */; };
 		92E45B201EAE13CC00360E62 /* MemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E45B1F1EAE13CC00360E62 /* MemberCell.swift */; };
 		92E45B251EAE149D00360E62 /* ClanInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E45B241EAE149D00360E62 /* ClanInfoController.swift */; };
@@ -203,6 +205,8 @@
 		92D9B4D81E565C6E00CFD46D /* ShipController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipController.swift; sourceTree = "<group>"; };
 		92D9B4DA1E565C8A00CFD46D /* ShipTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipTableCell.swift; sourceTree = "<group>"; };
 		92E125921EE676D700D7769A /* String+Localised.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localised.swift"; sourceTree = "<group>"; };
+		92E40C4E1F11C888004A085A /* PointSystem.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PointSystem.storyboard; sourceTree = "<group>"; };
+		92E40C511F11CB8E004A085A /* PointSystemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointSystemController.swift; sourceTree = "<group>"; };
 		92E45B1D1EAE13C200360E62 /* ClanCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClanCell.swift; sourceTree = "<group>"; };
 		92E45B1F1EAE13CC00360E62 /* MemberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberCell.swift; sourceTree = "<group>"; };
 		92E45B241EAE149D00360E62 /* ClanInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClanInfoController.swift; sourceTree = "<group>"; };
@@ -256,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				9210C06D1E45E30E00270002 /* NavigationController.swift */,
+				92E40C501F11CB77004A085A /* PointSystem */,
 				92457ADF1EE5487B00B5A120 /* Theme */,
 				929C426B1EB20E0200DD0F6A /* Dashboard */,
 				920105B61EB1890500E5F338 /* Tab Bar */,
@@ -504,6 +509,7 @@
 				929B0B4A1E619EE3007E54EA /* Wiki.storyboard */,
 				9295B1D01EBDEF3B008FE418 /* FriendList.storyboard */,
 				92B768721E5E5DE1009803C3 /* UsefulWebsite.storyboard */,
+				92E40C4E1F11C888004A085A /* PointSystem.storyboard */,
 				925BE5AB1E502D0000DA6A1A /* Settings.storyboard */,
 				924B21EA1EB36D950016A7C8 /* Clan.storyboard */,
 			);
@@ -582,6 +588,14 @@
 				921EA69C1E35F2FB0007C7FC /* Main.storyboard */,
 			);
 			name = Welcome;
+			sourceTree = "<group>";
+		};
+		92E40C501F11CB77004A085A /* PointSystem */ = {
+			isa = PBXGroup;
+			children = (
+				92E40C511F11CB8E004A085A /* PointSystemController.swift */,
+			);
+			name = PointSystem;
 			sourceTree = "<group>";
 		};
 		92E45B211EAE147500360E62 /* Clan */ = {
@@ -685,6 +699,7 @@
 				92B768701E5E5DE1009803C3 /* UsefulWebsite.storyboard in Resources */,
 				9295B1DF1EBE077E008FE418 /* GoogleService-Info.plist in Resources */,
 				92B768851E5E6E34009803C3 /* Localizable.strings in Resources */,
+				92E40C4F1F11C888004A085A /* PointSystem.storyboard in Resources */,
 				925636591E53F1CA0002E08A /* Assets.xcassets in Resources */,
 				92457ADE1EE5475800B5A120 /* Theme.storyboard in Resources */,
 				925BE5AD1E502D0000DA6A1A /* Settings.storyboard in Resources */,
@@ -814,6 +829,7 @@
 				922D0E571E6295DE0056EDE6 /* ShipInfoController.swift in Sources */,
 				92E125931EE676D700D7769A /* String+Localised.swift in Sources */,
 				92F526F11E6B9476005A2E20 /* AboutController.swift in Sources */,
+				92E40C521F11CB8E004A085A /* PointSystemController.swift in Sources */,
 				92AAE8C01E938511006DB929 /* WikiController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

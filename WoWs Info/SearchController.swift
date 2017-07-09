@@ -32,6 +32,17 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Show Github if havent seen it yet
+        if !UserDefaults.standard.bool(forKey: DataManagement.DataName.gotoGithub) {
+            print("Show Github Message")
+            let github = UIAlertController(title: "GITHUB_TITLE".localised(), message: "GITHUB_MESSAGE".localised(), preferredStyle: .alert)
+            github.addAction(UIAlertAction(title: ">_<", style: .default, handler: { (Github) in
+                UIApplication.shared.openURL(URL(string: "https://github.com/HenryQuan/WoWs_Info_IOS")!)
+            }))
+            self.present(github, animated: true, completion: nil)
+            UserDefaults.standard.set(true, forKey: DataManagement.DataName.gotoGithub)
+        }
+        
         // Whether ads should be shown
         if UserDefaults.standard.bool(forKey: DataManagement.DataName.hasPurchased) {
             // Adjust constraint
