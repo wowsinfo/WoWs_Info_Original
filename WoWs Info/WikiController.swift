@@ -46,7 +46,7 @@ class WikiController: UITableViewController {
         } else {
             cell.wikiImage.backgroundColor = UIColor.clear
         }
-        
+
         cell.wikiTextLabel.text = name[indexPath.row]
         cell.wikiImage.image = iconImage[index]
         
@@ -59,6 +59,7 @@ class WikiController: UITableViewController {
         } else {
             if identifier[indexPath.row] == "gotoWarships" {
                 // Ask user to share with friend or not
+                UserDefaults.standard.set(false, forKey: DataManagement.DataName.didShare)
                 if !UserDefaults.standard.bool(forKey: DataManagement.DataName.didShare) {
                     UserDefaults.standard.set(true, forKey: DataManagement.DataName.didShare)
                     // Ask User to share this app

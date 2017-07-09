@@ -38,6 +38,9 @@
                                 <state key="normal" title="Watch an AD (+3)">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="playVideoBtnPressed:" destination="97h-nA-Roj" eventType="touchUpInside" id="kB7-1O-N1L"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mrT-nI-KJR">
                                 <rect key="frame" x="84" y="290" width="206" height="40"/>
