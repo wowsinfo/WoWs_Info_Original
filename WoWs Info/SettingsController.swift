@@ -13,7 +13,7 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet weak var bannerView: GADBannerView!
     let imageSet = [#imageLiteral(resourceName: "Web"),#imageLiteral(resourceName: "AppStore"),#imageLiteral(resourceName: "Settings"), #imageLiteral(resourceName: "Theme"), #imageLiteral(resourceName: "Gold")]
-    let wordSet = ["WEB_SETTINGS".localised(), "APP_SETTINGS".localised(), "SETTINGS_SETTINGS".localised(), "THEME_SETTINGS".localised(), "POINT_SYSTEM".localised()]
+    var wordSet = ["WEB_SETTINGS".localised(), "APP_SETTINGS".localised(), "SETTINGS_SETTINGS".localised(), "THEME_SETTINGS".localised(), "POINT_SYSTEM".localised()]
     let segueSet = ["gotoProVersion", "gotoWeb", "gotoReview", "gotoSettings", "gotoTheme", "gotoPoint"]
     var isPro = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
     @IBOutlet weak var settingsTableView: UITableView!
@@ -57,6 +57,13 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
         let ThemeColour = Theme.getCurrTheme()
         self.navigationController?.navigationBar.barTintColor = ThemeColour
         self.tabBarController?.tabBar.tintColor = ThemeColour
+        
+        // Update Point
+        if isPro {
+            wordSet[4] = "POINT_SYSTEM".localised() + " (∞)"
+        } else {
+            wordSet[4] = "POINT_SYSTEM".localised() + " (\(PointSystem.getCurrPoint()))"
+        }
         // Reload tableview
         self.settingsTableView.reloadData()
     }
@@ -182,6 +189,8 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
         share.popoverPresentationController?.sourceView = self.view
         share.modalPresentationStyle = .overFullScreen
         self.present(share, animated: true, completion: nil)
+        // Free 50 points
+        PointSystem(index: PointSystem.DataIndex.Share).addPoint()
     }
 
 }

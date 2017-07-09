@@ -35,7 +35,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omF-Mo-jJH">
                                 <rect key="frame" x="85" y="234" width="206" height="40"/>
                                 <color key="backgroundColor" red="0.0022613033824027129" green="0.62529507392693162" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Watch an AD (+3)">
+                                <state key="normal" title="Watch an AD (+5)">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -45,9 +45,12 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mrT-nI-KJR">
                                 <rect key="frame" x="84" y="290" width="206" height="40"/>
                                 <color key="backgroundColor" red="0.0022613033819999999" green="0.62529507390000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Write a review (+30)">
+                                <state key="normal" title="Write a review (+40)">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="reviewBtnPressed:" destination="97h-nA-Roj" eventType="touchUpInside" id="gs5-Y5-maW"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RdP-e6-XrK">
                                 <rect key="frame" x="84" y="346" width="206" height="40"/>
@@ -55,12 +58,22 @@
                                 <state key="normal" title="Share with friends (+50)">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="shareBtnPressed:" destination="97h-nA-Roj" eventType="touchUpInside" id="9lz-EX-75T"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A video will popup whenever you run out of points. You will not get any more points if you share and review again." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONO-MQ-Sih">
+                                <rect key="frame" x="8" y="418" width="359" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="RdP-e6-XrK" firstAttribute="width" secondItem="KwO-Ws-odE" secondAttribute="width" multiplier="0.55" id="0sH-6W-GYM"/>
                             <constraint firstItem="RdP-e6-XrK" firstAttribute="top" secondItem="mrT-nI-KJR" secondAttribute="bottom" constant="16" id="3qC-jQ-V5s"/>
+                            <constraint firstItem="ONO-MQ-Sih" firstAttribute="leading" secondItem="KwO-Ws-odE" secondAttribute="leading" constant="8" id="Be6-Bd-OyK"/>
                             <constraint firstItem="mrT-nI-KJR" firstAttribute="centerX" secondItem="KwO-Ws-odE" secondAttribute="centerX" id="JR8-Dt-Tim"/>
                             <constraint firstItem="mrT-nI-KJR" firstAttribute="width" secondItem="KwO-Ws-odE" secondAttribute="width" multiplier="0.55" id="PcR-cM-FbH"/>
                             <constraint firstItem="bFZ-xi-RVz" firstAttribute="centerX" secondItem="KwO-Ws-odE" secondAttribute="centerX" id="Pfd-DJ-JL6"/>
@@ -72,7 +85,9 @@
                             <constraint firstItem="RdP-e6-XrK" firstAttribute="centerX" secondItem="KwO-Ws-odE" secondAttribute="centerX" id="nmU-9a-gF0"/>
                             <constraint firstItem="mrT-nI-KJR" firstAttribute="top" secondItem="omF-Mo-jJH" secondAttribute="bottom" constant="16" id="sMa-Qk-f7z"/>
                             <constraint firstItem="omF-Mo-jJH" firstAttribute="centerX" secondItem="KwO-Ws-odE" secondAttribute="centerX" id="u8J-hu-Ika"/>
+                            <constraint firstAttribute="trailing" secondItem="ONO-MQ-Sih" secondAttribute="trailing" constant="8" id="uJO-zY-9I3"/>
                             <constraint firstItem="omF-Mo-jJH" firstAttribute="width" secondItem="KwO-Ws-odE" secondAttribute="width" multiplier="0.55" id="yMR-be-qlf"/>
+                            <constraint firstItem="ONO-MQ-Sih" firstAttribute="top" secondItem="RdP-e6-XrK" secondAttribute="bottom" constant="32" id="zgh-Pw-Ftz"/>
                         </constraints>
                     </view>
                     <connections>

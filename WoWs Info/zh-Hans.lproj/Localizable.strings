@@ -196,7 +196,7 @@
 
 "THEME_TITLE" = "评价WoWs Info?";
 
-"THEME_MESSAGE" = "如果您给我们一个评价，主题可以免费解锁\n并且获得30点作为奖励";
+"THEME_MESSAGE" = "如果您给我们一个评价，主题可以免费解锁\n并且获得40点作为奖励";
 
 "SHARE_TITLE" = "图鉴已加强";
 
@@ -207,3 +207,7 @@
 "GITHUB_TITLE" = "WoWs Info开源了";
 
 "POINT_SYSTEM" = "点数";
+
+"NO_ENOUGH_POINT_TITLE" = "您没有足够的点数";
+
+"NO_ENOUGH_POINT_MESSAGE" = "请在更多 -> 点数 观看以及点击广告来获得更多点数";

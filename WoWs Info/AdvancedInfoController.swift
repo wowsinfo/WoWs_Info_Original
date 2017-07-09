@@ -9,8 +9,9 @@
 import UIKit
 import AudioToolbox
 import SafariServices
+import GoogleMobileAds
 
-class AdvancedInfoController: UITableViewController, SFSafariViewControllerDelegate {
+class AdvancedInfoController: UITableViewController, SFSafariViewControllerDelegate, GADRewardBasedVideoAdDelegate {
 
     var playerInfo = [String]()
     @IBOutlet weak var clanNameLabel: UILabel!
@@ -31,6 +32,9 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     var shipData: [[String]]!
     var clanInfo: [String]!
     var clanData = [String]()
+    let currPoint = PointSystem.getCurrPoint()
+
+    var pointsToRemove = 0
     
     let username = UserDefaults.standard.string(forKey: DataManagement.DataName.UserName)!
     let isPro = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
@@ -115,6 +119,14 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
                     }
                 }
             }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if self.isMovingFromParentViewController {
+            if pointsToRemove > 2 { pointsToRemove = 2 }
+            PointSystem(pointToRemove: pointsToRemove).removePoint()
         }
     }
 
@@ -239,9 +251,9 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         
-        if !isPro {
+        if !isPro && currPoint < 1 {
             // Do not segue if it is not Pro
-            let pro = UIAlertController(title: NSLocalizedString("PRO_TITLE", comment: "Title"), message: NSLocalizedString("PRO_MESSAGE", comment: "Message"), preferredStyle: .alert)
+            let pro = UIAlertController(title: "NO_ENOUGH_POINT_TITLE".localised(), message: "NO_ENOUGH_POINT_MESSAGE".localised(), preferredStyle: .alert)
             pro.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(pro, animated: true, completion: nil)
             
@@ -258,6 +270,7 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         }
         
         if identifier == "gotoMoreInfo" {
+            pointsToRemove += 1
             if self.totalBattlesLabel.text == "0" {
                 // Do not segue if they never player a battle
                 return false
@@ -265,6 +278,11 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         }
         
         return true
+    }
+    
+    // MARK: ADS
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didRewardUserWith reward: GADAdReward) {
+        PointSystem(index: PointSystem.DataIndex.AD).addPoint()
     }
     
     // MARK: Helper Function
@@ -277,7 +295,8 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         if cell?.tag == 99 {
-            if isPro {
+            if isPro || currPoint > 0 {
+                pointsToRemove += 1
                 // Go to number
                 let browser = SFSafariViewController(url: URL(string: ServerUrl(serverIndex: serverIndex).getUrlForNumber(account: self.title!, name: playerNameLabel.text!))!)
                 browser.modalPresentationStyle = .overFullScreen
@@ -285,6 +304,10 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
                 // Change status bar
                 UIApplication.shared.statusBarStyle = .default
                 self.present(browser, animated: true, completion: nil)
+            } else {
+                let pro = UIAlertController(title: "NO_ENOUGH_POINT_TITLE".localised(), message: "NO_ENOUGH_POINT_MESSAGE".localised(), preferredStyle: .alert)
+                pro.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(pro, animated: true, completion: nil)
             }
         }
     }
