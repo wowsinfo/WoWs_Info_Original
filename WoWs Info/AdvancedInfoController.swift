@@ -15,7 +15,6 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     var playerInfo = [String]()
     @IBOutlet weak var clanNameLabel: UILabel!
     var serverIndex = 0
-    var isPreview = false
     @IBOutlet weak var playerNameLabel: UILabel!
     @IBOutlet weak var levelAndPlaytimeLabel: UILabel!
     @IBOutlet weak var totalBattlesLabel: UILabel!
@@ -69,7 +68,7 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         setupBtn(btn: tkBtn)
         
         // If it is for review or not pro
-        if !isPro || isPreview {
+        if !isPro {
             tkBtn.isHidden = true
             friendBtn.isHidden = true
             setPlayerIDBtn.isEnabled = false
@@ -240,8 +239,6 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         
-        if isPreview { return true }
-        
         if !isPro {
             // Do not segue if it is not Pro
             let pro = UIAlertController(title: NSLocalizedString("PRO_TITLE", comment: "Title"), message: NSLocalizedString("PRO_MESSAGE", comment: "Message"), preferredStyle: .alert)
@@ -280,7 +277,7 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         if cell?.tag == 99 {
-            if isPro || isPreview {
+            if isPro {
                 // Go to number
                 let browser = SFSafariViewController(url: URL(string: ServerUrl(serverIndex: serverIndex).getUrlForNumber(account: self.title!, name: playerNameLabel.text!))!)
                 browser.modalPresentationStyle = .overFullScreen

@@ -162,6 +162,11 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
                     } else {
                         performSegue(withIdentifier: "gotoTheme", sender: nil)
                     }
+                } else if segueSet[index] == "gotoProVersion" {
+                    let storyboard = UIStoryboard(name: "ProVersion", bundle: Bundle.main)
+                    let pro = storyboard.instantiateViewController(withIdentifier: "ProViewController") as! IAPController
+                    pro.modalPresentationStyle = .overFullScreen
+                    self.present(pro, animated: true, completion: nil)
                 } else {
                     performSegue(withIdentifier: segueSet[index], sender: nil)
                 }

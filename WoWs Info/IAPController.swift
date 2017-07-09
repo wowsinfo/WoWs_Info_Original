@@ -13,7 +13,6 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
 
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var IAPTable: UITableView!
-    @IBOutlet weak var previewBtn: UIButton!
     @IBOutlet weak var purchaseBtn: UIButton!
     @IBOutlet weak var restoreBtn: UIButton!
     var isReady = false
@@ -28,10 +27,6 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        IAPTable.delegate = self
-        IAPTable.dataSource = self
-        IAPTable.separatorColor = UIColor.clear
-        
         SKPaymentQueue.default().add(self)
         
         if SKPaymentQueue.canMakePayments() {
@@ -41,6 +36,11 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
             request.start()
             print("Preparing for purchase")
         }
+        
+        // Setup Tableview
+        IAPTable.delegate = self
+        IAPTable.dataSource = self
+        IAPTable.separatorColor = UIColor.clear
         
         // Setup Theme
         setupTheme()
@@ -52,9 +52,7 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
     
     // MARK: Theme
     func setupTheme() {
-        setupBtn(btn: previewBtn)
         setupBtn(btn: purchaseBtn)
-        setupBtn(btn: restoreBtn)
     }
     
     func setupBtn(btn: UIButton) {
@@ -63,23 +61,7 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
         btn.layer.masksToBounds = true
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        // Change text to "Back"
-        let backItem = UIBarButtonItem()
-        backItem.title = NSLocalizedString("BACK", comment: "Back label")
-        navigationItem.backBarButtonItem = backItem
-        
-        if segue.identifier == "gotoAdvancedInfo" {
-            let destination = segue.destination as! AdvancedInfoController
-            destination.playerInfo = ["HenryQuan", "2011774448"]
-            destination.isPreview = true
-            
-            // Change to Asia server
-            UserDefaults.standard.set(DataManagement.ServerIndex.Asia, forKey: DataManagement.DataName.Server)
-        }
-    }
-    
+    // MARK: IAP
     func becomePro() {
         UserDefaults.standard.set(true, forKey: DataManagement.DataName.IsAdvancedUnlocked)
         UserDefaults.standard.set(true, forKey: DataManagement.DataName.IsThereAds)
@@ -97,6 +79,11 @@ class IAPController: UIViewController, SKProductsRequestDelegate, SKPaymentTrans
         let payment = SKPayment(product: self.product)
         SKPaymentQueue.default().add(self)
         SKPaymentQueue.default().add(payment)
+    }
+    
+    // MARK: Button pressed
+    @IBAction func dismissBtnPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func purchaseBtnPressed(_ sender: UIButton) {
