@@ -156,6 +156,8 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
                             UIApplication.shared.openURL(URL(string: "https://itunes.apple.com/app/id1202750166")!)
                             // Well, you dont really need to review though                                                                                                                                                                                                                                                                                                                                               
                             UserDefaults.standard.set(true, forKey: DataManagement.DataName.didReview)
+                            // Free 30 points for you
+                            PointSystem(index: PointSystem.DataIndex.Review).addPoint()
                         }))
                         rate.addAction(UIAlertAction(title: "SHARE_CANCEL".localised(), style: .cancel, handler: nil))
                         self.present(rate, animated: true, completion: nil)

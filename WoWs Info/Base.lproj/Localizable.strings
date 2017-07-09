@@ -196,14 +196,16 @@
 
 "THEME_TITLE" = "Rate WoWs Info?";
 
-"THEME_MESSAGE" = "Theme could be unlocked for free if you could rate WoWs Info.";
+"THEME_MESSAGE" = "Theme could be unlocked for free if you could rate WoWs Info.\nYou could also receive 30 points.";
 
 "SHARE_TITLE" = "Ship Gallery is greatly improved";
 
-"SHARE_MESSAGE" = "Would you like to share with your friends so that more people could check ship information more conveniently?";
+"SHARE_MESSAGE" = "Would you like to share this app with your friends?\nYou could received 50 points by doing so.";
 
 "GITHUB_MESSAGE" = "Please spend a moment to check it out";
 
 "GITHUB_TITLE" = "WoWs Info is now open source";
 
 "POINT_SYSTEM" = "Points";
+
+"POINT_MESSAGE" = "Points have been added.";
