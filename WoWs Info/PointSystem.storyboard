@@ -33,9 +33,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omF-Mo-jJH">
-                                <rect key="frame" x="85" y="234" width="206" height="40"/>
+                                <rect key="frame" x="75.5" y="234" width="225" height="40"/>
                                 <color key="backgroundColor" red="0.0022613033824027129" green="0.62529507392693162" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Watch an AD (+5)">
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Watch an AD (3 - 7)">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -43,9 +44,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mrT-nI-KJR">
-                                <rect key="frame" x="84" y="290" width="206" height="40"/>
+                                <rect key="frame" x="74.5" y="290" width="225" height="40"/>
                                 <color key="backgroundColor" red="0.0022613033819999999" green="0.62529507390000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Write a review (+40)">
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Write a review (50 - 75)">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -53,9 +55,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RdP-e6-XrK">
-                                <rect key="frame" x="84" y="346" width="206" height="40"/>
+                                <rect key="frame" x="74.5" y="346" width="225" height="40"/>
                                 <color key="backgroundColor" red="0.0022613033819999999" green="0.62529507390000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Share with friends (+50)">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Share with friends (50 - 75)">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -71,11 +74,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="RdP-e6-XrK" firstAttribute="width" secondItem="KwO-Ws-odE" secondAttribute="width" multiplier="0.55" id="0sH-6W-GYM"/>
+                            <constraint firstItem="RdP-e6-XrK" firstAttribute="width" secondItem="KwO-Ws-odE" secondAttribute="width" multiplier="0.6" id="0sH-6W-GYM"/>
                             <constraint firstItem="RdP-e6-XrK" firstAttribute="top" secondItem="mrT-nI-KJR" secondAttribute="bottom" constant="16" id="3qC-jQ-V5s"/>
                             <constraint firstItem="ONO-MQ-Sih" firstAttribute="leading" secondItem="KwO-Ws-odE" secondAttribute="leading" constant="8" id="Be6-Bd-OyK"/>
                             <constraint firstItem="mrT-nI-KJR" firstAttribute="centerX" secondItem="KwO-Ws-odE" secondAttribute="centerX" id="JR8-Dt-Tim"/>
-                            <constraint firstItem="mrT-nI-KJR" firstAttribute="width" secondItem="KwO-Ws-odE" secondAttribute="width" multiplier="0.55" id="PcR-cM-FbH"/>
+                            <constraint firstItem="mrT-nI-KJR" firstAttribute="width" secondItem="KwO-Ws-odE" secondAttribute="width" multiplier="0.6" id="PcR-cM-FbH"/>
                             <constraint firstItem="bFZ-xi-RVz" firstAttribute="centerX" secondItem="KwO-Ws-odE" secondAttribute="centerX" id="Pfd-DJ-JL6"/>
                             <constraint firstItem="omF-Mo-jJH" firstAttribute="height" secondItem="KwO-Ws-odE" secondAttribute="height" multiplier="0.06" id="Vk4-nP-3lG"/>
                             <constraint firstItem="omF-Mo-jJH" firstAttribute="top" secondItem="bFZ-xi-RVz" secondAttribute="bottom" constant="32" id="Ywt-ki-Gkg"/>
@@ -86,7 +89,7 @@
                             <constraint firstItem="mrT-nI-KJR" firstAttribute="top" secondItem="omF-Mo-jJH" secondAttribute="bottom" constant="16" id="sMa-Qk-f7z"/>
                             <constraint firstItem="omF-Mo-jJH" firstAttribute="centerX" secondItem="KwO-Ws-odE" secondAttribute="centerX" id="u8J-hu-Ika"/>
                             <constraint firstAttribute="trailing" secondItem="ONO-MQ-Sih" secondAttribute="trailing" constant="8" id="uJO-zY-9I3"/>
-                            <constraint firstItem="omF-Mo-jJH" firstAttribute="width" secondItem="KwO-Ws-odE" secondAttribute="width" multiplier="0.55" id="yMR-be-qlf"/>
+                            <constraint firstItem="omF-Mo-jJH" firstAttribute="width" secondItem="KwO-Ws-odE" secondAttribute="width" multiplier="0.6" id="yMR-be-qlf"/>
                             <constraint firstItem="ONO-MQ-Sih" firstAttribute="top" secondItem="RdP-e6-XrK" secondAttribute="bottom" constant="32" id="zgh-Pw-Ftz"/>
                         </constraints>
                     </view>

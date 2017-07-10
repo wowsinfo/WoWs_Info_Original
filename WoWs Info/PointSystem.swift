@@ -69,9 +69,9 @@ class PointSystem: NSObject {
     
     func getAmoutFromIndex(index: Int) -> Int {
         switch index {
-        case 0: return 5
-        case 1: return 40
-        case 2: return 50
+        case 0: return Int(arc4random() % 5 + 1)
+        case 1: return Int(arc4random() % 26 + 50)
+        case 2: return Int(arc4random() % 26 + 50)
         default: return 0
         }
     }

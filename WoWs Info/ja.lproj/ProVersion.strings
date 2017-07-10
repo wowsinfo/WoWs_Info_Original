@@ -1,0 +1,15 @@
+
+/* Class = "UINavigationItem"; title = "Unlock WoWs Info Pro"; ObjectID = "bd8-ge-Ush"; */
+"bd8-ge-Ush.title" = "Unlock WoWs Info Pro";
+
+/* Class = "UIButton"; normalTitle = "Purchase now"; ObjectID = "cex-dl-9Nf"; */
+"cex-dl-9Nf.normalTitle" = "Purchase now";
+
+/* Class = "UIButton"; normalTitle = "Restore Purchase"; ObjectID = "dfA-Ge-0fb"; */
+"dfA-Ge-0fb.normalTitle" = "Restore Purchase";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "fdv-0F-X1Z"; */
+"fdv-0F-X1Z.text" = "Description";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "hwb-c6-tS8"; */
+"hwb-c6-tS8.text" = "---";

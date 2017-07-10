@@ -184,7 +184,7 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
     
     // MARK: Setup Button
     func setupBtn() {
-        self.hullBtn.setTitle("Hull (\(self.moduleTree[0].count))", for: .normal)
+        self.hullBtn.setTitle("\(hullBtn.title(for: .normal)!) (\(self.moduleTree[0].count))", for: .normal)
         self.engineBtn.setTitle("Engine (\(self.moduleTree[1].count))", for: .normal)
         self.torpBtn.setTitle("Torpedo (\(self.moduleTree[2].count))", for: .normal)
         self.fireControlBtn.setTitle("Fire Control (\(self.moduleTree[3].count))", for: .normal)
