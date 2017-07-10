@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8D7CA6803F069EDCEC9A49BA /* Pods_WoWs_Info.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6759118B58D4B67B8E919C40 /* Pods_WoWs_Info.framework */; };
 		920105B31EB180FA00E5F338 /* IntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920105B21EB180FA00E5F338 /* IntroController.swift */; };
 		920105B51EB1827B00E5F338 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920105B41EB1827B00E5F338 /* Reachability.swift */; };
 		920105B81EB1892000E5F338 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920105B71EB1892000E5F338 /* TabBarController.swift */; };
+		920999E71F131E1700AFA924 /* Wiki.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 920999E91F131E1700AFA924 /* Wiki.storyboard */; };
 		9210C06E1E45E30E00270002 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210C06D1E45E30E00270002 /* NavigationController.swift */; };
 		9210C07E1E4609BA00270002 /* PersonalRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210C07D1E4609BA00270002 /* PersonalRating.swift */; };
 		92130AE41EB3003300B79DD5 /* UpgradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92130AE31EB3003300B79DD5 /* UpgradeCell.swift */; };
@@ -67,7 +67,6 @@
 		9299284B1E86920F0091A174 /* FriendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299284A1E86920F0091A174 /* FriendController.swift */; };
 		929B0B471E618B45007E54EA /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B461E618B45007E54EA /* Language.swift */; };
 		929B0B491E619B5B007E54EA /* Encyclopedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B481E619B5B007E54EA /* Encyclopedia.swift */; };
-		929B0B4B1E619EE3007E54EA /* Wiki.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 929B0B4A1E619EE3007E54EA /* Wiki.storyboard */; };
 		929B0B4E1E61A022007E54EA /* AchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B4D1E61A022007E54EA /* AchievementCell.swift */; };
 		929B0B501E61A1E1007E54EA /* AchievementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B4F1E61A1E1007E54EA /* AchievementController.swift */; };
 		929C426D1EB20E2600DD0F6A /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929C426C1EB20E2600DD0F6A /* DashboardController.swift */; };
@@ -106,6 +105,20 @@
 		920105B21EB180FA00E5F338 /* IntroController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroController.swift; sourceTree = "<group>"; };
 		920105B41EB1827B00E5F338 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		920105B71EB1892000E5F338 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		920999E81F131E1700AFA924 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Wiki.storyboard; sourceTree = "<group>"; };
+		920999EB1F131E1B00AFA924 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Wiki.strings"; sourceTree = "<group>"; };
+		920999ED1F131E2100AFA924 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Wiki.strings"; sourceTree = "<group>"; };
+		920999EE1F1320E800AFA924 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/ProVersion.strings; sourceTree = "<group>"; };
+		920999EF1F1320E800AFA924 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/MoreInformation.strings; sourceTree = "<group>"; };
+		920999F01F1320E800AFA924 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		920999F11F1320E800AFA924 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		920999F21F1320E800AFA924 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/AdvancedStat.strings; sourceTree = "<group>"; };
+		920999F31F1320E800AFA924 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Wiki.strings; sourceTree = "<group>"; };
+		920999F41F1320E800AFA924 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/FriendList.strings; sourceTree = "<group>"; };
+		920999F51F1320E800AFA924 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/UsefulWebsite.strings; sourceTree = "<group>"; };
+		920999F61F1320E800AFA924 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Settings.strings; sourceTree = "<group>"; };
+		920999F71F1320E800AFA924 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Clan.strings; sourceTree = "<group>"; };
+		920999F81F1320E900AFA924 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		920E1C3D1E5EA30A00B43472 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		920E1C3F1E5EAC8B00B43472 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		920E1C481E5EC32A00B43472 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Settings.strings"; sourceTree = "<group>"; };
@@ -178,7 +191,6 @@
 		9299284A1E86920F0091A174 /* FriendController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendController.swift; sourceTree = "<group>"; };
 		929B0B461E618B45007E54EA /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		929B0B481E619B5B007E54EA /* Encyclopedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encyclopedia.swift; sourceTree = "<group>"; };
-		929B0B4A1E619EE3007E54EA /* Wiki.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Wiki.storyboard; sourceTree = "<group>"; };
 		929B0B4D1E61A022007E54EA /* AchievementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementCell.swift; sourceTree = "<group>"; };
 		929B0B4F1E61A1E1007E54EA /* AchievementController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementController.swift; sourceTree = "<group>"; };
 		929C426C1EB20E2600DD0F6A /* DashboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
@@ -230,7 +242,6 @@
 				9215CA3F1E5BF33D00A7F465 /* SwiftyJSON.framework in Frameworks */,
 				9226E33A1E5BF19F00593026 /* Charts.framework in Frameworks */,
 				9259C1CE1E57F88700F34CDC /* StoreKit.framework in Frameworks */,
-				8D7CA6803F069EDCEC9A49BA /* Pods_WoWs_Info.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,7 +522,7 @@
 			children = (
 				9295B1D91EBDF40B008FE418 /* AdvancedStat.storyboard */,
 				92457ADD1EE5475800B5A120 /* Theme.storyboard */,
-				929B0B4A1E619EE3007E54EA /* Wiki.storyboard */,
+				920999E91F131E1700AFA924 /* Wiki.storyboard */,
 				9295B1D01EBDEF3B008FE418 /* FriendList.storyboard */,
 				92B768721E5E5DE1009803C3 /* UsefulWebsite.storyboard */,
 				92E40C4E1F11C888004A085A /* PointSystem.storyboard */,
@@ -680,6 +691,7 @@
 				Base,
 				"zh-Hans",
 				"zh-Hant",
+				ja,
 			);
 			mainGroup = 921EA68C1E35F2FB0007C7FC;
 			productRefGroup = 921EA6961E35F2FB0007C7FC /* Products */;
@@ -708,7 +720,7 @@
 				925636591E53F1CA0002E08A /* Assets.xcassets in Resources */,
 				92457ADE1EE5475800B5A120 /* Theme.storyboard in Resources */,
 				925BE5AD1E502D0000DA6A1A /* Settings.storyboard in Resources */,
-				929B0B4B1E619EE3007E54EA /* Wiki.storyboard in Resources */,
+				920999E71F131E1700AFA924 /* Wiki.storyboard in Resources */,
 				92B7686B1E5E5DD6009803C3 /* ProVersion.storyboard in Resources */,
 				924B21E81EB36D950016A7C8 /* Clan.storyboard in Resources */,
 			);
@@ -843,12 +855,24 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		920999E91F131E1700AFA924 /* Wiki.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				920999E81F131E1700AFA924 /* Base */,
+				920999EB1F131E1B00AFA924 /* zh-Hans */,
+				920999ED1F131E2100AFA924 /* zh-Hant */,
+				920999F31F1320E800AFA924 /* ja */,
+			);
+			name = Wiki.storyboard;
+			sourceTree = "<group>";
+		};
 		921EA69C1E35F2FB0007C7FC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				921EA69D1E35F2FB0007C7FC /* Base */,
 				9276610E1EA0888100282732 /* zh-Hant */,
 				9295B1D61EBDF32D008FE418 /* zh-Hans */,
+				920999F11F1320E800AFA924 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -859,6 +883,7 @@
 				921EA6A21E35F2FB0007C7FC /* Base */,
 				92B768631E5E5A58009803C3 /* zh-Hans */,
 				92B768821E5E6144009803C3 /* zh-Hant */,
+				920999F01F1320E800AFA924 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -869,6 +894,7 @@
 				924B21E91EB36D950016A7C8 /* Base */,
 				924B21EC1EB36D970016A7C8 /* zh-Hans */,
 				924B21EE1EB36D980016A7C8 /* zh-Hant */,
+				920999F71F1320E800AFA924 /* ja */,
 			);
 			name = Clan.storyboard;
 			sourceTree = "<group>";
@@ -879,6 +905,7 @@
 				925BE5AC1E502D0000DA6A1A /* Base */,
 				92B7687E1E5E6143009803C3 /* zh-Hant */,
 				920E1C481E5EC32A00B43472 /* zh-Hans */,
+				920999F61F1320E800AFA924 /* ja */,
 			);
 			name = Settings.storyboard;
 			sourceTree = "<group>";
@@ -889,6 +916,7 @@
 				9295B1CF1EBDEF3B008FE418 /* Base */,
 				9295B1D21EBDEF3D008FE418 /* zh-Hans */,
 				9295B1D41EBDEF40008FE418 /* zh-Hant */,
+				920999F41F1320E800AFA924 /* ja */,
 			);
 			name = FriendList.storyboard;
 			sourceTree = "<group>";
@@ -899,6 +927,7 @@
 				9295B1D81EBDF40B008FE418 /* Base */,
 				9295B1DB1EBDF40D008FE418 /* zh-Hans */,
 				9295B1DD1EBDF40E008FE418 /* zh-Hant */,
+				920999F21F1320E800AFA924 /* ja */,
 			);
 			name = AdvancedStat.storyboard;
 			sourceTree = "<group>";
@@ -909,6 +938,7 @@
 				92B768651E5E5D02009803C3 /* Base */,
 				92B7686A1E5E5D1C009803C3 /* zh-Hans */,
 				92B7687C1E5E6142009803C3 /* zh-Hant */,
+				920999EF1F1320E800AFA924 /* ja */,
 			);
 			name = MoreInformation.storyboard;
 			sourceTree = "<group>";
@@ -919,6 +949,7 @@
 				92B7686C1E5E5DD6009803C3 /* Base */,
 				92B7686F1E5E5DD9009803C3 /* zh-Hans */,
 				92B7687F1E5E6143009803C3 /* zh-Hant */,
+				920999EE1F1320E800AFA924 /* ja */,
 			);
 			name = ProVersion.storyboard;
 			sourceTree = "<group>";
@@ -929,6 +960,7 @@
 				92B768711E5E5DE1009803C3 /* Base */,
 				92B768741E5E5DE3009803C3 /* zh-Hans */,
 				92B768811E5E6144009803C3 /* zh-Hant */,
+				920999F51F1320E800AFA924 /* ja */,
 			);
 			name = UsefulWebsite.storyboard;
 			sourceTree = "<group>";
@@ -939,6 +971,7 @@
 				92B768861E5E6E34009803C3 /* Base */,
 				920E1C3D1E5EA30A00B43472 /* zh-Hans */,
 				920E1C3F1E5EAC8B00B43472 /* zh-Hant */,
+				920999F81F1320E900AFA924 /* ja */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

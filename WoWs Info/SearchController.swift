@@ -119,7 +119,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         getServerName()
         
         // Check if user needs to watch a video ads
-        if PointSystem.getCurrPoint() < 1 {
+        if !UserDefaults.standard.bool(forKey: DataManagement.DataName.hasPurchased) && PointSystem.getCurrPoint() < 1 {
             GADRewardBasedVideoAd.sharedInstance().delegate = self
             if GADRewardBasedVideoAd.sharedInstance().isReady {
                 GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)

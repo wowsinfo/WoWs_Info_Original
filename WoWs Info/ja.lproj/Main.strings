@@ -1,0 +1,66 @@
+
+/* Class = "UIButton"; normalTitle = "Twitter"; ObjectID = "2Vd-1Z-518"; */
+"2Vd-1Z-518.normalTitle" = "Twitter";
+
+/* Class = "UILabel"; text = "Level 3"; ObjectID = "8Yl-l0-W5D"; */
+"8Yl-l0-W5D.text" = "Level 3";
+
+/* Class = "UITabBarItem"; title = "News"; ObjectID = "BVv-ac-v1g"; */
+"BVv-ac-v1g.title" = "News";
+
+/* Class = "UILabel"; text = "Level 2"; ObjectID = "BdW-qf-VQN"; */
+"BdW-qf-VQN.text" = "Level 2";
+
+/* Class = "UILabel"; text = "Settings"; ObjectID = "Dt9-tQ-1t8"; */
+"Dt9-tQ-1t8.text" = "Settings";
+
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "GQt-ik-Cil"; */
+"GQt-ik-Cil.normalTitle" = "Done";
+
+/* Class = "UILabel"; text = "Upgrade to Pro"; ObjectID = "HUi-in-Gg8"; */
+"HUi-in-Gg8.text" = "Upgrade to Pro";
+
+/* Class = "UILabel"; text = "Level 1"; ObjectID = "ITi-IT-Had"; */
+"ITi-IT-Had.text" = "Level 1";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "JUg-E2-qYD"; */
+"JUg-E2-qYD.text" = "Date";
+
+/* Class = "UILabel"; text = "Please write a review so that more people could find it on App Store."; ObjectID = "NE4-l6-BeN"; */
+"NE4-l6-BeN.text" = "Please write a review so that more people could find it on App Store.";
+
+/* Class = "UITabBarItem"; title = "Wiki"; ObjectID = "Pnp-Rs-KWU"; */
+"Pnp-Rs-KWU.title" = "Wiki";
+
+/* Class = "UITextField"; placeholder = "Server: "; ObjectID = "URk-Oe-6ZG"; */
+"URk-Oe-6ZG.placeholder" = "Server: ";
+
+/* Class = "UIButton"; normalTitle = "Write a review"; ObjectID = "Wuh-In-bad"; */
+"Wuh-In-bad.normalTitle" = "Write a review";
+
+/* Class = "UILabel"; text = "Yiheng Quan"; ObjectID = "bys-5s-CMx"; */
+"bys-5s-CMx.text" = "Yiheng Quan";
+
+/* Class = "UIButton"; normalTitle = "Email"; ObjectID = "dX0-FE-WqM"; */
+"dX0-FE-WqM.normalTitle" = "Email";
+
+/* Class = "UILabel"; text = "If you have any suggestion or find any bugs, please contact me via E-mail or just send me a message on Twitter."; ObjectID = "iYw-6b-cu0"; */
+"iYw-6b-cu0.text" = "If you have any suggestion or find any bugs, please contact me via E-mail or just send me a message on Twitter.";
+
+/* Class = "UILabel"; text = "Level 4 "; ObjectID = "nVd-zB-Rl4"; */
+"nVd-zB-Rl4.text" = "Level 4 ";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "njd-Hx-Xes"; */
+"njd-Hx-Xes.text" = "Title";
+
+/* Class = "UIButton"; normalTitle = "Share with friends"; ObjectID = "ow3-jZ-GCf"; */
+"ow3-jZ-GCf.normalTitle" = "Share with friends";
+
+/* Class = "UILabel"; text = "If you like this app, please share with your friends so that it could help more people."; ObjectID = "s4P-g2-qr1"; */
+"s4P-g2-qr1.text" = "If you like this app, please share with your friends so that it could help more people.";
+
+/* Class = "UILabel"; text = "As the number of app unit increases, the price of In-App Purchase will decrease until it is free."; ObjectID = "uwu-ZD-wul"; */
+"uwu-ZD-wul.text" = "As the number of app unit increases, the price of In-App Purchase will decrease until it is free.";
+
+/* Class = "UILabel"; text = "Developer"; ObjectID = "w9n-4e-ZG0"; */
+"w9n-4e-ZG0.text" = "Developer";
