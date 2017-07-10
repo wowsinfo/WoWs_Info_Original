@@ -23,7 +23,7 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
     var shipType: String!
     var shipName: String!
     var shipTier: String!
-    var descriptionText: String!
+    var descriptionText = ""
     var nationText: String!
     var moduleTree = [[[String]]]()
     var currModule = [String].init(repeating: "", count: 6)
@@ -463,6 +463,7 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
     
     // MARK: Description
     @IBAction func showDescriptionPressed(_ sender: Any) {
+        if descriptionText == "" { return }
         let description = UIAlertController.QuickMessage(title: "\(shipName!) (\(nationText!))", message: descriptionText, cancel: "OK")
         self.present(description, animated: true, completion: nil)
     }

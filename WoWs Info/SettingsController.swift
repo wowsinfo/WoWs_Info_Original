@@ -131,6 +131,8 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
                 let icon = imageSet[index - 1]
                 if icon == #imageLiteral(resourceName: "Theme") { // <-- It is a white icon...
                     cell.logoImage.backgroundColor = Theme.getCurrTheme()
+                } else {
+                    cell.logoImage.backgroundColor = UIColor.clear
                 }
                 
                 cell.logoImage.image = icon

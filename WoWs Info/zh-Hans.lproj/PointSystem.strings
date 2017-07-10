@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "A video will popup whenever you run out of points. You will not get any more points if you share and review again."; ObjectID = "ONO-MQ-Sih"; */
+"ONO-MQ-Sih.text" = "在您用完所有点数之后，一个视频广告会自动加载。分享和评价的点数只可以获得一次。";
+
+/* Class = "UIButton"; normalTitle = "Share with friends (50 - 75)"; ObjectID = "RdP-e6-XrK"; */
+"RdP-e6-XrK.normalTitle" = "分享给朋友 (50 - 75)";
+
+/* Class = "UILabel"; text = "9999"; ObjectID = "bFZ-xi-RVz"; */
+"bFZ-xi-RVz.text" = "9999";
+
+/* Class = "UIButton"; normalTitle = "Write a review (50 - 75)"; ObjectID = "mrT-nI-KJR"; */
+"mrT-nI-KJR.normalTitle" = "写一个评价 (50 - 75)";
+
+/* Class = "UIButton"; normalTitle = "Watch an AD (3 - 7)"; ObjectID = "omF-Mo-jJH"; */
+"omF-Mo-jJH.normalTitle" = "观看视频广告 (3 - 7)";
