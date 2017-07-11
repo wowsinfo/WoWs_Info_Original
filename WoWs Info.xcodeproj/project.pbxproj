@@ -28,6 +28,7 @@
 		922D0E571E6295DE0056EDE6 /* ShipInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D0E561E6295DE0056EDE6 /* ShipInfoController.swift */; };
 		923044AB1E7E1AA400DF20E2 /* Siren.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923044AA1E7E1AA400DF20E2 /* Siren.framework */; };
 		92338F881EB4C4AF00054DAE /* DeveloperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92338F871EB4C4AF00054DAE /* DeveloperCell.swift */; };
+		9233ECBF1F148D2E006748EC /* ChineseServer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9233ECBE1F148D2E006748EC /* ChineseServer.storyboard */; };
 		92423B0E1E737F64006B538F /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929489081E61AB8800B471F2 /* SDWebImage.framework */; };
 		92457ADA1EE53B7500B5A120 /* DataUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92457AD91EE53B7500B5A120 /* DataUpdater.swift */; };
 		92457ADC1EE53EF300B5A120 /* UIAlertController+QuickMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92457ADB1EE53EF300B5A120 /* UIAlertController+QuickMessage.swift */; };
@@ -141,6 +142,7 @@
 		922D0E561E6295DE0056EDE6 /* ShipInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipInfoController.swift; sourceTree = "<group>"; };
 		923044AA1E7E1AA400DF20E2 /* Siren.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Siren.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/Siren/Siren.framework"; sourceTree = "<group>"; };
 		92338F871EB4C4AF00054DAE /* DeveloperCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeveloperCell.swift; sourceTree = "<group>"; };
+		9233ECBE1F148D2E006748EC /* ChineseServer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChineseServer.storyboard; sourceTree = "<group>"; };
 		923FFB3D1E5950340034686C /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		92457AD91EE53B7500B5A120 /* DataUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataUpdater.swift; sourceTree = "<group>"; };
 		92457ADB1EE53EF300B5A120 /* UIAlertController+QuickMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+QuickMessage.swift"; sourceTree = "<group>"; };
@@ -530,6 +532,7 @@
 				92B768721E5E5DE1009803C3 /* UsefulWebsite.storyboard */,
 				92D510551F13C8C2001FB885 /* PointSystem.storyboard */,
 				925BE5AB1E502D0000DA6A1A /* Settings.storyboard */,
+				9233ECBE1F148D2E006748EC /* ChineseServer.storyboard */,
 				924B21EA1EB36D950016A7C8 /* Clan.storyboard */,
 			);
 			name = "WoWs Info";
@@ -716,6 +719,7 @@
 				92B768641E5E5D02009803C3 /* MoreInformation.storyboard in Resources */,
 				921EA6A31E35F2FB0007C7FC /* LaunchScreen.storyboard in Resources */,
 				921EA69E1E35F2FB0007C7FC /* Main.storyboard in Resources */,
+				9233ECBF1F148D2E006748EC /* ChineseServer.storyboard in Resources */,
 				92B768701E5E5DE1009803C3 /* UsefulWebsite.storyboard in Resources */,
 				9295B1DF1EBE077E008FE418 /* GoogleService-Info.plist in Resources */,
 				92B768851E5E6E34009803C3 /* Localizable.strings in Resources */,
