@@ -1,21 +1,22 @@
 //
-//  ShipTableCell.swift
+//  CNShipCell.swift
 //  WoWs Info
 //
-//  Created by Henry Quan on 17/2/17.
+//  Created by Henry Quan on 11/7/17.
 //  Copyright © 2017 Henry Quan. All rights reserved.
 //
 
 import UIKit
 
-class ShipTableCell: UITableViewCell {
+class CNShipCell: UITableViewCell {
 
-    @IBOutlet weak var TierNameLabel: UILabel!
-    @IBOutlet weak var battlesLabel: UILabel!
-    @IBOutlet weak var winRateLabel: UILabel!
+    @IBOutlet weak var shipImage: UIImageView!
+    @IBOutlet weak var typeImage: UIImageView!
+    @IBOutlet weak var rankLabel: UILabel!
+    @IBOutlet weak var battleLabel: UILabel!
+    @IBOutlet weak var winrateLabel: UILabel!
     @IBOutlet weak var damageLabel: UILabel!
-    @IBOutlet weak var shipTypeImage: UIImageView!
-
+    
     // Change the frame
     override var frame: CGRect {
         get {
@@ -30,5 +31,5 @@ class ShipTableCell: UITableViewCell {
             super.frame = frame
         }
     }
-    
+
 }

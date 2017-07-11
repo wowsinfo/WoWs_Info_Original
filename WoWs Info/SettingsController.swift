@@ -129,7 +129,7 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
                 let cell = settingsTableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsCell
                 
                 // Change theme for theme
-                if segueSet[index] == "gotoTheme" { // <-- It is a white icon...
+                if segueSet[index - 1] == "gotoTheme" { // <-- It is a white icon...
                     cell.logoImage.backgroundColor = Theme.getCurrTheme()
                 } else {
                     cell.logoImage.backgroundColor = UIColor.clear
