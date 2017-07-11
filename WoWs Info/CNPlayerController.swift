@@ -76,7 +76,10 @@ class CNPlayerController: UIViewController, SFSafariViewControllerDelegate {
     }
     
     @IBAction func shipInfoBtnPressed(_ sender: Any) {
-        performSegue(withIdentifier: "gotoCNShipDetail", sender: shipData)
+        // Internet latency issue
+        if shipData.count > 0 {
+            performSegue(withIdentifier: "gotoCNShipDetail", sender: shipData)
+        }
     }
     
     // MARK: Loading Ship Data

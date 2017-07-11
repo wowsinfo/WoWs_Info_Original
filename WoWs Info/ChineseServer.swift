@@ -35,8 +35,11 @@ class ChineseServer: NSObject {
         static let rank = 3
         static let shipID = 4
         static let shipImage = 5
-        static let shipTier = 6
+        static let shipTierName = 6
         static let shipType = 7
+        static let frag = 8
+        static let exp = 9
+        static let killDeath = 10
     }
     
     // Get basic info
@@ -94,13 +97,14 @@ class ChineseServer: NSObject {
                 } else {
                     var shipData = [[String]]()
                     let dataJson = JSON(data!)
+                    // Calculate for all ships
                     for ship in dataJson {
                         let battle = ship.1["battles"].doubleValue
                         if battle == 0 { continue }
                         let win = ship.1["wins"].doubleValue
                         let damage = ship.1["damage"].doubleValue
                         
-                        let winrate = String(format: "%.0f", round(win / battle * 100)) + "%"
+                        let winrate = String(format: "%.1f", round(100 * (win / battle) * 100) / 100) + "%"
                         let averageDamage = String(format: "%.0f", round(damage / battle))
                         
                         let shipID = ship.1["id"]["vehicleTypeCd"].stringValue
@@ -109,7 +113,19 @@ class ChineseServer: NSObject {
                             rank = "\(rankJson[shipID])"
                         }
                         
-                        shipData.append([winrate, averageDamage, String(format: "%.0f%", battle), rank, shipID, "http://xvm.qingcdn.com/wikiwows/ship/\(Shipinformation.ShipJson[shipID]["ship_id_str"]).png", "\(Shipinformation.ShipJson[shipID]["tier"])", "\(Shipinformation.ShipJson[shipID]["type"])"])
+                        let kill = ship.1["killship"].doubleValue
+                        let averageFrag = String(format: "%.2f", round(kill / battle))
+                        let averageExp = String(format: "%.0f", round(ship.1["exp"].doubleValue / battle))
+                        
+                        var death = battle - ship.1["alive"].doubleValue
+                        if death == 0 { death = 1 }
+                        let killDeath = String(format: "%.2f", round((kill / death * 100) / 100))
+                        
+                        var teamBattle = ship.1["teambattles"].doubleValue
+                        if teamBattle == 0 { teamBattle = 1 }
+                        let teamWinrate = String(format: "%.1f", round(100 * (ship.1["teamwins"].doubleValue / teamBattle * 100) / 100))
+                        
+                        shipData.append([winrate + " (\(teamWinrate)%)", averageDamage + " (\(ship.1["maxdamage"]))", String(format: "%.0f%", battle) + " (\(String(format: "%.0f%", teamBattle)))", rank, shipID, "http://xvm.qingcdn.com/wikiwows/ship/\(Shipinformation.ShipJson[shipID]["ship_id_str"]).png", "等级 \(Shipinformation.ShipJson[shipID]["tier"]) \(Shipinformation.ShipJson[shipID]["name"])", "\(Shipinformation.ShipJson[shipID]["type"])", averageFrag, averageExp + " (\(ship.1["maxexp"]))", killDeath])
                     }
                     success(shipData)
                 }

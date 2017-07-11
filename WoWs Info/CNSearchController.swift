@@ -30,6 +30,13 @@ class CNSearchController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Change it back when user tries to search another play
+        self.playerTextField.isEnabled = true
+        self.title = "国服数据查询"
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // Change text to "Back"
@@ -77,9 +84,6 @@ class CNSearchController: UIViewController, UITextFieldDelegate {
                     }
                 })
             }
-            // Change it back
-            self.playerTextField.isEnabled = true
-            self.title = "国服数据查询"
         }
         
         return true

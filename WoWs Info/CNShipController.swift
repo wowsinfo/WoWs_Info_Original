@@ -40,7 +40,11 @@ class CNShipController: UIViewController ,UITableViewDelegate, UITableViewDataSo
         cell.rankLabel.text = shipData[index][ChineseServer.ShipDataIndex.rank]
         cell.damageLabel.text = shipData[index][ChineseServer.ShipDataIndex.damage]
         cell.winrateLabel.text = shipData[index][ChineseServer.ShipDataIndex.winrate]
+        cell.expLabel.text = shipData[index][ChineseServer.ShipDataIndex.exp]
+        cell.fragLabel.text = shipData[index][ChineseServer.ShipDataIndex.frag]
+        cell.killDeathLabel.text = shipData[index][ChineseServer.ShipDataIndex.killDeath]
         cell.shipImage.sd_setImage(with: URL(string: shipData[index][ChineseServer.ShipDataIndex.shipImage])!)
+        cell.nameLabel.text = shipData[index][ChineseServer.ShipDataIndex.shipTierName]
 
         // Set up a border colour
         cell.contentView.layer.borderWidth = 1.25
