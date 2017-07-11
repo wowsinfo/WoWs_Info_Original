@@ -159,7 +159,13 @@
                             <constraint firstItem="VgM-Q6-Uua" firstAttribute="leading" secondItem="yzH-Qe-Qbu" secondAttribute="leading" id="xH3-fo-KxG"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="U7s-su-cOK"/>
+                    <navigationItem key="navigationItem" id="U7s-su-cOK">
+                        <barButtonItem key="rightBarButtonItem" title="国服" id="sO4-SM-uKj">
+                            <connections>
+                                <segue destination="6yJ-5E-ir8" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="ueB-cp-ZPg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bannerView" destination="eBL-yl-n35" id="Ojm-Uq-6Hc"/>
                         <outlet property="pickerView" destination="4qV-6A-8sF" id="KLP-Xz-aiE"/>
@@ -193,6 +199,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QWM-FG-c2M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7101" y="-2492"/>
+        </scene>
+        <!--ChineseServerController-->
+        <scene sceneID="laT-gU-UNv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ChineseServer" referencedIdentifier="ChineseServerController" id="6yJ-5E-ir8" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IAw-J5-o61" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7116" y="-2371"/>
         </scene>
         <!--Settings Controller-->
         <scene sceneID="k1k-e3-gcw">

@@ -29,6 +29,11 @@
 		923044AB1E7E1AA400DF20E2 /* Siren.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923044AA1E7E1AA400DF20E2 /* Siren.framework */; };
 		92338F881EB4C4AF00054DAE /* DeveloperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92338F871EB4C4AF00054DAE /* DeveloperCell.swift */; };
 		9233ECBF1F148D2E006748EC /* ChineseServer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9233ECBE1F148D2E006748EC /* ChineseServer.storyboard */; };
+		9233ECC11F149A50006748EC /* ChineseServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9233ECC01F149A50006748EC /* ChineseServer.swift */; };
+		9233ECC31F14A1CD006748EC /* CNShipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9233ECC21F14A1CD006748EC /* CNShipCell.swift */; };
+		9233ECC61F14A275006748EC /* CNSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9233ECC51F14A275006748EC /* CNSearchController.swift */; };
+		9233ECC81F14A282006748EC /* CNPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9233ECC71F14A282006748EC /* CNPlayerController.swift */; };
+		9233ECCA1F14A28E006748EC /* CNShipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9233ECC91F14A28E006748EC /* CNShipController.swift */; };
 		92423B0E1E737F64006B538F /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929489081E61AB8800B471F2 /* SDWebImage.framework */; };
 		92457ADA1EE53B7500B5A120 /* DataUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92457AD91EE53B7500B5A120 /* DataUpdater.swift */; };
 		92457ADC1EE53EF300B5A120 /* UIAlertController+QuickMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92457ADB1EE53EF300B5A120 /* UIAlertController+QuickMessage.swift */; };
@@ -143,6 +148,11 @@
 		923044AA1E7E1AA400DF20E2 /* Siren.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Siren.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/Siren/Siren.framework"; sourceTree = "<group>"; };
 		92338F871EB4C4AF00054DAE /* DeveloperCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeveloperCell.swift; sourceTree = "<group>"; };
 		9233ECBE1F148D2E006748EC /* ChineseServer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChineseServer.storyboard; sourceTree = "<group>"; };
+		9233ECC01F149A50006748EC /* ChineseServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChineseServer.swift; sourceTree = "<group>"; };
+		9233ECC21F14A1CD006748EC /* CNShipCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNShipCell.swift; sourceTree = "<group>"; };
+		9233ECC51F14A275006748EC /* CNSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNSearchController.swift; sourceTree = "<group>"; };
+		9233ECC71F14A282006748EC /* CNPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNPlayerController.swift; sourceTree = "<group>"; };
+		9233ECC91F14A28E006748EC /* CNShipController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNShipController.swift; sourceTree = "<group>"; };
 		923FFB3D1E5950340034686C /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		92457AD91EE53B7500B5A120 /* DataUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataUpdater.swift; sourceTree = "<group>"; };
 		92457ADB1EE53EF300B5A120 /* UIAlertController+QuickMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+QuickMessage.swift"; sourceTree = "<group>"; };
@@ -280,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				9210C06D1E45E30E00270002 /* NavigationController.swift */,
+				9233ECC41F14A25B006748EC /* ChineseServer */,
 				92E40C501F11CB77004A085A /* PointSystem */,
 				92457ADF1EE5487B00B5A120 /* Theme */,
 				929C426B1EB20E0200DD0F6A /* Dashboard */,
@@ -314,6 +325,7 @@
 				92634D0A1E540E2C000CDCB4 /* RankInformation.swift */,
 				92E45B261EAE17A900360E62 /* Clan.swift */,
 				929B0B461E618B45007E54EA /* Language.swift */,
+				9233ECC01F149A50006748EC /* ChineseServer.swift */,
 				92634D101E540F10000CDCB4 /* ShipInformation.swift */,
 				92E40C531F121F74004A085A /* PointSystem.swift */,
 				929B0B481E619B5B007E54EA /* Encyclopedia.swift */,
@@ -391,6 +403,16 @@
 				922AD1161F07B71B003E509C /* LicenceController.swift */,
 			);
 			name = Licence;
+			sourceTree = "<group>";
+		};
+		9233ECC41F14A25B006748EC /* ChineseServer */ = {
+			isa = PBXGroup;
+			children = (
+				9233ECC51F14A275006748EC /* CNSearchController.swift */,
+				9233ECC91F14A28E006748EC /* CNShipController.swift */,
+				9233ECC71F14A282006748EC /* CNPlayerController.swift */,
+			);
+			name = ChineseServer;
 			sourceTree = "<group>";
 		};
 		92457ADF1EE5487B00B5A120 /* Theme */ = {
@@ -576,6 +598,7 @@
 			children = (
 				92D9B4D51E55C6D600CFD46D /* RankTableCell.swift */,
 				92D9B4DA1E565C8A00CFD46D /* ShipTableCell.swift */,
+				9233ECC21F14A1CD006748EC /* CNShipCell.swift */,
 				927661041EA0676C00282732 /* IAPCell.swift */,
 				92130AE31EB3003300B79DD5 /* UpgradeCell.swift */,
 				92130AE51EB3006300B79DD5 /* SettingsCell.swift */,
@@ -801,6 +824,7 @@
 				920105B51EB1827B00E5F338 /* Reachability.swift in Sources */,
 				92AAE8C21E938663006DB929 /* WikiCell.swift in Sources */,
 				925B627D1E62D7680073FF56 /* ShipDetailController.swift in Sources */,
+				9233ECC81F14A282006748EC /* CNPlayerController.swift in Sources */,
 				929B0B501E61A1E1007E54EA /* AchievementController.swift in Sources */,
 				929D025B1F035175003D624E /* Theme.swift in Sources */,
 				92E45B201EAE13CC00360E62 /* MemberCell.swift in Sources */,
@@ -816,6 +840,8 @@
 				92D9B4D91E565C6E00CFD46D /* ShipController.swift in Sources */,
 				927AA8631EAEDAD600169B0A /* ClanSearchCell.swift in Sources */,
 				92130AE41EB3003300B79DD5 /* UpgradeCell.swift in Sources */,
+				9233ECC11F149A50006748EC /* ChineseServer.swift in Sources */,
+				9233ECCA1F14A28E006748EC /* CNShipController.swift in Sources */,
 				92634D0D1E540E77000CDCB4 /* PlayerStat.swift in Sources */,
 				929928411E86132C0091A174 /* RecentData.swift in Sources */,
 				926528C11E41BD5600D1A685 /* InSettingsController.swift in Sources */,
@@ -829,6 +855,7 @@
 				92E45B251EAE149D00360E62 /* ClanInfoController.swift in Sources */,
 				92E40C541F121F74004A085A /* PointSystem.swift in Sources */,
 				92D414AB1E6AA5EF00E8C8AF /* ShipScreenshotController.swift in Sources */,
+				9233ECC31F14A1CD006748EC /* CNShipCell.swift in Sources */,
 				92476A481E96025D0050F8A9 /* WikiDataCell.swift in Sources */,
 				922AD1171F07B71B003E509C /* LicenceController.swift in Sources */,
 				921EA6991E35F2FB0007C7FC /* AppDelegate.swift in Sources */,
@@ -856,6 +883,7 @@
 				92F526F11E6B9476005A2E20 /* AboutController.swift in Sources */,
 				92E40C521F11CB8E004A085A /* PointSystemController.swift in Sources */,
 				92AAE8C01E938511006DB929 /* WikiController.swift in Sources */,
+				9233ECC61F14A275006748EC /* CNSearchController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

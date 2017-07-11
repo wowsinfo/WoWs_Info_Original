@@ -16,7 +16,7 @@ class Shipinformation {
     static var ShipJson: (JSON!)
 
     init() {
-        shipInfoAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/ships/?application_id=***ApplicationID***&fields=name%2Ctype%2Ctier%2Cnation%2Cimages.small%2C" + Language.getLanguageString(Mode: Language.Index.API)
+        shipInfoAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/ships/?application_id=***ApplicationID***&fields=ship_id_str%2Cname%2Ctype%2Ctier%2Cnation%2Cimages.small%2C" + Language.getLanguageString(Mode: Language.Index.API)
     }
     
     // Get basic information including Module tree

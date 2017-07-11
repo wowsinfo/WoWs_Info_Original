@@ -331,7 +331,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
             let destination = segue.destination as! ClanInfoController
             let index = sender as! Int
             destination.clanDataString = "\(playerInfo[index][ClanSearch.dataIndex.id]) | \(playerInfo[index][ClanSearch.dataIndex.memberCount]) | \(playerInfo[index][ClanSearch.dataIndex.name]) | \(playerInfo[index][ClanSearch.dataIndex.tag])"
-        } else {
+        } else if segue.identifier == "gotoAdvancedDetails" {
             // Go to AdvancedInfoController
             let destination = segue.destination as! AdvancedInfoController
             destination.playerInfo = selectedInfo
