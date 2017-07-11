@@ -16,6 +16,12 @@ class CNShipCell: UITableViewCell {
     @IBOutlet weak var battleLabel: UILabel!
     @IBOutlet weak var winrateLabel: UILabel!
     @IBOutlet weak var damageLabel: UILabel!
+    @IBOutlet weak var expLabel: UILabel!
+    @IBOutlet weak var killDeathLabel: UILabel!
+    @IBOutlet weak var fragLabel: UILabel!
+    @IBOutlet weak var prLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    
     
     // Change the frame
     override var frame: CGRect {
