@@ -13,9 +13,17 @@ class CNPlayerController: UIViewController, SFSafariViewControllerDelegate {
 
     var playerData = [String]()
     var shipData = [[String]]()
+    @IBOutlet weak var shipInfoBtn: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var clanLabel: UILabel!
+    @IBOutlet weak var battleImage: UIImageView!
+    @IBOutlet weak var winrateImage: UIImageView!
+    @IBOutlet weak var damageImage: UIImageView!
+    @IBOutlet weak var battleLabel: UILabel!
+    @IBOutlet weak var winrateLabel: UILabel!
+    @IBOutlet weak var damageLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +87,9 @@ class CNPlayerController: UIViewController, SFSafariViewControllerDelegate {
         // Internet latency issue
         if shipData.count > 0 {
             performSegue(withIdentifier: "gotoCNShipDetail", sender: shipData)
+        } else {
+            let message = UIAlertController.QuickMessage(title: "提示", message: "您也许选择了错误的服务器", cancel: "好的")
+            self.present(message, animated: true, completion: nil)
         }
     }
     
@@ -88,7 +99,68 @@ class CNPlayerController: UIViewController, SFSafariViewControllerDelegate {
         shipData.getShipRank { (shipRank) in
             shipData.getShipInformation(rankJson: shipRank, success: { (shipInfo) in
                 self.shipData = shipInfo
+                DispatchQueue.main.async {
+                    // Update now
+                    self.loadBasicInfoWithAnimation(data: shipInfo)
+                }
             })
+        }
+    }
+    
+    func loadBasicInfoWithAnimation(data: [[String]]) {
+        var battle = 0.0
+        var damage = 0.0
+        var win = 0.0
+        var frag = 0.0
+        var expectedDmg = 0.0
+        var expectedWins = 0.0
+        var expectedFrags = 0.0
+        
+        for ship in data {
+            let currBattle = Double(ship[ChineseServer.ShipDataIndex.battle].components(separatedBy: " ")[0])!
+            battle += currBattle
+            damage += Double(ship[ChineseServer.ShipDataIndex.allDamage])!
+            win += Double(ship[ChineseServer.ShipDataIndex.allWin])!
+            frag += Double(ship[ChineseServer.ShipDataIndex.kill])!
+            
+            let shipID = ship[ChineseServer.ShipDataIndex.shipID]
+            expectedDmg += Double(ShipRating.shipExpected["data"][shipID]["average_damage_dealt"].doubleValue) * currBattle
+            expectedWins += Double(ShipRating.shipExpected["data"][shipID]["win_rate"].doubleValue) * currBattle
+            expectedFrags += Double(ShipRating.shipExpected["data"][shipID]["average_frags"].doubleValue) * currBattle
+        }
+        
+        let rDmg = damage / expectedDmg
+        let rFrags = frag / expectedFrags
+        let rWins = win / expectedWins
+        
+        let nDmg = max(0.0, (rDmg - 0.4) / (1.0 - 0.4))
+        let nFrags = max(0.0, (rFrags - 0.1) / (1.0 - 0.1))
+        let nWins = max(0.0, (rWins - 0.7) / (1.0 - 0.7))
+        
+        let index = PersonalRating.getPersonalRatingIndex(PR: 700 * nDmg + 300 * nFrags + 150 * nWins)
+        
+        DispatchQueue.main.async {
+            self.ratingLabel.text = PersonalRating.Comment[index]
+            self.ratingLabel.textColor = PersonalRating.ColorGroup[index]
+        }
+        
+        let allBattle = String(format: "%.0f", battle)
+        let averageDamage = String(format: "%.0f", round(damage / battle))
+        let averageWinrate = String(format: "%.1f", round(win / battle * 10000) / 100)  + "%"
+        
+        self.battleLabel.text = allBattle
+        self.damageLabel.text = averageDamage
+        self.winrateLabel.text = averageWinrate
+        
+        UIView.animate(withDuration: 0.5) { 
+            self.battleImage.alpha = 1
+            self.winrateImage.alpha = 1
+            self.damageImage.alpha = 1
+            self.battleLabel.alpha = 1
+            self.winrateLabel.alpha = 1
+            self.damageLabel.alpha = 1
+            self.shipInfoBtn.alpha = 1
+            self.ratingLabel.alpha = 1.0
         }
     }
     

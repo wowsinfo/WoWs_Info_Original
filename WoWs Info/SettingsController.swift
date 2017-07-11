@@ -102,13 +102,14 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
                 cell.logoImage.layer.masksToBounds = true
                 
                 // Change theme for theme
-                if segueSet[index] == "gotoTheme" { // <-- It is a white icon...
+                let icon = imageSet[index]
+                if icon == #imageLiteral(resourceName: "Theme") { // <-- It is a white icon...
                     cell.logoImage.backgroundColor = Theme.getCurrTheme()
                 } else {
                     cell.logoImage.backgroundColor = UIColor.clear
                 }
                 
-                cell.logoImage.image = imageSet[index]
+                cell.logoImage.image = icon
                 cell.nameLabel.text = wordSet[index]
                 return cell
             } else {
@@ -129,13 +130,14 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
                 let cell = settingsTableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsCell
                 
                 // Change theme for theme
-                if segueSet[index - 1] == "gotoTheme" { // <-- It is a white icon...
+                let icon = imageSet[index - 1]
+                if icon == #imageLiteral(resourceName: "Theme") { // <-- It is a white icon...
                     cell.logoImage.backgroundColor = Theme.getCurrTheme()
                 } else {
                     cell.logoImage.backgroundColor = UIColor.clear
                 }
                 
-                cell.logoImage.image = imageSet[index - 1]
+                cell.logoImage.image = icon
                 cell.logoImage.layer.cornerRadius = cell.logoImage.frame.width / 5
                 cell.logoImage.layer.masksToBounds = true
                 cell.nameLabel.text = wordSet[index - 1]

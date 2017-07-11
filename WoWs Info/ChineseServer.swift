@@ -40,6 +40,11 @@ class ChineseServer: NSObject {
         static let frag = 8
         static let exp = 9
         static let killDeath = 10
+        static let rating = 11
+        static let tier = 12
+        static let allDamage = 13
+        static let allWin = 14
+        static let kill = 15
     }
     
     // Get basic info
@@ -80,8 +85,10 @@ class ChineseServer: NSObject {
         switch index {
         case 0:
             return "north"
-        default:
+        case 1:
             return "south"
+        default:
+            return ""
         }
     }
     
@@ -108,25 +115,38 @@ class ChineseServer: NSObject {
                         let averageDamage = String(format: "%.0f", round(damage / battle))
                         
                         let shipID = ship.1["id"]["vehicleTypeCd"].stringValue
-                        var rank = "无"
+                        // Does not count beta ships
+                        if Shipinformation.ShipJson[shipID] == JSON.null { continue }
+                        var rank = "0"
                         if rankJson[shipID] != JSON.null {
                             rank = "\(rankJson[shipID])"
                         }
                         
                         let kill = ship.1["killship"].doubleValue
-                        let averageFrag = String(format: "%.2f", round(kill / battle))
+                        let averageFrag = String(format: "%.2f", round(kill / battle * 100) / 100)
                         let averageExp = String(format: "%.0f", round(ship.1["exp"].doubleValue / battle))
                         
                         var death = battle - ship.1["alive"].doubleValue
                         if death == 0 { death = 1 }
-                        let killDeath = String(format: "%.2f", round((kill / death * 100) / 100))
+                        let killDeath = String(format: "%.2f", round(kill / death * 100) / 100)
                         
                         var teamBattle = ship.1["teambattles"].doubleValue
                         if teamBattle == 0 { teamBattle = 1 }
                         let teamWinrate = String(format: "%.1f", round(100 * (ship.1["teamwins"].doubleValue / teamBattle * 100) / 100))
                         
-                        shipData.append([winrate + " (\(teamWinrate)%)", averageDamage + " (\(ship.1["maxdamage"]))", String(format: "%.0f%", battle) + " (\(String(format: "%.0f%", teamBattle)))", rank, shipID, "http://xvm.qingcdn.com/wikiwows/ship/\(Shipinformation.ShipJson[shipID]["ship_id_str"]).png", "等级 \(Shipinformation.ShipJson[shipID]["tier"]) \(Shipinformation.ShipJson[shipID]["name"])", "\(Shipinformation.ShipJson[shipID]["type"])", averageFrag, averageExp + " (\(ship.1["maxexp"]))", killDeath])
+                        let pr = ShipRating().getRatingForShips(Damage: damage / battle, WinRate: win / battle, Frags: kill / battle, ID: shipID)
+                        
+                        shipData.append([winrate + " (\(teamWinrate)%)", averageDamage + " (\(ship.1["maxdamage"]))", String(format: "%.0f%", battle) + " (\(String(format: "%.0f%", teamBattle)))", rank, shipID, "http://xvm.qingcdn.com/wikiwows/ship/\(Shipinformation.ShipJson[shipID]["ship_id_str"]).png", "等级 \(Shipinformation.ShipJson[shipID]["tier"]) \(Shipinformation.ShipJson[shipID]["name"])", "\(Shipinformation.ShipJson[shipID]["type"])", averageFrag, averageExp + " (\(ship.1["maxexp"]))", killDeath, pr, "\(Shipinformation.ShipJson[shipID]["tier"])", "\(damage)", "\(win)", "\(kill)"])
                     }
+                    
+                    // Sort array
+                    shipData.sort(by: {
+                        // If they have same rating
+                        if Int($0[11].components(separatedBy: "|")[1])! == Int($1[11].components(separatedBy: "|")[1])! {
+                            return Int($0[12])! > Int($1[12])!
+                        }
+                        return Int($0[11].components(separatedBy: "|")[1])! > Int($1[11].components(separatedBy: "|")[1])!
+                    })
                     success(shipData)
                 }
             }
