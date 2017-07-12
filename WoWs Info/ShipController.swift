@@ -241,6 +241,8 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         }))
         // Cancel button
         sortOption.addAction(UIAlertAction(title: "SHARE_CANCEL".localised(), style: .cancel, handler: nil))
+        sortOption.popoverPresentationController?.sourceView = self.view
+        sortOption.modalPresentationStyle = .overFullScreen
         self.present(sortOption, animated: true)
         AudioServicesPlaySystemSound(1520)
     }
