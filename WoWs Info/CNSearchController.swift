@@ -7,13 +7,18 @@
 //
 
 import UIKit
+import SafariServices
+import GoogleMobileAds
 
-class CNSearchController: UIViewController, UITextFieldDelegate {
+class CNSearchController: UIViewController, UITextFieldDelegate, GADRewardBasedVideoAdDelegate {
 
     @IBOutlet weak var playerTextField: UITextField!
     @IBOutlet weak var serverSwitch: UISwitch!
+    @IBOutlet weak var topPlayerBtn: UIButton!
+    @IBOutlet weak var pointLabel: UILabel!
     // Theme Colour
     let theme = Theme.getCurrTheme()
+    let isPro = UserDefaults.standard.bool(forKey: DataManagement.DataName.hasPurchased)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,17 +29,33 @@ class CNSearchController: UIViewController, UITextFieldDelegate {
         
         // Setup TextField
         playerTextField.delegate = self
+        
+        // Hide point if user is pro
+        if isPro {
+            pointLabel.isHidden = true
+        }
+        
+        // Add a back button
+        let backBtn = UIBarButtonItem(title: "BACK".localised(), style: .plain, target: self, action: #selector(goBack))
+        self.navigationItem.rightBarButtonItem = backBtn
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // Change it back when user tries to search another play
-        self.playerTextField.isEnabled = true
-        self.title = "国服数据查询"
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let currPoint = PointSystem.getCurrPoint()
+        pointLabel.text = "点数: \(currPoint)"
+        // Check if user needs to watch a video ads
+        if !isPro && currPoint < 1 {
+            GADRewardBasedVideoAd.sharedInstance().delegate = self
+            if GADRewardBasedVideoAd.sharedInstance().isReady {
+                GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -50,10 +71,20 @@ class CNSearchController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func goBack() {
+        // Go BACK >_<
+        let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
+        let tabbar = storyboard.instantiateViewController(withIdentifier: "TabBarController")
+        tabbar.modalTransitionStyle = .flipHorizontal
+        tabbar.modalPresentationStyle = .fullScreen
+        self.present(tabbar, animated: true, completion: nil)
+    }
+    
     // MARK: Theme
     func setupTheme() {
         serverSwitch.tintColor = theme
         serverSwitch.onTintColor = theme
+        topPlayerBtn.setTitleColor(theme, for: .normal)
     }
     
     // MARK: Text Field
@@ -71,19 +102,30 @@ class CNSearchController: UIViewController, UITextFieldDelegate {
                 // This is not valid
                 let invalid = UIAlertController.QuickMessage(title: "提示", message: "请输入用户名", cancel: "好的")
                 self.present(invalid, animated: true, completion: nil)
+                // Change it back when user tries to search another play
+                self.playerTextField.isEnabled = true
             } else {
                 ChineseServer(player: player, server: self.getServerIndex()).getPlayerInformation(success: { (data) in
                     if data.count > 0 {
                         DispatchQueue.main.async {
                             self.performSegue(withIdentifier: "gotoCNPlayer", sender: data)
+                            
+                            // Change it back when user tries to search another play
+                            self.playerTextField.isEnabled = true
                         }
                     } else {
                         // No such player
                         let invalid = UIAlertController.QuickMessage(title: "提示", message: "玩家不存在或无记录", cancel: "好的")
                         self.present(invalid, animated: true, completion: nil)
+                        
+                        DispatchQueue.main.async {
+                            // Change it back when user tries to search another play
+                            self.playerTextField.isEnabled = true
+                        }
                     }
                 })
             }
+            self.title = "国服数据查询"
         }
         
         return true
@@ -96,6 +138,34 @@ class CNSearchController: UIViewController, UITextFieldDelegate {
         } else {
             return ChineseServer.ServerIndex.north
         }
+    }
+    
+    // MARK: Button Pressed
+    @IBAction func topPlayerBtnPressed(_ sender: Any) {
+        let topPlayer = SFSafariViewController(url: URL(string: "http://rank.kongzhong.com/wows/topplayer.html")!)
+        topPlayer.modalPresentationStyle = .overFullScreen
+        UIApplication.shared.statusBarStyle = .default
+        self.present(topPlayer, animated: true, completion: nil)
+    }
+
+    @IBAction func topShipBtnPressed(_ sender: Any) {
+        let topShip = SFSafariViewController(url: URL(string: "http://rank.kongzhong.com/wows/shiptop.html")!)
+        topShip.modalPresentationStyle = .overFullScreen
+        UIApplication.shared.statusBarStyle = .default
+        self.present(topShip, animated: true, completion: nil)
+    }
+    
+    // MARK: Safari
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        // CHange status bar colour back
+        UIApplication.shared.statusBarStyle = .lightContent
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: ADs
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didRewardUserWith reward: GADAdReward) {
+        // Add 3 - 7 points
+        PointSystem(index: PointSystem.DataIndex.AD).addPoint()
     }
     
 }

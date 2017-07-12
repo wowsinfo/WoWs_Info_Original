@@ -40,6 +40,14 @@ class CNPlayerController: UIViewController, SFSafariViewControllerDelegate {
         super.didReceiveMemoryWarning()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if self.isMovingFromParentViewController {
+            // Remove one point
+            PointSystem(pointToRemove: 1).removePoint()
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // Change text to "Back"
@@ -60,7 +68,7 @@ class CNPlayerController: UIViewController, SFSafariViewControllerDelegate {
         // Some may not have a clan or rank
         let rank = playerData[ChineseServer.DataIndex.rank]
         if rank == "0" {
-            rankLabel.text = "没有参加排位赛"
+            rankLabel.text = "无排名"
         } else { rankLabel.text = rank }
         let clan = playerData[ChineseServer.DataIndex.clan]
         if clan == "" {
@@ -77,10 +85,10 @@ class CNPlayerController: UIViewController, SFSafariViewControllerDelegate {
 
     // MARK: Button pressed
     @IBAction func kongzhongBtnPressed(_ sender: Any) {
-        let wiki = SFSafariViewController(url: URL(string: playerData[ChineseServer.DataIndex.website])!)
-        wiki.modalPresentationStyle = .overFullScreen
+        let kongzhong = SFSafariViewController(url: URL(string: playerData[ChineseServer.DataIndex.website])!)
+        kongzhong.modalPresentationStyle = .overFullScreen
         UIApplication.shared.statusBarStyle = .default
-        self.present(wiki, animated: true, completion: nil)
+        self.present(kongzhong, animated: true, completion: nil)
     }
     
     @IBAction func shipInfoBtnPressed(_ sender: Any) {

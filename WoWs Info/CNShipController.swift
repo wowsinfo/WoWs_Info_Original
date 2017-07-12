@@ -138,6 +138,8 @@ class CNShipController: UIViewController ,UITableViewDelegate, UITableViewDataSo
             self.updateData()
         }))
         sort.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        sort.popoverPresentationController?.sourceView = self.view
+        sort.modalPresentationStyle = .overFullScreen
         self.present(sort, animated: true, completion: nil)
     }
     
