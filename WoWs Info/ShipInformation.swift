@@ -177,7 +177,9 @@ class PlayerShip {
                         return Int($0[10].components(separatedBy: "|")[1])! > Int($1[10].components(separatedBy: "|")[1])!
                     })
                     
-                    PlayerShip.playerShipInfo = shipInfo
+                    DispatchQueue.main.async {
+                        PlayerShip.playerShipInfo = shipInfo
+                    }
                     
                     print(shipInfo)
                 }
