@@ -14,6 +14,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
 
     @IBOutlet weak var showAdsConstraint: NSLayoutConstraint!
     @IBOutlet weak var bannerView: GADBannerView!
+    @IBOutlet weak var pointLabel: UILabel!
     
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var usernameTableView: UITableView!
@@ -32,6 +33,8 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let isPro = UserDefaults.standard.bool(forKey: DataManagement.DataName.hasPurchased)
+        
         // Show Github if havent seen it yet
         if !UserDefaults.standard.bool(forKey: DataManagement.DataName.gotoGithub) {
             print("Show Github Message")
@@ -44,7 +47,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         }
         
         // Whether ads should be shown
-        if UserDefaults.standard.bool(forKey: DataManagement.DataName.hasPurchased) {
+        if isPro {
             // Adjust constraint
             showAdsConstraint.constant -= 50
             bannerView.removeFromSuperview()
@@ -93,6 +96,14 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         // Load server name
         getServerName()
+        
+        // Setup pointLabel
+        if isPro {
+            pointLabel.frame.size.height = 0
+            pointLabel.removeFromSuperview()
+        } else {
+            pointLabel.text = "POINT_SYSTEM".localised() + ": \(PointSystem.getCurrPoint())"
+        }
     }
 
     override func didReceiveMemoryWarning() {

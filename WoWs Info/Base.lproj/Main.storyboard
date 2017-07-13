@@ -88,6 +88,13 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VgM-Q6-Uua">
                                 <rect key="frame" x="0.0" y="162" width="375" height="456"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Point: 99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fV4-KT-OC0">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <sections/>
                             </tableView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4qV-6A-8sF">
@@ -169,6 +176,7 @@
                     <connections>
                         <outlet property="bannerView" destination="eBL-yl-n35" id="Ojm-Uq-6Hc"/>
                         <outlet property="pickerView" destination="4qV-6A-8sF" id="KLP-Xz-aiE"/>
+                        <outlet property="pointLabel" destination="fV4-KT-OC0" id="n8V-sf-YEp"/>
                         <outlet property="serverPicker" destination="Ez0-mS-4DK" id="Ptd-xS-S3o"/>
                         <outlet property="serverSelectionBtn" destination="tQd-hj-Ixs" id="JHh-06-g9w"/>
                         <outlet property="showAdsConstraint" destination="AoO-23-RTf" id="MHW-Nq-bbt"/>

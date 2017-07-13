@@ -58,14 +58,16 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationController?.navigationBar.barTintColor = ThemeColour
         self.tabBarController?.tabBar.tintColor = ThemeColour
         
+        // Reload tableview
+        self.settingsTableView.reloadData()
+        
         // Update Point
         if isPro {
             wordSet[4] = "POINT_SYSTEM".localised() + " (∞)"
         } else {
             wordSet[4] = "POINT_SYSTEM".localised() + " (\(PointSystem.getCurrPoint()))"
         }
-        // Reload tableview
-        self.settingsTableView.reloadData()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -95,7 +97,7 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
         
         if isPro {
             // Paid version
-            if indexPath.row != imageSet.count {
+            if index != imageSet.count {
                 // Setting cell
                 let cell = settingsTableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsCell
                 cell.logoImage.layer.cornerRadius = cell.logoImage.frame.width / 5
