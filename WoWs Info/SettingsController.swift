@@ -167,13 +167,14 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
                         let rate = UIAlertController(title: "THEME_TITLE".localised(), message: "THEME_MESSAGE".localised(), preferredStyle: .alert)
                         rate.addAction(UIAlertAction(title: "OK", style: .default, handler: { (Review) in
                             UIApplication.shared.openURL(URL(string: "https://itunes.apple.com/app/id1202750166")!)
-                            // Well, you dont really need to review though                                                                                                                                                                                                                                                                                                                                               
-                            UserDefaults.standard.set(true, forKey: DataManagement.DataName.didReview)
                             // Free 30 points for you
                             PointSystem(index: PointSystem.DataIndex.Review).addPoint()
+                            // Well, you dont really need to review though
+                            UserDefaults.standard.set(true, forKey: DataManagement.DataName.didReview)
                         }))
                         rate.addAction(UIAlertAction(title: "SHARE_CANCEL".localised(), style: .cancel, handler: nil))
                         self.present(rate, animated: true, completion: nil)
+                        self.settingsTableView.reloadData()
                     } else {
                         performSegue(withIdentifier: "gotoTheme", sender: nil)
                     }
@@ -191,12 +192,12 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
     
     // MARK: Button pressed
     @IBAction func shareBtnPressed(_ sender: Any) {
+        // Free 50 points
+        PointSystem(index: PointSystem.DataIndex.Share).addPoint()
         let share = UIActivityViewController.init(activityItems: [URL(string: "https://itunes.apple.com/app/id1202750166")!], applicationActivities: nil)
         share.popoverPresentationController?.sourceView = self.view
         share.modalPresentationStyle = .overFullScreen
         self.present(share, animated: true, completion: nil)
-        // Free 50 points
-        PointSystem(index: PointSystem.DataIndex.Share).addPoint()
     }
 
 }

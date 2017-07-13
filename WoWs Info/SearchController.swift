@@ -136,6 +136,9 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
                 GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
             }
         }
+        
+        // Update point
+        pointLabel.text = "POINT_SYSTEM".localised() + ": \(PointSystem.getCurrPoint())"
     }
     
     func getServerName() {
