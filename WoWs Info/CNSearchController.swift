@@ -10,7 +10,7 @@ import UIKit
 import SafariServices
 import GoogleMobileAds
 
-class CNSearchController: UIViewController, UITextFieldDelegate, GADRewardBasedVideoAdDelegate {
+class CNSearchController: UIViewController, UITextFieldDelegate, GADRewardBasedVideoAdDelegate , SFSafariViewControllerDelegate {
 
     @IBOutlet weak var playerTextField: UITextField!
     @IBOutlet weak var serverSwitch: UISwitch!
@@ -144,12 +144,14 @@ class CNSearchController: UIViewController, UITextFieldDelegate, GADRewardBasedV
     @IBAction func topPlayerBtnPressed(_ sender: Any) {
         let topPlayer = SFSafariViewController(url: URL(string: "http://rank.kongzhong.com/wows/topplayer.html")!)
         topPlayer.modalPresentationStyle = .overFullScreen
+        topPlayer.delegate = self
         UIApplication.shared.statusBarStyle = .default
         self.present(topPlayer, animated: true, completion: nil)
     }
 
     @IBAction func topShipBtnPressed(_ sender: Any) {
         let topShip = SFSafariViewController(url: URL(string: "http://rank.kongzhong.com/wows/shiptop.html")!)
+        topShip.delegate = self
         topShip.modalPresentationStyle = .overFullScreen
         UIApplication.shared.statusBarStyle = .default
         self.present(topShip, animated: true, completion: nil)
