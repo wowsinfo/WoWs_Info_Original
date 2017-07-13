@@ -24,6 +24,8 @@ class CNPlayerController: UIViewController, SFSafariViewControllerDelegate {
     @IBOutlet weak var winrateLabel: UILabel!
     @IBOutlet weak var damageLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
+    let isPro = UserDefaults.standard.bool(forKey: DataManagement.DataName.hasPurchased)
+    let currPoint = PointSystem.getCurrPoint()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,7 +96,14 @@ class CNPlayerController: UIViewController, SFSafariViewControllerDelegate {
     @IBAction func shipInfoBtnPressed(_ sender: Any) {
         // Internet latency issue
         if shipData.count > 0 {
-            performSegue(withIdentifier: "gotoCNShipDetail", sender: shipData)
+            if !isPro && currPoint < 1 {
+                // Do not segue if it is not Pro
+                let pro = UIAlertController(title: "NO_ENOUGH_POINT_TITLE".localised(), message: "NO_ENOUGH_POINT_MESSAGE".localised(), preferredStyle: .alert)
+                pro.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(pro, animated: true, completion: nil)
+            } else {
+                performSegue(withIdentifier: "gotoCNShipDetail", sender: shipData)
+            }
         } else {
             let message = UIAlertController.QuickMessage(title: "提示", message: "您也许选择了错误的服务器", cancel: "好的")
             self.present(message, animated: true, completion: nil)
