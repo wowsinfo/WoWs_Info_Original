@@ -78,21 +78,21 @@ class PointSystemController: UIViewController, GADRewardBasedVideoAdDelegate {
     }
     
     @IBAction func reviewBtnPressed(_ sender: Any) {
-        UserDefaults.standard.set(true, forKey: DataManagement.DataName.didReview)
-        UIApplication.shared.openURL(URL(string: "https://itunes.apple.com/app/id1202750166")!)
         // Free 30 points
         PointSystem(index: PointSystem.DataIndex.Review).addPoint()
+        UserDefaults.standard.set(true, forKey: DataManagement.DataName.didReview)
+        UIApplication.shared.openURL(URL(string: "https://itunes.apple.com/app/id1202750166")!)
         updatePoint()
     }
     
     @IBAction func shareBtnPressed(_ sender: Any) {
+        // Free 50 points
+        PointSystem(index: PointSystem.DataIndex.Share).addPoint()
         UserDefaults.standard.set(true, forKey: DataManagement.DataName.didShare)
         let share = UIActivityViewController.init(activityItems: [URL(string: "https://itunes.apple.com/app/id1202750166")!], applicationActivities: nil)
         share.popoverPresentationController?.sourceView = self.view
         share.modalPresentationStyle = .overFullScreen
         self.present(share, animated: true, completion: nil)
-        // Free 50 points
-        PointSystem(index: PointSystem.DataIndex.Share).addPoint()
         updatePoint()
     }
     
