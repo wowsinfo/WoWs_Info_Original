@@ -9,23 +9,32 @@
 import UIKit
 import GoogleMobileAds
 
-class SettingsController: UIViewController, UITableViewDelegate, UITableViewDataSource, GADBannerViewDelegate {
+class SettingsController: UITableViewController, GADBannerViewDelegate {
 
     @IBOutlet weak var bannerView: GADBannerView!
-    let imageSet = [#imageLiteral(resourceName: "Web"),#imageLiteral(resourceName: "AppStore"),#imageLiteral(resourceName: "Settings"), #imageLiteral(resourceName: "Theme"), #imageLiteral(resourceName: "Gold")]
-    var wordSet = ["WEB_SETTINGS".localised(), "APP_SETTINGS".localised(), "SETTINGS_SETTINGS".localised(), "THEME_SETTINGS".localised(), "POINT_SYSTEM".localised()]
-    let segueSet = ["gotoProVersion", "gotoWeb", "gotoReview", "gotoSettings", "gotoTheme", "gotoPoint"]
+    @IBOutlet weak var webImage: UIImageView!
+    @IBOutlet weak var facebookImage: UIImageView!
+    @IBOutlet weak var themeImage: UIImageView!
+    @IBOutlet weak var linkImage: UIImageView!
+    @IBOutlet weak var appstoreImage: UIImageView!
+    
+    @IBOutlet weak var proBtn: UIButton!
+    
     var isPro = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
-    @IBOutlet weak var settingsTableView: UITableView!
+    var didReview = UserDefaults.standard.bool(forKey: DataManagement.DataName.didReview)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Adjust insets for Pro and Free users
+        var inset: UIEdgeInsets!
         // Whether ads should be shown
         if UserDefaults.standard.bool(forKey: DataManagement.DataName.hasPurchased) {
             // Remove it
             bannerView.removeFromSuperview()
             bannerView.frame.size.height = 0
+            
+            inset = UIEdgeInsets(top: -44, left: 0, bottom: 0, right: 0)
         } else {
             // Load ads
             bannerView.adSize = kGADAdSizeSmartBannerPortrait
@@ -35,15 +44,22 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
             let request = GADRequest()
             request.testDevices = [kGADSimulatorID]
             bannerView.load(request)
+            
+            inset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         }
         
-        // Setup tableview
-        settingsTableView.delegate = self
-        settingsTableView.dataSource = self
-        settingsTableView.separatorColor = UIColor.clear
+        // Setup Tableview
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.contentInset = inset
         
-        settingsTableView.estimatedRowHeight = 60
-        settingsTableView.rowHeight = UITableViewAutomaticDimension
+        
+        if isPro {
+            self.proBtn.removeFromSuperview()
+        }
+        
+        // Setup Theme
+        setupTheme()
         
         self.navigationController?.navigationBar.topItem?.title = NSLocalizedString("SETTINGS_SETTINGS", comment: "Settings Title")
     }
@@ -53,25 +69,47 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
         
         // If it is Pro
         isPro = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
+        didReview = UserDefaults.standard.bool(forKey: DataManagement.DataName.didReview)
+        
         // Update theme colour
         let ThemeColour = Theme.getCurrTheme()
         self.navigationController?.navigationBar.barTintColor = ThemeColour
         self.tabBarController?.tabBar.tintColor = ThemeColour
         
-        // Reload tableview
-        self.settingsTableView.reloadData()
-        
-        // Update Point
-        if isPro {
-            wordSet[4] = "POINT_SYSTEM".localised() + " (∞)"
-        } else {
-            wordSet[4] = "POINT_SYSTEM".localised() + " (\(PointSystem.getCurrPoint()))"
-        }
+        // Update Theme
+        setupTheme()
         
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: Theme
+    func setupTheme() {
+        // Setup Image
+        let theme = Theme.getCurrTheme()
+        setupImage(image: webImage)
+        setupImage(image: facebookImage)
+        setupImage(image: themeImage)
+        setupImage(image: linkImage)
+        setupImage(image: appstoreImage)
+        linkImage.backgroundColor = theme
+        themeImage.backgroundColor = theme
+    }
+    
+    func setupImage(image: UIImageView) {
+        image.layer.cornerRadius = 5
+        image.layer.masksToBounds = true
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "gotoTheme" {
+            // You could need rate in order to use it
+            if !isPro || !didReview { return false }
+        }
+        
+        return true
     }
     
     // MARK: ADS
@@ -82,112 +120,17 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     // MARK: UITableView
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isPro { return imageSet.count + 1 }
-        // IF not ask user to buy it
-        return imageSet.count + 2
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let index = indexPath.row
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let tag = tableView.cellForRow(at: indexPath)?.tag {
+            // Segue to certain contorller
+        }
         
-        if isPro {
-            // Paid version
-            if index != imageSet.count {
-                // Setting cell
-                let cell = settingsTableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsCell
-                cell.logoImage.layer.cornerRadius = cell.logoImage.frame.width / 5
-                cell.logoImage.layer.masksToBounds = true
-                
-                // Change theme for theme
-                let icon = imageSet[index]
-                if icon == #imageLiteral(resourceName: "Theme") { // <-- It is a white icon...
-                    cell.logoImage.backgroundColor = Theme.getCurrTheme()
-                } else {
-                    cell.logoImage.backgroundColor = UIColor.clear
-                }
-                
-                cell.logoImage.image = icon
-                cell.nameLabel.text = wordSet[index]
-                return cell
-            } else {
-                // Developer cell
-                let cell = settingsTableView.dequeueReusableCell(withIdentifier: "DeveloperCell", for: indexPath) as! DeveloperCell
-                cell.devLabel.text = NSLocalizedString("DEV_LABEL", comment: "Devloper")
-                return cell
-            }
-        } else {
-            // Free version
-            if index == 0 {
-                let cell = settingsTableView.dequeueReusableCell(withIdentifier: "UpgradeCell", for: indexPath) as! UpgradeCell
-                // Update text colour as well
-                cell.proLabel.text = NSLocalizedString("UPGRADE_SETTINGS", comment: "Upgrade to Pro")
-                cell.proLabel.textColor = Theme.getCurrTheme()
-                return cell
-            } else if indexPath.row != imageSet.count + 1{
-                let cell = settingsTableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsCell
-                
-                // Change theme for theme
-                let icon = imageSet[index - 1]
-                if icon == #imageLiteral(resourceName: "Theme") { // <-- It is a white icon...
-                    cell.logoImage.backgroundColor = Theme.getCurrTheme()
-                } else {
-                    cell.logoImage.backgroundColor = UIColor.clear
-                }
-                
-                cell.logoImage.image = icon
-                cell.logoImage.layer.cornerRadius = cell.logoImage.frame.width / 5
-                cell.logoImage.layer.masksToBounds = true
-                cell.nameLabel.text = wordSet[index - 1]
-                return cell
-            } else {
-                // Developer cell
-                let cell = settingsTableView.dequeueReusableCell(withIdentifier: "DeveloperCell", for: indexPath) as! DeveloperCell
-                cell.devLabel.text = NSLocalizedString("DEV_LABEL", comment: "Devloper")
-                return cell
-            }
-        }
+        // Deselect
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let index = indexPath.row
-        if isPro {
-            if index != imageSet.count {
-                performSegue(withIdentifier: segueSet[index + 1], sender: nil)
-            }
-        } else {
-            if index != imageSet.count + 1 {
-                if segueSet[index] == "gotoTheme" {
-                    if !UserDefaults.standard.bool(forKey: DataManagement.DataName.didReview) {
-                        // Ask User to rate this app
-                        let rate = UIAlertController(title: "THEME_TITLE".localised(), message: "THEME_MESSAGE".localised(), preferredStyle: .alert)
-                        rate.addAction(UIAlertAction(title: "OK", style: .default, handler: { (Review) in
-                            UIApplication.shared.openURL(URL(string: "https://itunes.apple.com/app/id1202750166")!)
-                            // Free 30 points for you
-                            PointSystem(index: PointSystem.DataIndex.Review).addPoint()
-                            // Well, you dont really need to review though
-                            UserDefaults.standard.set(true, forKey: DataManagement.DataName.didReview)
-                        }))
-                        rate.addAction(UIAlertAction(title: "SHARE_CANCEL".localised(), style: .cancel, handler: nil))
-                        self.present(rate, animated: true, completion: nil)
-                        self.settingsTableView.reloadData()
-                    } else {
-                        performSegue(withIdentifier: "gotoTheme", sender: nil)
-                    }
-                } else if segueSet[index] == "gotoProVersion" {
-                    let storyboard = UIStoryboard(name: "ProVersion", bundle: Bundle.main)
-                    let pro = storyboard.instantiateViewController(withIdentifier: "ProViewController") as! IAPController
-                    pro.modalPresentationStyle = .overFullScreen
-                    self.present(pro, animated: true, completion: nil)
-                } else {
-                    performSegue(withIdentifier: segueSet[index], sender: nil)
-                }
-            }
-        }
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 10
     }
     
     // MARK: Button pressed

@@ -84,9 +84,7 @@
 		92B768701E5E5DE1009803C3 /* UsefulWebsite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B768721E5E5DE1009803C3 /* UsefulWebsite.storyboard */; };
 		92B768851E5E6E34009803C3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92B768871E5E6E34009803C3 /* Localizable.strings */; };
 		92BD115C1EA0E70000D04C16 /* AdvancedShipDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BD115B1EA0E70000D04C16 /* AdvancedShipDetailController.swift */; };
-		92BF559E1E9FB57000573F0A /* ReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF559D1E9FB57000573F0A /* ReviewController.swift */; };
 		92D414AB1E6AA5EF00E8C8AF /* ShipScreenshotController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D414AA1E6AA5EF00E8C8AF /* ShipScreenshotController.swift */; };
-		92D510531F13C8C2001FB885 /* PointSystem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92D510551F13C8C2001FB885 /* PointSystem.storyboard */; };
 		92D9B4D21E55AE3200CFD46D /* PlayerAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4D11E55AE3200CFD46D /* PlayerAccount.swift */; };
 		92D9B4D41E55AF2400CFD46D /* RankController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4D31E55AF2400CFD46D /* RankController.swift */; };
 		92D9B4D61E55C6D600CFD46D /* RankTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4D51E55C6D600CFD46D /* RankTableCell.swift */; };
@@ -223,12 +221,7 @@
 		92B768821E5E6144009803C3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		92B768861E5E6E34009803C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		92BD115B1EA0E70000D04C16 /* AdvancedShipDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedShipDetailController.swift; sourceTree = "<group>"; };
-		92BF559D1E9FB57000573F0A /* ReviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewController.swift; sourceTree = "<group>"; };
 		92D414AA1E6AA5EF00E8C8AF /* ShipScreenshotController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipScreenshotController.swift; sourceTree = "<group>"; };
-		92D510541F13C8C2001FB885 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PointSystem.storyboard; sourceTree = "<group>"; };
-		92D510571F13C8C4001FB885 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/PointSystem.strings"; sourceTree = "<group>"; };
-		92D510591F13C8C5001FB885 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/PointSystem.strings"; sourceTree = "<group>"; };
-		92D5105B1F13C8C7001FB885 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/PointSystem.strings; sourceTree = "<group>"; };
 		92D9B4D11E55AE3200CFD46D /* PlayerAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerAccount.swift; sourceTree = "<group>"; };
 		92D9B4D31E55AF2400CFD46D /* RankController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankController.swift; sourceTree = "<group>"; };
 		92D9B4D51E55C6D600CFD46D /* RankTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankTableCell.swift; sourceTree = "<group>"; };
@@ -296,7 +289,6 @@
 				929C426B1EB20E0200DD0F6A /* Dashboard */,
 				920105B61EB1890500E5F338 /* Tab Bar */,
 				92E45B211EAE147500360E62 /* Clan */,
-				92BF559C1E9FB54A00573F0A /* Review */,
 				9215CA461E5C0C7C00A7F465 /* Pro */,
 				9260D04E1E960C5800BBCB03 /* IAP */,
 				9260D0501E960C8300BBCB03 /* PlayerInfo */,
@@ -552,7 +544,6 @@
 				920999E91F131E1700AFA924 /* Wiki.storyboard */,
 				9295B1D01EBDEF3B008FE418 /* FriendList.storyboard */,
 				92B768721E5E5DE1009803C3 /* UsefulWebsite.storyboard */,
-				92D510551F13C8C2001FB885 /* PointSystem.storyboard */,
 				925BE5AB1E502D0000DA6A1A /* Settings.storyboard */,
 				9233ECBE1F148D2E006748EC /* ChineseServer.storyboard */,
 				924B21EA1EB36D950016A7C8 /* Clan.storyboard */,
@@ -583,14 +574,6 @@
 				929C426C1EB20E2600DD0F6A /* DashboardController.swift */,
 			);
 			name = Dashboard;
-			sourceTree = "<group>";
-		};
-		92BF559C1E9FB54A00573F0A /* Review */ = {
-			isa = PBXGroup;
-			children = (
-				92BF559D1E9FB57000573F0A /* ReviewController.swift */,
-			);
-			name = Review;
 			sourceTree = "<group>";
 		};
 		92D9B4D71E55C87700CFD46D /* TableViewCell */ = {
@@ -746,7 +729,6 @@
 				92B768701E5E5DE1009803C3 /* UsefulWebsite.storyboard in Resources */,
 				9295B1DF1EBE077E008FE418 /* GoogleService-Info.plist in Resources */,
 				92B768851E5E6E34009803C3 /* Localizable.strings in Resources */,
-				92D510531F13C8C2001FB885 /* PointSystem.storyboard in Resources */,
 				925636591E53F1CA0002E08A /* Assets.xcassets in Resources */,
 				92457ADE1EE5475800B5A120 /* Theme.storyboard in Resources */,
 				925BE5AD1E502D0000DA6A1A /* Settings.storyboard in Resources */,
@@ -859,7 +841,6 @@
 				92476A481E96025D0050F8A9 /* WikiDataCell.swift in Sources */,
 				922AD1171F07B71B003E509C /* LicenceController.swift in Sources */,
 				921EA6991E35F2FB0007C7FC /* AppDelegate.swift in Sources */,
-				92BF559E1E9FB57000573F0A /* ReviewController.swift in Sources */,
 				929928471E865FF60091A174 /* NewsController.swift in Sources */,
 				92D9B4D41E55AF2400CFD46D /* RankController.swift in Sources */,
 				92457ADA1EE53B7500B5A120 /* DataUpdater.swift in Sources */,
@@ -1009,17 +990,6 @@
 				920999F81F1320E900AFA924 /* ja */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		92D510551F13C8C2001FB885 /* PointSystem.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				92D510541F13C8C2001FB885 /* Base */,
-				92D510571F13C8C4001FB885 /* zh-Hans */,
-				92D510591F13C8C5001FB885 /* zh-Hant */,
-				92D5105B1F13C8C7001FB885 /* ja */,
-			);
-			name = PointSystem.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

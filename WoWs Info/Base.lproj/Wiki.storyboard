@@ -1292,6 +1292,7 @@
                             <outlet property="delegate" destination="5gJ-nU-Q1b" id="z7y-CI-CDF"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="gXG-ie-bjo"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4j4-gI-k6j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

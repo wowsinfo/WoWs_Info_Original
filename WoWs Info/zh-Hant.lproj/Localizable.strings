@@ -213,3 +213,7 @@
 "NO_ENOUGH_POINT_MESSAGE" = "請在更多 -> 點數 觀看以及點擊廣告來獲得更多點數";
 
 "NO_INFORMATION" = "無數據";
+
+"ISNOT_PRO" = "解鎖專業版";
+
+"IS_PRO" = "已解鎖";
