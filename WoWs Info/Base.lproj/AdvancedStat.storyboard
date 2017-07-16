@@ -6,6 +6,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -314,7 +315,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoU-7a-avU" userLabel="CentrePoint">
-                                                    <rect key="frame" x="168.5" y="33.5" width="5" height="0.0"/>
+                                                    <rect key="frame" x="169" y="33.5" width="5" height="0.0"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="5" id="mdC-CN-3Ea"/>
                                                     </constraints>
@@ -351,7 +352,10 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         <connections>
-                                            <segue destination="6eS-B8-bal" kind="show" identifier="gotoClan" id="OSL-xu-qgi"/>
+                                            <segue destination="6eS-B8-bal" kind="show" identifier="gotoClan" id="OSL-xu-qgi">
+                                                <segue key="commit" inheritsFrom="parent" id="dcm-4S-NIG"/>
+                                                <segue key="preview" inheritsFrom="commit" id="Kt6-55-HoZ"/>
+                                            </segue>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -427,7 +431,10 @@
                                         <gestureRecognizers/>
                                         <inset key="separatorInset" minX="46" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
-                                            <segue destination="zpO-nA-s0k" kind="show" identifier="gotoMoreInfo" id="SFp-hd-eb3"/>
+                                            <segue destination="zpO-nA-s0k" kind="show" identifier="gotoMoreInfo" id="SFp-hd-eb3">
+                                                <segue key="commit" inheritsFrom="parent" id="KX2-17-fgv"/>
+                                                <segue key="preview" inheritsFrom="commit" id="Vg6-x7-lv0"/>
+                                            </segue>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="50" id="wPT-ke-gse">
@@ -524,4 +531,8 @@
         <image name="Theme" width="205" height="205"/>
         <image name="WinRate" width="92" height="105"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="SFp-hd-eb3"/>
+        <segue reference="OSL-xu-qgi"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -215,3 +215,7 @@
 "NO_ENOUGH_POINT_MESSAGE" = "Please get more points by clicking on Ads in More -> Points";
 
 "NO_INFORMATION" = "No information";
+
+"ISNOT_PRO" = "Unlock Pro Version";
+
+"IS_PRO" = "Unlocked";
