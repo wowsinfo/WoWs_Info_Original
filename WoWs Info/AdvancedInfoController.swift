@@ -125,7 +125,7 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if self.isMovingFromParentViewController {
-            if pointsToRemove > 2 { pointsToRemove = 2 }
+            if pointsToRemove > 3 { pointsToRemove = 3 }
             PointSystem(pointToRemove: pointsToRemove).removePoint()
         }
     }
@@ -263,16 +263,21 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         if self.totalBattlesLabel.text == "" { return false }
         
         if identifier == "gotoClan" {
+            pointsToRemove += 1
             if clanData == [String]() || clanData[2] == "" {
                 // If player does not have a clan
+                pointsToRemove -= 1
                 return false
             }
-        }
-        
-        if identifier == "gotoMoreInfo" {
+        } else if identifier == "gotoMoreInfo" {
             pointsToRemove += 1
             if self.totalBattlesLabel.text == "0" {
                 // Do not segue if they never player a battle
+                pointsToRemove -= 1
+                return false
+            } else if self.totalBattlesLabel.text == " " {
+                // Do not segue if data is not loaded
+                pointsToRemove -= 1
                 return false
             }
         }

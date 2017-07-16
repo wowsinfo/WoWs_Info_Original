@@ -82,6 +82,8 @@ class SettingsController: UITableViewController, GADBannerViewDelegate, GADRewar
         
         // Update Theme
         setupTheme()
+        // Update points
+        updatePoint()
         
     }
 
@@ -153,18 +155,20 @@ class SettingsController: UITableViewController, GADBannerViewDelegate, GADRewar
         if let tag = tableView.cellForRow(at: indexPath)?.tag {
             // Point
             if tag == 10 {
-                GADRewardBasedVideoAd.sharedInstance().delegate = self
-                if GADRewardBasedVideoAd.sharedInstance().isReady {
-                    GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
-                } else {
-                    notReadyCount += 1
-                    let notReady = UIAlertController.QuickMessage(title: "ADS_NOT_READY_TITLE".localised(), message: "ADS_NOT_READY_MESSAGE".localised(), cancel: "OK")
-                    self.present(notReady, animated: true, completion: nil)
-                    
-                    if notReadyCount % 5 == 0 {
-                        // You could get 1 point if ads could not load
-                        PointSystem(index: PointSystem.DataIndex.NotReady).addPoint()
-                        updatePoint()
+                if !isPro {
+                    GADRewardBasedVideoAd.sharedInstance().delegate = self
+                    if GADRewardBasedVideoAd.sharedInstance().isReady {
+                        GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
+                    } else {
+                        notReadyCount += 1
+                        let notReady = UIAlertController.QuickMessage(title: "ADS_NOT_READY_TITLE".localised(), message: "ADS_NOT_READY_MESSAGE".localised(), cancel: "OK")
+                        self.present(notReady, animated: true, completion: nil)
+                        
+                        if notReadyCount % 10 == 0 {
+                            // You could get 1 point if ads could not load
+                            PointSystem(index: PointSystem.DataIndex.NotReady).addPoint()
+                            updatePoint()
+                        }
                     }
                 }
             }
@@ -175,7 +179,7 @@ class SettingsController: UITableViewController, GADBannerViewDelegate, GADRewar
             case 11:
                 // Link
                 let copyLink = UIActivityViewController(activityItems: [link], applicationActivities: nil)
-                copyLink.modalPresentationStyle = .overFullScreen
+                copyLink.popoverPresentationController?.sourceView = self.view
                 self.present(copyLink, animated: true, completion: nil)
             case 12:
                 // Facebook
