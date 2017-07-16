@@ -90,7 +90,11 @@ class SettingsController: UITableViewController, GADBannerViewDelegate, GADRewar
     }
     
     func updatePoint() {
-        pointLabel.text = "POINTS".localised() + " (\(PointSystem.getCurrPoint()))"
+        if isPro {
+            pointLabel.text = "POINT_SYSTEM".localised() + " (∞)"
+        } else {
+            pointLabel.text = "POINT_SYSTEM".localised() + " (\(PointSystem.getCurrPoint()))"
+        }
     }
     
     // MARK: Theme
@@ -160,6 +164,7 @@ class SettingsController: UITableViewController, GADBannerViewDelegate, GADRewar
                     if notReadyCount % 5 == 0 {
                         // You could get 1 point if ads could not load
                         PointSystem(index: PointSystem.DataIndex.NotReady).addPoint()
+                        updatePoint()
                     }
                 }
             }
