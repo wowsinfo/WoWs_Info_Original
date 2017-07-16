@@ -200,7 +200,7 @@
 
 "SHARE_TITLE" = "Ship Gallery is greatly improved";
 
-"SHARE_MESSAGE" = "Would you like to share this app with your friends?\nYou could received 50 - 75 points by doing so.";
+"SHARE_MESSAGE" = "Would you like to share this app with your friends? You could received 50 - 75 points.";
 
 "GITHUB_MESSAGE" = "Please spend a moment to check it out";
 
@@ -219,3 +219,7 @@
 "ISNOT_PRO" = "Unlock Pro Version";
 
 "IS_PRO" = "Unlocked";
+
+"ADS_NOT_READY_TITLE" = "Not ready";
+
+"ADS_NOT_READY_MESSAGE" = "Please try it later";

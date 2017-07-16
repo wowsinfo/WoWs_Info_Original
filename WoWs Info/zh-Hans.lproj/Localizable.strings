@@ -217,3 +217,7 @@
 "ISNOT_PRO" = "解锁专业版";
 
 "IS_PRO" = "已解锁";
+
+"ADS_NOT_READY_TITLE" = "還沒有準備好";
+
+"ADS_NOT_READY_MESSAGE" = "請稍後重試";
