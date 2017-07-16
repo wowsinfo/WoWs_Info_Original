@@ -78,6 +78,8 @@ class FriendController: UIViewController, UITableViewDelegate, UITableViewDataSo
             pro.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(pro, animated: true, completion: nil)
         } else if currPlayer != ">_<" {
+            // Guard
+            
             // Update server index
             let server = UserDefaults.standard.string(forKey: DataManagement.DataName.UserName)?.components(separatedBy: "|").last!
             UserDefaults.standard.set(Int(server!), forKey: DataManagement.DataName.Server)
