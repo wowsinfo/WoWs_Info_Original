@@ -17,6 +17,7 @@ class PointSystem: NSObject {
         static let AD = 0
         static let Review = 1
         static let Share = 2
+        static let NotReady = 3
     }
     
     init(index: Int) {
@@ -37,6 +38,7 @@ class PointSystem: NSObject {
             if hasReview() { return }
         case 2:
             if hasShare() { return }
+        case 3: break
         default: return
         }
         
@@ -72,6 +74,7 @@ class PointSystem: NSObject {
         case 0: return Int(arc4random() % 5 + 1)
         case 1: return Int(arc4random() % 26 + 50)
         case 2: return Int(arc4random() % 26 + 50)
+        case 3: return 1
         default: return 0
         }
     }
