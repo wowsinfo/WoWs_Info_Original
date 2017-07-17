@@ -218,6 +218,6 @@
 
 "IS_PRO" = "已解鎖";
 
-"ADS_NOT_READY_TITLE" = "Not ready";
+"ADS_NOT_READY_TITLE" = "還沒有準備好";
 
-"ADS_NOT_READY_MESSAGE" = "Please try it later";
+"ADS_NOT_READY_MESSAGE" = "請稍後重試";

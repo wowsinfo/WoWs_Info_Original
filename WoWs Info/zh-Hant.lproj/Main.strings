@@ -36,7 +36,7 @@
 "ZOs-yp-qIp.normalTitle" = "完成";
 
 /* Class = "UIButton"; normalTitle = "Unlock Pro"; ObjectID = "Ztn-Qw-bkT"; */
-"Ztn-Qw-bkT.normalTitle" = "解鎖專業版";
+"gLF-Pq-dKf.normalTitle" = "解鎖專業版";
 
 /* Class = "UILabel"; text = "Thank you very much"; ObjectID = "b3p-id-wq6"; */
 "b3p-id-wq6.text" = "非常感謝您";
@@ -79,3 +79,36 @@
 
 /* Class = "UITabBarItem"; title = "Wiki"; ObjectID = "Pnp-Rs-KWU"; */
 "Pnp-Rs-KWU.title" = "圖鑑";
+
+// Useful Websites
+"tPC-p4-Ju2.text" = "實用的網站";
+
+// Points
+"09b-73-cpS.text" = "觀看廣告可以獲得3 - 7點";
+
+// Settings HeaderTitle
+"fHN-Xp-87I.headerTitle" = "設置";
+
+// Settings
+"oLe-dS-xfP.text" = "設置";
+
+// Theme
+"e13-KS-Dej.text" = "主題";
+
+// Share HeaderTitle
+"MM6-d8-LPP.headerTitle" = "分享";
+
+// Copy Link
+"4NE-Gi-gDo.text" = "復制鏈接";
+
+// Facebook
+"z3v-5b-czv.text" = "分享到Facebook";
+
+// Twitter
+"JJm-lZ-5Yx.text" = "分享到Twitter";
+
+// Weibo
+"04Z-Ff-hhL.text" = "分享到微博";
+
+// App Store
+"Bix-ed-Q6T.text" = "在App Store上打分";
