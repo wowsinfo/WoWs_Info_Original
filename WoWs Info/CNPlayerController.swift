@@ -13,7 +13,9 @@ class CNPlayerController: UIViewController, SFSafariViewControllerDelegate {
 
     var playerData = [String]()
     var shipData = [[String]]()
+    var recentData = [[String]]()
     @IBOutlet weak var shipInfoBtn: UIButton!
+    @IBOutlet weak var recentInfoBtn: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var clanLabel: UILabel!
@@ -36,6 +38,10 @@ class CNPlayerController: UIViewController, SFSafariViewControllerDelegate {
         
         // Get Ship Info
         getShipData()
+        
+        // Setup Share Btn
+        let share = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(sharePlayer))
+        self.navigationItem.rightBarButtonItem = share
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,6 +56,23 @@ class CNPlayerController: UIViewController, SFSafariViewControllerDelegate {
         }
     }
     
+    func sharePlayer() {
+        UIGraphicsBeginImageContextWithOptions(view.frame.size, true, 0.0)
+        view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let screenshot = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        // Crop
+        let source = screenshot.cgImage!
+        let newCGImage = source.cropping(to: CGRect(x: 0, y: 128, width: source.width + 128, height: source.height))
+        let playerImage = UIImage(cgImage: newCGImage!)
+
+        // Share
+        let share = UIActivityViewController(activityItems: [playerImage], applicationActivities: nil)
+        share.popoverPresentationController?.sourceView = self.view
+        self.present(share, animated: true, completion: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // Change text to "Back"
@@ -60,6 +83,9 @@ class CNPlayerController: UIViewController, SFSafariViewControllerDelegate {
         if segue.identifier == "gotoCNShipDetail" {
             let destination = segue.destination as! CNShipController
             destination.shipData = self.shipData
+        } else if segue.identifier == "gotoCNChart" {
+            let destination = segue.destination as! CNChartController
+            destination.recentData = self.recentData
         }
     }
     
@@ -93,6 +119,23 @@ class CNPlayerController: UIViewController, SFSafariViewControllerDelegate {
         self.present(kongzhong, animated: true, completion: nil)
     }
     
+    @IBAction func recentInfoBtnPressed(_ sender: Any) {
+        // Internet latency issue
+        if recentData.count > 0 {
+            if !isPro && currPoint < 1 {
+                // Do not segue if it is not Pro
+                let pro = UIAlertController(title: "NO_ENOUGH_POINT_TITLE".localised(), message: "NO_ENOUGH_POINT_MESSAGE".localised(), preferredStyle: .alert)
+                pro.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(pro, animated: true, completion: nil)
+            } else {
+                performSegue(withIdentifier: "gotoCNChart", sender: recentData)
+            }
+        } else {
+            let message = UIAlertController.QuickMessage(title: "提示", message: "没有最近数据", cancel: "好的")
+            self.present(message, animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func shipInfoBtnPressed(_ sender: Any) {
         // Internet latency issue
         if shipData.count > 0 {
@@ -115,11 +158,14 @@ class CNPlayerController: UIViewController, SFSafariViewControllerDelegate {
         let shipData = ChineseServer(id: playerData[ChineseServer.DataIndex.id])
         shipData.getShipRank { (shipRank) in
             shipData.getShipInformation(rankJson: shipRank, success: { (shipInfo) in
-                self.shipData = shipInfo
-                DispatchQueue.main.async {
-                    // Update now
-                    self.loadBasicInfoWithAnimation(data: shipInfo)
-                }
+                shipData.getRecentInformation(success: { (recent) in
+                    self.shipData = shipInfo
+                    self.recentData = recent
+                    DispatchQueue.main.async {
+                        // Update now
+                        self.loadBasicInfoWithAnimation(data: shipInfo)
+                    }
+                })
             })
         }
     }
@@ -178,6 +224,7 @@ class CNPlayerController: UIViewController, SFSafariViewControllerDelegate {
             self.damageLabel.alpha = 1
             self.shipInfoBtn.alpha = 1
             self.ratingLabel.alpha = 1.0
+            self.recentInfoBtn.alpha = 1.0
         }
     }
     
