@@ -18,7 +18,7 @@ class RankController: UITableViewController {
         
         RankTableView.delegate = self
         RankTableView.dataSource = self
-        RankTableView.alpha = 0
+        RankTableView.alpha = 0.5
         self.title = "WEB_LOADING".localised()
         
         // Hide separator line

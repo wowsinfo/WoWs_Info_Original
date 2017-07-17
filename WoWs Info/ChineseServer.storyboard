@@ -189,11 +189,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tiw-Um-bs8">
-                                <rect key="frame" x="8" y="426" width="118" height="30"/>
-                                <state key="normal" title="每日战绩(开发中)">
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tiw-Um-bs8">
+                                <rect key="frame" x="8" y="426" width="62" height="30"/>
+                                <state key="normal" title="每日战绩">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="recentInfoBtnPressed:" destination="gPM-bE-Ue4" eventType="touchUpInside" id="y8G-26-ibc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D8f-gO-dfe">
                                 <rect key="frame" x="305" y="426" width="62" height="30"/>
@@ -336,15 +339,17 @@
                         <outlet property="nameLabel" destination="fL3-jN-c3S" id="QTG-bg-4c8"/>
                         <outlet property="rankLabel" destination="d0C-rO-V3I" id="bea-e3-G2W"/>
                         <outlet property="ratingLabel" destination="D8z-eS-rn0" id="OoQ-1U-TUn"/>
+                        <outlet property="recentInfoBtn" destination="tiw-Um-bs8" id="vVN-kD-b0r"/>
                         <outlet property="shipInfoBtn" destination="D8f-gO-dfe" id="ohE-lj-rWc"/>
                         <outlet property="winrateImage" destination="6VH-qI-Joh" id="GoB-NX-77O"/>
                         <outlet property="winrateLabel" destination="LwD-ky-NDs" id="VWS-aH-OMR"/>
                         <segue destination="e0p-1H-y16" kind="show" identifier="gotoCNShipDetail" id="ldL-Ed-Jte"/>
+                        <segue destination="is0-96-UQ1" kind="show" identifier="gotoCNChart" id="yZ9-5b-jHq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pro-fI-RSa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1783.125" y="168.75"/>
+            <point key="canvasLocation" x="1781.5999999999999" y="168.6656671664168"/>
         </scene>
         <!--Ship Controller-->
         <scene sceneID="FIp-oR-79S">
@@ -595,6 +600,131 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gyo-2H-75o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2524" y="169.56521739130437"/>
+        </scene>
+        <!--Chart Controller-->
+        <scene sceneID="ZiN-eZ-45s">
+            <objects>
+                <tableViewController id="is0-96-UQ1" customClass="CNChartController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="YyW-eF-ogS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="PXp-b2-GGz">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="247" id="Vgo-Rt-Nc5">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="247"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vgo-Rt-Nc5" id="28w-KW-1v5">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="246.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="近日战斗数" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6B2-pu-PTw">
+                                                    <rect key="frame" x="8" y="8" width="359" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f6p-CK-Oh4" customClass="LineChartView" customModule="Charts">
+                                                    <rect key="frame" x="0.0" y="38" width="375" height="200"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="200" id="hgY-fh-Vcu"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="f6p-CK-Oh4" secondAttribute="bottom" constant="8" id="8DN-Vu-xYS"/>
+                                                <constraint firstAttribute="trailing" secondItem="6B2-pu-PTw" secondAttribute="trailing" constant="8" id="Bge-ki-EjS"/>
+                                                <constraint firstItem="f6p-CK-Oh4" firstAttribute="leading" secondItem="28w-KW-1v5" secondAttribute="leading" id="MlG-mo-aVd"/>
+                                                <constraint firstItem="6B2-pu-PTw" firstAttribute="leading" secondItem="28w-KW-1v5" secondAttribute="leading" constant="8" id="Soc-mo-4AQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="f6p-CK-Oh4" secondAttribute="trailing" id="arI-BK-dpi"/>
+                                                <constraint firstItem="f6p-CK-Oh4" firstAttribute="top" secondItem="6B2-pu-PTw" secondAttribute="bottom" constant="8" id="eD6-m4-Smj"/>
+                                                <constraint firstItem="6B2-pu-PTw" firstAttribute="top" secondItem="28w-KW-1v5" secondAttribute="top" constant="8" id="vb9-42-qQ0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="247" id="4XD-FH-t4O">
+                                        <rect key="frame" x="0.0" y="247" width="375" height="247"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4XD-FH-t4O" id="mgA-Zr-h3d">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="246.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="近日胜率" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQw-mH-tVh">
+                                                    <rect key="frame" x="8" y="8" width="359" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4BR-40-s3A" customClass="LineChartView" customModule="Charts">
+                                                    <rect key="frame" x="0.0" y="38" width="375" height="200"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="200" id="5z7-At-c18"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="4BR-40-s3A" secondAttribute="bottom" constant="8" id="25n-si-Lw4"/>
+                                                <constraint firstAttribute="trailing" secondItem="XQw-mH-tVh" secondAttribute="trailing" constant="8" id="7Mb-WI-bfa"/>
+                                                <constraint firstItem="XQw-mH-tVh" firstAttribute="top" secondItem="mgA-Zr-h3d" secondAttribute="top" constant="8" id="9xF-gp-F9J"/>
+                                                <constraint firstItem="4BR-40-s3A" firstAttribute="leading" secondItem="mgA-Zr-h3d" secondAttribute="leading" id="Us6-7R-q6X"/>
+                                                <constraint firstItem="XQw-mH-tVh" firstAttribute="leading" secondItem="mgA-Zr-h3d" secondAttribute="leading" constant="8" id="d8r-6d-SRz"/>
+                                                <constraint firstAttribute="trailing" secondItem="4BR-40-s3A" secondAttribute="trailing" id="f5k-df-osV"/>
+                                                <constraint firstItem="4BR-40-s3A" firstAttribute="top" secondItem="XQw-mH-tVh" secondAttribute="bottom" constant="8" id="qYe-T4-ozu"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="247" id="kfj-Yy-nfT">
+                                        <rect key="frame" x="0.0" y="494" width="375" height="247"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kfj-Yy-nfT" id="Xme-bR-NXz">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="246.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="近日平均伤害" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ni-2t-czH">
+                                                    <rect key="frame" x="8" y="8" width="359" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qzP-BX-Tw8" customClass="LineChartView" customModule="Charts">
+                                                    <rect key="frame" x="0.0" y="38" width="375" height="200"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="200" id="qnZ-UO-bJD"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4Ni-2t-czH" firstAttribute="leading" secondItem="Xme-bR-NXz" secondAttribute="leading" constant="8" id="1ZC-CB-org"/>
+                                                <constraint firstAttribute="trailing" secondItem="qzP-BX-Tw8" secondAttribute="trailing" id="B7w-Jm-F5m"/>
+                                                <constraint firstAttribute="bottom" secondItem="qzP-BX-Tw8" secondAttribute="bottom" constant="8" id="SYl-Aq-Dzc"/>
+                                                <constraint firstItem="qzP-BX-Tw8" firstAttribute="leading" secondItem="Xme-bR-NXz" secondAttribute="leading" id="WOm-iZ-Wm5"/>
+                                                <constraint firstAttribute="trailing" secondItem="4Ni-2t-czH" secondAttribute="trailing" constant="8" id="hqQ-ZK-Vu4"/>
+                                                <constraint firstItem="4Ni-2t-czH" firstAttribute="top" secondItem="Xme-bR-NXz" secondAttribute="top" constant="8" id="iKq-Q6-DBC"/>
+                                                <constraint firstItem="qzP-BX-Tw8" firstAttribute="top" secondItem="4Ni-2t-czH" secondAttribute="bottom" constant="8" id="tzy-ug-I5F"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="is0-96-UQ1" id="fFT-hO-vdL"/>
+                            <outlet property="delegate" destination="is0-96-UQ1" id="CoD-vi-Kty"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="battleLineChart" destination="f6p-CK-Oh4" id="rKd-1C-pVH"/>
+                        <outlet property="damageLineChart" destination="qzP-BX-Tw8" id="Hh3-ZO-IGQ"/>
+                        <outlet property="winrateLineChart" destination="4BR-40-s3A" id="nJi-WK-d5e"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uG2-CK-wnz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2524" y="841.52923538230891"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3F1-de-QZD">

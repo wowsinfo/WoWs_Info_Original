@@ -170,4 +170,69 @@ class ChineseServer: NSObject {
         }
     }
     
+    // MARK: Recent Information
+    func getRecentInformation(success: @escaping ([[String]]) -> ()) {
+        if let url = URL(string: "http://rank.kongzhong.com/Data/action/WowsAction/getDayInfo?aid=\(playerID)") {
+            // Only if url is valid
+            let request = URLRequest(url: url)
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                if error != nil {
+                    print("Error: \(error!)")
+                } else {
+                    var usefulData = [[String]]()
+                    let dataJson = JSON(data!)
+                    
+                    if dataJson.count == 0 { success([[String]]()) }
+                    // Get Basic Information
+                    for recent in dataJson {
+                        usefulData.append([recent.1["battles"].stringValue, recent.1["wins"].stringValue, recent.1["damage"].stringValue, recent.1["insert_date"]["time"].stringValue])
+                    }
+                    
+                    // Sort it by time
+                    usefulData.sort(by: {$0[3] > $1[3]})
+                    var currTime = ""
+                    var recentData = [[String]]()
+                    var i = 0
+                    for recent in usefulData {
+                        if currTime == "" {
+                            // Update time
+                            currTime = recent[3]
+                            recentData.append([recent[0], recent[1], recent[2]])
+                        } else if recent[3] == currTime {
+                            // Same day, add numbers
+                            let battle = Int(recent[0])! + Int(recentData[i][0])!
+                            let win = Int(recent[1])! + Int(recentData[i][1])!
+                            let damage = Int(recent[2])! + Int(recentData[i][2])!
+                            
+                            recentData[i] = ["\(battle)", "\(win)", "\(damage)"]
+                        } else {
+                            // Another day, update index, update data
+                            recentData[i] = self.calRecentData(recentData: recentData, i: i)
+                            
+                            currTime = recent[3]
+                            recentData.append([recent[0], recent[1], recent[2]])
+                            i += 1
+                        }
+                        print("\(currTime)|\(recent[3])|\(currTime == recent[3])\n")
+                    }
+                    
+                    // Calculate for the last
+                    recentData[i] = self.calRecentData(recentData: recentData, i: i)
+                    success(recentData)
+                }
+            }
+            task.resume()
+        }
+    }
+    
+    func calRecentData(recentData: [[String]], i: Int) -> [String] {
+        let battle = Double(recentData[i][0])!
+        let win = Double(recentData[i][1])!
+        let damage = Double(recentData[i][2])!
+        let recentBattle = String(format: "%.0f", battle)
+        let winrate = String(format: "%.1f", round(100 * win / battle))
+        let avgDamage = String(format: "%.0f", round(damage / battle))
+        return [recentBattle, winrate, avgDamage]
+    }
+    
 }
