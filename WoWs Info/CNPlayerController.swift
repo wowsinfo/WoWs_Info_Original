@@ -28,6 +28,7 @@ class CNPlayerController: UIViewController, SFSafariViewControllerDelegate {
     @IBOutlet weak var ratingLabel: UILabel!
     let isPro = UserDefaults.standard.bool(forKey: DataManagement.DataName.hasPurchased)
     let currPoint = PointSystem.getCurrPoint()
+    var usedPoint = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +53,8 @@ class CNPlayerController: UIViewController, SFSafariViewControllerDelegate {
         super.viewWillDisappear(animated)
         if self.isMovingFromParentViewController {
             // Remove one point
-            PointSystem(pointToRemove: 1).removePoint()
+            if usedPoint > 2 { usedPoint = 2 }
+            PointSystem(pointToRemove: usedPoint).removePoint()
         }
     }
     
@@ -83,9 +85,11 @@ class CNPlayerController: UIViewController, SFSafariViewControllerDelegate {
         if segue.identifier == "gotoCNShipDetail" {
             let destination = segue.destination as! CNShipController
             destination.shipData = self.shipData
+            usedPoint += 1
         } else if segue.identifier == "gotoCNChart" {
             let destination = segue.destination as! CNChartController
             destination.recentData = self.recentData
+            usedPoint += 1
         }
     }
     
