@@ -25,6 +25,14 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     @IBOutlet weak var averageDamageLabel: UILabel!
     @IBOutlet weak var killDeathRatioLabel: UILabel!
     @IBOutlet weak var mainBatteryHitRatioLabel: UILabel!
+    
+    @IBOutlet weak var killdeathImage: UIImageView!
+    @IBOutlet weak var battleImage: UIImageView!
+    @IBOutlet weak var expImage: UIImageView!
+    @IBOutlet weak var winrateImage: UIImageView!
+    @IBOutlet weak var damageImage: UIImageView!
+    @IBOutlet weak var hitratioImage: UIImageView!
+    
     @IBOutlet weak var friendBtn: UIButton!
     @IBOutlet weak var tkBtn: UIButton!
     @IBOutlet weak var retryBtn: UIButton!
@@ -134,6 +142,7 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         super.didReceiveMemoryWarning()
     }
     
+    // MARK: Data
     func loadPlayerData() {
 
         PlayerStat().getDataFromAPI(account: playerInfo[1], success: {playerData in
@@ -143,6 +152,7 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         self.calAvgShipRating()
     }
     
+    // MARK: NameColour
     func setupNameColour() {
         // Check if this player is friend or tk
         var hasFound = false
