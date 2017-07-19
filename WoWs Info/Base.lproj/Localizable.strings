@@ -196,8 +196,34 @@
 
 "THEME_TITLE" = "Rate WoWs Info?";
 
-"THEME_MESSAGE" = "Theme could be unlocked for free if you could rate WoWs Info.";
+"THEME_MESSAGE" = "Theme could be unlocked for free if you could rate WoWs Info.\nYou could also receive 50 - 75 points.";
 
 "SHARE_TITLE" = "Ship Gallery is greatly improved";
 
-"SHARE_MESSAGE" = "Would you like to share with your friends so that more people could check ship information more conveniently?";
+"SHARE_MESSAGE" = "Would you like to share this app with your friends? You could received 50 - 75 points.";
+
+"GITHUB_MESSAGE" = "Please spend a moment to check it out";
+
+"GITHUB_TITLE" = "WoWs Info is now open source";
+
+"POINT_SYSTEM" = "Point";
+
+"POINT_MESSAGE" = "Points have been added.";
+
+"NO_ENOUGH_POINT_TITLE" = "You do not have enough points";
+
+"NO_ENOUGH_POINT_MESSAGE" = "Please get more points by clicking on Ads in More -> Points";
+
+"NO_INFORMATION" = "No information";
+
+"ISNOT_PRO" = "Unlock Pro Version";
+
+"IS_PRO" = "Unlocked";
+
+"ADS_NOT_READY_TITLE" = "Not ready";
+
+"ADS_NOT_READY_MESSAGE" = "Please try it later";
+
+"SOCIAL_ERROR_TITLE" = "Warning";
+
+"SOCIAL_ERROR_MESSAGE" = "Service not available";

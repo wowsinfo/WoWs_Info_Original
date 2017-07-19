@@ -1,0 +1,45 @@
+
+/* Class = "UILabel"; text = "Player Ranking [Suihei Koubou]"; ObjectID = "4eu-sN-h6E"; */
+"4eu-sN-h6E.text" = "Player Ranking [Suihei Koubou]";
+
+/* Class = "UITableViewSection"; headerTitle = "Offical websites"; ObjectID = "8oj-vU-KPk"; */
+"8oj-vU-KPk.headerTitle" = "Offical websites";
+
+/* Class = "UILabel"; text = "WOWS Training Room"; ObjectID = "9eD-MT-VaY"; */
+"9eD-MT-VaY.text" = "WOWS Training Room";
+
+/* Class = "UITableViewSection"; headerTitle = "Statistics websites"; ObjectID = "Jav-Zb-ODn"; */
+"Jav-Zb-ODn.headerTitle" = "Statistics websites";
+
+/* Class = "UILabel"; text = "World of Warships Wiki"; ObjectID = "MVq-px-8JE"; */
+"MVq-px-8JE.text" = "World of Warships Wiki";
+
+/* Class = "UILabel"; text = "WoWs Real"; ObjectID = "ScN-VO-Lnl"; */
+"ScN-VO-Lnl.text" = "WoWs Real";
+
+/* Class = "UITableViewSection"; headerTitle = "Useful websites"; ObjectID = "U5v-09-ehF"; */
+"U5v-09-ehF.headerTitle" = "Useful websites";
+
+/* Class = "UILabel"; text = "ASLAIN Modpack"; ObjectID = "ZR4-hr-aZj"; */
+"ZR4-hr-aZj.text" = "ASLAIN Modpack";
+
+/* Class = "UILabel"; text = "World of Warships"; ObjectID = "heM-gj-FpN"; */
+"heM-gj-FpN.text" = "World of Warships";
+
+/* Class = "UILabel"; text = "WoWs Stats & Numbers"; ObjectID = "hwL-Do-dKz"; */
+"hwL-Do-dKz.text" = "WoWs Stats & Numbers";
+
+/* Class = "UITableViewSection"; headerTitle = "Tool"; ObjectID = "jRl-vN-8j1"; */
+"jRl-vN-8j1.headerTitle" = "Tool";
+
+/* Class = "UILabel"; text = "Warships Today"; ObjectID = "mDf-Dd-Y4u"; */
+"mDf-Dd-Y4u.text" = "Warships Today";
+
+/* Class = "UILabel"; text = "Clan Ranking [Suihei Koubou]"; ObjectID = "mTU-bI-3jy"; */
+"mTU-bI-3jy.text" = "Clan Ranking [Suihei Koubou]";
+
+/* Class = "UILabel"; text = "SEA group"; ObjectID = "vJD-3A-J4f"; */
+"vJD-3A-J4f.text" = "SEA group";
+
+/* Class = "UILabel"; text = "WoWs Info"; ObjectID = "wOl-cE-bjY"; */
+"wOl-cE-bjY.text" = "WoWs Info";

@@ -75,6 +75,7 @@ class RecentData {
     // MARK: Helper function
     static func getRecentDataString() -> [[String]] {
         var data = [[String]]()
+        if self.recentDataJson.count == 0 { return data }
         let sortedJson = self.recentDataJson.sorted(by: {$1.0 < $0.0})
         
         // loop count - 1 time to get recent 7 days data

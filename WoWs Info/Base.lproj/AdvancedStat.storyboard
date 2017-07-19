@@ -6,6 +6,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -147,6 +148,7 @@
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Battles" translatesAutoresizingMaskIntoConstraints="NO" id="eIc-J4-wwI">
                                                     <rect key="frame" x="16" y="54" width="30" height="30"/>
+                                                    <color key="tintColor" red="0.94117647059999998" green="0.3921568627" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="3NS-Jc-LrY"/>
                                                         <constraint firstAttribute="width" constant="30" id="plc-dv-BrA"/>
@@ -154,6 +156,7 @@
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EXP" translatesAutoresizingMaskIntoConstraints="NO" id="SXQ-lV-ucL">
                                                     <rect key="frame" x="16" y="102" width="30" height="30"/>
+                                                    <color key="tintColor" red="1" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="0oy-P8-GVL"/>
                                                         <constraint firstAttribute="height" constant="30" id="5gd-MM-A0C"/>
@@ -161,6 +164,7 @@
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KillDeathRatio" translatesAutoresizingMaskIntoConstraints="NO" id="q2j-to-Uiy">
                                                     <rect key="frame" x="16" y="150" width="30" height="30"/>
+                                                    <color key="tintColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="QqO-RT-fu7"/>
                                                         <constraint firstAttribute="width" constant="30" id="qOS-Vq-dgf"/>
@@ -204,6 +208,7 @@
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WinRate" translatesAutoresizingMaskIntoConstraints="NO" id="JhA-jL-Anv">
                                                     <rect key="frame" x="204" y="54" width="30" height="30"/>
+                                                    <color key="tintColor" red="0.0022613033819999999" green="0.62529507390000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="934-Cm-Rmy"/>
                                                         <constraint firstAttribute="width" constant="30" id="dqm-3b-4bP"/>
@@ -218,6 +223,7 @@
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HitRatio" translatesAutoresizingMaskIntoConstraints="NO" id="jLm-GU-mhd">
                                                     <rect key="frame" x="204" y="150" width="30" height="30"/>
+                                                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="mYT-7w-WI2"/>
                                                         <constraint firstAttribute="width" constant="30" id="xci-0y-0bb"/>
@@ -351,7 +357,10 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         <connections>
-                                            <segue destination="6eS-B8-bal" kind="show" identifier="gotoClan" id="OSL-xu-qgi"/>
+                                            <segue destination="6eS-B8-bal" kind="show" identifier="gotoClan" id="OSL-xu-qgi">
+                                                <segue key="commit" inheritsFrom="parent" id="dcm-4S-NIG"/>
+                                                <segue key="preview" inheritsFrom="commit" id="Kt6-55-HoZ"/>
+                                            </segue>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -427,7 +436,10 @@
                                         <gestureRecognizers/>
                                         <inset key="separatorInset" minX="46" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
-                                            <segue destination="zpO-nA-s0k" kind="show" identifier="gotoMoreInfo" id="SFp-hd-eb3"/>
+                                            <segue destination="zpO-nA-s0k" kind="show" identifier="gotoMoreInfo" id="SFp-hd-eb3">
+                                                <segue key="commit" inheritsFrom="parent" id="KX2-17-fgv"/>
+                                                <segue key="preview" inheritsFrom="commit" id="Vg6-x7-lv0"/>
+                                            </segue>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="50" id="wPT-ke-gse">
@@ -475,9 +487,14 @@
                         <outlet property="DashboardCell" destination="5Qh-gy-ZHa" id="jGJ-7J-P4i"/>
                         <outlet property="averageDamageLabel" destination="opv-vX-a8O" id="IOO-jJ-46h"/>
                         <outlet property="averageExpLabel" destination="pps-Z0-Ee3" id="6ab-BF-gaq"/>
+                        <outlet property="battleImage" destination="eIc-J4-wwI" id="UAJ-0w-dTf"/>
                         <outlet property="clanNameLabel" destination="oF8-Ub-lx8" id="W4O-yi-G8P"/>
+                        <outlet property="damageImage" destination="x6z-0B-oME" id="Ube-FV-mIk"/>
+                        <outlet property="expImage" destination="SXQ-lV-ucL" id="6k1-m0-IL2"/>
                         <outlet property="friendBtn" destination="kN4-Mg-JlS" id="AaA-Yh-nlk"/>
+                        <outlet property="hitratioImage" destination="jLm-GU-mhd" id="GsP-fT-tEZ"/>
                         <outlet property="killDeathRatioLabel" destination="7d0-cP-Zag" id="xLm-na-kkB"/>
+                        <outlet property="killdeathImage" destination="q2j-to-Uiy" id="KDb-w0-tkF"/>
                         <outlet property="levelAndPlaytimeLabel" destination="cKh-im-yWp" id="J2e-rm-RZl"/>
                         <outlet property="mainBatteryHitRatioLabel" destination="sbL-45-1uz" id="Wc0-UE-G5l"/>
                         <outlet property="playerNameLabel" destination="TIi-YL-dgc" id="Axh-tg-b7H"/>
@@ -487,6 +504,7 @@
                         <outlet property="tkBtn" destination="h1a-04-dqP" id="SzN-i4-8kD"/>
                         <outlet property="totalBattlesLabel" destination="LDs-3z-iil" id="p5Y-k5-5sg"/>
                         <outlet property="winRateLabel" destination="Zts-7v-e1W" id="tPt-HB-1N0"/>
+                        <outlet property="winrateImage" destination="JhA-jL-Anv" id="7Yh-ay-9tr"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="woD-dX-DeI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -524,4 +542,8 @@
         <image name="Theme" width="205" height="205"/>
         <image name="WinRate" width="92" height="105"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="SFp-hd-eb3"/>
+        <segue reference="OSL-xu-qgi"/>
+    </inferredMetricsTieBreakers>
 </document>

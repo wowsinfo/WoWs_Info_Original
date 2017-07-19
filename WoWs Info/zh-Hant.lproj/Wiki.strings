@@ -1,0 +1,231 @@
+
+/* Class = "UILabel"; text = "Text"; ObjectID = "0WI-b2-VO1"; */
+"0WI-b2-VO1.text" = "Text";
+
+/* Class = "UILabel"; text = "Mobility"; ObjectID = "0oa-Ye-LaX"; */
+"0oa-Ye-LaX.text" = "機動性";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "0ys-7N-526"; */
+"0ys-7N-526.text" = "0";
+
+/* Class = "UILabel"; text = "Concealment"; ObjectID = "1Sy-qt-gWM"; */
+"1Sy-qt-gWM.text" = "隱蔽性";
+
+/* Class = "UILabel"; text = "Battle Range"; ObjectID = "1cG-Jq-BUn"; */
+"1cG-Jq-BUn.text" = "戰鬥等級";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "1vF-pJ-EKX"; */
+"1vF-pJ-EKX.text" = "---";
+
+/* Class = "UIButton"; normalTitle = "Fire Control"; ObjectID = "2qf-qk-xAQ"; */
+"2qf-qk-xAQ.normalTitle" = "射控系統";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "35C-BV-K6a"; */
+"35C-BV-K6a.text" = "---";
+
+/* Class = "UILabel"; text = "1 - 10"; ObjectID = "3Bh-nD-thq"; */
+"3Bh-nD-thq.text" = "1 - 10";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "3SG-10-oRd"; */
+"3SG-10-oRd.text" = "---";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "4W1-Tt-WZt"; */
+"4W1-Tt-WZt.text" = "---";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "5DA-xL-M5W"; */
+"5DA-xL-M5W.text" = "---";
+
+/* Class = "UITextField"; placeholder = "Enter tier or name"; ObjectID = "6V9-Pk-7Bx"; */
+"6V9-Pk-7Bx.placeholder" = "等級 | 名字";
+
+/* Class = "UIButton"; normalTitle = "Torpedo"; ObjectID = "6bm-Bd-EyL"; */
+"6bm-Bd-EyL.normalTitle" = "魚雷";
+
+/* Class = "UILabel"; text = "WoWs Info"; ObjectID = "6vL-ZC-2fa"; */
+"6vL-ZC-2fa.text" = "WoWs Info";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "7Wi-xz-Fjs"; */
+"7Wi-xz-Fjs.text" = "---";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "9Tt-HE-Nk5"; */
+"9Tt-HE-Nk5.text" = "名字";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "ACW-Zq-0BY"; */
+"ACW-Zq-0BY.text" = "---";
+
+/* Class = "UILabel"; text = "Health"; ObjectID = "AJq-ir-bcG"; */
+"AJq-ir-bcG.text" = "血量";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "AKq-M3-41S"; */
+"AKq-M3-41S.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "BOy-cO-ckN"; */
+"BOy-cO-ckN.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "DHd-na-TSY"; */
+"DHd-na-TSY.text" = "---";
+
+/* Class = "UIButton"; normalTitle = "Hull"; ObjectID = "EmO-lY-AxB"; */
+"EmO-lY-AxB.normalTitle" = "船體";
+
+/* Class = "UILabel"; text = "Aircraft"; ObjectID = "FKr-Lj-Il0"; */
+"FKr-Lj-Il0.text" = "飛機";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "Fyy-ya-A2A"; */
+"Fyy-ya-A2A.text" = "0";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "JCR-dG-fbp"; */
+"JCR-dG-fbp.text" = "0";
+
+/* Class = "UILabel"; text = "ID"; ObjectID = "LDO-Pb-0Ar"; */
+"LDO-Pb-0Ar.text" = "ID";
+
+/* Class = "UILabel"; text = "AP"; ObjectID = "MIn-Ja-vAB"; */
+"MIn-Ja-vAB.text" = "AP";
+
+/* Class = "UILabel"; text = "Survivability"; ObjectID = "MZa-2S-ypw"; */
+"MZa-2S-ypw.text" = "生存性";
+
+/* Class = "UILabel"; text = "Ship"; ObjectID = "OBu-9u-YTs"; */
+"OBu-9u-YTs.text" = "戰艦發現";
+
+/* Class = "UILabel"; text = "Torpedoes"; ObjectID = "Ore-Dg-bLg"; */
+"Ore-Dg-bLg.text" = "魚雷";
+
+/* Class = "UILabel"; text = "Maneuverability"; ObjectID = "QSI-aO-IdN"; */
+"QSI-aO-IdN.text" = "機動性";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "Qh6-zw-ce3"; */
+"Qh6-zw-ce3.text" = "---";
+
+/* Class = "UILabel"; text = "Status"; ObjectID = "R06-NL-vS0"; */
+"R06-NL-vS0.text" = "數值";
+
+/* Class = "UILabel"; text = "Modules"; ObjectID = "RCr-rY-iFN"; */
+"RCr-rY-iFN.text" = "配件";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "RNc-hl-vwv"; */
+"RNc-hl-vwv.text" = "0";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "S3D-Uz-aei"; */
+"S3D-Uz-aei.text" = "---";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "Sw1-Gb-RB7"; */
+"Sw1-Gb-RB7.text" = "---";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "TUm-9E-cyT"; */
+"TUm-9E-cyT.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "Tdy-ed-gQi"; */
+"Tdy-ed-gQi.text" = "0";
+
+/* Class = "UILabel"; text = "Artillery"; ObjectID = "Tq2-fK-yuQ"; */
+"Tq2-fK-yuQ.text" = "主炮";
+
+/* Class = "UILabel"; text = "Anti Aircraft"; ObjectID = "WHV-xd-YlZ"; */
+"WHV-xd-YlZ.text" = "對空防禦";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "Wl4-Yf-u53"; */
+"Wl4-Yf-u53.text" = "0";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "X3U-ff-eEc"; */
+"X3U-ff-eEc.text" = "---";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "XaV-v5-Xx9"; */
+"XaV-v5-Xx9.text" = "---";
+
+/* Class = "UILabel"; text = "HE"; ObjectID = "YUF-oV-ZnS"; */
+"YUF-oV-ZnS.text" = "HE";
+
+/* Class = "UILabel"; text = "Plane"; ObjectID = "YWP-Tt-6MA"; */
+"YWP-Tt-6MA.text" = "飛機發現";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "YtE-kX-RG9"; */
+"YtE-kX-RG9.text" = "---";
+
+/* Class = "UILabel"; text = "Tier"; ObjectID = "ZUJ-Ww-TYH"; */
+"ZUJ-Ww-TYH.text" = "等級";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Zij-zJ-sVN"; */
+"Zij-zJ-sVN.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "ZuO-x1-ZlA"; */
+"ZuO-x1-ZlA.text" = "---";
+
+/* Class = "UILabel"; text = "AA Defense"; ObjectID = "bdP-fn-1vW"; */
+"bdP-fn-1vW.text" = "對空防禦";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "bmA-wk-4Gd"; */
+"bmA-wk-4Gd.text" = "---";
+
+/* Class = "UILabel"; text = "Aircraft"; ObjectID = "bqM-Js-7iO"; */
+"bqM-Js-7iO.text" = "飛機";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "cTW-ZH-UY6"; */
+"cTW-ZH-UY6.text" = "---";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "cV9-NU-w8i"; */
+"cV9-NU-w8i.text" = "---";
+
+/* Class = "UILabel"; text = "Armour"; ObjectID = "dPM-rZ-7pZ"; */
+"dPM-rZ-7pZ.text" = "裝甲";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "dtC-vH-aKz"; */
+"dtC-vH-aKz.text" = "---";
+
+/* Class = "UILabel"; text = "Artillery"; ObjectID = "e5D-0m-Vic"; */
+"e5D-0m-Vic.text" = "主炮";
+
+/* Class = "UIButton"; normalTitle = "Engine"; ObjectID = "elE-Jn-v2W"; */
+"elE-Jn-v2W.normalTitle" = "引擎";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "f8T-YY-4Dr"; */
+"f8T-YY-4Dr.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Torpedoes"; ObjectID = "gLv-Z4-p6F"; */
+"gLv-Z4-p6F.text" = "魚雷";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "gQi-dk-QtW"; */
+"gQi-dk-QtW.text" = "---";
+
+/* Class = "UILabel"; text = "Concealment"; ObjectID = "hUU-BN-ckr"; */
+"hUU-BN-ckr.text" = "隱蔽";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "lGS-xi-cqx"; */
+"lGS-xi-cqx.text" = "---";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "loI-HF-vD9"; */
+"loI-HF-vD9.text" = "Description";
+
+/* Class = "UILabel"; text = "0%"; ObjectID = "oON-Uf-nhr"; */
+"oON-Uf-nhr.text" = "0%";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "p25-Om-bCq"; */
+"p25-Om-bCq.text" = "---";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "p3e-g1-Gdx"; */
+"p3e-g1-Gdx.text" = "---";
+
+/* Class = "UILabel"; text = "ShipName"; ObjectID = "tej-VI-3w8"; */
+"tej-VI-3w8.text" = "ShipName";
+
+/* Class = "UIButton"; normalTitle = "Artillery"; ObjectID = "u06-Rw-VRx"; */
+"u06-Rw-VRx.normalTitle" = "主炮";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "vYd-1b-DZK"; */
+"vYd-1b-DZK.text" = "0";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "wYw-aq-lOn"; */
+"wYw-aq-lOn.text" = "---";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "wug-ZX-Uzt"; */
+"wug-ZX-Uzt.text" = "0";
+
+/* Class = "UILabel"; text = "Flood Protection"; ObjectID = "xTU-vM-Sod"; */
+"xTU-vM-Sod.text" = "魚類防護";
+
+/* Class = "UILabel"; text = "ShipName"; ObjectID = "xTd-Ce-KLa"; */
+"xTd-Ce-KLa.text" = "ShipName";
+
+/* Class = "UIButton"; normalTitle = "Flight Control"; ObjectID = "z3d-lP-MOS"; */
+"z3d-lP-MOS.normalTitle" = "飛航控制";
