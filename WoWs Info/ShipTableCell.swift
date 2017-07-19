@@ -31,6 +31,4 @@ class ShipTableCell: UITableViewCell {
         }
     }
     
-    
-    
 }
