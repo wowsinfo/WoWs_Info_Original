@@ -114,9 +114,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         super.viewWillAppear(animated)
         
         // Change theme for serverSelectionbtn
-        serverSelectionBtn.backgroundColor = Theme.getCurrTheme()
-        serverSelectionBtn.layer.cornerRadius = serverSelectionBtn.frame.width / 5
-        serverSelectionBtn.layer.masksToBounds = true
+        serverSelectionBtn.tintColor = Theme.getCurrTheme()
         
         // Clean text
         username.text = ""

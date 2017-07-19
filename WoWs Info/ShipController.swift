@@ -55,9 +55,7 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func setupBtn(btn: UIButton) {
-        btn.backgroundColor = Theme.getCurrTheme()
-        btn.layer.cornerRadius = btn.frame.width / 5
-        btn.layer.masksToBounds = true
+        btn.tintColor = Theme.getCurrTheme()
     }
 
     override func didReceiveMemoryWarning() {
@@ -345,7 +343,10 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         let tier = targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.tier]
         let type = targetShips[indexPath.row][PlayerShip.PlayerShipDataIndex.type]
         
+        // Setup theme and image
         cell.shipTypeImage.image = Shipinformation.getImageWithType(type: type)
+        cell.shipTypeImage.tintColor = Theme.getCurrTheme()
+        
         let tierName = NSLocalizedString("TIER", comment: "Tier label") + " \(tierSymbol[Int(tier)! - 1]) " + name
         cell.TierNameLabel.text = tierName
         

@@ -183,52 +183,67 @@ class SettingsController: UITableViewController, GADBannerViewDelegate, GADRewar
                 self.present(copyLink, animated: true, completion: nil)
             case 12:
                 // Facebook
-                let facebook = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-                facebook?.add(link)
-                facebook?.add(#imageLiteral(resourceName: "Icon"))
-                facebook?.completionHandler = { (result) in
-                    if result == .done {
-                        // Free 50 points
-                        print("Done")
-                        PointSystem(index: PointSystem.DataIndex.Review).addPoint()
-                        UserDefaults.standard.set(true, forKey: DataManagement.DataName.didShare)
-                    } else {
-                        print("Cancel")
+                if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook) {
+                    let facebook = SLComposeViewController(forServiceType: SLServiceTypeFacebook)!
+                    facebook.add(link)
+                    facebook.add(#imageLiteral(resourceName: "Icon"))
+                    facebook.completionHandler = { (result) in
+                        if result == .done {
+                            // Free 50 points
+                            print("Done")
+                            PointSystem(index: PointSystem.DataIndex.Review).addPoint()
+                            UserDefaults.standard.set(true, forKey: DataManagement.DataName.didShare)
+                        } else {
+                            print("Cancel")
+                        }
                     }
+                    self.present(facebook, animated: true, completion: nil)
+                } else {
+                    let error = UIAlertController.QuickMessage(title: "SOCIAL_ERROR_TITLE".localised(), message: "SOCIAL_ERROR_MESSAGE".localised(), cancel: "OK")
+                    self.present(error, animated: true, completion: nil)
                 }
-                self.present(facebook!, animated: true, completion: nil)
             case 13:
                 // Twitter
-                let twitter = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-                twitter?.add(link)
-                twitter?.add(#imageLiteral(resourceName: "Icon"))
-                twitter?.completionHandler = { (result) in
-                    if result == .done {
-                        // Free 50 points
-                        print("Done")
-                        PointSystem(index: PointSystem.DataIndex.Review).addPoint()
-                        UserDefaults.standard.set(true, forKey: DataManagement.DataName.didShare)
-                    } else {
-                        print("Cancel")
+                if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter) {
+                    let twitter = SLComposeViewController(forServiceType: SLServiceTypeTwitter)!
+                    twitter.add(link)
+                    twitter.add(#imageLiteral(resourceName: "Icon"))
+                    twitter.completionHandler = { (result) in
+                        if result == .done {
+                            // Free 50 points
+                            print("Done")
+                            PointSystem(index: PointSystem.DataIndex.Review).addPoint()
+                            UserDefaults.standard.set(true, forKey: DataManagement.DataName.didShare)
+                        } else {
+                            print("Cancel")
+                        }
                     }
+                    self.present(twitter, animated: true, completion: nil)
+                } else {
+                    let error = UIAlertController.QuickMessage(title: "SOCIAL_ERROR_TITLE".localised(), message: "SOCIAL_ERROR_MESSAGE".localised(), cancel: "OK")
+                    self.present(error, animated: true, completion: nil)
                 }
-                self.present(twitter!, animated: true, completion: nil)
             case 14:
                 // Weibo
-                let weibo = SLComposeViewController(forServiceType: SLServiceTypeSinaWeibo)
-                weibo?.add(link)
-                weibo?.add(#imageLiteral(resourceName: "Icon"))
-                weibo?.completionHandler = { (result) in
-                    if result == .done {
-                        // Free 50 points
-                        print("Done")
-                        PointSystem(index: PointSystem.DataIndex.Review).addPoint()
-                        UserDefaults.standard.set(true, forKey: DataManagement.DataName.didShare)
-                    } else {
-                        print("Cancel")
+                if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeSinaWeibo) {
+                    let weibo = SLComposeViewController(forServiceType: SLServiceTypeSinaWeibo)!
+                    weibo.add(link)
+                    weibo.add(#imageLiteral(resourceName: "Icon"))
+                    weibo.completionHandler = { (result) in
+                        if result == .done {
+                            // Free 50 points
+                            print("Done")
+                            PointSystem(index: PointSystem.DataIndex.Review).addPoint()
+                            UserDefaults.standard.set(true, forKey: DataManagement.DataName.didShare)
+                        } else {
+                            print("Cancel")
+                        }
                     }
+                    self.present(weibo, animated: true, completion: nil)
+                } else {
+                    let error = UIAlertController.QuickMessage(title: "SOCIAL_ERROR_TITLE".localised(), message: "SOCIAL_ERROR_MESSAGE".localised(), cancel: "OK")
+                    self.present(error, animated: true, completion: nil)
                 }
-                self.present(weibo!, animated: true, completion: nil)
             case 15:
                 // Rate
                 UIApplication.shared.openURL(link)
