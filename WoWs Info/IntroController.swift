@@ -11,6 +11,7 @@ import GoogleMobileAds
 
 class IntroController: UIViewController, GADInterstitialDelegate {
 
+    @IBOutlet weak var introImage: UIImageView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     var interstitial: GADInterstitial!
     let isPro = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
@@ -19,19 +20,22 @@ class IntroController: UIViewController, GADInterstitialDelegate {
         super.viewDidLoad()
         
         self.view.backgroundColor = Theme.getCurrTheme()
-        // Setup Ads
+        
         if !isPro {
+            // Setup Ads
             interstitial = GADInterstitial(adUnitID: "ca-app-pub-5048098651344514/7499671184")
             interstitial.delegate = self
             let request = GADRequest()
             request.testDevices = [kGADSimulatorID]
             interstitial.load(request)
+        } else {
+            // Change to Pro Image
+            self.introImage.image = #imageLiteral(resourceName: "ThemePro")
         }
         
         if !hasInternet() {
             self.view.isUserInteractionEnabled = true
         }
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,6 +53,7 @@ class IntroController: UIViewController, GADInterstitialDelegate {
                 // Load data here
                 self.loadData()
                 hasInternet = true
+                
                 // Download data from wows-numbers.com
                 if !DataUpdater.hasData() {
                     let success = DataUpdater.update()

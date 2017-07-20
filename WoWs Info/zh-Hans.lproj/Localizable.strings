@@ -196,8 +196,32 @@
 
 "THEME_TITLE" = "评价WoWs Info?";
 
-"THEME_MESSAGE" = "如果您给我们一个评价，主题可以免费解锁";
+"THEME_MESSAGE" = "如果您给我们一个评价，主题可以免费解锁\n并且获得50 - 75点作为奖励";
 
 "SHARE_TITLE" = "图鉴已加强";
 
-"SHARE_MESSAGE" = "如果您可以分享给自己的好友，更多的人可以更加方便地查询战舰信息";
+"SHARE_MESSAGE" = "如果您可以分享给自己的好友，更多的人可以更加方便地查询战舰信息\n您还可以获得50 - 75点作为奖励";
+
+"GITHUB_MESSAGE" = "请花一点时间来看一看";
+
+"GITHUB_TITLE" = "WoWs Info开源了";
+
+"POINT_SYSTEM" = "点数";
+
+"NO_ENOUGH_POINT_TITLE" = "您没有足够的点数";
+
+"NO_ENOUGH_POINT_MESSAGE" = "请在更多 -> 点数 观看以及点击广告来获得更多点数";
+
+"NO_INFORMATION" = "无数据";
+
+"ISNOT_PRO" = "解锁专业版";
+
+"IS_PRO" = "已解锁";
+
+"ADS_NOT_READY_TITLE" = "還沒有準備好";
+
+"ADS_NOT_READY_MESSAGE" = "請稍後重試";
+
+"SOCIAL_ERROR_TITLE" = "提示";
+
+"SOCIAL_ERROR_MESSAGE" = "服务不可用";

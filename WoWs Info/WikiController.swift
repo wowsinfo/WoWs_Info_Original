@@ -13,6 +13,7 @@ class WikiController: UITableViewController {
     let name = [NSLocalizedString("ACHIEVEMENT", comment: "Achievement"), NSLocalizedString("WARSHIPS", comment: "Warships"), NSLocalizedString("UPGRADES", comment: "Upgrades"), NSLocalizedString("FLAGS", comment: "Flags"), NSLocalizedString("CAMOUFLAGE", comment: "Camouflage"), NSLocalizedString("COMMANDER_SKILL", comment: "CommanderSkill")]
     let identifier = ["gotoAchievement", "gotoWarships", "gotoWikiData"]
     let iconImage = [#imageLiteral(resourceName: "AchievementIcon"), #imageLiteral(resourceName: "Theme"), #imageLiteral(resourceName: "UpgradesIcon"), #imageLiteral(resourceName: "FlagsIcon"), #imageLiteral(resourceName: "CamouflageIcon"), #imageLiteral(resourceName: "CommanderSkillIcon")]
+    let isPro = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +47,7 @@ class WikiController: UITableViewController {
         } else {
             cell.wikiImage.backgroundColor = UIColor.clear
         }
-        
+
         cell.wikiTextLabel.text = name[indexPath.row]
         cell.wikiImage.image = iconImage[index]
         
@@ -57,22 +58,6 @@ class WikiController: UITableViewController {
         if indexPath.row > 1 {
             performSegue(withIdentifier: identifier[2], sender: indexPath.row - 2)
         } else {
-            if identifier[indexPath.row] == "gotoWarships" {
-                // Ask user to share with friend or not
-                if !UserDefaults.standard.bool(forKey: DataManagement.DataName.didShare) {
-                    UserDefaults.standard.set(true, forKey: DataManagement.DataName.didShare)
-                    // Ask User to share this app
-                    let share = UIAlertController(title: "SHARE_TITLE".localised(), message: "SHARE_MESSAGE".localised(), preferredStyle: .alert)
-                    share.addAction(UIAlertAction(title: "OK", style: .default, handler: { (Review) in
-                        let shareActivity = UIActivityViewController.init(activityItems: [URL(string: "https://itunes.apple.com/app/id1202750166")!], applicationActivities: nil)
-                        shareActivity.popoverPresentationController?.sourceView = self.view
-                        shareActivity.modalPresentationStyle = .overFullScreen
-                        self.present(shareActivity, animated: true, completion: nil)
-                    }))
-                    share.addAction(UIAlertAction(title: "SHARE_CANCEL".localised(), style: .cancel, handler: nil))
-                    self.present(share, animated: true, completion: nil)
-                }
-            }
             performSegue(withIdentifier: identifier[indexPath.row], sender: nil)
         }
         tableView.deselectRow(at: indexPath, animated: true)

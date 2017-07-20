@@ -20,6 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         GADMobileAds.configure(withApplicationID: "ca-app-pub-5048098651344514~3226630788")
+        // Setup Rewarded Video
+        let request = GADRequest()
+        request.testDevices = [kGADSimulatorID]
+        GADRewardBasedVideoAd.sharedInstance().load(request, withAdUnitID: "ca-app-pub-5048098651344514/5135812781")
         
         // Change status bar color
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
@@ -98,6 +102,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             user.set(false, forKey: DataManagement.DataName.gotoGithub)
         }
         
+        // Setup Point System
+        if user.object(forKey: DataManagement.DataName.pointSystem) == nil {
+            if !user.bool(forKey: DataManagement.DataName.hasPurchased) {
+                // Only for free user, 5 points by default
+                user.set(5, forKey: DataManagement.DataName.pointSystem)
+            }
+        }
+        
         // Setup siren
         let siren = Siren.shared
         siren.alertType = .option
@@ -114,9 +126,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let news = UIApplicationShortcutItem(type: "com.yihengquan.WoWs-Info.News", localizedTitle: "NEWS".localised(), localizedSubtitle: "", icon: UIApplicationShortcutIcon.init(templateImageName: "News"), userInfo: nil)
         let wiki = UIApplicationShortcutItem(type: "com.yihengquan.WoWs-Info.Wiki", localizedTitle: "WIKI".localised(), localizedSubtitle: "", icon: UIApplicationShortcutIcon.init(templateImageName: "WikiBar"), userInfo: nil)
         let search = UIApplicationShortcutItem(type: "com.yihengquan.WoWs-Info.Search", localizedTitle: "SEARCH".localised(), localizedSubtitle: "", icon: UIApplicationShortcutIcon.init(type: UIApplicationShortcutIconType.search), userInfo: nil)
-        let contact = UIApplicationShortcutItem(type: "com.yihengquan.WoWs-Info.Contact", localizedTitle: "CONTACT".localised(), localizedSubtitle: "", icon: UIApplicationShortcutIcon.init(templateImageName: "Dashboard"), userInfo: nil)
+        let contact = UIApplicationShortcutItem(type: "com.yihengquan.WoWs-Info.Contact", localizedTitle: "DASHBOARD".localised(), localizedSubtitle: "", icon: UIApplicationShortcutIcon.init(templateImageName: "Dashboard"), userInfo: nil)
         UIApplication.shared.shortcutItems = [news, wiki, search, contact]
-        
         
         return true
     }
@@ -162,6 +173,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         case "com.yihengquan.WoWs-Info.Contact":
             TabBarController.index = 3
         default: break
+        }
+    }
+    
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        // Does not allow landscape for iPhone
+        if UIDevice.current.userInterfaceIdiom != .pad {
+            return UIInterfaceOrientationMask.portrait
+        } else {
+            return UIInterfaceOrientationMask.all
         }
     }
 

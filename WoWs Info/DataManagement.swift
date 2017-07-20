@@ -35,6 +35,7 @@ class DataManagement {
         static let didReview = "review"
         static let didShare = "share"
         static let gotoGithub = "github"
+        static let pointSystem = "point_system"
     }
     
 }

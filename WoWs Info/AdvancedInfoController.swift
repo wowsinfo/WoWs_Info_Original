@@ -9,13 +9,13 @@
 import UIKit
 import AudioToolbox
 import SafariServices
+import GoogleMobileAds
 
-class AdvancedInfoController: UITableViewController, SFSafariViewControllerDelegate {
+class AdvancedInfoController: UITableViewController, SFSafariViewControllerDelegate, GADRewardBasedVideoAdDelegate {
 
     var playerInfo = [String]()
     @IBOutlet weak var clanNameLabel: UILabel!
     var serverIndex = 0
-    var isPreview = false
     @IBOutlet weak var playerNameLabel: UILabel!
     @IBOutlet weak var levelAndPlaytimeLabel: UILabel!
     @IBOutlet weak var totalBattlesLabel: UILabel!
@@ -25,6 +25,15 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     @IBOutlet weak var averageDamageLabel: UILabel!
     @IBOutlet weak var killDeathRatioLabel: UILabel!
     @IBOutlet weak var mainBatteryHitRatioLabel: UILabel!
+    
+    @IBOutlet weak var killdeathImage: UIImageView!
+    @IBOutlet weak var battleImage: UIImageView!
+    @IBOutlet weak var expImage: UIImageView!
+    @IBOutlet weak var winrateImage: UIImageView!
+    @IBOutlet weak var damageImage: UIImageView!
+    @IBOutlet weak var hitratioImage: UIImageView!
+    @IBOutlet weak var themeImage: UIImageView!
+    
     @IBOutlet weak var friendBtn: UIButton!
     @IBOutlet weak var tkBtn: UIButton!
     @IBOutlet weak var retryBtn: UIButton!
@@ -32,6 +41,10 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     var shipData: [[String]]!
     var clanInfo: [String]!
     var clanData = [String]()
+    let currPoint = PointSystem.getCurrPoint()
+
+    var pointsToRemove = 0
+    @IBOutlet weak var proView: UIView!
     
     let username = UserDefaults.standard.string(forKey: DataManagement.DataName.UserName)!
     let isPro = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
@@ -53,6 +66,7 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         let theme = Theme.getCurrTheme()
         DashboardCell.backgroundColor = theme
         retryBtn.backgroundColor = theme
+        proView.backgroundColor = theme
         
         // Pass account id
         _ = PlayerAccount.init(ID: self.title!, Name: playerInfo[0])
@@ -68,11 +82,17 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         setupBtn(btn: friendBtn)
         setupBtn(btn: tkBtn)
         
-        // If it is for review or not pro
-        if !isPro || isPreview {
+        if !isPro {
+            // If it is for review or not pro
             tkBtn.isHidden = true
             friendBtn.isHidden = true
             setPlayerIDBtn.isEnabled = false
+        } else {
+            // Hide purchase pro view
+            proView.frame.size.height = 0
+            proView.removeFromSuperview()
+            // Change to pro icon
+            themeImage.image = #imageLiteral(resourceName: "ThemePro")
         }
         
         // Load Rank
@@ -80,6 +100,10 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         rank.getRankInformation { rank in
             RankInformation.RankData = rank
         }
+        
+        // Adjust inset for tableview
+        let adjustion = UIEdgeInsets(top: -35, left: 0, bottom: 0, right: 0)
+        self.tableView.contentInset = adjustion
         
     }
     
@@ -118,11 +142,20 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
             }
         }
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if self.isMovingFromParentViewController {
+            if pointsToRemove > 3 { pointsToRemove = 3 }
+            PointSystem(pointToRemove: pointsToRemove).removePoint()
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    // MARK: Data
     func loadPlayerData() {
 
         PlayerStat().getDataFromAPI(account: playerInfo[1], success: {playerData in
@@ -132,6 +165,7 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         self.calAvgShipRating()
     }
     
+    // MARK: NameColour
     func setupNameColour() {
         // Check if this player is friend or tk
         var hasFound = false
@@ -240,11 +274,9 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         
-        if isPreview { return true }
-        
-        if !isPro {
+        if !isPro && currPoint < 1 {
             // Do not segue if it is not Pro
-            let pro = UIAlertController(title: NSLocalizedString("PRO_TITLE", comment: "Title"), message: NSLocalizedString("PRO_MESSAGE", comment: "Message"), preferredStyle: .alert)
+            let pro = UIAlertController(title: "NO_ENOUGH_POINT_TITLE".localised(), message: "NO_ENOUGH_POINT_MESSAGE".localised(), preferredStyle: .alert)
             pro.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(pro, animated: true, completion: nil)
             
@@ -254,20 +286,31 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         if self.totalBattlesLabel.text == "" { return false }
         
         if identifier == "gotoClan" {
+            pointsToRemove += 1
             if clanData == [String]() || clanData[2] == "" {
                 // If player does not have a clan
+                pointsToRemove -= 1
                 return false
             }
-        }
-        
-        if identifier == "gotoMoreInfo" {
+        } else if identifier == "gotoMoreInfo" {
+            pointsToRemove += 1
             if self.totalBattlesLabel.text == "0" {
                 // Do not segue if they never player a battle
+                pointsToRemove -= 1
+                return false
+            } else if self.totalBattlesLabel.text == " " {
+                // Do not segue if data is not loaded
+                pointsToRemove -= 1
                 return false
             }
         }
         
         return true
+    }
+    
+    // MARK: ADS
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didRewardUserWith reward: GADAdReward) {
+        PointSystem(index: PointSystem.DataIndex.AD).addPoint()
     }
     
     // MARK: Helper Function
@@ -280,7 +323,8 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         if cell?.tag == 99 {
-            if isPro || isPreview {
+            if isPro || currPoint > 0 {
+                pointsToRemove += 1
                 // Go to number
                 let browser = SFSafariViewController(url: URL(string: ServerUrl(serverIndex: serverIndex).getUrlForNumber(account: self.title!, name: playerNameLabel.text!))!)
                 browser.modalPresentationStyle = .overFullScreen
@@ -288,6 +332,10 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
                 // Change status bar
                 UIApplication.shared.statusBarStyle = .default
                 self.present(browser, animated: true, completion: nil)
+            } else {
+                let pro = UIAlertController(title: "NO_ENOUGH_POINT_TITLE".localised(), message: "NO_ENOUGH_POINT_MESSAGE".localised(), preferredStyle: .alert)
+                pro.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(pro, animated: true, completion: nil)
             }
         }
     }
@@ -300,6 +348,13 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     }
     
     // MARK: Button pressed
+    @IBAction func gotoPro(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "ProVersion", bundle: Bundle.main)
+        let proController = storyboard.instantiateViewController(withIdentifier: "ProViewController") as! IAPController
+        proController.modalTransitionStyle = .flipHorizontal
+        self.present(proController, animated: true, completion: nil)
+    }
+    
     @IBAction func setPlayerID(_ sender: UIBarButtonItem) {
         
         let playerID = self.title!
