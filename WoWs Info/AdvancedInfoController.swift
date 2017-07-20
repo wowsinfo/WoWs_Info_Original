@@ -32,6 +32,7 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     @IBOutlet weak var winrateImage: UIImageView!
     @IBOutlet weak var damageImage: UIImageView!
     @IBOutlet weak var hitratioImage: UIImageView!
+    @IBOutlet weak var themeImage: UIImageView!
     
     @IBOutlet weak var friendBtn: UIButton!
     @IBOutlet weak var tkBtn: UIButton!
@@ -43,6 +44,7 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     let currPoint = PointSystem.getCurrPoint()
 
     var pointsToRemove = 0
+    @IBOutlet weak var proView: UIView!
     
     let username = UserDefaults.standard.string(forKey: DataManagement.DataName.UserName)!
     let isPro = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
@@ -64,6 +66,7 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         let theme = Theme.getCurrTheme()
         DashboardCell.backgroundColor = theme
         retryBtn.backgroundColor = theme
+        proView.backgroundColor = theme
         
         // Pass account id
         _ = PlayerAccount.init(ID: self.title!, Name: playerInfo[0])
@@ -79,11 +82,17 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         setupBtn(btn: friendBtn)
         setupBtn(btn: tkBtn)
         
-        // If it is for review or not pro
         if !isPro {
+            // If it is for review or not pro
             tkBtn.isHidden = true
             friendBtn.isHidden = true
             setPlayerIDBtn.isEnabled = false
+        } else {
+            // Hide purchase pro view
+            proView.frame.size.height = 0
+            proView.removeFromSuperview()
+            // Change to pro icon
+            themeImage.image = #imageLiteral(resourceName: "ThemePro")
         }
         
         // Load Rank
@@ -91,6 +100,10 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         rank.getRankInformation { rank in
             RankInformation.RankData = rank
         }
+        
+        // Adjust inset for tableview
+        let adjustion = UIEdgeInsets(top: -35, left: 0, bottom: 0, right: 0)
+        self.tableView.contentInset = adjustion
         
     }
     
@@ -335,6 +348,13 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     }
     
     // MARK: Button pressed
+    @IBAction func gotoPro(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "ProVersion", bundle: Bundle.main)
+        let proController = storyboard.instantiateViewController(withIdentifier: "ProViewController") as! IAPController
+        proController.modalTransitionStyle = .flipHorizontal
+        self.present(proController, animated: true, completion: nil)
+    }
+    
     @IBAction func setPlayerID(_ sender: UIBarButtonItem) {
         
         let playerID = self.title!

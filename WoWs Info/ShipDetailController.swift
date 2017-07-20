@@ -200,13 +200,15 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
     
     // MARK: Button Pressed
     @IBAction func screenshotBtn(_ sender: Any) {
-        screenshotBtn.isHidden = true
         UIGraphicsBeginImageContextWithOptions(ShipDataCell.frame.size, true, 0.0)
         ShipDataCell.layer.render(in: UIGraphicsGetCurrentContext()!)
-        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+        let screenshot = UIGraphicsGetImageFromCurrentImageContext()!
         
-        UIImageWriteToSavedPhotosAlbum(screenshot!, nil, nil, nil)
+        let share = UIActivityViewController(activityItems: [screenshot], applicationActivities: nil)
+        share.popoverPresentationController?.sourceView = self.view
+        self.present(share, animated: true, completion: nil)
+        
+        UIGraphicsEndImageContext()
     }
     
     @IBAction func moduleBtnPressed(_ sender: UIButton) {
@@ -448,6 +450,7 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
         // Try to make it a Url
         if let name = URL(string: wikiShipName) {
             let wiki = SFSafariViewController(url: name)
+            wiki.delegate = self
             wiki.modalPresentationStyle = .overFullScreen
             UIApplication.shared.statusBarStyle = .default
             self.present(wiki, animated: true, completion: nil)
@@ -467,40 +470,4 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
         let description = UIAlertController.QuickMessage(title: "\(shipName!) (\(nationText!))", message: descriptionText, cancel: "OK")
         self.present(description, animated: true, completion: nil)
     }
-    
-    // MARK: More Information
-    @IBAction func showExtraInfoBtnPressed(_ sender: Any) {
-        
-    }
-    
-    /*func getExtraInfoString() -> String {
-        
-    }
-    
-    func calMaxConcealment() -> String {
-        
-    }
-    
-    func calMaxFireRange() -> String {
-        
-    }
-    
-    func calTorpAcceleration() -> String {
-        
-    }
-    
-    func calMaxSpeed() -> String {
-        let currSpeed = Double((mobilityLabel.text?.components(separatedBy: " ").first)!)!
-        // With Sierra Mike, +5% speed
-        return "\(String(format: "%.2f", currSpeed * 0.05)) knot"
-    }
-    
-    func calMaxTorpReloadTime() -> String {
-        
-    }
-    
-    func calMaxGunReloadTime() -> String {
-        
-    }*/
-    
 }

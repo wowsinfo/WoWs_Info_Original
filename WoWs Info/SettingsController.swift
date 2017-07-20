@@ -35,8 +35,7 @@ class SettingsController: UITableViewController, GADBannerViewDelegate, GADRewar
         if UserDefaults.standard.bool(forKey: DataManagement.DataName.hasPurchased) {
             // Remove it
             bannerView.removeFromSuperview()
-            
-            inset = UIEdgeInsets(top: CGFloat(-kGADAdSizeSmartBannerPortrait.size.height), left: 0, bottom: 0, right: 0)
+            inset = UIEdgeInsets(top: -50, left: 0, bottom: 0, right: 0)
         } else {
             // Load ads
             bannerView.adSize = kGADAdSizeSmartBannerPortrait
@@ -58,6 +57,8 @@ class SettingsController: UITableViewController, GADBannerViewDelegate, GADRewar
         
         if isPro {
             self.proBtn.removeFromSuperview()
+            // Update theme image
+            themeImage.image = #imageLiteral(resourceName: "ThemePro")
         }
         
         // Setup Theme

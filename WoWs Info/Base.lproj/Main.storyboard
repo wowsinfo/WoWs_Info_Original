@@ -49,6 +49,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="kQg-eW-Xwu"/>
                     <connections>
+                        <outlet property="introImage" destination="h5A-PM-rDz" id="Cxt-l9-Q5J"/>
                         <outlet property="loadingIndicator" destination="r0L-BN-JdH" id="cLy-xm-vhg"/>
                         <segue destination="RLh-7K-NKe" kind="presentation" identifier="gotoMain" modalTransitionStyle="crossDissolve" id="sMp-SY-cLS"/>
                     </connections>

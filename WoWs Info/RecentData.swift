@@ -13,7 +13,7 @@ class RecentData {
     
     let server = ServerUrl.Server[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)]
     var recentInfoAPI = "";
-    static var recentDataJson: JSON!
+    static var recentDataJson = JSON(arrayLiteral: "")
     var accountId: String!
     
     struct dataIndex {
