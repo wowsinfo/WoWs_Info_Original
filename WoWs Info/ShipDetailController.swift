@@ -23,7 +23,7 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
     var shipType: String!
     var shipName: String!
     var shipTier: String!
-    var descriptionText: String!
+    var descriptionText = ""
     var nationText: String!
     var moduleTree = [[[String]]]()
     var currModule = [String].init(repeating: "", count: 6)
@@ -138,7 +138,7 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
                 
                 // Ship Tier
                 let tierSymbol = ["I","II","III","IV","V","VI","VII","VIII","IX","X"]
-                var tierLabel = "Tier " + tierSymbol[Int(self.shipTier)! - 1]
+                var tierLabel = "\("TIER".localised()) " + tierSymbol[Int(self.shipTier)! - 1]
                 if isPrenium {
                     tierLabel += " " + NSLocalizedString("PRENIUM_SHIP", comment: "Prenium ship label")
                 }
@@ -184,23 +184,31 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
     
     // MARK: Setup Button
     func setupBtn() {
-        self.hullBtn.setTitle("Hull (\(self.moduleTree[0].count))", for: .normal)
-        self.engineBtn.setTitle("Engine (\(self.moduleTree[1].count))", for: .normal)
-        self.torpBtn.setTitle("Torpedo (\(self.moduleTree[2].count))", for: .normal)
-        self.fireControlBtn.setTitle("Fire Control (\(self.moduleTree[3].count))", for: .normal)
-        self.artilleryBtn.setTitle("Artillery (\(self.moduleTree[4].count))", for: .normal)
-        self.flightControlBtn.setTitle("Flight Control (\(self.moduleTree[5].count))", for: .normal)
+        print(moduleTree)
+        setupModule(index: Ships.moduleIndex.hull, btn: hullBtn)
+        setupModule(index: Ships.moduleIndex.engine, btn: engineBtn)
+        setupModule(index: Ships.moduleIndex.torpedoes, btn: torpBtn)
+        setupModule(index: Ships.moduleIndex.fireControl, btn: fireControlBtn)
+        setupModule(index: Ships.moduleIndex.artillery, btn: artilleryBtn)
+        setupModule(index: Ships.moduleIndex.flightControl, btn: flightControlBtn)
+    }
+    
+    func setupModule(index: Int, btn: UIButton) {
+        if moduleTree[index].count == 0 { return }
+        btn.setTitle("\(btn.title(for: .normal)!): \(moduleTree[index][0][0]) (\(moduleTree[index].count))", for: .normal)
     }
     
     // MARK: Button Pressed
     @IBAction func screenshotBtn(_ sender: Any) {
-        screenshotBtn.isHidden = true
         UIGraphicsBeginImageContextWithOptions(ShipDataCell.frame.size, true, 0.0)
         ShipDataCell.layer.render(in: UIGraphicsGetCurrentContext()!)
-        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+        let screenshot = UIGraphicsGetImageFromCurrentImageContext()!
         
-        UIImageWriteToSavedPhotosAlbum(screenshot!, nil, nil, nil)
+        let share = UIActivityViewController(activityItems: [screenshot], applicationActivities: nil)
+        share.popoverPresentationController?.sourceView = self.view
+        self.present(share, animated: true, completion: nil)
+        
+        UIGraphicsEndImageContext()
     }
     
     @IBAction func moduleBtnPressed(_ sender: UIButton) {
@@ -217,6 +225,10 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
                 moduleSelection.addAction(UIAlertAction(title: moduleTree[index][i][0], style: .default, handler: { (Action) in
                     // Index 1 is ID
                     self.currModule[index] = self.moduleTree[index][i][1]
+                    // Update text
+                    let currModule = sender.title(for: .normal)?.components(separatedBy: ":").first
+                    sender.setTitle("\(String(describing: currModule!)): \(self.moduleTree[index][i][0]) (\(self.moduleTree[index].count))", for: .normal)
+                    // Animation
                     UIView.animate(withDuration: 0.5, animations: { 
                         self.labelControl(state: 0)
                     })
@@ -438,6 +450,7 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
         // Try to make it a Url
         if let name = URL(string: wikiShipName) {
             let wiki = SFSafariViewController(url: name)
+            wiki.delegate = self
             wiki.modalPresentationStyle = .overFullScreen
             UIApplication.shared.statusBarStyle = .default
             self.present(wiki, animated: true, completion: nil)
@@ -453,8 +466,8 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
     
     // MARK: Description
     @IBAction func showDescriptionPressed(_ sender: Any) {
+        if descriptionText == "" { return }
         let description = UIAlertController.QuickMessage(title: "\(shipName!) (\(nationText!))", message: descriptionText, cancel: "OK")
         self.present(description, animated: true, completion: nil)
     }
-    
 }

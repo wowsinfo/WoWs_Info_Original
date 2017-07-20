@@ -8,6 +8,7 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -75,7 +76,10 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="XNm-1H-wVv" kind="show" id="mVn-59-Rsd"/>
+                                            <segue destination="XNm-1H-wVv" kind="show" id="mVn-59-Rsd">
+                                                <segue key="commit" inheritsFrom="parent" id="UyL-vf-ntL"/>
+                                                <segue key="preview" inheritsFrom="commit" id="okR-G6-leo"/>
+                                            </segue>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -150,15 +154,15 @@
                             </tableViewSection>
                             <tableViewSection id="eJa-29-HbD">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" tag="99" contentMode="scaleToFill" selectionStyle="default" showsReorderControl="YES" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="WoO-Jo-DfP" style="IBUITableViewCellStyleDefault" id="NWW-SB-KHV">
+                                    <tableViewCell clipsSubviews="YES" tag="99" contentMode="scaleToFill" selectionStyle="default" showsReorderControl="YES" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="WoO-Jo-DfP" style="IBUITableViewCellStyleDefault" id="NWW-SB-KHV">
                                         <rect key="frame" x="0.0" y="515.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NWW-SB-KHV" id="rvq-2Y-gDV">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Clean Cache" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WoO-Jo-DfP">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -188,7 +192,10 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="hat-Rv-QKz" kind="show" id="9uf-e7-JDn"/>
+                                            <segue destination="hat-Rv-QKz" kind="show" id="9uf-e7-JDn">
+                                                <segue key="commit" inheritsFrom="parent" id="esk-2g-ooe"/>
+                                                <segue key="preview" inheritsFrom="commit" id="7Zg-83-8ev"/>
+                                            </segue>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Ee9-my-k8f" imageView="fHS-Yq-gGz" style="IBUITableViewCellStyleDefault" id="xCw-SO-8u2">
@@ -212,7 +219,10 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="qyd-KM-Fc2" kind="show" id="bAZ-1R-gsr"/>
+                                            <segue destination="qyd-KM-Fc2" kind="show" id="bAZ-1R-gsr">
+                                                <segue key="commit" inheritsFrom="parent" id="Lze-Ei-j5h"/>
+                                                <segue key="preview" inheritsFrom="commit" id="Ic0-PR-8uB"/>
+                                            </segue>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -442,4 +452,9 @@
     <resources>
         <image name="Theme" width="205" height="205"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="bAZ-1R-gsr"/>
+        <segue reference="mVn-59-Rsd"/>
+        <segue reference="9uf-e7-JDn"/>
+    </inferredMetricsTieBreakers>
 </document>

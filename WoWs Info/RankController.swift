@@ -27,10 +27,7 @@ class RankController: UITableViewController {
         // Remove message and reload data
         if self.rankInfo.count > 0 {
             self.title = ""
-            
-            UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveEaseIn, animations: { 
-                self.RankTableView.reloadData()
-            }, completion: nil)
+            self.RankTableView.reloadData()
         } else {
             self.title = ">_<"
         }

@@ -71,7 +71,7 @@ class ChartsController: UIViewController, ChartViewDelegate {
     
     func barChartOptimised(chart: BarChartView, labelCount: Int) {
         
-        chart.noDataText = "No information >_<"
+        chart.noDataText = "NO_INFORMATION".localised()
         chart.isUserInteractionEnabled = false
         chart.chartDescription?.text = ""
         
@@ -94,6 +94,7 @@ class ChartsController: UIViewController, ChartViewDelegate {
         
         var mostPlayedInformation = data.getMostPlayedShipInformation()
         barChartOptimised(chart: mostPlayedBarChart, labelCount: 5)
+        mostPlayedBarChart.noDataText = "NO_INFORMATION".localised()
         mostPlayedBarChart.rightAxis.drawLabelsEnabled = true
         mostPlayedBarChart.xAxis.valueFormatter = IndexAxisValueFormatter(values: mostPlayedInformation.1)
         
@@ -118,6 +119,7 @@ class ChartsController: UIViewController, ChartViewDelegate {
     func setupTypePieChart() {
         
         let typeAxis = [NSLocalizedString("DD", comment: "Destoryer"), NSLocalizedString("CA", comment: "Cruiser"), NSLocalizedString("BB", comment: "Battleship"), NSLocalizedString("CV", comment: "Aircraft Carrier")]
+        typeBattlePieChart.noDataText = "NO_INFORMATION".localised()
         typeBattlePieChart.chartDescription?.text = ""
         typeBattlePieChart.drawEntryLabelsEnabled = false
         let typeInformation = data.getShipTypeInformation()
@@ -174,7 +176,7 @@ class ChartsController: UIViewController, ChartViewDelegate {
     
     func lineChartOptimised(chart: LineChartView) {
         
-        chart.noDataText = "No recent infomation >_<"
+        chart.noDataText = "NO_INFORMATION".localised()
         chart.isUserInteractionEnabled = false
         chart.chartDescription?.text = ""
         
@@ -305,18 +307,5 @@ class ChartsController: UIViewController, ChartViewDelegate {
         return sum/Double(recentData.count)
         
     }
-    
-    // MARK: Screenshot
-    @IBAction func screenshotBtnPressed(_ sender: Any) {
-        UIGraphicsBeginImageContextWithOptions(self.pageView.contentSize, true, UIScreen.main.scale)
-        self.scrollView.layer.render(in: UIGraphicsGetCurrentContext()!)
-        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        UIImageWriteToSavedPhotosAlbum(screenshot!, nil, nil, nil)
-        self.screenshotBtn.isEnabled = false
-        AudioServicesPlaySystemSound(1520)
-    }
-    
 
 }

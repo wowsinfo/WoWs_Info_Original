@@ -10,10 +10,11 @@ import UIKit
 import GoogleMobileAds
 
 // Lol, that's lots of delegates and data sources
-class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, GADBannerViewDelegate {
+class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, GADBannerViewDelegate, GADRewardBasedVideoAdDelegate {
 
     @IBOutlet weak var showAdsConstraint: NSLayoutConstraint!
     @IBOutlet weak var bannerView: GADBannerView!
+    @IBOutlet weak var pointLabel: UILabel!
     
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var usernameTableView: UITableView!
@@ -32,8 +33,21 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let isPro = UserDefaults.standard.bool(forKey: DataManagement.DataName.hasPurchased)
+        
+        // Show Github if havent seen it yet
+        if !UserDefaults.standard.bool(forKey: DataManagement.DataName.gotoGithub) {
+            print("Show Github Message")
+            let github = UIAlertController(title: "GITHUB_TITLE".localised(), message: "GITHUB_MESSAGE".localised(), preferredStyle: .alert)
+            github.addAction(UIAlertAction(title: ">_<", style: .default, handler: { (Github) in
+                UIApplication.shared.openURL(URL(string: "https://github.com/HenryQuan/WoWs_Info_IOS")!)
+            }))
+            self.present(github, animated: true, completion: nil)
+            UserDefaults.standard.set(true, forKey: DataManagement.DataName.gotoGithub)
+        }
+        
         // Whether ads should be shown
-        if UserDefaults.standard.bool(forKey: DataManagement.DataName.hasPurchased) {
+        if isPro {
             // Adjust constraint
             showAdsConstraint.constant -= 50
             bannerView.removeFromSuperview()
@@ -82,6 +96,14 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         // Load server name
         getServerName()
+        
+        // Setup pointLabel
+        if isPro {
+            pointLabel.frame.size.height = 0
+            pointLabel.removeFromSuperview()
+        } else {
+            pointLabel.text = "POINT_SYSTEM".localised() + ": \(PointSystem.getCurrPoint())"
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -92,9 +114,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         super.viewWillAppear(animated)
         
         // Change theme for serverSelectionbtn
-        serverSelectionBtn.backgroundColor = Theme.getCurrTheme()
-        serverSelectionBtn.layer.cornerRadius = serverSelectionBtn.frame.width / 5
-        serverSelectionBtn.layer.masksToBounds = true
+        serverSelectionBtn.tintColor = Theme.getCurrTheme()
         
         // Clean text
         username.text = ""
@@ -106,6 +126,17 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         // Reload server
         getServerName()
+        
+        // Check if user needs to watch a video ads
+        if !UserDefaults.standard.bool(forKey: DataManagement.DataName.hasPurchased) && PointSystem.getCurrPoint() < 1 {
+            GADRewardBasedVideoAd.sharedInstance().delegate = self
+            if GADRewardBasedVideoAd.sharedInstance().isReady {
+                GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
+            }
+        }
+        
+        // Update point
+        pointLabel.text = "POINT_SYSTEM".localised() + ": \(PointSystem.getCurrPoint())"
     }
     
     func getServerName() {
@@ -118,6 +149,11 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         // Adjust constraint
         showAdsConstraint.constant -= 50
         bannerView.removeFromSuperview()
+    }
+    
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didRewardUserWith reward: GADAdReward) {
+        // Add 3 points
+        PointSystem(index: PointSystem.DataIndex.AD).addPoint()
     }
     
     // MARK: segmentedControl pressed
@@ -307,7 +343,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
             let destination = segue.destination as! ClanInfoController
             let index = sender as! Int
             destination.clanDataString = "\(playerInfo[index][ClanSearch.dataIndex.id]) | \(playerInfo[index][ClanSearch.dataIndex.memberCount]) | \(playerInfo[index][ClanSearch.dataIndex.name]) | \(playerInfo[index][ClanSearch.dataIndex.tag])"
-        } else {
+        } else if segue.identifier == "gotoAdvancedDetails" {
             // Go to AdvancedInfoController
             let destination = segue.destination as! AdvancedInfoController
             destination.playerInfo = selectedInfo

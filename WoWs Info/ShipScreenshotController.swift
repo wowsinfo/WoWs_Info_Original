@@ -38,11 +38,6 @@ class ShipScreenshotController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Does not allow landscape for iPhone
-        if UIDevice.current.userInterfaceIdiom != .pad {
-            let value = UIInterfaceOrientation.portrait.rawValue
-            UIDevice.current.setValue(value, forKey: "orientation")
-        }
 
         print(shipID)
         nameLabel.text = PlayerAccount.AccountName
@@ -67,18 +62,16 @@ class ShipScreenshotController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func takeScreenshot(_ sender: UITapGestureRecognizer) {
-        
-        screenshotImage.isHidden = true
-        
+    func takeScreenshot() {
         UIGraphicsBeginImageContextWithOptions(view.frame.size, true, 0.0)
         view.layer.render(in: UIGraphicsGetCurrentContext()!)
-        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
+        let screenshot = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        UIImageWriteToSavedPhotosAlbum(screenshot!, nil, nil, nil)
-        
-        _ = self.navigationController?.popViewController(animated: true)
+        let share = UIActivityViewController(activityItems: [screenshot], applicationActivities: nil)
+        share.popoverPresentationController?.sourceView = self.view
+        self.present(share, animated: true, completion: nil)
+
         AudioServicesPlaySystemSound(1520)
     }
 }

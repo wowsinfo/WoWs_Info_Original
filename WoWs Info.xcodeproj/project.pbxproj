@@ -10,6 +10,7 @@
 		920105B31EB180FA00E5F338 /* IntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920105B21EB180FA00E5F338 /* IntroController.swift */; };
 		920105B51EB1827B00E5F338 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920105B41EB1827B00E5F338 /* Reachability.swift */; };
 		920105B81EB1892000E5F338 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920105B71EB1892000E5F338 /* TabBarController.swift */; };
+		920999E71F131E1700AFA924 /* Wiki.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 920999E91F131E1700AFA924 /* Wiki.storyboard */; };
 		9210C06E1E45E30E00270002 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210C06D1E45E30E00270002 /* NavigationController.swift */; };
 		9210C07E1E4609BA00270002 /* PersonalRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210C07D1E4609BA00270002 /* PersonalRating.swift */; };
 		92130AE41EB3003300B79DD5 /* UpgradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92130AE31EB3003300B79DD5 /* UpgradeCell.swift */; };
@@ -27,6 +28,12 @@
 		922D0E571E6295DE0056EDE6 /* ShipInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D0E561E6295DE0056EDE6 /* ShipInfoController.swift */; };
 		923044AB1E7E1AA400DF20E2 /* Siren.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923044AA1E7E1AA400DF20E2 /* Siren.framework */; };
 		92338F881EB4C4AF00054DAE /* DeveloperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92338F871EB4C4AF00054DAE /* DeveloperCell.swift */; };
+		9233ECBF1F148D2E006748EC /* ChineseServer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9233ECBE1F148D2E006748EC /* ChineseServer.storyboard */; };
+		9233ECC11F149A50006748EC /* ChineseServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9233ECC01F149A50006748EC /* ChineseServer.swift */; };
+		9233ECC31F14A1CD006748EC /* CNShipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9233ECC21F14A1CD006748EC /* CNShipCell.swift */; };
+		9233ECC61F14A275006748EC /* CNSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9233ECC51F14A275006748EC /* CNSearchController.swift */; };
+		9233ECC81F14A282006748EC /* CNPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9233ECC71F14A282006748EC /* CNPlayerController.swift */; };
+		9233ECCA1F14A28E006748EC /* CNShipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9233ECC91F14A28E006748EC /* CNShipController.swift */; };
 		92423B0E1E737F64006B538F /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929489081E61AB8800B471F2 /* SDWebImage.framework */; };
 		92457ADA1EE53B7500B5A120 /* DataUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92457AD91EE53B7500B5A120 /* DataUpdater.swift */; };
 		92457ADC1EE53EF300B5A120 /* UIAlertController+QuickMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92457ADB1EE53EF300B5A120 /* UIAlertController+QuickMessage.swift */; };
@@ -66,7 +73,6 @@
 		9299284B1E86920F0091A174 /* FriendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299284A1E86920F0091A174 /* FriendController.swift */; };
 		929B0B471E618B45007E54EA /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B461E618B45007E54EA /* Language.swift */; };
 		929B0B491E619B5B007E54EA /* Encyclopedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B481E619B5B007E54EA /* Encyclopedia.swift */; };
-		929B0B4B1E619EE3007E54EA /* Wiki.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 929B0B4A1E619EE3007E54EA /* Wiki.storyboard */; };
 		929B0B4E1E61A022007E54EA /* AchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B4D1E61A022007E54EA /* AchievementCell.swift */; };
 		929B0B501E61A1E1007E54EA /* AchievementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929B0B4F1E61A1E1007E54EA /* AchievementController.swift */; };
 		929C426D1EB20E2600DD0F6A /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929C426C1EB20E2600DD0F6A /* DashboardController.swift */; };
@@ -78,7 +84,6 @@
 		92B768701E5E5DE1009803C3 /* UsefulWebsite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B768721E5E5DE1009803C3 /* UsefulWebsite.storyboard */; };
 		92B768851E5E6E34009803C3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92B768871E5E6E34009803C3 /* Localizable.strings */; };
 		92BD115C1EA0E70000D04C16 /* AdvancedShipDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BD115B1EA0E70000D04C16 /* AdvancedShipDetailController.swift */; };
-		92BF559E1E9FB57000573F0A /* ReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF559D1E9FB57000573F0A /* ReviewController.swift */; };
 		92D414AB1E6AA5EF00E8C8AF /* ShipScreenshotController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D414AA1E6AA5EF00E8C8AF /* ShipScreenshotController.swift */; };
 		92D9B4D21E55AE3200CFD46D /* PlayerAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4D11E55AE3200CFD46D /* PlayerAccount.swift */; };
 		92D9B4D41E55AF2400CFD46D /* RankController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4D31E55AF2400CFD46D /* RankController.swift */; };
@@ -86,10 +91,12 @@
 		92D9B4D91E565C6E00CFD46D /* ShipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4D81E565C6E00CFD46D /* ShipController.swift */; };
 		92D9B4DB1E565C8A00CFD46D /* ShipTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D9B4DA1E565C8A00CFD46D /* ShipTableCell.swift */; };
 		92E125931EE676D700D7769A /* String+Localised.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E125921EE676D700D7769A /* String+Localised.swift */; };
+		92E40C541F121F74004A085A /* PointSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E40C531F121F74004A085A /* PointSystem.swift */; };
 		92E45B1E1EAE13C200360E62 /* ClanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E45B1D1EAE13C200360E62 /* ClanCell.swift */; };
 		92E45B201EAE13CC00360E62 /* MemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E45B1F1EAE13CC00360E62 /* MemberCell.swift */; };
 		92E45B251EAE149D00360E62 /* ClanInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E45B241EAE149D00360E62 /* ClanInfoController.swift */; };
 		92E45B271EAE17A900360E62 /* Clan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E45B261EAE17A900360E62 /* Clan.swift */; };
+		92E93BAC1F1CFB2200B1B4B7 /* CNChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E93BAB1F1CFB2200B1B4B7 /* CNChartController.swift */; };
 		92F526F11E6B9476005A2E20 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F526F01E6B9476005A2E20 /* AboutController.swift */; };
 		92FD8D701E59B22300E7FADF /* ChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD8D6F1E59B22300E7FADF /* ChartsController.swift */; };
 		92FF85901E592ED9001BBCA1 /* PlayerCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF858F1E592ED9001BBCA1 /* PlayerCharts.swift */; };
@@ -102,6 +109,20 @@
 		920105B21EB180FA00E5F338 /* IntroController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroController.swift; sourceTree = "<group>"; };
 		920105B41EB1827B00E5F338 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		920105B71EB1892000E5F338 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		920999E81F131E1700AFA924 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Wiki.storyboard; sourceTree = "<group>"; };
+		920999EB1F131E1B00AFA924 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Wiki.strings"; sourceTree = "<group>"; };
+		920999ED1F131E2100AFA924 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Wiki.strings"; sourceTree = "<group>"; };
+		920999EE1F1320E800AFA924 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/ProVersion.strings; sourceTree = "<group>"; };
+		920999EF1F1320E800AFA924 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/MoreInformation.strings; sourceTree = "<group>"; };
+		920999F01F1320E800AFA924 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		920999F11F1320E800AFA924 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		920999F21F1320E800AFA924 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/AdvancedStat.strings; sourceTree = "<group>"; };
+		920999F31F1320E800AFA924 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Wiki.strings; sourceTree = "<group>"; };
+		920999F41F1320E800AFA924 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/FriendList.strings; sourceTree = "<group>"; };
+		920999F51F1320E800AFA924 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/UsefulWebsite.strings; sourceTree = "<group>"; };
+		920999F61F1320E800AFA924 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Settings.strings; sourceTree = "<group>"; };
+		920999F71F1320E800AFA924 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Clan.strings; sourceTree = "<group>"; };
+		920999F81F1320E900AFA924 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		920E1C3D1E5EA30A00B43472 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		920E1C3F1E5EAC8B00B43472 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		920E1C481E5EC32A00B43472 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Settings.strings"; sourceTree = "<group>"; };
@@ -124,6 +145,12 @@
 		922D0E561E6295DE0056EDE6 /* ShipInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipInfoController.swift; sourceTree = "<group>"; };
 		923044AA1E7E1AA400DF20E2 /* Siren.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Siren.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/Siren/Siren.framework"; sourceTree = "<group>"; };
 		92338F871EB4C4AF00054DAE /* DeveloperCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeveloperCell.swift; sourceTree = "<group>"; };
+		9233ECBE1F148D2E006748EC /* ChineseServer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChineseServer.storyboard; sourceTree = "<group>"; };
+		9233ECC01F149A50006748EC /* ChineseServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChineseServer.swift; sourceTree = "<group>"; };
+		9233ECC21F14A1CD006748EC /* CNShipCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNShipCell.swift; sourceTree = "<group>"; };
+		9233ECC51F14A275006748EC /* CNSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNSearchController.swift; sourceTree = "<group>"; };
+		9233ECC71F14A282006748EC /* CNPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNPlayerController.swift; sourceTree = "<group>"; };
+		9233ECC91F14A28E006748EC /* CNShipController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNShipController.swift; sourceTree = "<group>"; };
 		923FFB3D1E5950340034686C /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		92457AD91EE53B7500B5A120 /* DataUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataUpdater.swift; sourceTree = "<group>"; };
 		92457ADB1EE53EF300B5A120 /* UIAlertController+QuickMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+QuickMessage.swift"; sourceTree = "<group>"; };
@@ -174,7 +201,6 @@
 		9299284A1E86920F0091A174 /* FriendController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendController.swift; sourceTree = "<group>"; };
 		929B0B461E618B45007E54EA /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		929B0B481E619B5B007E54EA /* Encyclopedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encyclopedia.swift; sourceTree = "<group>"; };
-		929B0B4A1E619EE3007E54EA /* Wiki.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Wiki.storyboard; sourceTree = "<group>"; };
 		929B0B4D1E61A022007E54EA /* AchievementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementCell.swift; sourceTree = "<group>"; };
 		929B0B4F1E61A1E1007E54EA /* AchievementController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementController.swift; sourceTree = "<group>"; };
 		929C426C1EB20E2600DD0F6A /* DashboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
@@ -195,7 +221,6 @@
 		92B768821E5E6144009803C3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		92B768861E5E6E34009803C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		92BD115B1EA0E70000D04C16 /* AdvancedShipDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedShipDetailController.swift; sourceTree = "<group>"; };
-		92BF559D1E9FB57000573F0A /* ReviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewController.swift; sourceTree = "<group>"; };
 		92D414AA1E6AA5EF00E8C8AF /* ShipScreenshotController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipScreenshotController.swift; sourceTree = "<group>"; };
 		92D9B4D11E55AE3200CFD46D /* PlayerAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerAccount.swift; sourceTree = "<group>"; };
 		92D9B4D31E55AF2400CFD46D /* RankController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankController.swift; sourceTree = "<group>"; };
@@ -203,10 +228,12 @@
 		92D9B4D81E565C6E00CFD46D /* ShipController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipController.swift; sourceTree = "<group>"; };
 		92D9B4DA1E565C8A00CFD46D /* ShipTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipTableCell.swift; sourceTree = "<group>"; };
 		92E125921EE676D700D7769A /* String+Localised.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localised.swift"; sourceTree = "<group>"; };
+		92E40C531F121F74004A085A /* PointSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointSystem.swift; sourceTree = "<group>"; };
 		92E45B1D1EAE13C200360E62 /* ClanCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClanCell.swift; sourceTree = "<group>"; };
 		92E45B1F1EAE13CC00360E62 /* MemberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberCell.swift; sourceTree = "<group>"; };
 		92E45B241EAE149D00360E62 /* ClanInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClanInfoController.swift; sourceTree = "<group>"; };
 		92E45B261EAE17A900360E62 /* Clan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clan.swift; sourceTree = "<group>"; };
+		92E93BAB1F1CFB2200B1B4B7 /* CNChartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNChartController.swift; sourceTree = "<group>"; };
 		92F526F01E6B9476005A2E20 /* AboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
 		92FD8D6F1E59B22300E7FADF /* ChartsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsController.swift; sourceTree = "<group>"; };
 		92FF858F1E592ED9001BBCA1 /* PlayerCharts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCharts.swift; sourceTree = "<group>"; };
@@ -256,11 +283,11 @@
 			isa = PBXGroup;
 			children = (
 				9210C06D1E45E30E00270002 /* NavigationController.swift */,
+				9233ECC41F14A25B006748EC /* ChineseServer */,
 				92457ADF1EE5487B00B5A120 /* Theme */,
 				929C426B1EB20E0200DD0F6A /* Dashboard */,
 				920105B61EB1890500E5F338 /* Tab Bar */,
 				92E45B211EAE147500360E62 /* Clan */,
-				92BF559C1E9FB54A00573F0A /* Review */,
 				9215CA461E5C0C7C00A7F465 /* Pro */,
 				9260D04E1E960C5800BBCB03 /* IAP */,
 				9260D0501E960C8300BBCB03 /* PlayerInfo */,
@@ -289,7 +316,9 @@
 				92634D0A1E540E2C000CDCB4 /* RankInformation.swift */,
 				92E45B261EAE17A900360E62 /* Clan.swift */,
 				929B0B461E618B45007E54EA /* Language.swift */,
+				9233ECC01F149A50006748EC /* ChineseServer.swift */,
 				92634D101E540F10000CDCB4 /* ShipInformation.swift */,
+				92E40C531F121F74004A085A /* PointSystem.swift */,
 				929B0B481E619B5B007E54EA /* Encyclopedia.swift */,
 				929D025A1F035175003D624E /* Theme.swift */,
 				92755BE71ED94E2700D52B79 /* CacheCleaner.swift */,
@@ -365,6 +394,17 @@
 				922AD1161F07B71B003E509C /* LicenceController.swift */,
 			);
 			name = Licence;
+			sourceTree = "<group>";
+		};
+		9233ECC41F14A25B006748EC /* ChineseServer */ = {
+			isa = PBXGroup;
+			children = (
+				9233ECC51F14A275006748EC /* CNSearchController.swift */,
+				92E93BAB1F1CFB2200B1B4B7 /* CNChartController.swift */,
+				9233ECC91F14A28E006748EC /* CNShipController.swift */,
+				9233ECC71F14A282006748EC /* CNPlayerController.swift */,
+			);
+			name = ChineseServer;
 			sourceTree = "<group>";
 		};
 		92457ADF1EE5487B00B5A120 /* Theme */ = {
@@ -501,10 +541,11 @@
 			children = (
 				9295B1D91EBDF40B008FE418 /* AdvancedStat.storyboard */,
 				92457ADD1EE5475800B5A120 /* Theme.storyboard */,
-				929B0B4A1E619EE3007E54EA /* Wiki.storyboard */,
+				920999E91F131E1700AFA924 /* Wiki.storyboard */,
 				9295B1D01EBDEF3B008FE418 /* FriendList.storyboard */,
 				92B768721E5E5DE1009803C3 /* UsefulWebsite.storyboard */,
 				925BE5AB1E502D0000DA6A1A /* Settings.storyboard */,
+				9233ECBE1F148D2E006748EC /* ChineseServer.storyboard */,
 				924B21EA1EB36D950016A7C8 /* Clan.storyboard */,
 			);
 			name = "WoWs Info";
@@ -535,19 +576,12 @@
 			name = Dashboard;
 			sourceTree = "<group>";
 		};
-		92BF559C1E9FB54A00573F0A /* Review */ = {
-			isa = PBXGroup;
-			children = (
-				92BF559D1E9FB57000573F0A /* ReviewController.swift */,
-			);
-			name = Review;
-			sourceTree = "<group>";
-		};
 		92D9B4D71E55C87700CFD46D /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				92D9B4D51E55C6D600CFD46D /* RankTableCell.swift */,
 				92D9B4DA1E565C8A00CFD46D /* ShipTableCell.swift */,
+				9233ECC21F14A1CD006748EC /* CNShipCell.swift */,
 				927661041EA0676C00282732 /* IAPCell.swift */,
 				92130AE31EB3003300B79DD5 /* UpgradeCell.swift */,
 				92130AE51EB3006300B79DD5 /* SettingsCell.swift */,
@@ -661,6 +695,7 @@
 				Base,
 				"zh-Hans",
 				"zh-Hant",
+				ja,
 			);
 			mainGroup = 921EA68C1E35F2FB0007C7FC;
 			productRefGroup = 921EA6961E35F2FB0007C7FC /* Products */;
@@ -682,13 +717,14 @@
 				92B768641E5E5D02009803C3 /* MoreInformation.storyboard in Resources */,
 				921EA6A31E35F2FB0007C7FC /* LaunchScreen.storyboard in Resources */,
 				921EA69E1E35F2FB0007C7FC /* Main.storyboard in Resources */,
+				9233ECBF1F148D2E006748EC /* ChineseServer.storyboard in Resources */,
 				92B768701E5E5DE1009803C3 /* UsefulWebsite.storyboard in Resources */,
 				9295B1DF1EBE077E008FE418 /* GoogleService-Info.plist in Resources */,
 				92B768851E5E6E34009803C3 /* Localizable.strings in Resources */,
 				925636591E53F1CA0002E08A /* Assets.xcassets in Resources */,
 				92457ADE1EE5475800B5A120 /* Theme.storyboard in Resources */,
 				925BE5AD1E502D0000DA6A1A /* Settings.storyboard in Resources */,
-				929B0B4B1E619EE3007E54EA /* Wiki.storyboard in Resources */,
+				920999E71F131E1700AFA924 /* Wiki.storyboard in Resources */,
 				92B7686B1E5E5DD6009803C3 /* ProVersion.storyboard in Resources */,
 				924B21E81EB36D950016A7C8 /* Clan.storyboard in Resources */,
 			);
@@ -762,6 +798,7 @@
 				920105B51EB1827B00E5F338 /* Reachability.swift in Sources */,
 				92AAE8C21E938663006DB929 /* WikiCell.swift in Sources */,
 				925B627D1E62D7680073FF56 /* ShipDetailController.swift in Sources */,
+				9233ECC81F14A282006748EC /* CNPlayerController.swift in Sources */,
 				929B0B501E61A1E1007E54EA /* AchievementController.swift in Sources */,
 				929D025B1F035175003D624E /* Theme.swift in Sources */,
 				92E45B201EAE13CC00360E62 /* MemberCell.swift in Sources */,
@@ -777,6 +814,8 @@
 				92D9B4D91E565C6E00CFD46D /* ShipController.swift in Sources */,
 				927AA8631EAEDAD600169B0A /* ClanSearchCell.swift in Sources */,
 				92130AE41EB3003300B79DD5 /* UpgradeCell.swift in Sources */,
+				9233ECC11F149A50006748EC /* ChineseServer.swift in Sources */,
+				9233ECCA1F14A28E006748EC /* CNShipController.swift in Sources */,
 				92634D0D1E540E77000CDCB4 /* PlayerStat.swift in Sources */,
 				929928411E86132C0091A174 /* RecentData.swift in Sources */,
 				926528C11E41BD5600D1A685 /* InSettingsController.swift in Sources */,
@@ -788,12 +827,14 @@
 				92FF85901E592ED9001BBCA1 /* PlayerCharts.swift in Sources */,
 				924BD2651E457EB300E15D04 /* ServerController.swift in Sources */,
 				92E45B251EAE149D00360E62 /* ClanInfoController.swift in Sources */,
+				92E40C541F121F74004A085A /* PointSystem.swift in Sources */,
 				92D414AB1E6AA5EF00E8C8AF /* ShipScreenshotController.swift in Sources */,
+				9233ECC31F14A1CD006748EC /* CNShipCell.swift in Sources */,
 				92476A481E96025D0050F8A9 /* WikiDataCell.swift in Sources */,
 				922AD1171F07B71B003E509C /* LicenceController.swift in Sources */,
 				921EA6991E35F2FB0007C7FC /* AppDelegate.swift in Sources */,
-				92BF559E1E9FB57000573F0A /* ReviewController.swift in Sources */,
 				929928471E865FF60091A174 /* NewsController.swift in Sources */,
+				92E93BAC1F1CFB2200B1B4B7 /* CNChartController.swift in Sources */,
 				92D9B4D41E55AF2400CFD46D /* RankController.swift in Sources */,
 				92457ADA1EE53B7500B5A120 /* DataUpdater.swift in Sources */,
 				929B0B471E618B45007E54EA /* Language.swift in Sources */,
@@ -815,18 +856,31 @@
 				92E125931EE676D700D7769A /* String+Localised.swift in Sources */,
 				92F526F11E6B9476005A2E20 /* AboutController.swift in Sources */,
 				92AAE8C01E938511006DB929 /* WikiController.swift in Sources */,
+				9233ECC61F14A275006748EC /* CNSearchController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		920999E91F131E1700AFA924 /* Wiki.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				920999E81F131E1700AFA924 /* Base */,
+				920999EB1F131E1B00AFA924 /* zh-Hans */,
+				920999ED1F131E2100AFA924 /* zh-Hant */,
+				920999F31F1320E800AFA924 /* ja */,
+			);
+			name = Wiki.storyboard;
+			sourceTree = "<group>";
+		};
 		921EA69C1E35F2FB0007C7FC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				921EA69D1E35F2FB0007C7FC /* Base */,
 				9276610E1EA0888100282732 /* zh-Hant */,
 				9295B1D61EBDF32D008FE418 /* zh-Hans */,
+				920999F11F1320E800AFA924 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -837,6 +891,7 @@
 				921EA6A21E35F2FB0007C7FC /* Base */,
 				92B768631E5E5A58009803C3 /* zh-Hans */,
 				92B768821E5E6144009803C3 /* zh-Hant */,
+				920999F01F1320E800AFA924 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -847,6 +902,7 @@
 				924B21E91EB36D950016A7C8 /* Base */,
 				924B21EC1EB36D970016A7C8 /* zh-Hans */,
 				924B21EE1EB36D980016A7C8 /* zh-Hant */,
+				920999F71F1320E800AFA924 /* ja */,
 			);
 			name = Clan.storyboard;
 			sourceTree = "<group>";
@@ -857,6 +913,7 @@
 				925BE5AC1E502D0000DA6A1A /* Base */,
 				92B7687E1E5E6143009803C3 /* zh-Hant */,
 				920E1C481E5EC32A00B43472 /* zh-Hans */,
+				920999F61F1320E800AFA924 /* ja */,
 			);
 			name = Settings.storyboard;
 			sourceTree = "<group>";
@@ -867,6 +924,7 @@
 				9295B1CF1EBDEF3B008FE418 /* Base */,
 				9295B1D21EBDEF3D008FE418 /* zh-Hans */,
 				9295B1D41EBDEF40008FE418 /* zh-Hant */,
+				920999F41F1320E800AFA924 /* ja */,
 			);
 			name = FriendList.storyboard;
 			sourceTree = "<group>";
@@ -877,6 +935,7 @@
 				9295B1D81EBDF40B008FE418 /* Base */,
 				9295B1DB1EBDF40D008FE418 /* zh-Hans */,
 				9295B1DD1EBDF40E008FE418 /* zh-Hant */,
+				920999F21F1320E800AFA924 /* ja */,
 			);
 			name = AdvancedStat.storyboard;
 			sourceTree = "<group>";
@@ -887,6 +946,7 @@
 				92B768651E5E5D02009803C3 /* Base */,
 				92B7686A1E5E5D1C009803C3 /* zh-Hans */,
 				92B7687C1E5E6142009803C3 /* zh-Hant */,
+				920999EF1F1320E800AFA924 /* ja */,
 			);
 			name = MoreInformation.storyboard;
 			sourceTree = "<group>";
@@ -897,6 +957,7 @@
 				92B7686C1E5E5DD6009803C3 /* Base */,
 				92B7686F1E5E5DD9009803C3 /* zh-Hans */,
 				92B7687F1E5E6143009803C3 /* zh-Hant */,
+				920999EE1F1320E800AFA924 /* ja */,
 			);
 			name = ProVersion.storyboard;
 			sourceTree = "<group>";
@@ -907,6 +968,7 @@
 				92B768711E5E5DE1009803C3 /* Base */,
 				92B768741E5E5DE3009803C3 /* zh-Hans */,
 				92B768811E5E6144009803C3 /* zh-Hant */,
+				920999F51F1320E800AFA924 /* ja */,
 			);
 			name = UsefulWebsite.storyboard;
 			sourceTree = "<group>";
@@ -917,6 +979,7 @@
 				92B768861E5E6E34009803C3 /* Base */,
 				920E1C3D1E5EA30A00B43472 /* zh-Hans */,
 				920E1C3F1E5EAC8B00B43472 /* zh-Hant */,
+				920999F81F1320E900AFA924 /* ja */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

@@ -46,9 +46,7 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
         self.title = "\(allInfo.count)"
         
         // Setup theme
-        resetBtn.backgroundColor = Theme.getCurrTheme()
-        resetBtn.layer.cornerRadius = resetBtn.frame.width / 5
-        resetBtn.layer.masksToBounds = true
+        resetBtn.tintColor = Theme.getCurrTheme()
     }
 
     override func didReceiveMemoryWarning() {

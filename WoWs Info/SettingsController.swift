@@ -8,24 +8,34 @@
 
 import UIKit
 import GoogleMobileAds
+import Social
 
-class SettingsController: UIViewController, UITableViewDelegate, UITableViewDataSource, GADBannerViewDelegate {
+class SettingsController: UITableViewController, GADBannerViewDelegate, GADRewardBasedVideoAdDelegate {
 
     @IBOutlet weak var bannerView: GADBannerView!
-    let imageSet = [#imageLiteral(resourceName: "Web"),#imageLiteral(resourceName: "AppStore"),#imageLiteral(resourceName: "Settings"), #imageLiteral(resourceName: "Theme")]
-    let wordSet = ["WEB_SETTINGS".localised(), "APP_SETTINGS".localised(), "SETTINGS_SETTINGS".localised(), "THEME_SETTINGS".localised()]
-    let segueSet = ["gotoProVersion", "gotoWeb", "gotoReview", "gotoSettings", "gotoTheme"]
+    @IBOutlet weak var webImage: UIImageView!
+    @IBOutlet weak var facebookImage: UIImageView!
+    @IBOutlet weak var themeImage: UIImageView!
+    @IBOutlet weak var linkImage: UIImageView!
+    @IBOutlet weak var appstoreImage: UIImageView!
+    
+    @IBOutlet weak var proBtn: UIButton!
+    @IBOutlet weak var pointLabel: UILabel!
+    
     var isPro = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
-    @IBOutlet weak var settingsTableView: UITableView!
+    var didReview = UserDefaults.standard.bool(forKey: DataManagement.DataName.didReview)
+    var notReadyCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Adjust insets for Pro and Free users
+        var inset: UIEdgeInsets!
         // Whether ads should be shown
         if UserDefaults.standard.bool(forKey: DataManagement.DataName.hasPurchased) {
             // Remove it
             bannerView.removeFromSuperview()
-            bannerView.frame.size.height = 0
+            inset = UIEdgeInsets(top: -50, left: 0, bottom: 0, right: 0)
         } else {
             // Load ads
             bannerView.adSize = kGADAdSizeSmartBannerPortrait
@@ -35,15 +45,26 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
             let request = GADRequest()
             request.testDevices = [kGADSimulatorID]
             bannerView.load(request)
+            
+            inset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         }
         
-        // Setup tableview
-        settingsTableView.delegate = self
-        settingsTableView.dataSource = self
-        settingsTableView.separatorColor = UIColor.clear
+        // Setup Tableview
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.contentInset = inset
         
-        settingsTableView.estimatedRowHeight = 60
-        settingsTableView.rowHeight = UITableViewAutomaticDimension
+        
+        if isPro {
+            self.proBtn.removeFromSuperview()
+            // Update theme image
+            themeImage.image = #imageLiteral(resourceName: "ThemePro")
+        }
+        
+        // Setup Theme
+        setupTheme()
+        // Update points
+        updatePoint()
         
         self.navigationController?.navigationBar.topItem?.title = NSLocalizedString("SETTINGS_SETTINGS", comment: "Settings Title")
     }
@@ -53,16 +74,68 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
         
         // If it is Pro
         isPro = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
+        didReview = UserDefaults.standard.bool(forKey: DataManagement.DataName.didReview)
+        
         // Update theme colour
         let ThemeColour = Theme.getCurrTheme()
         self.navigationController?.navigationBar.barTintColor = ThemeColour
         self.tabBarController?.tabBar.tintColor = ThemeColour
-        // Reload tableview
-        self.settingsTableView.reloadData()
+        
+        // Update Theme
+        setupTheme()
+        // Update points
+        updatePoint()
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func updatePoint() {
+        if isPro {
+            pointLabel.text = "POINT_SYSTEM".localised() + " (∞)"
+        } else {
+            pointLabel.text = "POINT_SYSTEM".localised() + " (\(PointSystem.getCurrPoint()))"
+        }
+    }
+    
+    // MARK: Theme
+    func setupTheme() {
+        // Setup Image
+        let theme = Theme.getCurrTheme()
+        setupImage(image: webImage)
+        setupImage(image: facebookImage)
+        setupImage(image: themeImage)
+        setupImage(image: linkImage)
+        setupImage(image: appstoreImage)
+        linkImage.backgroundColor = theme
+        themeImage.backgroundColor = theme
+    }
+    
+    func setupImage(image: UIImageView) {
+        image.layer.cornerRadius = 5
+        image.layer.masksToBounds = true
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "gotoTheme" {
+            // You need to rate in order to use it
+            if !isPro && !didReview {
+                let theme = UIAlertController(title: "THEME_TITLE".localised(), message: "THEME_MESSAGE".localised(), preferredStyle: .alert)
+                theme.addAction(UIAlertAction(title: "OK", style: .default, handler: { (OK) in
+                    // Free 50 points
+                    PointSystem(index: PointSystem.DataIndex.Review).addPoint()
+                    UserDefaults.standard.set(true, forKey: DataManagement.DataName.didReview)
+                    UIApplication.shared.openURL(URL(string: "https://itunes.apple.com/app/id1202750166")!)
+                }))
+                theme.addAction(UIAlertAction(title: "SHARE_CANCEL".localised(), style: .cancel, handler: nil))
+                self.present(theme, animated: true, completion: nil)
+                return false
+            }
+        }
+        
+        return true
     }
     
     // MARK: ADS
@@ -72,105 +145,129 @@ class SettingsController: UIViewController, UITableViewDelegate, UITableViewData
         bannerView.frame.size.height = 0
     }
     
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didRewardUserWith reward: GADAdReward) {
+        // Add some points
+        PointSystem(index: PointSystem.DataIndex.AD).addPoint()
+        updatePoint()
+    }
+    
     // MARK: UITableView
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isPro { return imageSet.count + 1 }
-        // IF not ask user to buy it
-        return imageSet.count + 2
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let index = indexPath.row
-        
-        if isPro {
-            // Paid version
-            if indexPath.row != imageSet.count {
-                // Setting cell
-                let cell = settingsTableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsCell
-                cell.logoImage.layer.cornerRadius = cell.logoImage.frame.width / 5
-                cell.logoImage.layer.masksToBounds = true
-                
-                // Change theme for theme
-                let icon = imageSet[index]
-                if icon == #imageLiteral(resourceName: "Theme") { // <-- It is a white icon...
-                    cell.logoImage.backgroundColor = Theme.getCurrTheme()
-                }
-                
-                cell.logoImage.image = icon
-                cell.nameLabel.text = wordSet[index]
-                return cell
-            } else {
-                // Developer cell
-                let cell = settingsTableView.dequeueReusableCell(withIdentifier: "DeveloperCell", for: indexPath) as! DeveloperCell
-                cell.devLabel.text = NSLocalizedString("DEV_LABEL", comment: "Devloper")
-                return cell
-            }
-        } else {
-            // Free version
-            if index == 0 {
-                let cell = settingsTableView.dequeueReusableCell(withIdentifier: "UpgradeCell", for: indexPath) as! UpgradeCell
-                // Update text colour as well
-                cell.proLabel.text = NSLocalizedString("UPGRADE_SETTINGS", comment: "Upgrade to Pro")
-                cell.proLabel.textColor = Theme.getCurrTheme()
-                return cell
-            } else if indexPath.row != imageSet.count + 1{
-                let cell = settingsTableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsCell
-                
-                // Change theme for theme
-                let icon = imageSet[index - 1]
-                if icon == #imageLiteral(resourceName: "Theme") { // <-- It is a white icon...
-                    cell.logoImage.backgroundColor = Theme.getCurrTheme()
-                }
-                
-                cell.logoImage.image = icon
-                cell.logoImage.layer.cornerRadius = cell.logoImage.frame.width / 5
-                cell.logoImage.layer.masksToBounds = true
-                cell.nameLabel.text = wordSet[index - 1]
-                return cell
-            } else {
-                // Developer cell
-                let cell = settingsTableView.dequeueReusableCell(withIdentifier: "DeveloperCell", for: indexPath) as! DeveloperCell
-                cell.devLabel.text = NSLocalizedString("DEV_LABEL", comment: "Devloper")
-                return cell
-            }
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let index = indexPath.row
-        if isPro {
-            if index != imageSet.count {
-                performSegue(withIdentifier: segueSet[index + 1], sender: nil)
-            }
-        } else {
-            if index != imageSet.count + 1 {
-                if segueSet[index] == "gotoTheme" {
-                    if !UserDefaults.standard.bool(forKey: DataManagement.DataName.didReview) {
-                        // Ask User to rate this app
-                        let rate = UIAlertController(title: "THEME_TITLE".localised(), message: "THEME_MESSAGE".localised(), preferredStyle: .alert)
-                        rate.addAction(UIAlertAction(title: "OK", style: .default, handler: { (Review) in
-                            UIApplication.shared.openURL(URL(string: "https://itunes.apple.com/app/id1202750166")!)
-                            // Well, you dont really need to review though                                                                                                                                                                                                                                                                                                                                               
-                            UserDefaults.standard.set(true, forKey: DataManagement.DataName.didReview)
-                        }))
-                        rate.addAction(UIAlertAction(title: "SHARE_CANCEL".localised(), style: .cancel, handler: nil))
-                        self.present(rate, animated: true, completion: nil)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let tag = tableView.cellForRow(at: indexPath)?.tag {
+            // Point
+            if tag == 10 {
+                if !isPro {
+                    GADRewardBasedVideoAd.sharedInstance().delegate = self
+                    if GADRewardBasedVideoAd.sharedInstance().isReady {
+                        GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
                     } else {
-                        performSegue(withIdentifier: "gotoTheme", sender: nil)
+                        notReadyCount += 1
+                        let notReady = UIAlertController.QuickMessage(title: "ADS_NOT_READY_TITLE".localised(), message: "ADS_NOT_READY_MESSAGE".localised(), cancel: "OK")
+                        self.present(notReady, animated: true, completion: nil)
+                        
+                        if notReadyCount % 10 == 0 {
+                            // You could get 1 point if ads could not load
+                            PointSystem(index: PointSystem.DataIndex.NotReady).addPoint()
+                            updatePoint()
+                        }
                     }
-                } else {
-                    performSegue(withIdentifier: segueSet[index], sender: nil)
                 }
             }
+            
+            // Share
+            let link = URL(string: "https://itunes.apple.com/app/id1202750166")!
+            switch tag {
+            case 11:
+                // Link
+                let copyLink = UIActivityViewController(activityItems: [link], applicationActivities: nil)
+                copyLink.popoverPresentationController?.sourceView = self.view
+                self.present(copyLink, animated: true, completion: nil)
+            case 12:
+                // Facebook
+                if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook) {
+                    let facebook = SLComposeViewController(forServiceType: SLServiceTypeFacebook)!
+                    facebook.add(link)
+                    facebook.add(#imageLiteral(resourceName: "Icon"))
+                    facebook.completionHandler = { (result) in
+                        if result == .done {
+                            // Free 50 points
+                            print("Done")
+                            PointSystem(index: PointSystem.DataIndex.Review).addPoint()
+                            UserDefaults.standard.set(true, forKey: DataManagement.DataName.didShare)
+                        } else {
+                            print("Cancel")
+                        }
+                    }
+                    self.present(facebook, animated: true, completion: nil)
+                } else {
+                    let error = UIAlertController.QuickMessage(title: "SOCIAL_ERROR_TITLE".localised(), message: "SOCIAL_ERROR_MESSAGE".localised(), cancel: "OK")
+                    self.present(error, animated: true, completion: nil)
+                }
+            case 13:
+                // Twitter
+                if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter) {
+                    let twitter = SLComposeViewController(forServiceType: SLServiceTypeTwitter)!
+                    twitter.add(link)
+                    twitter.add(#imageLiteral(resourceName: "Icon"))
+                    twitter.completionHandler = { (result) in
+                        if result == .done {
+                            // Free 50 points
+                            print("Done")
+                            PointSystem(index: PointSystem.DataIndex.Review).addPoint()
+                            UserDefaults.standard.set(true, forKey: DataManagement.DataName.didShare)
+                        } else {
+                            print("Cancel")
+                        }
+                    }
+                    self.present(twitter, animated: true, completion: nil)
+                } else {
+                    let error = UIAlertController.QuickMessage(title: "SOCIAL_ERROR_TITLE".localised(), message: "SOCIAL_ERROR_MESSAGE".localised(), cancel: "OK")
+                    self.present(error, animated: true, completion: nil)
+                }
+            case 14:
+                // Weibo
+                if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeSinaWeibo) {
+                    let weibo = SLComposeViewController(forServiceType: SLServiceTypeSinaWeibo)!
+                    weibo.add(link)
+                    weibo.add(#imageLiteral(resourceName: "Icon"))
+                    weibo.completionHandler = { (result) in
+                        if result == .done {
+                            // Free 50 points
+                            print("Done")
+                            PointSystem(index: PointSystem.DataIndex.Review).addPoint()
+                            UserDefaults.standard.set(true, forKey: DataManagement.DataName.didShare)
+                        } else {
+                            print("Cancel")
+                        }
+                    }
+                    self.present(weibo, animated: true, completion: nil)
+                } else {
+                    let error = UIAlertController.QuickMessage(title: "SOCIAL_ERROR_TITLE".localised(), message: "SOCIAL_ERROR_MESSAGE".localised(), cancel: "OK")
+                    self.present(error, animated: true, completion: nil)
+                }
+            case 15:
+                // Rate
+                UIApplication.shared.openURL(link)
+                PointSystem(index: PointSystem.DataIndex.Review).addPoint()
+                UserDefaults.standard.set(true, forKey: DataManagement.DataName.didReview)
+            default: break
+            }
         }
+        
+        // Deselect
+        tableView.deselectRow(at: indexPath, animated: true)
+        // Update points
+        updatePoint()
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 10
     }
     
     // MARK: Button pressed
     @IBAction func shareBtnPressed(_ sender: Any) {
+        // Free 50 points
+        PointSystem(index: PointSystem.DataIndex.Share).addPoint()
         let share = UIActivityViewController.init(activityItems: [URL(string: "https://itunes.apple.com/app/id1202750166")!], applicationActivities: nil)
         share.popoverPresentationController?.sourceView = self.view
         share.modalPresentationStyle = .overFullScreen
