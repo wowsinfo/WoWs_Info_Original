@@ -1301,7 +1301,7 @@
     </scenes>
     <resources>
         <image name="Aircraft Carrier" width="261" height="118"/>
-        <image name="Battleship" width="261" height="117"/>
+        <image name="Battleship" width="261" height="118"/>
         <image name="Cruiser" width="261" height="118"/>
         <image name="Destroyer" width="201" height="168"/>
         <image name="Retry" width="256" height="256"/>

@@ -35,6 +35,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <gestureRecognizers/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="Xab-Zl-QNJ">
+                            <rect key="frame" x="0.0" y="749" width="375" height="64"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThemePro" translatesAutoresizingMaskIntoConstraints="NO" id="KTo-HD-qqi">
+                                    <rect key="frame" x="155.5" y="0.0" width="64" height="64"/>
+                                    <gestureRecognizers/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="64" id="Fye-PH-uWG"/>
+                                        <constraint firstAttribute="width" constant="64" id="HF5-1B-dip"/>
+                                    </constraints>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="T6O-a0-9i6" appends="YES" id="aBX-ys-A5y"/>
+                                    </connections>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&gt;" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emS-bI-bSP">
+                                    <rect key="frame" x="355.5" y="22" width="11.5" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <gestureRecognizers/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="KTo-HD-qqi" secondAttribute="bottom" id="8eS-Py-xE2"/>
+                                <constraint firstAttribute="bottom" secondItem="emS-bI-bSP" secondAttribute="bottom" constant="21" id="9dX-4i-A52"/>
+                                <constraint firstItem="emS-bI-bSP" firstAttribute="top" secondItem="Xab-Zl-QNJ" secondAttribute="top" constant="22" id="DW2-jq-3Qd"/>
+                                <constraint firstItem="KTo-HD-qqi" firstAttribute="centerX" secondItem="Xab-Zl-QNJ" secondAttribute="centerX" id="gDI-6i-wBP"/>
+                                <constraint firstItem="KTo-HD-qqi" firstAttribute="top" secondItem="Xab-Zl-QNJ" secondAttribute="top" id="uD3-gZ-DNm"/>
+                                <constraint firstAttribute="trailing" secondItem="emS-bI-bSP" secondAttribute="trailing" constant="8" id="zAi-ll-hyS"/>
+                            </constraints>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="T6O-a0-9i6" appends="YES" id="2zm-eY-LUk"/>
+                            </connections>
+                        </view>
                         <sections>
                             <tableViewSection footerTitle="Press + to set this as yourself for quick access." id="eAk-5j-B8F">
                                 <cells>
@@ -162,7 +198,7 @@
                                                         <constraint firstAttribute="height" constant="30" id="5gd-MM-A0C"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KillDeathRatio" translatesAutoresizingMaskIntoConstraints="NO" id="q2j-to-Uiy">
+                                                <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KillDeathRatio" translatesAutoresizingMaskIntoConstraints="NO" id="q2j-to-Uiy">
                                                     <rect key="frame" x="16" y="150" width="30" height="30"/>
                                                     <color key="tintColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -499,8 +535,10 @@
                         <outlet property="mainBatteryHitRatioLabel" destination="sbL-45-1uz" id="Wc0-UE-G5l"/>
                         <outlet property="playerNameLabel" destination="TIi-YL-dgc" id="Axh-tg-b7H"/>
                         <outlet property="prLabel" destination="3D6-0r-icE" id="Kr0-3f-RfD"/>
+                        <outlet property="proView" destination="Xab-Zl-QNJ" id="o9C-Mt-rY7"/>
                         <outlet property="retryBtn" destination="xff-At-fqW" id="413-Cv-21I"/>
                         <outlet property="setPlayerIDBtn" destination="POE-hN-gyo" id="xrX-g5-14M"/>
+                        <outlet property="themeImage" destination="Hsc-9A-1ft" id="fFD-fF-SrS"/>
                         <outlet property="tkBtn" destination="h1a-04-dqP" id="SzN-i4-8kD"/>
                         <outlet property="totalBattlesLabel" destination="LDs-3z-iil" id="p5Y-k5-5sg"/>
                         <outlet property="winRateLabel" destination="Zts-7v-e1W" id="tPt-HB-1N0"/>
@@ -508,6 +546,11 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="woD-dX-DeI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="T6O-a0-9i6" userLabel="Pro">
+                    <connections>
+                        <action selector="gotoPro:" destination="Mrs-Sh-x2v" id="6vz-rv-75G"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="960.79999999999995" y="120.98950524737631"/>
         </scene>
@@ -540,6 +583,7 @@
         <image name="Number" width="128" height="128"/>
         <image name="Star" width="120" height="120"/>
         <image name="Theme" width="205" height="205"/>
+        <image name="ThemePro" width="205" height="205"/>
         <image name="WinRate" width="92" height="105"/>
     </resources>
     <inferredMetricsTieBreakers>

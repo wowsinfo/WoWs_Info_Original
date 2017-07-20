@@ -18,7 +18,6 @@ class RankController: UITableViewController {
         
         RankTableView.delegate = self
         RankTableView.dataSource = self
-        RankTableView.alpha = 0.5
         self.title = "WEB_LOADING".localised()
         
         // Hide separator line
@@ -28,11 +27,7 @@ class RankController: UITableViewController {
         // Remove message and reload data
         if self.rankInfo.count > 0 {
             self.title = ""
-            
-            UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveEaseIn, animations: { 
-                self.RankTableView.reloadData()
-                self.RankTableView.alpha = 1
-            }, completion: nil)
+            self.RankTableView.reloadData()
         } else {
             self.title = ">_<"
         }

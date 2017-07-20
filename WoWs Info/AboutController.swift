@@ -11,6 +11,7 @@ import UIKit
 class AboutController: UIViewController {
 
     @IBOutlet weak var themeImage: UIImageView!
+    let isPro = UserDefaults.standard.bool(forKey: DataManagement.DataName.hasPurchased)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,11 @@ class AboutController: UIViewController {
         themeImage.backgroundColor = Theme.getCurrTheme()
         themeImage.layer.cornerRadius = themeImage.frame.width / 5
         themeImage.layer.masksToBounds = true
+        
+        if isPro {
+            // Change to pro image
+            themeImage.image = #imageLiteral(resourceName: "ThemePro")
+        }
     }
 
     override func didReceiveMemoryWarning() {

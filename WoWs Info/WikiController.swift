@@ -13,6 +13,7 @@ class WikiController: UITableViewController {
     let name = [NSLocalizedString("ACHIEVEMENT", comment: "Achievement"), NSLocalizedString("WARSHIPS", comment: "Warships"), NSLocalizedString("UPGRADES", comment: "Upgrades"), NSLocalizedString("FLAGS", comment: "Flags"), NSLocalizedString("CAMOUFLAGE", comment: "Camouflage"), NSLocalizedString("COMMANDER_SKILL", comment: "CommanderSkill")]
     let identifier = ["gotoAchievement", "gotoWarships", "gotoWikiData"]
     let iconImage = [#imageLiteral(resourceName: "AchievementIcon"), #imageLiteral(resourceName: "Theme"), #imageLiteral(resourceName: "UpgradesIcon"), #imageLiteral(resourceName: "FlagsIcon"), #imageLiteral(resourceName: "CamouflageIcon"), #imageLiteral(resourceName: "CommanderSkillIcon")]
+    let isPro = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
 
     override func viewDidLoad() {
         super.viewDidLoad()

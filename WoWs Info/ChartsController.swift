@@ -307,18 +307,5 @@ class ChartsController: UIViewController, ChartViewDelegate {
         return sum/Double(recentData.count)
         
     }
-    
-    // MARK: Screenshot
-    @IBAction func screenshotBtnPressed(_ sender: Any) {
-        UIGraphicsBeginImageContextWithOptions(self.pageView.contentSize, true, UIScreen.main.scale)
-        self.scrollView.layer.render(in: UIGraphicsGetCurrentContext()!)
-        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        UIImageWriteToSavedPhotosAlbum(screenshot!, nil, nil, nil)
-        self.screenshotBtn.isEnabled = false
-        AudioServicesPlaySystemSound(1520)
-    }
-    
 
 }
