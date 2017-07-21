@@ -11,6 +11,11 @@ import AudioToolbox
 
 class ShipController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
 
+    @IBOutlet weak var ddBtn: UIButton!
+    @IBOutlet weak var caBtn: UIButton!
+    @IBOutlet weak var bbBtn: UIButton!
+    @IBOutlet weak var cvBtn: UIButton!
+    
     @IBOutlet weak var shipCountLabel: UILabel!
     @IBOutlet weak var avgRatingLabel: UILabel!
     @IBOutlet weak var loadingView: UIView!
@@ -50,12 +55,7 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
         // Setup Theme
-        setupBtn(btn: sortBtn)
-        setupBtn(btn: resetBtn)
-    }
-    
-    func setupBtn(btn: UIButton) {
-        btn.tintColor = Theme.getCurrTheme()
+        setupTheme()
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,6 +63,21 @@ class ShipController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: Theme
+    func setupTheme() {
+        setupBtn(btn: sortBtn)
+        setupBtn(btn: resetBtn)
+        setupBtn(btn: ddBtn)
+        setupBtn(btn: caBtn)
+        setupBtn(btn: bbBtn)
+        setupBtn(btn: cvBtn)
+    }
+    
+    func setupBtn(btn: UIButton) {
+        btn.tintColor = Theme.getCurrTheme()
+    }
+    
+    // MARK: TextField
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         // Remove keyboard

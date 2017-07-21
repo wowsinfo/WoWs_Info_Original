@@ -220,6 +220,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bbBtn" destination="f8T-YY-4Dr" id="eho-Ke-qfv"/>
+                        <outlet property="caBtn" destination="BOy-cO-ckN" id="QOH-fp-KRM"/>
+                        <outlet property="cvBtn" destination="Zij-zJ-sVN" id="AaQ-5P-gzz"/>
+                        <outlet property="ddBtn" destination="TUm-9E-cyT" id="k3k-Kr-4QA"/>
                         <outlet property="resetBtn" destination="8XJ-T2-k8Z" id="SXj-ht-glY"/>
                         <outlet property="searchTextField" destination="6V9-Pk-7Bx" id="L97-pf-Me3"/>
                         <outlet property="shipCollection" destination="alW-3g-l7k" id="7Jd-p9-Yy6"/>
