@@ -52,9 +52,6 @@ class RecentData {
         let calender = Calendar.current
         
         // Get last 8 days
-        let eightDayAgo = dateToString(date: calender.date(byAdding: .day, value: -8, to: Date())!)
-        let nineDayAgo = dateToString(date: calender.date(byAdding: .day, value: -9, to: Date())!)
-        let tenDayAgo = dateToString(date: calender.date(byAdding: .day, value: -10, to: Date())!)
         let yesterday = dateToString(date: calender.date(byAdding: .day, value: -1, to: Date())!)
         let twoDayAgo = dateToString(date: calender.date(byAdding: .day, value: -2, to: Date())!)
         let threeDayAgo = dateToString(date: calender.date(byAdding: .day, value: -3, to: Date())!)
@@ -62,7 +59,9 @@ class RecentData {
         let fiveDayAgo = dateToString(date: calender.date(byAdding: .day, value: -5, to: Date())!)
         let sixDayAgo = dateToString(date: calender.date(byAdding: .day, value: -6, to: Date())!)
         let sevenDayAgo = dateToString(date: calender.date(byAdding: .day, value: -7, to: Date())!)
-        
+        let eightDayAgo = dateToString(date: calender.date(byAdding: .day, value: -8, to: Date())!)
+        let nineDayAgo = dateToString(date: calender.date(byAdding: .day, value: -9, to: Date())!)
+        let tenDayAgo = dateToString(date: calender.date(byAdding: .day, value: -10, to: Date())!)
         
         return "\(yesterday)%2C\(twoDayAgo)%2C\(threeDayAgo)%2C\(fourDayAgo)%2C\(fiveDayAgo)%2C\(sixDayAgo)%2C\(sevenDayAgo)%2C\(eightDayAgo)%2C\(nineDayAgo)%2C\(tenDayAgo)"
     }

@@ -140,18 +140,6 @@
                                                         <constraint firstAttribute="height" constant="64" id="fvO-iz-S0q"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8b-gP-dhb">
-                                                    <rect key="frame" x="8" y="8" width="30" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="cqj-d9-jKK"/>
-                                                        <constraint firstAttribute="width" constant="30" id="hHo-er-H9x"/>
-                                                    </constraints>
-                                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <state key="normal" image="Screenshot"/>
-                                                    <connections>
-                                                        <action selector="screenshotBtnPressed:" destination="Mrs-Sh-x2v" eventType="touchUpInside" id="9JY-E0-hXx"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="mQx-gU-tLj" firstAttribute="centerX" secondItem="6eW-2V-hT5" secondAttribute="centerX" id="CK4-so-Of0"/>
@@ -159,12 +147,10 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="mQx-gU-tLj" secondAttribute="bottom" constant="-44.5" id="EhK-Ql-QDv"/>
                                                 <constraint firstItem="cKh-im-yWp" firstAttribute="trailing" secondItem="6eW-2V-hT5" secondAttribute="trailingMargin" id="G1o-JF-Pq2"/>
                                                 <constraint firstItem="TIi-YL-dgc" firstAttribute="trailing" secondItem="6eW-2V-hT5" secondAttribute="trailingMargin" id="M90-pw-hxL"/>
-                                                <constraint firstItem="H8b-gP-dhb" firstAttribute="leading" secondItem="6eW-2V-hT5" secondAttribute="leadingMargin" id="Reg-vm-ROQ"/>
                                                 <constraint firstItem="Hsc-9A-1ft" firstAttribute="top" secondItem="6eW-2V-hT5" secondAttribute="topMargin" id="Z54-De-0Ng"/>
                                                 <constraint firstItem="TIi-YL-dgc" firstAttribute="leading" secondItem="6eW-2V-hT5" secondAttribute="leadingMargin" id="axo-m1-TFD"/>
                                                 <constraint firstItem="Hsc-9A-1ft" firstAttribute="centerX" secondItem="6eW-2V-hT5" secondAttribute="centerX" id="b2b-7l-cte"/>
                                                 <constraint firstItem="h1a-04-dqP" firstAttribute="top" secondItem="cKh-im-yWp" secondAttribute="bottom" constant="4" id="jvY-1t-5Mn"/>
-                                                <constraint firstItem="H8b-gP-dhb" firstAttribute="top" secondItem="6eW-2V-hT5" secondAttribute="topMargin" id="keW-cI-M6U"/>
                                                 <constraint firstItem="TIi-YL-dgc" firstAttribute="top" secondItem="Hsc-9A-1ft" secondAttribute="bottom" id="kiX-HV-d5u"/>
                                                 <constraint firstItem="cKh-im-yWp" firstAttribute="leading" secondItem="6eW-2V-hT5" secondAttribute="leadingMargin" id="lmq-ta-Eav"/>
                                                 <constraint firstItem="kN4-Mg-JlS" firstAttribute="leading" secondItem="mQx-gU-tLj" secondAttribute="trailing" constant="56" id="mEf-ua-swd"/>
@@ -551,7 +537,6 @@
                         <outlet property="prLabel" destination="3D6-0r-icE" id="Kr0-3f-RfD"/>
                         <outlet property="proView" destination="Xab-Zl-QNJ" id="o9C-Mt-rY7"/>
                         <outlet property="retryBtn" destination="xff-At-fqW" id="413-Cv-21I"/>
-                        <outlet property="screenshotBtn" destination="H8b-gP-dhb" id="6YU-xc-54h"/>
                         <outlet property="setPlayerIDBtn" destination="POE-hN-gyo" id="xrX-g5-14M"/>
                         <outlet property="themeImage" destination="Hsc-9A-1ft" id="fFD-fF-SrS"/>
                         <outlet property="tkBtn" destination="h1a-04-dqP" id="SzN-i4-8kD"/>
@@ -596,7 +581,6 @@
         <image name="HitRatio" width="201" height="204"/>
         <image name="KillDeathRatio" width="376" height="319"/>
         <image name="Number" width="128" height="128"/>
-        <image name="Screenshot" width="128" height="128"/>
         <image name="Star" width="120" height="120"/>
         <image name="Theme" width="205" height="205"/>
         <image name="ThemePro" width="205" height="205"/>

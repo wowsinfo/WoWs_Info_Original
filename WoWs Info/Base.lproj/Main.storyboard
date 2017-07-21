@@ -169,7 +169,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="U7s-su-cOK">
-                        <barButtonItem key="rightBarButtonItem" title="国服" id="sO4-SM-uKj">
+                        <barButtonItem key="leftBarButtonItem" id="wDD-qO-iaf">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Mg3-8T-Mp3">
+                                <rect key="frame" x="16" y="9" width="26" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button" image="PlayerOnline"/>
+                                <connections>
+                                    <segue destination="0GE-cX-yf3" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="hAe-1G-fGO"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="国服" style="done" id="sO4-SM-uKj">
                             <connections>
                                 <segue destination="6yJ-5E-ir8" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="ueB-cp-ZPg"/>
                             </connections>
@@ -191,6 +202,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gLM-Q2-hOf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6429.6000000000004" y="-2490.4047976011998"/>
+        </scene>
+        <!--ServerStatusController-->
+        <scene sceneID="yYH-gK-Pws">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ServerStatus" referencedIdentifier="ServerStatusController" id="0GE-cX-yf3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cdQ-Lo-K9r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7102" y="-2748"/>
         </scene>
         <!--AdvancedInfoController-->
         <scene sceneID="4rs-wF-8BR">
@@ -828,6 +847,7 @@
         <image name="Friend" width="25" height="25"/>
         <image name="Gold" width="128" height="128"/>
         <image name="News" width="30" height="30"/>
+        <image name="PlayerOnline" width="128" height="128"/>
         <image name="Server" width="256" height="256"/>
         <image name="Settings" width="128" height="128"/>
         <image name="Theme" width="205" height="205"/>
