@@ -351,7 +351,7 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     @IBAction func gotoPro(_ sender: Any) {
         let storyboard = UIStoryboard(name: "ProVersion", bundle: Bundle.main)
         let proController = storyboard.instantiateViewController(withIdentifier: "ProViewController") as! IAPController
-        proController.modalTransitionStyle = .flipHorizontal
+        proController.modalTransitionStyle = .coverVertical
         self.present(proController, animated: true, completion: nil)
     }
     

@@ -623,6 +623,10 @@
                     <connections>
                         <outlet property="ShipTableView" destination="87D-GU-cFY" id="zM3-qo-WVV"/>
                         <outlet property="avgRatingLabel" destination="nkG-y5-672" id="5rE-VX-VKX"/>
+                        <outlet property="bbBtn" destination="01g-5S-c0r" id="cb7-k5-qKD"/>
+                        <outlet property="caBtn" destination="pWD-oZ-qi6" id="VUM-oS-ifF"/>
+                        <outlet property="cvBtn" destination="GwM-EX-V9P" id="NgE-gd-4D9"/>
+                        <outlet property="ddBtn" destination="g2f-BX-1E8" id="z7E-4j-1nD"/>
                         <outlet property="filterTextField" destination="oFj-de-ubT" id="6YS-c8-3m3"/>
                         <outlet property="loadingIndicator" destination="dqO-9d-WdN" id="C9S-Yb-KmQ"/>
                         <outlet property="loadingView" destination="irG-pA-dHv" id="1EQ-AM-VtV"/>
@@ -648,7 +652,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="6UN-BB-6eE">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Theme" translatesAutoresizingMaskIntoConstraints="NO" id="6UN-BB-6eE">
                                 <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -869,6 +873,7 @@
                         <outlet property="shipImage" destination="T7h-zQ-zCt" id="qhu-1X-HUh"/>
                         <outlet property="shipNameLabel" destination="3va-Fp-2HV" id="aD7-nO-LLk"/>
                         <outlet property="shipTypeImage" destination="iri-Bp-Nh6" id="MNc-lt-PGM"/>
+                        <outlet property="themeImage" destination="6UN-BB-6eE" id="0lg-T2-fcp"/>
                         <outlet property="winrateLabel" destination="GgV-Pb-ZtF" id="B4p-1y-TYk"/>
                     </connections>
                 </viewController>
@@ -933,13 +938,13 @@
         <image name="EXP" width="94" height="92"/>
         <image name="Graphs" width="25" height="20"/>
         <image name="HitRatio" width="201" height="204"/>
-        <image name="Icon" width="1024" height="1024"/>
         <image name="KillDeathRatio" width="376" height="319"/>
         <image name="Rank" width="25" height="25"/>
         <image name="RankImage" width="128" height="128"/>
         <image name="Retry" width="256" height="256"/>
         <image name="Server" width="256" height="256"/>
         <image name="Ships" width="25" height="26"/>
+        <image name="Theme" width="205" height="205"/>
         <image name="WinRate" width="92" height="105"/>
     </resources>
 </document>
