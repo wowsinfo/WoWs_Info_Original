@@ -67,6 +67,7 @@ class ShipScreenshotController: UIViewController {
         themeImage.backgroundColor = theme
         themeImage.layer.cornerRadius = 10
         themeImage.layer.masksToBounds = true
+        shipTypeImage.tintColor = theme
     }
 
     override func didReceiveMemoryWarning() {
