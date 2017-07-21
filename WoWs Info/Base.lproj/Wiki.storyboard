@@ -1122,7 +1122,7 @@
                         <outlet property="shipImage" destination="oMe-7M-s7P" id="NMe-5V-GrK"/>
                         <outlet property="shipNameLabel" destination="xTd-Ce-KLa" id="hAA-Q7-k8X"/>
                         <outlet property="shipTierLabel" destination="ZUJ-Ww-TYH" id="SCa-0G-vog"/>
-                        <outlet property="shipTypeImage" destination="RLm-81-J9A" id="euh-Q3-N7O"/>
+                        <outlet property="shipTypeImage" destination="RLm-81-J9A" id="4Db-df-H01"/>
                         <outlet property="shotDelayLabel" destination="XaV-v5-Xx9" id="DJf-1s-PIj"/>
                         <outlet property="statusColour" destination="GhF-Ca-tUt" id="N8n-GC-4Xx"/>
                         <outlet property="survivabilityBar" destination="yBZ-en-DBd" id="zBj-LE-jNY"/>

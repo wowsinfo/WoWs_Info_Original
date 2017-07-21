@@ -50,6 +50,7 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     let isPro = UserDefaults.standard.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked)
     
     @IBOutlet weak var setPlayerIDBtn: UIBarButtonItem!
+    @IBOutlet weak var screenshotBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -348,6 +349,26 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     }
     
     // MARK: Button pressed
+    @IBAction func screenshotBtnPressed(_ sender: Any) {
+        screenshotBtn.isHidden = true
+        // Get current screen shot
+        UIGraphicsBeginImageContextWithOptions(tableView.frame.size, true, 0.0)
+        tableView.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let screenshot = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        // Crop
+        let source = screenshot.cgImage!
+        let newCGImage = source.cropping(to: CGRect(x: 0, y: 70, width: source.width, height: source.height))
+        let playerImage = UIImage(cgImage: newCGImage!)
+        
+        // Share
+        let share = UIActivityViewController(activityItems: [screenshot], applicationActivities: nil)
+        share.popoverPresentationController?.sourceView = self.view
+        self.present(share, animated: true, completion: nil)
+        screenshotBtn.isHidden = false
+    }
+    
     @IBAction func gotoPro(_ sender: Any) {
         let storyboard = UIStoryboard(name: "ProVersion", bundle: Bundle.main)
         let proController = storyboard.instantiateViewController(withIdentifier: "ProViewController") as! IAPController
