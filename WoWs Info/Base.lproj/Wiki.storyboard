@@ -220,6 +220,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bbBtn" destination="f8T-YY-4Dr" id="eho-Ke-qfv"/>
+                        <outlet property="caBtn" destination="BOy-cO-ckN" id="QOH-fp-KRM"/>
+                        <outlet property="cvBtn" destination="Zij-zJ-sVN" id="AaQ-5P-gzz"/>
+                        <outlet property="ddBtn" destination="TUm-9E-cyT" id="k3k-Kr-4QA"/>
                         <outlet property="resetBtn" destination="8XJ-T2-k8Z" id="SXj-ht-glY"/>
                         <outlet property="searchTextField" destination="6V9-Pk-7Bx" id="L97-pf-Me3"/>
                         <outlet property="shipCollection" destination="alW-3g-l7k" id="7Jd-p9-Yy6"/>
@@ -1118,7 +1122,7 @@
                         <outlet property="shipImage" destination="oMe-7M-s7P" id="NMe-5V-GrK"/>
                         <outlet property="shipNameLabel" destination="xTd-Ce-KLa" id="hAA-Q7-k8X"/>
                         <outlet property="shipTierLabel" destination="ZUJ-Ww-TYH" id="SCa-0G-vog"/>
-                        <outlet property="shipTypeImage" destination="RLm-81-J9A" id="euh-Q3-N7O"/>
+                        <outlet property="shipTypeImage" destination="RLm-81-J9A" id="4Db-df-H01"/>
                         <outlet property="shotDelayLabel" destination="XaV-v5-Xx9" id="DJf-1s-PIj"/>
                         <outlet property="statusColour" destination="GhF-Ca-tUt" id="N8n-GC-4Xx"/>
                         <outlet property="survivabilityBar" destination="yBZ-en-DBd" id="zBj-LE-jNY"/>
