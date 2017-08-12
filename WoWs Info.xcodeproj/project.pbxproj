@@ -102,6 +102,7 @@
 		92F526F11E6B9476005A2E20 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F526F01E6B9476005A2E20 /* AboutController.swift */; };
 		92FD8D701E59B22300E7FADF /* ChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD8D6F1E59B22300E7FADF /* ChartsController.swift */; };
 		92FF85901E592ED9001BBCA1 /* PlayerCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF858F1E592ED9001BBCA1 /* PlayerCharts.swift */; };
+		AC7603AE5D98F083C229C5A3 /* Pods_WoWs_Info.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6759118B58D4B67B8E919C40 /* Pods_WoWs_Info.framework */; };
 		BAE902C11F3EB82800AC43D9 /* JSON+merge.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE902C01F3EB82800AC43D9 /* JSON+merge.swift */; };
 /* End PBXBuildFile section */
 
@@ -256,6 +257,7 @@
 				9215CA3F1E5BF33D00A7F465 /* SwiftyJSON.framework in Frameworks */,
 				9226E33A1E5BF19F00593026 /* Charts.framework in Frameworks */,
 				9259C1CE1E57F88700F34CDC /* StoreKit.framework in Frameworks */,
+				AC7603AE5D98F083C229C5A3 /* Pods_WoWs_Info.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -757,9 +759,26 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WoWs Info/Pods-WoWs Info-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Siren/Siren.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Siren.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -787,13 +806,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WoWs Info-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
