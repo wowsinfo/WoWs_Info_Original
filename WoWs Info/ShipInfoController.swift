@@ -8,10 +8,16 @@
 
 import UIKit
 import SDWebImage
+import SwiftyJSON
 import AudioToolbox
 
 class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate {
 
+    @IBOutlet weak var ddBtn: UIButton!
+    @IBOutlet weak var caBtn: UIButton!
+    @IBOutlet weak var bbBtn: UIButton!
+    @IBOutlet weak var cvBtn: UIButton!
+    
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var shipCollection: UICollectionView!
     @IBOutlet weak var resetBtn: UIButton!
@@ -36,7 +42,7 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
         layout.minimumLineSpacing = 0
         shipCollection.collectionViewLayout = layout
         
-        if Shipinformation.ShipJson == nil {
+        if Shipinformation.ShipJson == JSON.null {
             _ = self.navigationController?.popToRootViewController(animated: true)
         } else {
             allInfo = Ships.getShipInformation(shipJson: Shipinformation.ShipJson)
@@ -46,11 +52,24 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
         self.title = "\(allInfo.count)"
         
         // Setup theme
-        resetBtn.tintColor = Theme.getCurrTheme()
+        setupTheme()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: Theme
+    func setupTheme() {
+        setupBtn(btn: resetBtn)
+        setupBtn(btn: ddBtn)
+        setupBtn(btn: caBtn)
+        setupBtn(btn: bbBtn)
+        setupBtn(btn: cvBtn)
+    }
+    
+    func setupBtn(btn: UIButton) {
+        btn.tintColor = Theme.getCurrTheme()
     }
     
     // MARK: Textfield

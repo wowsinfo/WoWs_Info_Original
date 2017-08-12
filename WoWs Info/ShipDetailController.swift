@@ -27,6 +27,7 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
     var nationText: String!
     var moduleTree = [[[String]]]()
     var currModule = [String].init(repeating: "", count: 6)
+    @IBOutlet weak var shipTypeImage: UIImageView!
     
     var ColourGroup = [ UIColor.RGB(red: 85, green: 163, blue: 255), // Blue
                         UIColor.RGB(red: 10, green: 86, blue: 143),
@@ -75,7 +76,6 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
     // MARK: Ship
     @IBOutlet weak var moneyTypeImage: UIImageView!
     @IBOutlet weak var moneyLabel: UILabel!
-    @IBOutlet weak var shipTypeImage: UIImageView!
     @IBOutlet weak var shipImage: UIImageView!
     @IBOutlet weak var shipNameLabel: UILabel!
     @IBOutlet weak var shipTierLabel: UILabel!
@@ -396,6 +396,8 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
     func setupTheme() {
         // I hope there wont be any crazy combinations
         shuffleColour()
+        // Setup shipTypeImage
+        shipTypeImage.tintColor = Theme.getCurrTheme()
         
         // Setup Colour
         setupBackground(view: moduleColour, index: 0)

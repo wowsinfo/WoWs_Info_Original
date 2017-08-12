@@ -215,3 +215,16 @@
 "NO_ENOUGH_POINT_MESSAGE" = "Please get more points by clicking on Ads in More -> Points";
 
 "NO_INFORMATION" = "No information";
+
+"ISNOT_PRO" = "Unlock Pro Version";
+
+"IS_PRO" = "Unlocked";
+
+"ADS_NOT_READY_TITLE" = "Not ready";
+
+"ADS_NOT_READY_MESSAGE" = "Please try it later";
+
+"SOCIAL_ERROR_TITLE" = "Warning";
+
+"SOCIAL_ERROR_MESSAGE" = "Service not available";
+

@@ -23,6 +23,7 @@ class ShipScreenshotController: UIViewController {
     var shipID: String!
     var shipType: String!
     
+    @IBOutlet weak var themeImage: UIImageView!
     @IBOutlet weak var shipTypeImage: UIImageView!
     @IBOutlet weak var shipImage: UIImageView!
     @IBOutlet weak var screenshotImage: UIImageView!
@@ -35,6 +36,8 @@ class ShipScreenshotController: UIViewController {
     @IBOutlet weak var hitratioLabel: UILabel!
     @IBOutlet weak var killdeathLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
+    
+    let theme = Theme.getCurrTheme()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +58,16 @@ class ShipScreenshotController: UIViewController {
             self.shipImage.sd_setImage(with: URL(string: Link)!)
         }
         shipTypeImage.image = Shipinformation.getImageWithType(type: shipType)
+        
+        // ShipScreen button
+        let share = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(takeScreenshot))
+        self.navigationItem.rightBarButtonItem = share
+        
+        // Setup theme
+        themeImage.backgroundColor = theme
+        themeImage.layer.cornerRadius = 10
+        themeImage.layer.masksToBounds = true
+        shipTypeImage.tintColor = theme
     }
 
     override func didReceiveMemoryWarning() {
