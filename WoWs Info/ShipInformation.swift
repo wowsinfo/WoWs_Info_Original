@@ -13,7 +13,7 @@ class Shipinformation {
     
     let server = ServerUrl.Server[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)]
     var shipInfoAPI = ""
-    static var ShipJson: (JSON!)
+    static var ShipJson: JSON = JSON.null
 
     init() {
         shipInfoAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/ships/?application_id=4e54ba74077a8230e457bf3e7e9ae858&fields=ship_id_str%2Cname%2Ctype%2Ctier%2Cnation%2Cimages.small%2C" + Language.getLanguageString(Mode: Language.Index.API)
@@ -23,19 +23,23 @@ class Shipinformation {
     func getShipInformation() {
         
         // Get all ship information here
-        let request = URLRequest.init(url: URL(string: shipInfoAPI)!)
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if error != nil {
-                print("Error: \(error!)")
-            } else {
-                let dataJson = JSON(data!)
-                if dataJson["status"].stringValue == "ok" {
-                    // Get Information for all ships
-                    Shipinformation.ShipJson = dataJson["data"]
+        for page in 1...3 {
+            // There are three pages now
+            let request = URLRequest.init(url: URL(string: shipInfoAPI + "&page_no=\(page)")!)
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                if error != nil {
+                    print("Error: \(error!)")
+                } else {
+                    let dataJson = JSON(data!)
+                    if dataJson["status"].stringValue == "ok" {
+                        // Get Information for all ships
+                        Shipinformation.ShipJson.merge(other: dataJson["data"])
+                        print(Shipinformation.ShipJson.count)
+                    }
                 }
             }
+            task.resume()
         }
-        task.resume()
         
     }
     
@@ -150,7 +154,7 @@ class PlayerShip {
                             information[PlayerShip.PlayerShipDataIndex.totalFrags] = "\(frags)"
                             
                             // Get ship information
-                            if Shipinformation.ShipJson != nil {
+                            if Shipinformation.ShipJson != JSON.null {
                                 let ship = Shipinformation.ShipJson[shipID]
                                 if ship != JSON.null {
                                     // If there is such ID

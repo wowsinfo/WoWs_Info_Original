@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import SwiftyJSON
 import AudioToolbox
 
 class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate {
@@ -41,7 +42,7 @@ class ShipInfoController: UIViewController, UICollectionViewDelegate, UICollecti
         layout.minimumLineSpacing = 0
         shipCollection.collectionViewLayout = layout
         
-        if Shipinformation.ShipJson == nil {
+        if Shipinformation.ShipJson == JSON.null {
             _ = self.navigationController?.popToRootViewController(animated: true)
         } else {
             allInfo = Ships.getShipInformation(shipJson: Shipinformation.ShipJson)
