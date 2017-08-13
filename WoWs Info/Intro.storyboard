@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kqG-mK-iKv">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Intro Controller-->
+        <scene sceneID="gH0-WB-ehb">
+            <objects>
+                <viewController id="kqG-mK-iKv" customClass="IntroController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wMU-Z3-Cpv"/>
+                        <viewControllerLayoutGuide type="bottom" id="MJH-iD-Czc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YRg-X7-UH5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Theme" translatesAutoresizingMaskIntoConstraints="NO" id="f1J-wa-lKN">
+                                <rect key="frame" x="123" y="269" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="f1J-wa-lKN" secondAttribute="height" multiplier="1:1" id="fEW-2a-JQC"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="f1J-wa-lKN" firstAttribute="centerX" secondItem="YRg-X7-UH5" secondAttribute="centerX" id="A05-wT-h37"/>
+                            <constraint firstItem="f1J-wa-lKN" firstAttribute="width" secondItem="YRg-X7-UH5" secondAttribute="width" multiplier="0.341333" id="q8N-Yn-Hsc"/>
+                            <constraint firstItem="f1J-wa-lKN" firstAttribute="centerY" secondItem="YRg-X7-UH5" secondAttribute="centerY" id="vo7-Tk-dLj"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0zA-lX-AzG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="26" y="188"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Theme" width="205" height="205"/>
+    </resources>
+</document>

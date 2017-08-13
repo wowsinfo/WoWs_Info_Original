@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>660472717826-if0u75uo3oc9me5225ne5ts7iuu49b6v.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.660472717826-if0u75uo3oc9me5225ne5ts7iuu49b6v</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA1S5HxqbzFMyEFIKIFqEoIfjRU_9guy_0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>660472717826</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.yihengquan.WoWs-Info</string>
+	<key>PROJECT_ID</key>
+	<string>wows-info-8ab96</string>
+	<key>STORAGE_BUCKET</key>
+	<string>wows-info-8ab96.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:660472717826:ios:270540f4b949ee16</string>
+	<key>DATABASE_URL</key>
+	<string>https://wows-info-8ab96.firebaseio.com</string>
+</dict>
+</plist>
