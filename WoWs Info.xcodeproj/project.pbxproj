@@ -25,7 +25,9 @@
 		BA6BA5261F3FE50700F3F4CA /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA6BA5251F3FE50700F3F4CA /* Intro.storyboard */; };
 		BA6BA5281F3FE57B00F3F4CA /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA6BA5271F3FE57B00F3F4CA /* Launch.storyboard */; };
 		BA6BA52C1F3FE6F800F3F4CA /* IntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6BA52B1F3FE6F800F3F4CA /* IntroController.swift */; };
-		BA6BA52E1F3FE76100F3F4CA /* DataIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6BA52D1F3FE76100F3F4CA /* DataIndex.swift */; };
+		BA6BA52E1F3FE76100F3F4CA /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6BA52D1F3FE76100F3F4CA /* DataManager.swift */; };
+		BA6BA5321F40262400F3F4CA /* GameVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6BA5311F40262400F3F4CA /* GameVersion.swift */; };
+		BA6BA5341F404B3F00F3F4CA /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6BA5331F404B3F00F3F4CA /* DateExtension.swift */; };
 		BAE902C11F3EB82800AC43D9 /* JSONExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE902C01F3EB82800AC43D9 /* JSONExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,7 +57,9 @@
 		BA6BA5251F3FE50700F3F4CA /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
 		BA6BA5271F3FE57B00F3F4CA /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		BA6BA52B1F3FE6F800F3F4CA /* IntroController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroController.swift; sourceTree = "<group>"; };
-		BA6BA52D1F3FE76100F3F4CA /* DataIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataIndex.swift; sourceTree = "<group>"; };
+		BA6BA52D1F3FE76100F3F4CA /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		BA6BA5311F40262400F3F4CA /* GameVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameVersion.swift; sourceTree = "<group>"; };
+		BA6BA5331F404B3F00F3F4CA /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		BAE902C01F3EB82800AC43D9 /* JSONExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,7 +99,8 @@
 		9210C0811E460A0900270002 /* Functions */ = {
 			isa = PBXGroup;
 			children = (
-				BA6BA52D1F3FE76100F3F4CA /* DataIndex.swift */,
+				BA6BA52D1F3FE76100F3F4CA /* DataManager.swift */,
+				BA6BA5311F40262400F3F4CA /* GameVersion.swift */,
 				92457AE41EE5564300B5A120 /* Extensions */,
 			);
 			name = Functions;
@@ -144,6 +149,7 @@
 				BAE902C01F3EB82800AC43D9 /* JSONExtension.swift */,
 				92457AE71EE55F1700B5A120 /* UserDefaultsExtension.swift */,
 				92457AE51EE5565600B5A120 /* UIColorExtension.swift */,
+				BA6BA5331F404B3F00F3F4CA /* DateExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -342,10 +348,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA6BA52C1F3FE6F800F3F4CA /* IntroController.swift in Sources */,
-				BA6BA52E1F3FE76100F3F4CA /* DataIndex.swift in Sources */,
+				BA6BA52E1F3FE76100F3F4CA /* DataManager.swift in Sources */,
+				BA6BA5321F40262400F3F4CA /* GameVersion.swift in Sources */,
 				920105B51EB1827B00E5F338 /* Reachability.swift in Sources */,
 				92457AE61EE5565600B5A120 /* UIColorExtension.swift in Sources */,
 				92457AE81EE55F1700B5A120 /* UserDefaultsExtension.swift in Sources */,
+				BA6BA5341F404B3F00F3F4CA /* DateExtension.swift in Sources */,
 				92457ADC1EE53EF300B5A120 /* UIAlertControllerExtension.swift in Sources */,
 				BAE902C11F3EB82800AC43D9 /* JSONExtension.swift in Sources */,
 				921EA6991E35F2FB0007C7FC /* AppDelegate.swift in Sources */,

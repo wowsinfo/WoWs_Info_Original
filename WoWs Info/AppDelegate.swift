@@ -29,6 +29,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Change status bar color
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
         
+        let user = UserDefaults.standard
+        if user.object(forKey: DataManager.DataName.GameVersion) == nil {
+            if user.object(forKey: DataManager.DataName.FirstLaunch) == nil {
+                // This is a new user. Just setup some settings
+                DataManager.setupDataForNew()
+            }
+            
+            // Getting GameVersion
+            GameVersion().getCurrVersion(Version: { (version) in
+                user.set(version, forKey: DataManager.DataName.GameVersion)
+            })
+            
+            // Downloading Data HERE
+            DataManager.updateLocalData()
+        } else {
+            // Getting GameVersion
+            GameVersion().getCurrVersion(Version: { (version) in
+                if version != UserDefaults.getCurrVersion() {
+                    // A new version
+                    DataManager.updateLocalData()
+                    user.set(version, forKey: DataManager.DataName.GameVersion)
+                }
+            })
+        }
+        
         return true
     }
 

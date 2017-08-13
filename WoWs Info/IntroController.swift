@@ -10,8 +10,15 @@ import UIKit
 
 class IntroController: UIViewController {
 
+    @IBOutlet weak var themeImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Setup theme for intro
+        let theme = UIColor.getCurrTheme()
+        view.backgroundColor = theme
+        themeImage.backgroundColor = theme
     }
 
     override func didReceiveMemoryWarning() {

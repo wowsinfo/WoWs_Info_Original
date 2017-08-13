@@ -9,7 +9,7 @@
 import UIKit
 
 extension String {
-    
+    // MARK: Localisation
     func localised() -> String {
         return NSLocalizedString(self, comment: "")
     }

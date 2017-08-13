@@ -88,7 +88,7 @@ extension UIColor {
     }
     
     static func getCurrTheme() -> UIColor {
-        return UserDefaults.standard.color(forKey: DataIndex.DataName.theme.rawValue)!
+        return UserDefaults.standard.color(forKey: DataManager.DataName.theme)!
     }
     
 }

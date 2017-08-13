@@ -28,14 +28,26 @@
                                     <constraint firstAttribute="width" secondItem="f1J-wa-lKN" secondAttribute="height" multiplier="1:1" id="fEW-2a-JQC"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="KMW-lj-cOp">
+                                <rect key="frame" x="169" y="413" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="Aak-9V-Snl"/>
+                                    <constraint firstAttribute="height" constant="37" id="pwG-cd-jlM"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="f1J-wa-lKN" firstAttribute="centerX" secondItem="YRg-X7-UH5" secondAttribute="centerX" id="A05-wT-h37"/>
+                            <constraint firstItem="KMW-lj-cOp" firstAttribute="centerX" secondItem="YRg-X7-UH5" secondAttribute="centerX" id="UZi-do-Ete"/>
+                            <constraint firstItem="KMW-lj-cOp" firstAttribute="top" secondItem="f1J-wa-lKN" secondAttribute="bottom" constant="16" id="gmZ-9I-eqx"/>
                             <constraint firstItem="f1J-wa-lKN" firstAttribute="width" secondItem="YRg-X7-UH5" secondAttribute="width" multiplier="0.341333" id="q8N-Yn-Hsc"/>
                             <constraint firstItem="f1J-wa-lKN" firstAttribute="centerY" secondItem="YRg-X7-UH5" secondAttribute="centerY" id="vo7-Tk-dLj"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="themeImage" destination="f1J-wa-lKN" id="b9t-YS-5As"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0zA-lX-AzG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
