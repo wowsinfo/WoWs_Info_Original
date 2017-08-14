@@ -28,6 +28,8 @@
 		BA6BA52E1F3FE76100F3F4CA /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6BA52D1F3FE76100F3F4CA /* DataManager.swift */; };
 		BA6BA5321F40262400F3F4CA /* GameVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6BA5311F40262400F3F4CA /* GameVersion.swift */; };
 		BA6BA5341F404B3F00F3F4CA /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6BA5331F404B3F00F3F4CA /* DateExtension.swift */; };
+		BA7338001F41C894006D4B1A /* WikiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7337FF1F41C894006D4B1A /* WikiManager.swift */; };
+		BA7338041F41D904006D4B1A /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7338031F41D904006D4B1A /* FileManagerExtension.swift */; };
 		BAE902C11F3EB82800AC43D9 /* JSONExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE902C01F3EB82800AC43D9 /* JSONExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +62,8 @@
 		BA6BA52D1F3FE76100F3F4CA /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		BA6BA5311F40262400F3F4CA /* GameVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameVersion.swift; sourceTree = "<group>"; };
 		BA6BA5331F404B3F00F3F4CA /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		BA7337FF1F41C894006D4B1A /* WikiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiManager.swift; sourceTree = "<group>"; };
+		BA7338031F41D904006D4B1A /* FileManagerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerExtension.swift; sourceTree = "<group>"; };
 		BAE902C01F3EB82800AC43D9 /* JSONExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				BA6BA52D1F3FE76100F3F4CA /* DataManager.swift */,
+				BA7337FF1F41C894006D4B1A /* WikiManager.swift */,
 				BA6BA5311F40262400F3F4CA /* GameVersion.swift */,
 				92457AE41EE5564300B5A120 /* Extensions */,
 			);
@@ -147,6 +152,7 @@
 				92457ADB1EE53EF300B5A120 /* UIAlertControllerExtension.swift */,
 				92E125921EE676D700D7769A /* StringExtension.swift */,
 				BAE902C01F3EB82800AC43D9 /* JSONExtension.swift */,
+				BA7338031F41D904006D4B1A /* FileManagerExtension.swift */,
 				92457AE71EE55F1700B5A120 /* UserDefaultsExtension.swift */,
 				92457AE51EE5565600B5A120 /* UIColorExtension.swift */,
 				BA6BA5331F404B3F00F3F4CA /* DateExtension.swift */,
@@ -349,6 +355,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA7338041F41D904006D4B1A /* FileManagerExtension.swift in Sources */,
 				BA6BA52C1F3FE6F800F3F4CA /* IntroController.swift in Sources */,
 				BA6BA52E1F3FE76100F3F4CA /* DataManager.swift in Sources */,
 				BA6BA5321F40262400F3F4CA /* GameVersion.swift in Sources */,
@@ -356,6 +363,7 @@
 				92457AE61EE5565600B5A120 /* UIColorExtension.swift in Sources */,
 				92457AE81EE55F1700B5A120 /* UserDefaultsExtension.swift in Sources */,
 				BA6BA5341F404B3F00F3F4CA /* DateExtension.swift in Sources */,
+				BA7338001F41C894006D4B1A /* WikiManager.swift in Sources */,
 				92457ADC1EE53EF300B5A120 /* UIAlertControllerExtension.swift in Sources */,
 				BAE902C11F3EB82800AC43D9 /* JSONExtension.swift in Sources */,
 				921EA6991E35F2FB0007C7FC /* AppDelegate.swift in Sources */,

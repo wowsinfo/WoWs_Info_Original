@@ -43,7 +43,8 @@ class DataManager: NSObject {
         // Some new names
         static let GameVersion = "game_version"
         static let Today = "today" // 5 - 7 points everyday
-        
+        static let Language = "language"
+        static let AccessToken = "access_token"
     }
     
     // MARK: Setup UserDefaults
@@ -62,6 +63,8 @@ class DataManager: NSObject {
         new.set(false, forKey: DataName.gotoGithub)
         // 20 points by default
         new.set(20, forKey: DataName.pointSystem)
+        new.set(String.getCurrLanguageString(), forKey: DataName.Language)
+        new.set("", forKey: DataName.AccessToken)
     }
     
     // MARK: Downloading needed data
