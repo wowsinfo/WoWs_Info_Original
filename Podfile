@@ -14,5 +14,6 @@ pod 'Siren'
 pod 'Charts'
 pod 'SDWebImage'
 pod 'Kanna'
+pod 'OAuthSwift'
 
 end
