@@ -18,8 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        // Set up firebase
         FirebaseApp.configure()
         GADMobileAds.configure(withApplicationID: "ca-app-pub-5048098651344514~3226630788")
+        
         // Setup Rewarded Video
         let request = GADRequest()
         request.testDevices = [kGADSimulatorID]
@@ -29,105 +31,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
         
         let user = UserDefaults.standard
-        // Prepare for userdefaults
-        if user.object(forKey: DataManagement.DataName.FirstLaunch) == nil {
+        if user.object(forKey: DataManager.DataName.GameVersion) == nil {
+            // Setting up addtional data for everyone
+            DataManager.setupAdditionData()
             
-            print("First Launch!")
-            user.set(true, forKey: DataManagement.DataName.FirstLaunch)
-            user.set(3, forKey: DataManagement.DataName.Server)
-            user.set(15, forKey: DataManagement.DataName.SearchLimit)
-            user.set(">_<", forKey: DataManagement.DataName.UserName)
-            // For future updates
-            user.set(true, forKey: DataManagement.DataName.IsThereAds)
-            user.set(true, forKey: DataManagement.DataName.IsAdvancedUnlocked)
-        }
-        
-        // Setup tk and friend list
-        if user.object(forKey: DataManagement.DataName.friend) == nil{
-            // I am your friend
-            user.set(["HenryQuan|2011774448|3"], forKey: DataManagement.DataName.friend)
-            user.set([String](), forKey: DataManagement.DataName.tk)
-        }
-        
-        // Setup languages
-        if user.object(forKey: DataManagement.DataName.APILanguage) == nil {
-            // Auto by default
-            user.set(0, forKey: DataManagement.DataName.APILanguage)
-            user.set(0, forKey: DataManagement.DataName.NewsLanague)
-        }
-        
-        // In case a user does not have tk
-        if user.object(forKey: DataManagement.DataName.tk) == nil {
-            // Empty list
-            user.set([String](), forKey: DataManagement.DataName.tk)
-        }
-        
-        // Setup theme
-        if user.object(forKey: DataManagement.DataName.theme) == nil {
-            user.set(UIColor.RGB(red: 85, green: 163, blue: 255), forKey: DataManagement.DataName.theme)
-        }
-        
-        // Whether user purchases or not
-        if user.object(forKey: DataManagement.DataName.hasPurchased) == nil {
-            user.set(false, forKey: DataManagement.DataName.hasPurchased)
-            user.set(false, forKey: DataManagement.DataName.IsThereAds)
-            user.set(false, forKey: DataManagement.DataName.IsAdvancedUnlocked)
-        }
-        
-        // A little guard...
-        if user.bool(forKey: DataManagement.DataName.hasPurchased) == false {
-            user.set(false, forKey: DataManagement.DataName.IsThereAds)
-            user.set(false, forKey: DataManagement.DataName.IsAdvancedUnlocked)
-        }
-        
-        // Reset name
-        if !user.bool(forKey: DataManagement.DataName.IsAdvancedUnlocked) {
-            user.set(">_<", forKey: DataManagement.DataName.UserName)
-        }
-        
-        // Setup Review and Share
-        if user.object(forKey: DataManagement.DataName.didReview) == nil {
-            user.set(false, forKey: DataManagement.DataName.didReview)
-            user.set(false, forKey: DataManagement.DataName.didShare)
-        }
-        
-        if user.bool(forKey: DataManagement.DataName.hasPurchased) {
-            // This is pro version, unlocked
-            user.set(true, forKey: DataManagement.DataName.didReview)
-            user.set(true, forKey: DataManagement.DataName.didShare)
-        }
-        
-        // Setup Github
-        if user.object(forKey: DataManagement.DataName.gotoGithub) == nil {
-            user.set(false, forKey: DataManagement.DataName.gotoGithub)
-        }
-        
-        // Setup Point System
-        if user.object(forKey: DataManagement.DataName.pointSystem) == nil {
-            if !user.bool(forKey: DataManagement.DataName.hasPurchased) {
-                // Only for free user, 5 points by default
-                user.set(5, forKey: DataManagement.DataName.pointSystem)
+            if user.object(forKey: DataManager.DataName.FirstLaunch) == nil {
+                // This is a new user. Just setup some settings
+                DataManager.setupDataForNew()
             }
+            
+            // Getting GameVersion
+            GameVersion().getCurrVersion(Version: { (version) in
+                user.set(version, forKey: DataManager.DataName.GameVersion)
+            })
+            
+            // Downloading Data HERE
+            DataManager.updateLocalData()
+        } else {
+            // Getting GameVersion
+            GameVersion().getCurrVersion(Version: { (version) in
+                if version != UserDefaults.getCurrVersion() {
+                    // A new version
+                    DataManager.updateLocalData()
+                    user.set(version, forKey: DataManager.DataName.GameVersion)
+                }
+            })
         }
-        
-        // Setup siren
-        let siren = Siren.shared
-        siren.alertType = .option
-        // siren.debugEnabled = true
-        siren.checkVersion(checkType: .immediately)
-        
-        // Setup remote notification
-        let notificationTypes: UIUserNotificationType = [UIUserNotificationType.alert, UIUserNotificationType.badge, UIUserNotificationType.sound]
-        let notificationSettings = UIUserNotificationSettings(types: notificationTypes, categories: nil)
-        application.registerForRemoteNotifications()
-        application.registerUserNotificationSettings(notificationSettings)
-        
-        // Shortcuts
-        let news = UIApplicationShortcutItem(type: "com.yihengquan.WoWs-Info.News", localizedTitle: "NEWS".localised(), localizedSubtitle: "", icon: UIApplicationShortcutIcon.init(templateImageName: "News"), userInfo: nil)
-        let wiki = UIApplicationShortcutItem(type: "com.yihengquan.WoWs-Info.Wiki", localizedTitle: "WIKI".localised(), localizedSubtitle: "", icon: UIApplicationShortcutIcon.init(templateImageName: "WikiBar"), userInfo: nil)
-        let search = UIApplicationShortcutItem(type: "com.yihengquan.WoWs-Info.Search", localizedTitle: "SEARCH".localised(), localizedSubtitle: "", icon: UIApplicationShortcutIcon.init(type: UIApplicationShortcutIconType.search), userInfo: nil)
-        let contact = UIApplicationShortcutItem(type: "com.yihengquan.WoWs-Info.Contact", localizedTitle: "DASHBOARD".localised(), localizedSubtitle: "", icon: UIApplicationShortcutIcon.init(templateImageName: "Dashboard"), userInfo: nil)
-        UIApplication.shared.shortcutItems = [news, wiki, search, contact]
         
         return true
     }
@@ -159,23 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
         print(userInfo) 
     }
-    
-    @available(iOS 9.0, *)
-    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
-        // Go to search
-        switch shortcutItem.type {
-        case "com.yihengquan.WoWs-Info.News":
-            TabBarController.index = 0
-        case "com.yihengquan.WoWs-Info.Wiki":
-            TabBarController.index = 1
-        case "com.yihengquan.WoWs-Info.Search":
-            TabBarController.index = 2
-        case "com.yihengquan.WoWs-Info.Contact":
-            TabBarController.index = 3
-        default: break
-        }
-    }
-    
+
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         // Does not allow landscape for iPhone
         if UIDevice.current.userInterfaceIdiom != .pad {
