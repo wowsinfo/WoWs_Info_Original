@@ -27,13 +27,13 @@ extension FileManager {
     }
     
     // MARK: Load local DATA
-    func Load(Name: String) -> NSData {
+    func Load(Name: String) -> JSON {
         let path = self.urls(for: .documentDirectory, in: .userDomainMask).first! as NSURL
         let pathUrl = path.appendingPathComponent(Name)!
         if self.fileExists(atPath: pathUrl.path) {
-            return NSData(contentsOfFile: pathUrl.path)!
+            return JSON(NSData(contentsOfFile: pathUrl.path)!)
         }
-        return NSData()
+        return JSON.null
     }
 
 }

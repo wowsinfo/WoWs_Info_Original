@@ -9,14 +9,15 @@
 import UIKit
 import SwiftyJSON
 
-class GameVersion: NSObject {
+class GameVersion: DataManager {
     
     var VersionAPI = ""
     
     override init() {
         // Setup API url
+        super.init()
         let serverIndex = UserDefaults.getCurrServerIndex()
-        VersionAPI = "https://api.worldofwarships.\(DataManager.getServerStringFrom(index: serverIndex))/wows/encyclopedia/info/?application_id=\(DataManager.ApplicationID)&fields=game_version&language=en"
+        VersionAPI = "https://api.worldofwarships.\(DataManager.getServerStringFrom(index: serverIndex))/wows/encyclopedia/info/?application_id=\(ApplicationID)&fields=game_version&language=en"
     }
     
     func getCurrVersion(Version: @escaping (String) -> ()) {

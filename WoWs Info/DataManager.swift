@@ -11,7 +11,10 @@ import UIKit
 // Deal with API, Index
 class DataManager: NSObject {
     
-    static let ApplicationID = "4e54ba74077a8230e457bf3e7e9ae858"
+    var API = ""
+    let Server = DataManager.getServerStringFrom(index: UserDefaults.getCurrServerIndex())
+    let Language = String.getCurrLanguageString()
+    let ApplicationID = "4e54ba74077a8230e457bf3e7e9ae858"
     
     // MARK: 4 servers
     struct ServerIndex {

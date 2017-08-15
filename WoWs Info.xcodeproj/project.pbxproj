@@ -103,9 +103,7 @@
 		9210C0811E460A0900270002 /* Functions */ = {
 			isa = PBXGroup;
 			children = (
-				BA6BA52D1F3FE76100F3F4CA /* DataManager.swift */,
-				BA7337FF1F41C894006D4B1A /* WikiManager.swift */,
-				BA6BA5311F40262400F3F4CA /* GameVersion.swift */,
+				BAE04F661F42B44700095132 /* DataManager */,
 				92457AE41EE5564300B5A120 /* Extensions */,
 			);
 			name = Functions;
@@ -192,6 +190,16 @@
 				BA6BA52B1F3FE6F800F3F4CA /* IntroController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		BAE04F661F42B44700095132 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				BA6BA52D1F3FE76100F3F4CA /* DataManager.swift */,
+				BA7337FF1F41C894006D4B1A /* WikiManager.swift */,
+				BA6BA5311F40262400F3F4CA /* GameVersion.swift */,
+			);
+			name = DataManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

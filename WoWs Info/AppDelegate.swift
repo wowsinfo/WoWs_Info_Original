@@ -54,6 +54,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         }
         
+        print(FileManager.default.Load(Name: WikiManager.FileName.Achievements))
+        
         return true
     }
 

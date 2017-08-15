@@ -10,11 +10,7 @@ import UIKit
 import SwiftyJSON
 
 // MARK: The Main Class
-class WikiManager: NSObject {
-    var API = ""
-    let Server = DataManager.getServerStringFrom(index: UserDefaults.getCurrServerIndex())
-    let Language = String.getCurrLanguageString()
-    let ApplicationID = DataManager.ApplicationID
+class WikiManager: DataManager {
     
     struct FileName {
         static let Achievements = "Achievements.json"
