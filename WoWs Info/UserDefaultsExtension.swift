@@ -36,5 +36,9 @@ extension UserDefaults {
     static func isPro() -> Bool {
         return self.standard.bool(forKey: DataManager.DataName.hasPurchased)
     }
+    
+    static func getTodayString() -> String {
+        return self.standard.string(forKey: DataManager.DataName.Today)!
+    }
 }
 

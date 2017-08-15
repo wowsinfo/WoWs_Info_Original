@@ -53,7 +53,7 @@ class Achievements: WikiManager {
                     let dataJson = JSON(data!)
                     if dataJson["status"].stringValue == "ok" {
                         // DATA is fine, Save dataJson["data"]["battle"]
-                        FileManager.default.Save(Data: dataJson["data"]["battle"], Name: FileName.Achievements)
+                        FileManager.Save(Data: dataJson["data"]["battle"], Name: FileName.Achievements)
                     }
                 }
             })
@@ -80,7 +80,7 @@ class Warships: WikiManager {
                     let dataJson = JSON(data!)
                     if dataJson["status"].stringValue == "ok" {
                         // DATA is fine, Save dataJson["data"]["battle"]
-                        FileManager.default.Save(Data: dataJson["data"]["battle"], Name: FileName.Achievements)
+                        FileManager.Save(Data: dataJson["data"]["battle"], Name: FileName.Warships)
                     }
                 }
             })
@@ -107,7 +107,7 @@ class Upgrades: WikiManager {
                     let dataJson = JSON(data!)
                     if dataJson["status"].stringValue == "ok" {
                         // DATA is fine, Save dataJson["data"]["battle"]
-                        FileManager.default.Save(Data: dataJson["data"]["battle"], Name: FileName.Achievements)
+                        FileManager.Save(Data: dataJson["data"]["battle"], Name: FileName.Upgrades)
                     }
                 }
             })
@@ -134,7 +134,7 @@ class Flags: WikiManager {
                     let dataJson = JSON(data!)
                     if dataJson["status"].stringValue == "ok" {
                         // DATA is fine, Save dataJson["data"]["battle"]
-                        FileManager.default.Save(Data: dataJson["data"]["battle"], Name: FileName.Achievements)
+                        FileManager.Save(Data: dataJson["data"]["battle"], Name: FileName.Flags)
                     }
                 }
             })
@@ -161,7 +161,7 @@ class Camouflages: WikiManager {
                     let dataJson = JSON(data!)
                     if dataJson["status"].stringValue == "ok" {
                         // DATA is fine, Save dataJson["data"]["battle"]
-                        FileManager.default.Save(Data: dataJson["data"]["battle"], Name: FileName.Achievements)
+                        FileManager.Save(Data: dataJson["data"]["battle"], Name: FileName.Camouflages)
                     }
                 }
             })
@@ -187,7 +187,7 @@ class CommanderSkills: WikiManager {
                     let dataJson = JSON(data!)
                     if dataJson["status"].stringValue == "ok" {
                         // DATA is fine, Save dataJson["data"]["battle"]
-                        FileManager.default.Save(Data: dataJson["data"]["battle"], Name: FileName.Achievements)
+                        FileManager.Save(Data: dataJson["data"]["battle"], Name: FileName.CommanderSkills)
                     }
                 }
             })
@@ -213,7 +213,7 @@ class Collections: WikiManager {
                     let dataJson = JSON(data!)
                     if dataJson["status"].stringValue == "ok" {
                         // DATA is fine, Save dataJson["data"]["battle"]
-                        FileManager.default.Save(Data: dataJson["data"]["battle"], Name: FileName.Achievements)
+                        FileManager.Save(Data: dataJson["data"]["battle"], Name: FileName.Collections)
                     }
                 }
             })

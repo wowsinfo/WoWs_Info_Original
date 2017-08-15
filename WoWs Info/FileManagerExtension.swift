@@ -11,10 +11,10 @@ import SwiftyJSON
 
 extension FileManager {
     // MARK: Save DATA Locally
-    func Save(Data: JSON, Name: String) {
+    static func Save(Data: JSON, Name: String) {
         do {
             // Try to save data
-            let path = self.urls(for: .documentDirectory, in: .userDomainMask).first! as NSURL
+            let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! as NSURL
             if let pathUrl = path.appendingPathComponent(Name) {
                 print(pathUrl.path)
                 // Write to document
@@ -27,10 +27,11 @@ extension FileManager {
     }
     
     // MARK: Load local DATA
-    func Load(Name: String) -> JSON {
-        let path = self.urls(for: .documentDirectory, in: .userDomainMask).first! as NSURL
+    static func Load(Name: String) -> JSON {
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! as NSURL
         let pathUrl = path.appendingPathComponent(Name)!
-        if self.fileExists(atPath: pathUrl.path) {
+        print("This file is here\n\(pathUrl.path)\n")
+        if FileManager.default.fileExists(atPath: pathUrl.path) {
             return JSON(NSData(contentsOfFile: pathUrl.path)!)
         }
         return JSON.null

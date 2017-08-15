@@ -19,6 +19,10 @@ class IntroController: UIViewController {
         let theme = UIColor.getCurrTheme()
         view.backgroundColor = theme
         themeImage.backgroundColor = theme
+        if UserDefaults.isPro() {
+            // Change this to a Pro Image
+            themeImage.image = #imageLiteral(resourceName: "ThemePro")
+        }
     }
 
     override func didReceiveMemoryWarning() {

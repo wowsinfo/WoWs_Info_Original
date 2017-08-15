@@ -35,6 +35,7 @@ class GameVersion: DataManager {
                         // API is OK
                         let currVersion = dataJson["data"]["game_version"].stringValue
                         print("Current Version is \(currVersion)")
+                        print("Saved   Version is \(UserDefaults.getCurrVersion())")
                         Version(currVersion)
                     }
                 }

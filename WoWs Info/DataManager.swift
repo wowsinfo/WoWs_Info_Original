@@ -66,8 +66,14 @@ class DataManager: NSObject {
         new.set(false, forKey: DataName.gotoGithub)
         // 20 points by default
         new.set(20, forKey: DataName.pointSystem)
-        new.set(String.getCurrLanguageString(), forKey: DataName.Language)
-        new.set("", forKey: DataName.AccessToken)
+    }
+    
+    // MARK: Adding new data to UserDefaults
+    static func setupAdditionData() {
+        let extraData = UserDefaults.standard
+        
+        extraData.set(String.getCurrLanguageString(), forKey: DataName.Language)
+        extraData.set("", forKey: DataName.AccessToken)
     }
     
     // MARK: Downloading needed data

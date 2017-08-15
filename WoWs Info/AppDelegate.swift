@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Set up firebase
         FirebaseApp.configure()
         GADMobileAds.configure(withApplicationID: "ca-app-pub-5048098651344514~3226630788")
+        
         // Setup Rewarded Video
         let request = GADRequest()
         request.testDevices = [kGADSimulatorID]
@@ -31,6 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let user = UserDefaults.standard
         if user.object(forKey: DataManager.DataName.GameVersion) == nil {
+            // Setting up addtional data for everyone
+            DataManager.setupAdditionData()
+            
             if user.object(forKey: DataManager.DataName.FirstLaunch) == nil {
                 // This is a new user. Just setup some settings
                 DataManager.setupDataForNew()
@@ -53,8 +57,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             })
         }
-        
-        print(FileManager.default.Load(Name: WikiManager.FileName.Achievements))
         
         return true
     }
