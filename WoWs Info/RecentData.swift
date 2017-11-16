@@ -25,7 +25,7 @@ class RecentData {
     // Make up request string
     init(account: String) {
         accountId = account
-        recentInfoAPI = "https://api.worldofwarships.\(server)/wows/account/statsbydate/?application_id=***ApplicationID***&account_id=\(account)&language=en&fields=pvp.wins%2Cpvp.battles%2Cpvp.damage_dealt&dates=" + getDateString()
+        recentInfoAPI = "https://api.worldofwarships.\(server)/wows/account/statsbydate/?application_id=4e54ba74077a8230e457bf3e7e9ae858&account_id=\(account)&language=en&fields=pvp.wins%2Cpvp.battles%2Cpvp.damage_dealt&dates=" + getDateString()
         print(recentInfoAPI)
     }
     

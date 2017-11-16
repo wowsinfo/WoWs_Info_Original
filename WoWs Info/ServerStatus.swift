@@ -14,7 +14,7 @@ class ServerStatus: NSObject {
     static func getServerVersion(success: @escaping ((String) -> Void)) {
         // Get current server
         let server = ServerUrl.Server[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)]
-        if let url = URL(string: "https://api.worldofwarships.\(server)/wows/encyclopedia/info/?application_id=***ApplicationID***&fields=game_version" + Language.getLanguageString(Mode: Language.Index.API)) {
+        if let url = URL(string: "https://api.worldofwarships.\(server)/wows/encyclopedia/info/?application_id=4e54ba74077a8230e457bf3e7e9ae858&fields=game_version" + Language.getLanguageString(Mode: Language.Index.API)) {
             let request = URLRequest(url: url)
             let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
                 if error != nil {
@@ -34,7 +34,7 @@ class ServerStatus: NSObject {
         var serverStatus = [String]()
         
         // NA
-        let request = URLRequest(url: URL(string: "https://api.worldoftanks.com/wgn/servers/info/?application_id=***ApplicationID***")!)
+        let request = URLRequest(url: URL(string: "https://api.worldoftanks.com/wgn/servers/info/?application_id=4e54ba74077a8230e457bf3e7e9ae858")!)
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if error != nil {
                 print("Error: \(error!)")
@@ -43,7 +43,7 @@ class ServerStatus: NSObject {
                 if dataJson["status"].stringValue == "ok" {
                     serverStatus.append(dataJson["data"]["wows"][0]["players_online"].stringValue)
                     // EU
-                    let request = URLRequest(url: URL(string: "https://api.worldoftanks.eu/wgn/servers/info/?application_id=***ApplicationID***")!)
+                    let request = URLRequest(url: URL(string: "https://api.worldoftanks.eu/wgn/servers/info/?application_id=4e54ba74077a8230e457bf3e7e9ae858")!)
                     let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
                         if error != nil {
                             print("Error: \(error!)")
@@ -52,7 +52,7 @@ class ServerStatus: NSObject {
                             if dataJson["status"].stringValue == "ok" {
                                 serverStatus.append(dataJson["data"]["wows"][0]["players_online"].stringValue)
                                 // RU
-                                let request = URLRequest(url: URL(string: "https://api.worldoftanks.ru/wgn/servers/info/?application_id=***ApplicationID***")!)
+                                let request = URLRequest(url: URL(string: "https://api.worldoftanks.ru/wgn/servers/info/?application_id=4e54ba74077a8230e457bf3e7e9ae858")!)
                                 let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
                                     if error != nil {
                                         print("Error: \(error!)")
@@ -61,7 +61,7 @@ class ServerStatus: NSObject {
                                         if dataJson["status"].stringValue == "ok" {
                                             serverStatus.append(dataJson["data"]["wows"][0]["players_online"].stringValue)
                                             // ASIA
-                                            let request = URLRequest(url: URL(string: "https://api.worldoftanks.asia/wgn/servers/info/?application_id=***ApplicationID***")!)
+                                            let request = URLRequest(url: URL(string: "https://api.worldoftanks.asia/wgn/servers/info/?application_id=4e54ba74077a8230e457bf3e7e9ae858")!)
                                             let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
                                                 if error != nil {
                                                     print("Error: \(error!)")

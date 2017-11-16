@@ -16,7 +16,7 @@ class Shipinformation {
     static var ShipJson: JSON = JSON.null
 
     init() {
-        shipInfoAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/ships/?application_id=***ApplicationID***&fields=ship_id_str%2Cname%2Ctype%2Ctier%2Cnation%2Cimages.small%2C" + Language.getLanguageString(Mode: Language.Index.API)
+        shipInfoAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/ships/?application_id=4e54ba74077a8230e457bf3e7e9ae858&fields=ship_id_str%2Cname%2Ctype%2Ctier%2Cnation%2Cimages.small%2C" + Language.getLanguageString(Mode: Language.Index.API)
     }
     
     // Get basic information including Module tree
@@ -47,7 +47,7 @@ class Shipinformation {
         
         // Get all ship information here
         let server = ServerUrl.Server[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)]
-        let request = URLRequest.init(url: URL(string: "https://api.worldofwarships.\(server)/wows/encyclopedia/ships/?application_id=***ApplicationID***&fields=images.small&ship_id=" + ID)!)
+        let request = URLRequest.init(url: URL(string: "https://api.worldofwarships.\(server)/wows/encyclopedia/ships/?application_id=4e54ba74077a8230e457bf3e7e9ae858&fields=images.small&ship_id=" + ID)!)
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if error != nil {
                 print("Error: \(error!)")
@@ -111,7 +111,7 @@ class PlayerShip {
     
     init(account: String) {
         playerAccount = account
-        playerShipsAPI = "https://api.worldofwarships.\(server)/wows/ships/stats/?application_id=***ApplicationID***&account_id=\(account)&fields=ship_id%2Cpvp.battles%2Cpvp.damage_dealt%2Cpvp.wins%2Cpvp.xp%2Cpvp.frags%2Cpvp.survived_battles%2Cpvp.main_battery.hits%2Cpvp.main_battery.shots"
+        playerShipsAPI = "https://api.worldofwarships.\(server)/wows/ships/stats/?application_id=4e54ba74077a8230e457bf3e7e9ae858&account_id=\(account)&fields=ship_id%2Cpvp.battles%2Cpvp.damage_dealt%2Cpvp.wins%2Cpvp.xp%2Cpvp.frags%2Cpvp.survived_battles%2Cpvp.main_battery.hits%2Cpvp.main_battery.shots"
     }
     
     func getPlayerShipInfo() {

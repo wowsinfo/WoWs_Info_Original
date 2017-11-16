@@ -27,7 +27,7 @@ class RankInformation{
     
     init(ID: String) {
         AccountID = ID
-        RankAPI = "https://api.worldofwarships.\(server)/wows/seasons/accountinfo/?application_id=***ApplicationID***&account_id=\(ID)&fields=seasons.rank_solo.battles%2C+seasons.rank_solo.wins%2C+seasons.rank_info.rank%2c+seasons.rank_info.max_rank%2C+seasons.rank_solo.damage_dealt"
+        RankAPI = "https://api.worldofwarships.\(server)/wows/seasons/accountinfo/?application_id=4e54ba74077a8230e457bf3e7e9ae858&account_id=\(ID)&fields=seasons.rank_solo.battles%2C+seasons.rank_solo.wins%2C+seasons.rank_info.rank%2c+seasons.rank_info.max_rank%2C+seasons.rank_solo.damage_dealt"
     }
     
     func getRankInformation(success: @escaping ([[String]]) -> ()) {

@@ -16,7 +16,7 @@ class PlayerInfomation {
     
     // API url to search player
     var server = ""
-    let applicationID = "***ApplicationID***"
+    let applicationID = "4e54ba74077a8230e457bf3e7e9ae858"
     var playerSearchAPI = ""
     
     // Search limit bt default is 15

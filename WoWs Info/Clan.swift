@@ -23,7 +23,7 @@ class ClanSearch {
     init() {
         // Get server string
         let server = ServerUrl.Server[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)]
-        clanAPI = "https://api.worldofwarships.\(server)/wows/clans/list/?application_id=***ApplicationID***&search="
+        clanAPI = "https://api.worldofwarships.\(server)/wows/clans/list/?application_id=4e54ba74077a8230e457bf3e7e9ae858&search="
     }
     
     func getClanList(clan: String, success: @escaping ([[String]]) -> ()) {
@@ -77,7 +77,7 @@ class ClanInfo {
         // Get server string
         let server = ServerUrl.Server[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)]
         clanID = ID
-        clanAPI = "https://api.worldofwarships.\(server)/wows/clans/info/?application_id=***ApplicationID***&clan_id=\(ID)&extra=members&fields=creator_name%2Cdescription%2Cmembers.account_id%2Cmembers.account_name"
+        clanAPI = "https://api.worldofwarships.\(server)/wows/clans/info/?application_id=4e54ba74077a8230e457bf3e7e9ae858&clan_id=\(ID)&extra=members&fields=creator_name%2Cdescription%2Cmembers.account_id%2Cmembers.account_name"
         print(clanAPI)
     }
     
@@ -128,7 +128,7 @@ class PlayerClan {
         // Get server string
         let server = ServerUrl.Server[UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)]
         PlayerID = PlayerAccount.AccountID
-        clanAPI = "https://api.worldofwarships.\(server)/wows/clans/accountinfo/?application_id=***ApplicationID***&account_id=\(PlayerID)&extra=clan&fields=clan_id%2Cclan.tag"
+        clanAPI = "https://api.worldofwarships.\(server)/wows/clans/accountinfo/?application_id=4e54ba74077a8230e457bf3e7e9ae858&account_id=\(PlayerID)&extra=clan&fields=clan_id%2Cclan.tag"
     }
     
     func getClanList(success: @escaping ([String]) -> ()) {

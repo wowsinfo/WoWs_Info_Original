@@ -13,7 +13,7 @@ class PlayerStat{
         
     // Player Stat API url
     var server = ""
-    let applicationID = "***ApplicationID***"
+    let applicationID = "4e54ba74077a8230e457bf3e7e9ae858"
     var playerDataAPI = ""
     
     // Index of passing data
