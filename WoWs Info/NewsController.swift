@@ -30,7 +30,7 @@ class NewsController: UITableViewController, SFSafariViewControllerDelegate, GAD
             bannerView.rootViewController = self
             bannerView.delegate = self
             let request = GADRequest()
-            request.testDevices = [kGADSimulatorID]
+            request.testDevices = [kGADSimulatorID] as! [String]
             bannerView.load(request)
         }
         

@@ -61,8 +61,8 @@ class News {
                 print("Error: \(String(describing: error))")
             } else {
                 var newsInfo = [[String]]()
-                if let news = HTML(html: data!, encoding: .utf8) {
-                    
+                do {
+                    let news = try HTML(html: data!, encoding: .utf8)
                     for link in news.css(".tile__title") {
                         newsInfo.append([link.text!, "", ""])
                     }
@@ -78,6 +78,9 @@ class News {
                         newsInfo[index][2] = link.text!.replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: " ", with: "")
                         index += 1
                     }
+                } catch let error as NSError {
+                    // Error
+                    print("Error: \(error)")
                 }
                 success(newsInfo)
             }

@@ -43,7 +43,7 @@ class SettingsController: UITableViewController, GADBannerViewDelegate, GADRewar
             bannerView.rootViewController = self
             bannerView.delegate = self
             let request = GADRequest()
-            request.testDevices = [kGADSimulatorID]
+            request.testDevices = [kGADSimulatorID] as! [String]
             bannerView.load(request)
             
             inset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)

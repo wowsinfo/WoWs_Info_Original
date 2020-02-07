@@ -26,7 +26,7 @@ class IntroController: UIViewController, GADInterstitialDelegate {
             interstitial = GADInterstitial(adUnitID: "ca-app-pub-5048098651344514/7499671184")
             interstitial.delegate = self
             let request = GADRequest()
-            request.testDevices = [kGADSimulatorID]
+            request.testDevices = [kGADSimulatorID] as! [String]
             interstitial.load(request)
         } else {
             // Change to Pro Image

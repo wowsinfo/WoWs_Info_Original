@@ -58,7 +58,7 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
             bannerView.rootViewController = self
             bannerView.delegate = self
             let request = GADRequest()
-            request.testDevices = [kGADSimulatorID]
+            request.testDevices = [kGADSimulatorID] as! [String]
             bannerView.load(request)
         }
         
