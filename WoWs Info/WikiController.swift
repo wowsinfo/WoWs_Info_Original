@@ -72,7 +72,7 @@ class WikiController: UITableViewController {
         if segue.identifier == "gotoWikiData" {
             // We have to send seme data
             let destination = segue.destination as! WikiDataController
-            destination.dataType = sender as! Int
+            destination.dataType = sender as? Int
         }
     }
     

@@ -7,13 +7,11 @@
 //
 
 import UIKit
-import GoogleMobileAds
 
 // Lol, that's lots of delegates and data sources
-class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, GADBannerViewDelegate, GADRewardBasedVideoAdDelegate {
+class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var showAdsConstraint: NSLayoutConstraint!
-    @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet weak var pointLabel: UILabel!
     
     @IBOutlet weak var username: UITextField!
@@ -44,22 +42,6 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
             }))
             self.present(github, animated: true, completion: nil)
             UserDefaults.standard.set(true, forKey: DataManagement.DataName.gotoGithub)
-        }
-        
-        // Whether ads should be shown
-        if isPro {
-            // Adjust constraint
-            showAdsConstraint.constant -= 50
-            bannerView.removeFromSuperview()
-        } else {
-            // Load ads
-            bannerView.adSize = kGADAdSizeSmartBannerPortrait
-            bannerView.adUnitID = "ca-app-pub-5048098651344514/4703363983"
-            bannerView.rootViewController = self
-            bannerView.delegate = self
-            let request = GADRequest()
-            request.testDevices = [kGADSimulatorID] as! [String]
-            bannerView.load(request)
         }
         
         // Load rating
@@ -127,14 +109,6 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
         // Reload server
         getServerName()
         
-        // Check if user needs to watch a video ads
-        if !UserDefaults.standard.bool(forKey: DataManagement.DataName.hasPurchased) && PointSystem.getCurrPoint() < 1 {
-            GADRewardBasedVideoAd.sharedInstance().delegate = self
-            if GADRewardBasedVideoAd.sharedInstance().isReady {
-                GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
-            }
-        }
-        
         // Update point
         pointLabel.text = "POINT_SYSTEM".localised() + ": \(PointSystem.getCurrPoint())"
     }
@@ -142,18 +116,6 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     func getServerName() {
         server = UserDefaults.standard.integer(forKey: DataManagement.DataName.Server)
         username.placeholder = NSLocalizedString("SERVER", comment: "Server label") + " : \(ServerUrl.ServerName[server])"
-    }
-    
-    // MARK: ADS
-    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
-        // Adjust constraint
-        showAdsConstraint.constant -= 50
-        bannerView.removeFromSuperview()
-    }
-    
-    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didRewardUserWith reward: GADAdReward) {
-        // Add 3 points
-        PointSystem(index: PointSystem.DataIndex.AD).addPoint()
     }
     
     // MARK: segmentedControl pressed

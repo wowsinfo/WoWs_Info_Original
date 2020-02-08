@@ -42,7 +42,7 @@ class ShipScreenshotController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(shipID)
+        print(shipID ?? "0")
         nameLabel.text = PlayerAccount.AccountName
         shipNameLabel.text = shipName
         battleLabel.text = battle

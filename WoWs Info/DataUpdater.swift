@@ -15,7 +15,7 @@ class DataUpdater {
         // Get path for ExpectedValue.json
 
         do {
-            let data = try HTML(url: URL(string: "http://wows-numbers.com/personal/rating/expected/json/")!, encoding: .utf8)
+            let data = try HTML(url: URL(string: "https://raw.githubusercontent.com/HenryQuan/WoWs-Info-Re/API/json/personal_rating.json")!, encoding: .utf8)
             // Try to update data
             let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! as NSURL
             if let pathUrl = path.appendingPathComponent("ExpectedValue.json") {

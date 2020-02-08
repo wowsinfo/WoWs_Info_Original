@@ -10,6 +10,6 @@ import UIKit
 
 class Theme: NSObject {
     static func getCurrTheme() -> UIColor {
-        return UserDefaults.standard.color(forKey: DataManagement.DataName.theme)!
+        return UserDefaults.standard.color(forKey: DataManagement.DataName.theme) ?? UIColor.blue
     }
 }

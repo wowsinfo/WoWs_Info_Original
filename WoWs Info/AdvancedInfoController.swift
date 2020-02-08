@@ -9,9 +9,8 @@
 import UIKit
 import AudioToolbox
 import SafariServices
-import GoogleMobileAds
 
-class AdvancedInfoController: UITableViewController, SFSafariViewControllerDelegate, GADRewardBasedVideoAdDelegate {
+class AdvancedInfoController: UITableViewController, SFSafariViewControllerDelegate {
 
     var playerInfo = [String]()
     @IBOutlet weak var clanNameLabel: UILabel!
@@ -306,11 +305,6 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
         }
         
         return true
-    }
-    
-    // MARK: ADS
-    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didRewardUserWith reward: GADAdReward) {
-        PointSystem(index: PointSystem.DataIndex.AD).addPoint()
     }
     
     // MARK: Helper Function

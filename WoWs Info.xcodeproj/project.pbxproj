@@ -26,7 +26,6 @@
 		922AD1171F07B71B003E509C /* LicenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922AD1161F07B71B003E509C /* LicenceController.swift */; };
 		922D0E551E6295A20056EDE6 /* ShipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D0E541E6295A20056EDE6 /* ShipCell.swift */; };
 		922D0E571E6295DE0056EDE6 /* ShipInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922D0E561E6295DE0056EDE6 /* ShipInfoController.swift */; };
-		923044AB1E7E1AA400DF20E2 /* Siren.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923044AA1E7E1AA400DF20E2 /* Siren.framework */; };
 		92338F881EB4C4AF00054DAE /* DeveloperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92338F871EB4C4AF00054DAE /* DeveloperCell.swift */; };
 		9233ECBF1F148D2E006748EC /* ChineseServer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9233ECBE1F148D2E006748EC /* ChineseServer.storyboard */; };
 		9233ECC11F149A50006748EC /* ChineseServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9233ECC01F149A50006748EC /* ChineseServer.swift */; };
@@ -64,7 +63,6 @@
 		927AA8631EAEDAD600169B0A /* ClanSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927AA8621EAEDAD600169B0A /* ClanSearchCell.swift */; };
 		9295B1CE1EBDEF3B008FE418 /* FriendList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9295B1D01EBDEF3B008FE418 /* FriendList.storyboard */; };
 		9295B1D71EBDF40B008FE418 /* AdvancedStat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9295B1D91EBDF40B008FE418 /* AdvancedStat.storyboard */; };
-		9295B1DF1EBE077E008FE418 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9295B1DE1EBE077E008FE418 /* GoogleService-Info.plist */; };
 		9298CF1C1F21D0E300DAF739 /* ServerStatus.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9298CF1B1F21D0E300DAF739 /* ServerStatus.storyboard */; };
 		9298CF1F1F21D4C800DAF739 /* ServerStatusController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9298CF1E1F21D4C800DAF739 /* ServerStatusController.swift */; };
 		9298CF211F21D56400DAF739 /* ServerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9298CF201F21D56400DAF739 /* ServerStatus.swift */; };
@@ -147,7 +145,6 @@
 		922AD1161F07B71B003E509C /* LicenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LicenceController.swift; sourceTree = "<group>"; };
 		922D0E541E6295A20056EDE6 /* ShipCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipCell.swift; sourceTree = "<group>"; };
 		922D0E561E6295DE0056EDE6 /* ShipInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipInfoController.swift; sourceTree = "<group>"; };
-		923044AA1E7E1AA400DF20E2 /* Siren.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Siren.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/Siren/Siren.framework"; sourceTree = "<group>"; };
 		92338F871EB4C4AF00054DAE /* DeveloperCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeveloperCell.swift; sourceTree = "<group>"; };
 		9233ECBE1F148D2E006748EC /* ChineseServer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChineseServer.storyboard; sourceTree = "<group>"; };
 		9233ECC01F149A50006748EC /* ChineseServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChineseServer.swift; sourceTree = "<group>"; };
@@ -187,7 +184,6 @@
 		927661041EA0676C00282732 /* IAPCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPCell.swift; sourceTree = "<group>"; };
 		9276610E1EA0888100282732 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		927AA8621EAEDAD600169B0A /* ClanSearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClanSearchCell.swift; sourceTree = "<group>"; };
-		92813BB61E47447C009AA9E8 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		929489081E61AB8800B471F2 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "../../../../Library/Developer/Xcode/DerivedData/WoWs_Info-ayxocjnyaqwqfkgmtdlonobyiclo/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework"; sourceTree = "<group>"; };
 		9295B1CF1EBDEF3B008FE418 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FriendList.storyboard; sourceTree = "<group>"; };
 		9295B1D21EBDEF3D008FE418 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/FriendList.strings"; sourceTree = "<group>"; };
@@ -196,7 +192,6 @@
 		9295B1D81EBDF40B008FE418 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AdvancedStat.storyboard; sourceTree = "<group>"; };
 		9295B1DB1EBDF40D008FE418 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AdvancedStat.strings"; sourceTree = "<group>"; };
 		9295B1DD1EBDF40E008FE418 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/AdvancedStat.strings"; sourceTree = "<group>"; };
-		9295B1DE1EBE077E008FE418 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9298CF1B1F21D0E300DAF739 /* ServerStatus.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ServerStatus.storyboard; sourceTree = "<group>"; };
 		9298CF1E1F21D4C800DAF739 /* ServerStatusController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerStatusController.swift; sourceTree = "<group>"; };
 		9298CF201F21D56400DAF739 /* ServerStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerStatus.swift; sourceTree = "<group>"; };
@@ -251,7 +246,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				923044AB1E7E1AA400DF20E2 /* Siren.framework in Frameworks */,
 				92423B0E1E737F64006B538F /* SDWebImage.framework in Frameworks */,
 				9215CA411E5BF34800A7F465 /* Pods_WoWs_Info.framework in Frameworks */,
 				9215CA3F1E5BF33D00A7F465 /* SwiftyJSON.framework in Frameworks */,
@@ -267,7 +261,6 @@
 		2359F6695FFC24A39880BFF8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				923044AA1E7E1AA400DF20E2 /* Siren.framework */,
 				929489081E61AB8800B471F2 /* SDWebImage.framework */,
 				9215CA401E5BF34800A7F465 /* Pods_WoWs_Info.framework */,
 				9215CA3A1E5BF28100A7F465 /* GoogleToolboxForMac.framework */,
@@ -389,11 +382,9 @@
 				92D9B4D71E55C87700CFD46D /* TableViewCell */,
 				9210C0801E4609EF00270002 /* ViewControllers */,
 				921EA6981E35F2FB0007C7FC /* AppDelegate.swift */,
-				9295B1DE1EBE077E008FE418 /* GoogleService-Info.plist */,
 				920105B41EB1827B00E5F338 /* Reachability.swift */,
 				921EA6A41E35F2FB0007C7FC /* Info.plist */,
 				92B768871E5E6E34009803C3 /* Localizable.strings */,
-				92813BB61E47447C009AA9E8 /* GoogleMobileAds.framework */,
 			);
 			path = "WoWs Info";
 			sourceTree = "<group>";
@@ -689,7 +680,7 @@
 					921EA6941E35F2FB0007C7FC = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 4YSG3SYMLE;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -710,6 +701,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 				"zh-Hans",
@@ -738,7 +730,6 @@
 				921EA69E1E35F2FB0007C7FC /* Main.storyboard in Resources */,
 				9233ECBF1F148D2E006748EC /* ChineseServer.storyboard in Resources */,
 				92B768701E5E5DE1009803C3 /* UsefulWebsite.storyboard in Resources */,
-				9295B1DF1EBE077E008FE418 /* GoogleService-Info.plist in Resources */,
 				92B768851E5E6E34009803C3 /* Localizable.strings in Resources */,
 				9298CF1C1F21D0E300DAF739 /* ServerStatus.storyboard in Resources */,
 				925636591E53F1CA0002E08A /* Assets.xcassets in Resources */,
@@ -761,26 +752,16 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-WoWs Info/Pods-WoWs Info-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
-				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/Siren/Siren.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Siren.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1141,7 +1122,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1163,7 +1144,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

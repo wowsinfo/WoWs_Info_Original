@@ -145,7 +145,7 @@ class Ships {
     func getUpdatedInformation(hull: String, engine: String, torpedoes: String, fireControl: String, artillery: String, flightControl: String, success: @escaping (JSON) -> ()) {
         // This is the ship parameter
         moduleAPI = "https://api.worldofwarships.\(server)/wows/encyclopedia/shipprofile/?application_id=4e54ba74077a8230e457bf3e7e9ae858&ship_id=\(ship_id!)&artillery_id=\(artillery)&engine_id=\(engine)&fire_control_id=\(fireControl)&torpedoes_id=\(torpedoes)&hull_id=\(hull)&flight_control_id=\(flightControl)&fields=-atbas%2C-dive_bomber%2C-fighters%2C-torpedo_bomber" + Language.getLanguageString(Mode: Language.Index.API)
-        print(moduleAPI)
+        print(moduleAPI ?? "moduleAPI")
         
         let request = URLRequest(url: URL(string: moduleAPI)!)
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in

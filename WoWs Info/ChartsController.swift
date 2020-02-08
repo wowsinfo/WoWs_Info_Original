@@ -106,7 +106,7 @@ class ChartsController: UIViewController, ChartViewDelegate {
                 dataEntries.append(dataEntry)
             }
             
-            let chartDataSet = BarChartDataSet(values: dataEntries, label: NSLocalizedString("CHART_BATTLE", comment: "Chart battle label"))
+            let chartDataSet = BarChartDataSet(entries: dataEntries, label: NSLocalizedString("CHART_BATTLE", comment: "Chart battle label"))
             chartDataSet.colors = ChartColorTemplates.vordiplom()
             chartDataSet.valueFont = UIFont.systemFont(ofSize: 10)
             let chartData = BarChartData.init(dataSets: [chartDataSet])
@@ -130,7 +130,7 @@ class ChartsController: UIViewController, ChartViewDelegate {
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = PieChartDataSet(values: dataEntries, label: "")
+        let chartDataSet = PieChartDataSet(entries: dataEntries, label: "")
         chartDataSet.colors = ChartColorTemplates.material()
         chartDataSet.valueFont = UIFont.systemFont(ofSize: 12)
         let chartData = PieChartData.init(dataSets: [chartDataSet])
@@ -161,7 +161,7 @@ class ChartsController: UIViewController, ChartViewDelegate {
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = BarChartDataSet(values: dataEntries, label: NSLocalizedString("CHART_BATTLE", comment: "Chart battle label"))
+        let chartDataSet = BarChartDataSet(entries: dataEntries, label: NSLocalizedString("CHART_BATTLE", comment: "Chart battle label"))
         chartDataSet.colors = ChartColorTemplates.joyful()
         chartDataSet.valueFont = UIFont.systemFont(ofSize: 12)
         let chartData = BarChartData.init(dataSets: [chartDataSet])
@@ -206,7 +206,7 @@ class ChartsController: UIViewController, ChartViewDelegate {
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = LineChartDataSet(values: dataEntries, label: NSLocalizedString("CHART_BATTLE", comment: "Chart battle label"))
+        let chartDataSet = LineChartDataSet(entries: dataEntries, label: NSLocalizedString("CHART_BATTLE", comment: "Chart battle label"))
         chartDataSet.setColor(colour)
         chartDataSet.setCircleColor(colour)
         chartDataSet.circleRadius = 3.0
@@ -216,7 +216,7 @@ class ChartsController: UIViewController, ChartViewDelegate {
         
         let avg = getRecentAverage(index: RecentData.dataIndex.battle)
         let average = ChartLimitLine(limit: avg, label: String(format: "%.1f", avg))
-        average.labelPosition = .rightBottom
+        average.labelPosition = .bottomRight
         average.lineWidth = 0.5
         average.lineColor = colour
         recentBattleLineChart.rightAxis.addLimitLine(average)
@@ -233,7 +233,7 @@ class ChartsController: UIViewController, ChartViewDelegate {
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = LineChartDataSet(values: dataEntries, label: NSLocalizedString("WIN_RATE", comment: "Chart battle label"))
+        let chartDataSet = LineChartDataSet(entries: dataEntries, label: NSLocalizedString("WIN_RATE", comment: "Chart battle label"))
         chartDataSet.setColor(colour)
         chartDataSet.setCircleColor(colour)
         chartDataSet.circleRadius = 3.0
@@ -243,7 +243,7 @@ class ChartsController: UIViewController, ChartViewDelegate {
         
         let avg = getRecentAverage(index: RecentData.dataIndex.win)
         let average = ChartLimitLine(limit: avg, label: String(format: "%.1f", avg))
-        average.labelPosition = .rightBottom
+        average.labelPosition = .bottomRight
         average.lineWidth = 0.5
         average.lineColor = colour
         recentWinrateLineChart.rightAxis.addLimitLine(average)
@@ -260,7 +260,7 @@ class ChartsController: UIViewController, ChartViewDelegate {
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = LineChartDataSet(values: dataEntries, label: NSLocalizedString("AVG_DAMAGE", comment: "Chart battle label"))
+        let chartDataSet = LineChartDataSet(entries: dataEntries, label: NSLocalizedString("AVG_DAMAGE", comment: "Chart battle label"))
         chartDataSet.setColor(colour)
         chartDataSet.setCircleColor(colour)
         chartDataSet.circleRadius = 3.0
@@ -270,7 +270,7 @@ class ChartsController: UIViewController, ChartViewDelegate {
         
         let avg = getRecentAverage(index: RecentData.dataIndex.damage)
         let average = ChartLimitLine(limit: avg, label: String(format: "%.0f", avg))
-        average.labelPosition = .rightBottom
+        average.labelPosition = .bottomRight
         average.lineWidth = 0.5
         average.lineColor = colour
         recentDamageLineChart.rightAxis.addLimitLine(average)

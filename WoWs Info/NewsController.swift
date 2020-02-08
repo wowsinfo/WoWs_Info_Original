@@ -8,31 +8,13 @@
 
 import UIKit
 import SafariServices
-import GoogleMobileAds
 
-class NewsController: UITableViewController, SFSafariViewControllerDelegate, GADBannerViewDelegate {
+class NewsController: UITableViewController, SFSafariViewControllerDelegate {
 
     var newsData = [[String]]()
-    @IBOutlet weak var bannerView: GADBannerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Whether ads should be shown
-        if UserDefaults.standard.bool(forKey: DataManagement.DataName.hasPurchased) {
-            // Remove it
-            bannerView.removeFromSuperview()
-            bannerView.frame.size.height = 0
-        } else {
-            // Load ads
-            bannerView.adSize = kGADAdSizeSmartBannerPortrait
-            bannerView.adUnitID = "ca-app-pub-5048098651344514/4703363983"
-            bannerView.rootViewController = self
-            bannerView.delegate = self
-            let request = GADRequest()
-            request.testDevices = [kGADSimulatorID] as! [String]
-            bannerView.load(request)
-        }
         
         // Automatic row height and remove separator line
         self.tableView.separatorColor = UIColor.clear
@@ -72,13 +54,6 @@ class NewsController: UITableViewController, SFSafariViewControllerDelegate, GAD
             self.tableView.reloadData()
             self.tableView.reloadRows(at: self.tableView.indexPathsForVisibleRows!, with: .automatic)
         }
-    }
-    
-    // MARK: ADS
-    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
-        // Remove it
-        bannerView.removeFromSuperview()
-        bannerView.frame.size.height = 0
     }
 
     // MARK: - Table view data source

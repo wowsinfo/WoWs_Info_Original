@@ -7,12 +7,10 @@
 //
 
 import UIKit
-import GoogleMobileAds
 import Social
 
-class SettingsController: UITableViewController, GADBannerViewDelegate, GADRewardBasedVideoAdDelegate {
+class SettingsController: UITableViewController {
 
-    @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet weak var webImage: UIImageView!
     @IBOutlet weak var facebookImage: UIImageView!
     @IBOutlet weak var themeImage: UIImageView!
@@ -28,38 +26,15 @@ class SettingsController: UITableViewController, GADBannerViewDelegate, GADRewar
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Adjust insets for Pro and Free users
-        var inset: UIEdgeInsets!
-        // Whether ads should be shown
-        if UserDefaults.standard.bool(forKey: DataManagement.DataName.hasPurchased) {
-            // Remove it
-            bannerView.removeFromSuperview()
-            inset = UIEdgeInsets(top: -50, left: 0, bottom: 0, right: 0)
-        } else {
-            // Load ads
-            bannerView.adSize = kGADAdSizeSmartBannerPortrait
-            bannerView.adUnitID = "ca-app-pub-5048098651344514/4703363983"
-            bannerView.rootViewController = self
-            bannerView.delegate = self
-            let request = GADRequest()
-            request.testDevices = [kGADSimulatorID] as! [String]
-            bannerView.load(request)
-            
-            inset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        }
-        
+    
         // Setup Tableview
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.contentInset = inset
+
         
-        
-        if isPro {
-            self.proBtn.removeFromSuperview()
-            // Update theme image
-            themeImage.image = #imageLiteral(resourceName: "ThemePro")
-        }
+        self.proBtn.removeFromSuperview()
+        // Update theme image
+        themeImage.image = #imageLiteral(resourceName: "ThemePro")
         
         // Setup Theme
         setupTheme()
@@ -138,42 +113,10 @@ class SettingsController: UITableViewController, GADBannerViewDelegate, GADRewar
         return true
     }
     
-    // MARK: ADS
-    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
-        // Remove it
-        bannerView.removeFromSuperview()
-        bannerView.frame.size.height = 0
-    }
-    
-    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didRewardUserWith reward: GADAdReward) {
-        // Add some points
-        PointSystem(index: PointSystem.DataIndex.AD).addPoint()
-        updatePoint()
-    }
     
     // MARK: UITableView
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let tag = tableView.cellForRow(at: indexPath)?.tag {
-            // Point
-            if tag == 10 {
-                if !isPro {
-                    GADRewardBasedVideoAd.sharedInstance().delegate = self
-                    if GADRewardBasedVideoAd.sharedInstance().isReady {
-                        GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
-                    } else {
-                        notReadyCount += 1
-                        let notReady = UIAlertController.QuickMessage(title: "ADS_NOT_READY_TITLE".localised(), message: "ADS_NOT_READY_MESSAGE".localised(), cancel: "OK")
-                        self.present(notReady, animated: true, completion: nil)
-                        
-                        if notReadyCount % 10 == 0 {
-                            // You could get 1 point if ads could not load
-                            PointSystem(index: PointSystem.DataIndex.NotReady).addPoint()
-                            updatePoint()
-                        }
-                    }
-                }
-            }
-            
             // Share
             let link = URL(string: "https://itunes.apple.com/app/id1202750166")!
             switch tag {

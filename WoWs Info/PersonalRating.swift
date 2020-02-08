@@ -96,7 +96,9 @@ class ShipRating {
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first! as NSURL
         let pathUrl = path.appendingPathComponent("ExpectedValue.json")!
         let jsonData = NSData(contentsOfFile:pathUrl.path)
-        ShipRating.shipExpected = JSON(data: jsonData! as Data)
+        do {
+            ShipRating.shipExpected = try JSON(data: jsonData! as Data)
+        } catch { }
     }
     
     func getRatingForShips(Damage: Double, WinRate: Double, Frags: Double, ID: String) -> String{

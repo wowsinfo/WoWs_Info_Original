@@ -7,26 +7,14 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseMessaging
-import Siren
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        FirebaseApp.configure()
-        GADMobileAds.configure(withApplicationID: "ca-app-pub-5048098651344514~3226630788")
-        // Setup Rewarded Video
-        let request = GADRequest()
-        request.testDevices = [kGADSimulatorID] as! [String]
-        GADRewardBasedVideoAd.sharedInstance().load(request, withAdUnitID: "ca-app-pub-5048098651344514/5135812781")
-        
         // Change status bar color
-        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+        UIApplication.shared.statusBarStyle = .lightContent
         
         let user = UserDefaults.standard
         // Prepare for userdefaults
@@ -110,11 +98,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        // Setup siren
-        let siren = Siren.shared
-        siren.wail()
-        // siren.debugEnabled = true
-        
         // Setup remote notification
         let notificationTypes: UIUserNotificationType = [UIUserNotificationType.alert, UIUserNotificationType.badge, UIUserNotificationType.sound]
         let notificationSettings = UIUserNotificationSettings(types: notificationTypes, categories: nil)
@@ -127,6 +110,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let search = UIApplicationShortcutItem(type: "com.yihengquan.WoWs-Info.Search", localizedTitle: "SEARCH".localised(), localizedSubtitle: "", icon: UIApplicationShortcutIcon.init(type: UIApplicationShortcutIcon.IconType.search), userInfo: nil)
         let contact = UIApplicationShortcutItem(type: "com.yihengquan.WoWs-Info.Contact", localizedTitle: "DASHBOARD".localised(), localizedSubtitle: "", icon: UIApplicationShortcutIcon.init(templateImageName: "Dashboard"), userInfo: nil)
         UIApplication.shared.shortcutItems = [news, wiki, search, contact]
+        
+        print("Setup done")
         
         return true
     }

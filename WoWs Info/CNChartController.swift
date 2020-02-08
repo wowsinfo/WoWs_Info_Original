@@ -46,7 +46,7 @@ class CNChartController: UITableViewController, ChartViewDelegate {
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = LineChartDataSet(values: dataEntries, label: NSLocalizedString("CHART_BATTLE", comment: "Chart battle label"))
+        let chartDataSet = LineChartDataSet(entries: dataEntries, label: NSLocalizedString("CHART_BATTLE", comment: "Chart battle label"))
         chartDataSet.setColor(colour)
         chartDataSet.setCircleColor(colour)
         chartDataSet.circleRadius = 3.0
@@ -56,7 +56,7 @@ class CNChartController: UITableViewController, ChartViewDelegate {
         
         let avg = getRecentAverage(index: RecentData.dataIndex.battle)
         let average = ChartLimitLine(limit: avg, label: String(format: "%.1f", avg))
-        average.labelPosition = .rightBottom
+        average.labelPosition = .bottomRight
         average.lineWidth = 0.5
         average.lineColor = colour
         battleLineChart.rightAxis.addLimitLine(average)
@@ -73,7 +73,7 @@ class CNChartController: UITableViewController, ChartViewDelegate {
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = LineChartDataSet(values: dataEntries, label: NSLocalizedString("WIN_RATE", comment: "Chart battle label"))
+        let chartDataSet = LineChartDataSet(entries: dataEntries, label: NSLocalizedString("WIN_RATE", comment: "Chart battle label"))
         chartDataSet.setColor(colour)
         chartDataSet.setCircleColor(colour)
         chartDataSet.circleRadius = 3.0
@@ -83,7 +83,7 @@ class CNChartController: UITableViewController, ChartViewDelegate {
         
         let avg = getRecentAverage(index: RecentData.dataIndex.win)
         let average = ChartLimitLine(limit: avg, label: String(format: "%.1f", avg))
-        average.labelPosition = .rightBottom
+        average.labelPosition = .bottomRight
         average.lineWidth = 0.5
         average.lineColor = colour
         winrateLineChart.rightAxis.addLimitLine(average)
@@ -100,7 +100,7 @@ class CNChartController: UITableViewController, ChartViewDelegate {
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = LineChartDataSet(values: dataEntries, label: NSLocalizedString("AVG_DAMAGE", comment: "Chart battle label"))
+        let chartDataSet = LineChartDataSet(entries: dataEntries, label: NSLocalizedString("AVG_DAMAGE", comment: "Chart battle label"))
         chartDataSet.setColor(colour)
         chartDataSet.setCircleColor(colour)
         chartDataSet.circleRadius = 3.0
@@ -110,7 +110,7 @@ class CNChartController: UITableViewController, ChartViewDelegate {
         
         let avg = getRecentAverage(index: RecentData.dataIndex.damage)
         let average = ChartLimitLine(limit: avg, label: String(format: "%.0f", avg))
-        average.labelPosition = .rightBottom
+        average.labelPosition = .bottomRight
         average.lineWidth = 0.5
         average.lineColor = colour
         damageLineChart.rightAxis.addLimitLine(average)

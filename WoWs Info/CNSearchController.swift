@@ -8,9 +8,8 @@
 
 import UIKit
 import SafariServices
-import GoogleMobileAds
 
-class CNSearchController: UIViewController, UITextFieldDelegate, GADRewardBasedVideoAdDelegate , SFSafariViewControllerDelegate {
+class CNSearchController: UIViewController, UITextFieldDelegate , SFSafariViewControllerDelegate {
 
     @IBOutlet weak var playerTextField: UITextField!
     @IBOutlet weak var serverSwitch: UISwitch!
@@ -49,13 +48,6 @@ class CNSearchController: UIViewController, UITextFieldDelegate, GADRewardBasedV
         
         let currPoint = PointSystem.getCurrPoint()
         pointLabel.text = "点数: \(currPoint)"
-        // Check if user needs to watch a video ads
-        if !isPro && currPoint < 1 {
-            GADRewardBasedVideoAd.sharedInstance().delegate = self
-            if GADRewardBasedVideoAd.sharedInstance().isReady {
-                GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
-            }
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -162,12 +154,6 @@ class CNSearchController: UIViewController, UITextFieldDelegate, GADRewardBasedV
         // CHange status bar colour back
         UIApplication.shared.statusBarStyle = .lightContent
         controller.dismiss(animated: true, completion: nil)
-    }
-    
-    // MARK: ADs
-    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didRewardUserWith reward: GADAdReward) {
-        // Add 3 - 7 points
-        PointSystem(index: PointSystem.DataIndex.AD).addPoint()
     }
     
 }

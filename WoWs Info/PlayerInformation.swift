@@ -40,7 +40,7 @@ class PlayerInfomation {
     func isInputValid(input: String) -> Bool {
         
         // At least 3 character. Whitespace is not counted
-        return input.replacingOccurrences(of: " ", with: "").characters.count >= 3
+        return input.replacingOccurrences(of: " ", with: "").count >= 3
         
     }
     
