@@ -689,6 +689,7 @@
 					921EA6941E35F2FB0007C7FC = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 4YSG3SYMLE;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -1139,7 +1140,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yihengquan.WoWs-Info";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1160,7 +1162,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yihengquan.WoWs-Info";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

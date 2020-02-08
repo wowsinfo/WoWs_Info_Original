@@ -100,7 +100,7 @@ class FriendController: UIViewController, UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         // Better font
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 20.0, weight: UIFontWeightLight)
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 20.0, weight: UIFont.Weight.light)
         // Show indicator
         cell.accessoryType = .disclosureIndicator
         
@@ -125,7 +125,7 @@ class FriendController: UIViewController, UITableViewDelegate, UITableViewDataSo
         }
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Remove from ist
             let index  = modeSegment.selectedSegmentIndex

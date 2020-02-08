@@ -62,7 +62,7 @@ class CNShipController: UIViewController ,UITableViewDelegate, UITableViewDataSo
         cell.contentView.layer.borderWidth = 1.25
         cell.contentView.layer.cornerRadius = 10
         cell.contentView.layer.masksToBounds = true
-        cell.layoutMargins = UIEdgeInsetsMake(10, 10, 10, 10)
+        cell.layoutMargins = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10)
         cell.contentView.layer.borderColor = Theme.getCurrTheme().cgColor
         
         return cell

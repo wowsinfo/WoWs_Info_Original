@@ -75,7 +75,7 @@ class ShipScreenshotController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func takeScreenshot() {
+    @objc func takeScreenshot() {
         UIGraphicsBeginImageContextWithOptions(view.frame.size, true, 0.0)
         view.layer.render(in: UIGraphicsGetCurrentContext()!)
         let screenshot = UIGraphicsGetImageFromCurrentImageContext()!

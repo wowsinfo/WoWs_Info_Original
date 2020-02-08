@@ -71,7 +71,7 @@ class CNSearchController: UIViewController, UITextFieldDelegate, GADRewardBasedV
         }
     }
     
-    func goBack() {
+    @objc func goBack() {
         // Go BACK >_<
         let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
         let tabbar = storyboard.instantiateViewController(withIdentifier: "TabBarController")

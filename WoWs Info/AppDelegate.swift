@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
         GADMobileAds.configure(withApplicationID: "ca-app-pub-5048098651344514~3226630788")
@@ -124,7 +124,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Shortcuts
         let news = UIApplicationShortcutItem(type: "com.yihengquan.WoWs-Info.News", localizedTitle: "NEWS".localised(), localizedSubtitle: "", icon: UIApplicationShortcutIcon.init(templateImageName: "News"), userInfo: nil)
         let wiki = UIApplicationShortcutItem(type: "com.yihengquan.WoWs-Info.Wiki", localizedTitle: "WIKI".localised(), localizedSubtitle: "", icon: UIApplicationShortcutIcon.init(templateImageName: "WikiBar"), userInfo: nil)
-        let search = UIApplicationShortcutItem(type: "com.yihengquan.WoWs-Info.Search", localizedTitle: "SEARCH".localised(), localizedSubtitle: "", icon: UIApplicationShortcutIcon.init(type: UIApplicationShortcutIconType.search), userInfo: nil)
+        let search = UIApplicationShortcutItem(type: "com.yihengquan.WoWs-Info.Search", localizedTitle: "SEARCH".localised(), localizedSubtitle: "", icon: UIApplicationShortcutIcon.init(type: UIApplicationShortcutIcon.IconType.search), userInfo: nil)
         let contact = UIApplicationShortcutItem(type: "com.yihengquan.WoWs-Info.Contact", localizedTitle: "DASHBOARD".localised(), localizedSubtitle: "", icon: UIApplicationShortcutIcon.init(templateImageName: "Dashboard"), userInfo: nil)
         UIApplication.shared.shortcutItems = [news, wiki, search, contact]
         

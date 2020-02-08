@@ -28,7 +28,7 @@ class LicenceController: UITableViewController, SFSafariViewControllerDelegate {
         // Setup Tableview
         self.tableView.estimatedRowHeight = 50
         self.tableView.separatorColor = UIColor.clear
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.rowHeight = UITableView.automaticDimension
     }
 
     override func didReceiveMemoryWarning() {

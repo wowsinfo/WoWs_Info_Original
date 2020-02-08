@@ -64,7 +64,7 @@ class RankController: UITableViewController {
         cell.contentView.layer.cornerRadius = 10
         cell.contentView.layer.masksToBounds = true
         cell.contentView.layer.borderColor = theme.cgColor
-        cell.layoutMargins = UIEdgeInsetsMake(10, 10, 10, 10)
+        cell.layoutMargins = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10)
         
         return cell
         

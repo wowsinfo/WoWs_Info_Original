@@ -36,7 +36,7 @@ class NewsController: UITableViewController, SFSafariViewControllerDelegate, GAD
         
         // Automatic row height and remove separator line
         self.tableView.separatorColor = UIColor.clear
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 70.0
         
         self.navigationController?.navigationBar.topItem?.title = NSLocalizedString("WEB_LOADING", comment: "Loading news")
@@ -103,15 +103,15 @@ class NewsController: UITableViewController, SFSafariViewControllerDelegate, GAD
             cell.dateLabel.textColor = UIColor.white
             cell.titleLabel.textColor = UIColor.white
             
-            cell.titleLabel.font = UIFont.systemFont(ofSize: 26, weight: UIFontWeightMedium)
-            cell.dateLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFontWeightLight)
+            cell.titleLabel.font = UIFont.systemFont(ofSize: 26, weight: UIFont.Weight.medium)
+            cell.dateLabel.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.light)
         } else {
             cell.backgroundColor = UIColor.white
             cell.dateLabel.textColor = UIColor.black
             cell.titleLabel.textColor = UIColor.black
             
-            cell.titleLabel.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightMedium)
-            cell.dateLabel.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightLight)
+            cell.titleLabel.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.medium)
+            cell.dateLabel.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.light)
         }
         
         return cell

@@ -1,7 +1,7 @@
 PODS:
-  - Charts (3.2.2):
-    - Charts/Core (= 3.2.2)
-  - Charts/Core (3.2.2)
+  - Charts (3.4.0):
+    - Charts/Core (= 3.4.0)
+  - Charts/Core (3.4.0)
   - Firebase/AdMob (6.16.0):
     - Firebase/CoreOnly
     - Google-Mobile-Ads-SDK (~> 7.50)
@@ -83,7 +83,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (6.5.1):
     - GoogleUtilities/Logger
-  - Kanna (4.0.3)
+  - Kanna (5.0.0)
   - nanopb (0.3.9011):
     - nanopb/decode (= 0.3.9011)
     - nanopb/encode (= 0.3.9011)
@@ -94,18 +94,18 @@ PODS:
   - SDWebImage (5.5.2):
     - SDWebImage/Core (= 5.5.2)
   - SDWebImage/Core (5.5.2)
-  - Siren (4.2.2)
-  - SwiftyJSON (3.1.4)
+  - Siren (5.2.3)
+  - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
-  - Charts (~> 3.2.0)
+  - Charts
   - Firebase/AdMob
   - Firebase/Core
   - Firebase/Messaging
-  - Kanna (~> 4.0.0)
+  - Kanna
   - SDWebImage
-  - Siren (from `https://github.com/ArtSabintsev/Siren.git`, branch `swift4.2`)
-  - SwiftyJSON (~> 3.0)
+  - Siren
+  - SwiftyJSON
 
 SPEC REPOS:
   trunk:
@@ -129,20 +129,11 @@ SPEC REPOS:
     - PromisesObjC
     - Protobuf
     - SDWebImage
+    - Siren
     - SwiftyJSON
 
-EXTERNAL SOURCES:
-  Siren:
-    :branch: swift4.2
-    :git: https://github.com/ArtSabintsev/Siren.git
-
-CHECKOUT OPTIONS:
-  Siren:
-    :commit: a3c7cfa26d686524bdb7cf0592310a836e53a97c
-    :git: https://github.com/ArtSabintsev/Siren.git
-
 SPEC CHECKSUMS:
-  Charts: f69cf0518b6d1d62608ca504248f1bbe0b6ae77e
+  Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
   Firebase: 497158b816d0a86fc31babbd05546fcd7e6083ff
   FirebaseAnalytics: cf95d3aab897612783020fbd98401d5366f135ee
   FirebaseAnalyticsInterop: 3f86269c38ae41f47afeb43ebf32a001f58fcdae
@@ -157,14 +148,14 @@ SPEC CHECKSUMS:
   GoogleDataTransport: 0048df6388dab1c254799f2a30365b1dffe20422
   GoogleDataTransportCCTSupport: f880d70972efa2ed1be4e9173a0f4c5f3dc2d176
   GoogleUtilities: 06eb53bb579efe7099152735900dd04bf09e7275
-  Kanna: 0ebbdd0e7e3308f0aafbd569e79c8cadc5eb877c
+  Kanna: a32875df62975f8f4b871e933b4ea1a5c3b8be0f
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   Protobuf: 0e94afe3b47cb11876eb6aee296638711a24bf75
   SDWebImage: 4d5c027c935438f341ed33dbac53ff9f479922ca
-  Siren: b636a49628049cb19af6fc28ac344cf36f2186f8
-  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  Siren: 996f37869eae1f343f8c11f17d90c9c8da90bd4c
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 4e81302f65dee765fd3cfd351b51214f78a767bf
+PODFILE CHECKSUM: b13aeb6adb9cf034630486d11dc7c3132ba3d083
 
 COCOAPODS: 1.8.4

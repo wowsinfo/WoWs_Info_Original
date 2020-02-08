@@ -24,7 +24,7 @@ class WikiDataController: UITableViewController {
         
         // Automatic resizing
         self.tableView.estimatedRowHeight = 200.0
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.rowHeight = UITableView.automaticDimension
         
         // Get data according to dateType
         switch dataType {

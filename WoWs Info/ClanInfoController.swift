@@ -26,7 +26,7 @@ class ClanInfoController: UITableViewController, SFSafariViewControllerDelegate 
         self.tableView.dataSource = self
         self.tableView.separatorColor = UIColor.clear
         self.tableView.estimatedRowHeight = 100
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.rowHeight = UITableView.automaticDimension
         
         // Load data here
         let passedData = clanDataString.components(separatedBy: " | ")

@@ -51,7 +51,7 @@ class ServerStatusController: UIViewController {
     }
     
     // MARK: Dismiss
-    func dismissController() {
+    @objc func dismissController() {
         self.dismiss(animated: true, completion: nil)
     }
     

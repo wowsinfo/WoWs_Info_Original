@@ -9,9 +9,9 @@ target 'WoWs Info' do
   pod 'Firebase/Core'
   pod 'Firebase/AdMob'
   pod 'Firebase/Messaging'
-  pod 'SwiftyJSON', '~> 3.0'
-  pod 'Siren', :git => 'https://github.com/ArtSabintsev/Siren.git', :branch => 'swift4.2'
-  pod 'Charts', '~> 3.2.0'
+  pod 'SwiftyJSON'
+  pod 'Siren'
+  pod 'Charts'
   pod 'SDWebImage'
-  pod 'Kanna', '~> 4.0.0'
+  pod 'Kanna'
 end

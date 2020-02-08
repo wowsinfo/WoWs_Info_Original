@@ -445,7 +445,7 @@ class ShipDetailController: UITableViewController, SFSafariViewControllerDelegat
     }
     
     // MARK: Wiki Btn
-    func visitWiki() {
+    @objc func visitWiki() {
         // Remove weird symbols
         let wikiShipName = "http://wiki.wargaming.net/en/Ship:\(String(describing: shipName.replacingOccurrences(of: " ", with: "_").addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!))"
         print(wikiShipName)

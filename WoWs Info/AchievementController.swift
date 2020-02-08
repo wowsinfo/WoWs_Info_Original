@@ -38,13 +38,13 @@ class AchievementController: UICollectionViewController {
         }
         
         // Check for rotation
-        NotificationCenter.default.addObserver(self, selector: #selector(orientation), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(orientation), name: UIDevice.orientationDidChangeNotification, object: nil)
         
         self.title = "\(achievement.count)"
     }
     
     // Update collection view
-    func orientation() {
+    @objc func orientation() {
         self.achievementCollection.frame.size = self.view.frame.size
     }
 

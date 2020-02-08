@@ -109,7 +109,7 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     
     override func viewWillAppear(_ animated: Bool) {
         // Prevent unnecessary request
-        if self.isMovingToParentViewController {
+        if self.isMovingToParent {
             super.viewWillAppear(animated)
             // Load data here
             PlayerShip(account: PlayerAccount.AccountID).getPlayerShipInfo()
@@ -145,7 +145,7 @@ class AdvancedInfoController: UITableViewController, SFSafariViewControllerDeleg
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if self.isMovingFromParentViewController {
+        if self.isMovingFromParent {
             if pointsToRemove > 3 { pointsToRemove = 3 }
             PointSystem(pointToRemove: pointsToRemove).removePoint()
         }
