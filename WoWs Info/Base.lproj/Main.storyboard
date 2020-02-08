@@ -46,7 +46,7 @@
                     <connections>
                         <outlet property="introImage" destination="h5A-PM-rDz" id="Cxt-l9-Q5J"/>
                         <outlet property="loadingIndicator" destination="r0L-BN-JdH" id="cLy-xm-vhg"/>
-                        <segue destination="RLh-7K-NKe" kind="presentation" identifier="gotoMain" id="sMp-SY-cLS"/>
+                        <segue destination="RLh-7K-NKe" kind="showDetail" identifier="gotoMain" id="sMp-SY-cLS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hu4-tp-OZa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -135,13 +135,6 @@
                                     <action selector="serverBtnPressed:" destination="Vxx-WQ-609" eventType="touchUpInside" id="Wc5-HQ-BYT"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eBL-yl-n35" customClass="GADBannerView">
-                                <rect key="frame" x="0.0" y="102" width="375" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="ifQ-rQ-DLD"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -152,13 +145,10 @@
                             <constraint firstItem="tQd-hj-Ixs" firstAttribute="top" secondItem="yGU-6K-aYX" secondAttribute="bottom" constant="8" id="HKz-xk-rt0"/>
                             <constraint firstItem="tQd-hj-Ixs" firstAttribute="leading" secondItem="yzH-Qe-Qbu" secondAttribute="leading" constant="8" id="InN-MC-ZLi"/>
                             <constraint firstItem="OGb-Cq-iNJ" firstAttribute="top" secondItem="4qV-6A-8sF" secondAttribute="bottom" id="Wf3-xh-ALA"/>
-                            <constraint firstItem="eBL-yl-n35" firstAttribute="leading" secondItem="yzH-Qe-Qbu" secondAttribute="leading" id="X6p-rI-p3E"/>
                             <constraint firstItem="URk-Oe-6ZG" firstAttribute="trailing" secondItem="yzH-Qe-Qbu" secondAttribute="trailingMargin" id="Y9y-ox-edy"/>
                             <constraint firstItem="4qV-6A-8sF" firstAttribute="leading" secondItem="yzH-Qe-Qbu" secondAttribute="leading" id="acf-pd-Ed8"/>
                             <constraint firstItem="URk-Oe-6ZG" firstAttribute="leading" secondItem="tQd-hj-Ixs" secondAttribute="trailing" constant="8" id="hek-QE-DXc"/>
-                            <constraint firstItem="eBL-yl-n35" firstAttribute="top" secondItem="URk-Oe-6ZG" secondAttribute="bottom" constant="6" id="pCf-GB-gJn"/>
                             <constraint firstItem="OGb-Cq-iNJ" firstAttribute="top" secondItem="VgM-Q6-Uua" secondAttribute="bottom" id="r6Y-yS-oak"/>
-                            <constraint firstAttribute="trailing" secondItem="eBL-yl-n35" secondAttribute="trailing" id="vCg-2R-J50"/>
                             <constraint firstItem="VgM-Q6-Uua" firstAttribute="leading" secondItem="yzH-Qe-Qbu" secondAttribute="leading" id="xH3-fo-KxG"/>
                         </constraints>
                     </view>
@@ -181,7 +171,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="bannerView" destination="eBL-yl-n35" id="Ojm-Uq-6Hc"/>
                         <outlet property="pickerView" destination="4qV-6A-8sF" id="KLP-Xz-aiE"/>
                         <outlet property="pointLabel" destination="fV4-KT-OC0" id="n8V-sf-YEp"/>
                         <outlet property="serverPicker" destination="Ez0-mS-4DK" id="Ptd-xS-S3o"/>
