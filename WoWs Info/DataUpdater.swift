@@ -13,7 +13,6 @@ class DataUpdater {
     
     static func update() -> Bool {
         // Get path for ExpectedValue.json
-
         do {
             let data = try HTML(url: URL(string: "https://raw.githubusercontent.com/HenryQuan/WoWs-Info-Re/API/json/personal_rating.json")!, encoding: .utf8)
             // Try to update data
