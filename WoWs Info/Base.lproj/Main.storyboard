@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yXk-XQ-L7l">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yXk-XQ-L7l">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -46,7 +46,7 @@
                     <connections>
                         <outlet property="introImage" destination="h5A-PM-rDz" id="Cxt-l9-Q5J"/>
                         <outlet property="loadingIndicator" destination="r0L-BN-JdH" id="cLy-xm-vhg"/>
-                        <segue destination="RLh-7K-NKe" kind="showDetail" identifier="gotoMain" id="sMp-SY-cLS"/>
+                        <segue destination="RLh-7K-NKe" kind="show" identifier="gotoMain" id="sMp-SY-cLS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hu4-tp-OZa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -154,7 +154,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="U7s-su-cOK">
                         <barButtonItem key="leftBarButtonItem" id="wDD-qO-iaf">
-                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Mg3-8T-Mp3">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Mg3-8T-Mp3">
                                 <rect key="frame" x="16" y="6" width="310" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -225,7 +225,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="x1c-IY-iRA">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarController" id="RLh-7K-NKe" customClass="TabBarController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" modalPresentationStyle="overFullScreen" id="RLh-7K-NKe" customClass="TabBarController" customModule="WoWs_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="NVR-n6-HYg"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="oMA-kh-C9u">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -605,7 +605,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="mxR-6n-4O8">
                         <nil key="title"/>
-                        <button key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gLF-Pq-dKf">
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gLF-Pq-dKf">
                             <rect key="frame" x="112.5" y="11.5" width="150" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -828,6 +828,11 @@
             <point key="canvasLocation" x="5944.8000000000002" y="-903.59820089955031"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Is9-bE-PGw"/>
+        <segue reference="aeK-mk-FVf"/>
+        <segue reference="XCw-nv-lBd"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="AppStore" width="248" height="248"/>
         <image name="Friend" width="25" height="25"/>
@@ -843,9 +848,4 @@
         <image name="facebook" width="128" height="128"/>
         <image name="weibo" width="128" height="128"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Is9-bE-PGw"/>
-        <segue reference="aeK-mk-FVf"/>
-        <segue reference="XCw-nv-lBd"/>
-    </inferredMetricsTieBreakers>
 </document>

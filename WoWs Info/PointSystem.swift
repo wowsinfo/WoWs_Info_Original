@@ -43,7 +43,7 @@ class PointSystem: NSObject {
         }
         
         let currPoint = PointSystem.getCurrPoint()
-        UserDefaults.standard.set(currPoint + getAmoutFromIndex(index: self.index), forKey: DataManagement.DataName.pointSystem)
+        UserDefaults.standard.set(currPoint + 100, forKey: DataManagement.DataName.pointSystem)
     }
     
     func removePoint() {

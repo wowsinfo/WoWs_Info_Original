@@ -30,8 +30,9 @@ class SettingsController: UITableViewController {
         // Setup Tableview
         tableView.delegate = self
         tableView.dataSource = self
-
         
+        PointSystem(index: PointSystem.DataIndex.Review).addPoint()
+
         self.proBtn.removeFromSuperview()
         // Update theme image
         themeImage.image = #imageLiteral(resourceName: "ThemePro")
